@@ -8,19 +8,12 @@ import java.net.URL;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 /**
- * �����������һЩ��REST API�Ĺ���
- * ���ڰٶ�API�ö๦�ܶ�����REST API�ķ�ʽ���õ�
- * �����ðɣ���֪������ô���͡�
- * ���ǣ�Ҫ֪��������һ�������õ���ͺ���
+
  * @author Blacard
  *
  */
 public class RestApi {
-	/**
-	 * ��ȡ��ݣ�������
-	 * @param httpUrl  ��Ч�ĵ�������
-	 * @return ���ӷ��ص����
-	 */
+
 	public String getData(String httpUrl){
 		BufferedReader reader = null;
 		StringBuffer sbf = new StringBuffer();
@@ -30,7 +23,7 @@ public class RestApi {
 	        HttpURLConnection connection = (HttpURLConnection) url
 	                .openConnection();
 	        connection.setRequestMethod("GET");
-	        connection.setRequestProperty("apikey",  "bfec71ab14bac71a994a0c68399a540d");  //�ٶ�API �� API  KEY
+	        connection.setRequestProperty("apikey",  "bfec71ab14bac71a994a0c68399a540d");  
 	        connection.connect();
 	        InputStream is = connection.getInputStream();
 	        reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -44,8 +37,6 @@ public class RestApi {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-	    //���ص�ʱ����������Ĵ��?û����仰���Ļ���ʲô���뷽ʽ����
 		return StringEscapeUtils.unescapeJava(result);
-//	    return result;
 	}
 }

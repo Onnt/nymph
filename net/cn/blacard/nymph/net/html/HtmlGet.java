@@ -11,28 +11,16 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 
 
-/**
- * ֻ�ܻ�ȡ��HTML����
- * ����JS���߸��ֶ�̬��ɵĴ���Ч���
- * �Ժ����о���
- * 
- * 
- * @author Blacard
- */
 public class HtmlGet{
 	private Logger log = Logger.getLogger(HtmlGet.class);
 	
-	/**
-	 * �Ż����򣬸��ҳ����뷽ʽ����ҳ��
-	 * @param path
-	 * @return
-	 */
+
 	
 	public String getPage(String path){
 		
 		try {
 			URL url = new URL(path);
-			//��ȡ�� ҳ������
+			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			InputStream inputStream = conn.getInputStream();
 			byte[] data = readInputStream(inputStream);
