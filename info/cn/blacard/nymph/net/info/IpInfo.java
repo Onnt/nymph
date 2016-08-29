@@ -15,15 +15,20 @@ public class IpInfo {
 	private String city;
 	private String district;
 	private String carrier;
-	
+	/**
+	 * 给构造函数传IP
+	 * 会自动去获取关于此IP的一些信息
+	 * @param ip
+	 */
 	public IpInfo(String ip){
 		this.ip = ip;	
-		String json = request(httpUrl,"ip="+ip);
-		country = getValue(json,"country");
-		province = getValue(json,"province");
-		city = getValue(json,"city");
-		district = getValue(json,"district");
-		carrier = getValue(json,"carrier");
+		getIpInfo();
+	}
+	/**
+	 * 空的构造函数，需要调用setIp()才能获取Info
+	 */
+	public IpInfo(){
+		
 	}
 	
 	public String getIp() {
@@ -32,6 +37,7 @@ public class IpInfo {
 
 	public void setIp(String ip) {
 		this.ip = ip;
+		getIpInfo();
 	}
 
 	public String getCountry() {
@@ -88,7 +94,20 @@ public class IpInfo {
 	}
 	
 	
-
+	private void getIpInfo(){
+		//获取到json格式的信息
+		String json = request(httpUrl,"ip="+ip);
+		
+		//对获取到的信息，进行解析 并赋值
+		country = getValue(json,"country");
+		province = getValue(json,"province");
+		city = getValue(json,"city");
+		district = getValue(json,"district");
+		carrier = getValue(json,"carrier");
+	}
+	
+	
+	
 	
 	private String httpUrl = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
 	
