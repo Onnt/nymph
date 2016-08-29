@@ -8,8 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.log4j.Logger;
 
-import cn.blacard.xiaoqiu.XiaoQiu;
 
 /**
  * ֻ�ܻ�ȡ��HTML����
@@ -19,7 +19,9 @@ import cn.blacard.xiaoqiu.XiaoQiu;
  * 
  * @author Blacard
  */
-public class HtmlGet extends XiaoQiu{
+public class HtmlGet{
+	private Logger log = Logger.getLogger(HtmlGet.class);
+	
 	/**
 	 * �Ż����򣬸��ҳ����뷽ʽ����ҳ��
 	 * @param path

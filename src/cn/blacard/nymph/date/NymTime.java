@@ -17,6 +17,14 @@ public class NymTime {
 	 * 时间格式化工具
 	 */
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	public NymTime(String format){
+		this.sdf =new SimpleDateFormat(format);
+	}
+	public NymTime(){
+		
+	}
+	
 	/**
 	 *	时间计算工具
 	 *
@@ -38,10 +46,20 @@ public class NymTime {
 		gc.add(i, add);
 		return toTime(gc.getTime());
 	}
-	
+	/**
+	 * 将Date类型的日期转换成String类型。
+	 * 格式默认为"yyyy-MM-dd HH:mm:ss"
+	 * @param d
+	 * @return
+	 */
 	public static String toTime(Date d){
 		return sdf.format(d);
 	}
+	/**
+	 * 把String类型的日期转换成Date类型
+	 * @param strDate
+	 * @return
+	 */
 	public static Date toDate(String strDate){
 		try {
 			return sdf.parse(strDate);
