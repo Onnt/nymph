@@ -7,7 +7,20 @@ import java.util.List;
 
 import cn.blacard.dbopera.connect.Connect;
 
+
+/**
+ *	获取关于数据库的基本信息
+ * @changeTime 2016年8月30日16:05:53
+ * @since 2016年8月30日16:06:04
+ * @author Blacard
+ * @e_mail blacard@163.com
+ */
 public class DBInfoQuery extends OperaBase{
+	
+	/**
+	 * 获取数据库的所有表 的表名
+	 * @return
+	 */
 	public List<String> getAllTableNames() {
 		conn = Connect.getConn();
 		List<String> list = new ArrayList<String>();
@@ -32,7 +45,11 @@ public class DBInfoQuery extends OperaBase{
 		}
 		return list;
 	}
-	
+	/**
+	 * 获取表所有列的列名
+	 * @param tableName
+	 * @return
+	 */
 	public List<List<String>> getTableColumns(String tableName){
 		return new Query().query("select * from information_schema.columns where table_name='"+tableName+"'");
 	}

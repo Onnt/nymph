@@ -1,7 +1,6 @@
 package cn.blacard.dbopera.opera;
 
 import java.lang.reflect.Field;
-
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,86 +12,97 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.blacard.dbopera.connect.Connect;
 import cn.blacard.dbopera.para.DBConnectPara;
 
 /**
- * <T> T:�����Ƿ���.����������Object ����
- * @author Administrator
- *
+ * <T> 
+ * 数据库增删改查操作
+ * @author Blacard
+ * @changeTime 2016年8月30日16:02:16
+ * @since 2016年8月30日16:02:06
+ * @e-mail blacard@163.com
  * @param <T>
  */
 public class QueryObject<T> extends OperaBase{
-	
+	//数据库连接参数
 	private DBConnectPara para;
+	
+	/**
+	 * 用构造器传入数据库连接参数
+	 * @param para
+	 */
 	public QueryObject(DBConnectPara para){
-		this.para = para;
+		Connect.setConnPara(para);
 	}
-
+	
+	
+	/**
+	 * 用此构造器之前
+	 * 请确认给Connect设置了数据库连接参数
+	 */
 	public QueryObject(){
 		super();
 	}
-	private void openConn(){
-		if(this.para == null){
-			openConnect();
-			if(conn==null){
-				log.warning("Conn is NUll");
-			}
-		}else{
-			openConnect(para);
-			if(conn==null){
-				log.warning("Conn is NUll");
-			}
-		}
-	}
+	
+
+	/**
+	 * 查询方法，
+	 * 主要是select查询
+	 * @param sql
+	 * @param args
+	 * @param clazz
+	 * @return
+	 */
 	public List<T> query(String sql, Object[] args, Class clazz) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		// �洢���صļ��϶���
+		//
 		List<T> list = new ArrayList<T>();
 		
 		try {
-			// ʹ�÷����ȡ��������Ϣ(ʵ���������--��ݿ�����Ӧ����ֶ�)
+			// 
 			Field[] fields = clazz.getDeclaredFields();
 			
 			Method method = null;
 
-			openConn();
+			openConnect();
 			pstmt = conn.prepareStatement(sql);
 			
 			
-			// ���sql����в�����args����ѭ�����丳ֵ
+			// ֵ
 			if (args != null && args.length > 0) {
 				for (int i = 0; i < args.length; i++) {
-					pstmt.setObject(i + 1, args[i]);// ����λ�úŴ�1��ʼ
+					pstmt.setObject(i + 1, args[i]);
 				}
 			}
 			rs = pstmt.executeQuery();
-			// ��ȡ����Ԫ���
-			ResultSetMetaData rsmd = rs.getMetaData();//�õ�Ԫ��ݼ�
-			// ��ȡһ���ж�����
-			int columnCount = rsmd.getColumnCount();//�õ�sql��䵽�ײ�ѯ�˶��ٸ��ֶ�
+			//
+			ResultSetMetaData rsmd = rs.getMetaData();
+			//
+			int columnCount = rsmd.getColumnCount();
 	
 			
 			while (rs.next()) {
-				// ����һ���¶���
-				T obj = (T) clazz.newInstance();//����һ��ʵ��
+				// 
+				T obj = (T) clazz.newInstance();
 				
-				// ȡ���Ľ�����кŴ�1��ʼ
+				// 
 				for (int i = 1; i <= columnCount; i++) {
 					
-					String cname = rsmd.getColumnName(i);// ��ȡÿһ��[��ݱ������]����� 
-					int ctype = rsmd.getColumnType(i);// ��ȡÿһ��[��ݿ����������]���������
+					String cname = rsmd.getColumnName(i);
+					int ctype = rsmd.getColumnType(i);
 					
 					for (Field f : fields) {
-						if (cname.equalsIgnoreCase(f.getName()))// ���������ֶ�����ͬ
+						if (cname.equalsIgnoreCase(f.getName()))
 						{
-							// ��ʼ��װ���
+							// 
 							String methodName = "set"
 									+ f.getName().substring(0, 1).toUpperCase()
 									+ f.getName().substring(1);
-							// ����е�typeֵ�����ͽ��д���
+							//
 							switch (ctype) {
 							
 							case Types.INTEGER:
@@ -126,16 +136,16 @@ public class QueryObject<T> extends OperaBase{
 	}
 
 
-	// ִ����ɾ�ķ���(update insert delete)
+	// 执行(update insert delete)之类的操作
 	public int executeSQL(String sql, Object[] args) {
 		PreparedStatement pstmt = null;
 		int count = 0;
 		try {
-			openConn();
+			openConnect();
 			if(conn == null) System.out.println("conn . is null");
 			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(sql);
-			// ѭ����sql����ֵ
+			//
 			if (args != null && args.length > 0) {
 				for (int i = 0; i < args.length; i++) {
 					pstmt.setObject(i + 1,args[i]);
@@ -145,7 +155,7 @@ public class QueryObject<T> extends OperaBase{
 			conn.commit();
 		} catch (Exception e) {
 			try {
-				conn.rollback();// ���������쳣������ع�
+				conn.rollback();//出现异常，事务回滚
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -157,7 +167,12 @@ public class QueryObject<T> extends OperaBase{
 		return count;
 	}
 	
-	// �ر�����
+	/**
+	 * 关闭连接
+	 * @param rs
+	 * @param stmt
+	 * @param conn
+	 */
 	public void closeAll(ResultSet rs, Statement stmt, Connection conn) {
 		try {
 			if (rs != null) {

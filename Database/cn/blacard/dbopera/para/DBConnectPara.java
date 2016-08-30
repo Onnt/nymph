@@ -4,17 +4,30 @@ import java.util.logging.Logger;
 
 import cn.blacard.dbopera.constant.DBStyle;
 
+/**
+ * 数据库连接参数实体
+ * @author Blacard
+ * @changeTime 2016年8月30日15:48:59
+ * @since 2016年8月30日15:48:48
+ */
 public class DBConnectPara {
 	
 	private Logger log = Logger.getLogger(DBConnectPara.class.getName());
 	
+	//数据库类型
 	private String style;
+	//数据库IP
 	private String ip;
+	//数据库 库名
 	private String dbName;
+	//数据库登陆账号
 	private String user;
+	//数据库登陆密码
 	private String pass;
-	
+
+	//数据库驱动，会根据上面的属性自动生成
 	private String DRIVER;
+	//数据库连接URL，会根据上面的属性自动生成
 	private String URL;
 	
 	public String getStyle() {
@@ -75,6 +88,10 @@ public class DBConnectPara {
 		this.user = user;
 		this.pass = pass;
 	}
+	/**
+	 * 根据已有的参数
+	 * 自动生成DRIVE 和 URL
+	 */
 	private void initPara(){
 		switch(style){
 		case DBStyle.SQLSERVER :
@@ -94,6 +111,14 @@ public class DBConnectPara {
 		}
 	}
 	
+	/**
+	 * 如果传入IP时加了端口，
+	 * 就用传入的端口。
+	 * 如果没有传入端口，就用默认的端口连接
+	 * @param ip
+	 * @param defaultPort
+	 * @return
+	 */
 	private String getDealIP(String ip,int defaultPort){
 		return ip.contains(":")?ip:ip+":"+defaultPort;
 	}

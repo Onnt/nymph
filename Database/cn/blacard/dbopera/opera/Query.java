@@ -6,18 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.blacard.dbopera.connect.Connect;
+import cn.blacard.dbopera.para.DBConnectPara;
 
 /**
- * 查询 和 增删改
+ *  查询 和 增删改
+ *  和 QueryObject 的区别在于 
+ *  此类返回的查询结果是以List<List<String>>的形式
+ * @changeTime 2016年8月30日16:05:53
+ * @since 2016年8月30日16:06:04
  * @author Blacard
- *
+ * @e_mail blacard@163.com
  */
 public class Query extends OperaBase{
 
+	/**
+	 * 用构造器传入数据库连接参数
+	 * @param para
+	 */
+	public Query(DBConnectPara para){
+		Connect.setConnPara(para);
+	}
+	
+	
+	/**
+	 * 用此构造器之前
+	 * 请确认给Connect设置了数据库连接参数
+	 */
+	public Query(){
+		super();
+	}
+	
 	public List<List<String>> query(String querySql){
 		List<List<String>> list_list = new ArrayList<List<String>>();
-		conn = Connect.getConn();
-		
+		openConnect();
 		try {
 			sta = conn.createStatement();
 			rs = sta.executeQuery(querySql);
@@ -44,7 +65,7 @@ public class Query extends OperaBase{
 	
 	public int executeSql(String excuteSql){
 		int count = 0;
-		conn = Connect.getConn();
+		openConnect();
 		try {
 			sta = conn.createStatement();
 			count = sta.executeUpdate(excuteSql);
