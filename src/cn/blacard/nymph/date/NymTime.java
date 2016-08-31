@@ -69,14 +69,27 @@ public class NymTime {
 		return null;
 	}
 	
-	
+	/**
+	 * 时间戳转换成Date
+	 * @param timestamp
+	 * @return
+	 */
 	public static Date timestampToDate(String timestamp){
 		return timestampToDate(Long.parseLong(timestamp));
 	}
+	/**
+	 * 时间戳转Date
+	 * @param timestamp
+	 * @return
+	 */
 	public static Date timestampToDate(long timestamp){
 		return new Date(timestamp * 1000);
 	}
-	
+	/**
+	 * Date转时间戳
+	 * @param date
+	 * @return
+	 */
 	public static long dateToTimestamp(Date date){
 		return date.getTime();
 	}
