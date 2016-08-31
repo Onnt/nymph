@@ -28,7 +28,6 @@
 	<classpathentry kind="lib" path="lib/HtmlUnit/httpmime-4.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/HtmlUnit/httpcore-4.4.4.jar"/>
 	<classpathentry kind="lib" path="lib/HtmlUnit/httpclient-4.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/log4j/log4j-1.2.9.jar"/>
 	<classpathentry kind="lib" path="lib/JSON_JAR/commons-beanutils-1.9.2.jar"/>
 	<classpathentry kind="lib" path="lib/JSON_JAR/commons-collections-3.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/JSON_JAR/commons-lang-2.6.jar"/>

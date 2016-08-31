@@ -3,9 +3,9 @@ package cn.blacard.nymph.text;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
-import org.apache.log4j.Logger;
 
 /**
 @author  Blacard
@@ -13,7 +13,6 @@ import org.apache.log4j.Logger;
 @date 创建时间：2016年8月25日 下午9:23:15 
   */
 public class TextRead {
-	private static Logger log = Logger.getLogger(TextRead.class);
 	public static String read(File file){
 		StringBuffer sb = new StringBuffer();
 		try {
@@ -28,10 +27,11 @@ public class TextRead {
 		        }
 		        read.close();
 		     }else{
-		         log.error("找不到指定的文件");
+		        throw new FileNotFoundException();
 		     }
 	     } catch (Exception e) {
-	         log.error("读取文件内容出错");
+	    	 //这里待处理
+	       System.out.println("这里出错了，总之你来看看。");
 	     }
 		return sb.toString();
 	}

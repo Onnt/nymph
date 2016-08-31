@@ -8,13 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.log4j.Logger;
-
 
 public class HtmlGet{
-	private Logger log = Logger.getLogger(HtmlGet.class);
-	
-
 	
 	public String getPage(String path){
 		
@@ -26,9 +21,9 @@ public class HtmlGet{
 			byte[] data = readInputStream(inputStream);
 			return  new String(data,"UTF-8");
 		} catch (MalformedURLException e) {
-			log.error("URLЭ�顢��ʽ����·������",e);
+			System.out.println("HtmlGet 1");
 		} catch (IOException e) {
-			log.error("IO���쳣",e);
+			System.out.println("HtmlGet 2");
 		}
 		return null;
 	}
