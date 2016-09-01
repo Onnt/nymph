@@ -43,4 +43,27 @@ public class StringTool {
 			return list.get(0);
 		}
 	}
+	/**
+	 * 获取后缀名
+	 * @author Blacard
+	 * @Create 2016年9月1日 下午2:38:51
+	 * @param str
+	 * @return 后缀名
+	 */
+	public static String getSuffix(String str){
+		if(str.contains(".") && str.lastIndexOf(".") < str.length())
+			return str.substring(str.lastIndexOf(".")+1, str.length());
+		else
+			return null;
+	}
+	/**
+	 * 获取文件名
+	 * @author Blacard
+	 * @Create 2016年9月1日 下午3:05:21
+	 * @param str
+	 * @return
+	 */
+	public static String getFileName(String str){
+		return str.substring(str.lastIndexOf("/")+1,str.length());
+	}
 }
