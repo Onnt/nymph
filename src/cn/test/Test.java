@@ -32,6 +32,7 @@ public class Test {
 	
 	
 	
+
 	
 	
 	
@@ -54,9 +55,16 @@ public class Test {
 	
 	
 	
-	
-	
-	
+	/**
+	 * 根据后缀名获取文件
+	 * @author Blacard
+	 * @Create 2016年9月1日 下午4:02:28
+	 * @param args
+	 */
+	public static void main_getFileBySuffix(String[] args) {
+		for(File f:new NymFile("F://").getFileBySuffix("jpg"))
+			System.out.println(f.getAbsolutePath());
+	}
 	
 	
 	
