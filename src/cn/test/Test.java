@@ -14,6 +14,7 @@ import cn.blacard.dbopera.para.DBConnectPara;
 import cn.blacard.nymph.String.StringTool;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
+import cn.blacard.nymph.sound.Sound;
 import cn.blacard.nymph.text.TextOut;
 
 
@@ -42,7 +43,10 @@ public class Test {
 	
 	
 	
-	
+	public static void main(String[] args) {
+		Sound sound = new Sound();
+		sound.speak("早上好");
+	}
 	
 	
 	
