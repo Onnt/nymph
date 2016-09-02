@@ -16,29 +16,34 @@ public class NymFile extends NymFileAssist{
 		this.file = file;
 	}
 	
+	/**
+	 * 获取所有文件
+	 * @author Blacard
+	 * @create 2016年9月2日 上午11:14:56
+	 * @return
+	 */
 	public List<File> getAllFiles(){
 		getAllFile(this.file);
 		return allFile;
 	}
-
-	private void getAllFile(File file){
-		getAllFile(file.getAbsolutePath());
-	}
-
 	/**
-	 * 根据后缀名获取文件
+	 * 根据后缀名筛选文件
 	 * @author Blacard
-	 * @Create 2016年9月1日 下午4:01:28
+	 * @create 2016年9月2日 上午11:15:08
 	 * @param suffix
 	 * @return
 	 */
 	public List<File> getFileBySuffix(String suffix){
-		List<File> files = getAllFiles();
-		List<File> resFiles = new ArrayList<File>();
-		for(File f : files){
-			if(f.isFile()&&StringTool.getSuffix(f.getName())!=null&&StringTool.getSuffix(f.getName()).equals(suffix))
-				resFiles.add(f);
-		}
-		return resFiles;
+		return getFileBySuffix(getAllFiles(),suffix);
+	}
+	/**
+	 * 根据后缀名筛选当前文件夹下文件
+	 * @author Blacard
+	 * @create 2016年9月2日 上午11:15:28
+	 * @param suffix
+	 * @return
+	 */
+	public List<File> getCurrDirFileBySuffix(String suffix){
+		return getFileBySuffix(this.file.listFiles(),suffix);
 	}
 }

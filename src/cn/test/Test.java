@@ -1,17 +1,10 @@
 package cn.test;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
 import cn.blacard.dbopera.opera.Query;
 import cn.blacard.dbopera.para.DBConnectPara;
-import cn.blacard.nymph.String.StringTool;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
 import cn.blacard.nymph.sound.Sound;
@@ -33,7 +26,6 @@ public class Test {
 	
 	
 	
-
 	
 	
 	
@@ -43,19 +35,31 @@ public class Test {
 	
 	
 	
-	public static void main(String[] args) {
-		Sound sound = new Sound();
-		sound.speak("早上好");
+	
+	/**
+	 * 文件夹 改进 测试
+	 * @author Blacard
+	 * @create 2016年9月2日 上午11:16:52
+	 * @param args
+	 */
+	public static void main_file_test(String[] args) {
+		List<File> list = new NymFile("F://").getAllFiles();
+		for(File f : list)
+			System.out.println(f.getAbsolutePath());
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 声音测试
+	 * @author Blacard
+	 * @create 2016年9月2日 上午11:16:34
+	 * @param args
+	 */
+	public static void main_sound(String[] args) {
+		Sound sound = new Sound();
+		sound.speak("早上好");
+	}
 	
 	
 	
