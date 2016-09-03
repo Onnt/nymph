@@ -1,6 +1,7 @@
 package cn.test;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.blacard.dbopera.opera.Query;
@@ -34,6 +35,35 @@ public class Test {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * 筛选多个后缀名
+	 * @author Blacard
+	 * @create 2016年9月3日 下午11:45:15
+	 * @param args
+	 */
+	public static void main_mutil_suffix(String[] args) {
+		NymFile file = new NymFile("G://");
+		List<String> list = new ArrayList<String>();
+		list.add("jpg");list.add("txt");
+		List<File> files = file.getFileBySuffixs(list);
+		for(File f : files)
+			System.out.println(f.getAbsolutePath());
+	}
 	
 	
 	/**

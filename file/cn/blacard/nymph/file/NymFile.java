@@ -6,7 +6,12 @@ import java.util.List;
 
 import cn.blacard.nymph.String.StringTool;
 
-
+/**
+ * 
+ * @author Blacard
+ * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
+ * @Create 2016年9月3日 下午11:00:30
+ */
 public class NymFile extends NymFileAssist{
 	
 	public NymFile(String path){
@@ -35,6 +40,9 @@ public class NymFile extends NymFileAssist{
 	 */
 	public List<File> getFileBySuffix(String suffix){
 		return getFileBySuffix(getAllFiles(),suffix);
+	}
+	public List<File> getFileBySuffixs(List<String> suffixs){
+		return getFileBySuffix(getAllFiles(),suffixs);
 	}
 	/**
 	 * 根据后缀名筛选当前文件夹下文件
