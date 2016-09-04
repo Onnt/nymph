@@ -44,22 +44,6 @@ public class NymFileAssist {
 	}
 	
 	/**
-	 * 根据后缀名获取文件
-	 * @author Blacard
-	 * @Create 2016年9月1日 下午4:01:28
-	 * @param suffix
-	 * @return
-	 */
-	protected List<File> getFileBySuffix(List<File> files,String suffix){
-		List<File> resFiles = new ArrayList<File>();
-		for(File f : files){
-			//如果 f是文件，后缀名名不等于null and 后缀名和给定的后缀名一样
-			if(f.isFile()&&StringTool.getSuffix(f.getName())!=null&&StringTool.getSuffix(f.getName()).equals(suffix))
-				resFiles.add(f);
-		}
-		return resFiles;
-	}
-	/**
 	 * 筛选匹配多个后缀名
 	 * @author Blacard
 	 * @create 2016年9月3日 下午11:06:34
@@ -67,7 +51,7 @@ public class NymFileAssist {
 	 * @param suffixs 要匹配的多个后缀名
 	 * @return 在文件列表里匹配到后缀名的对应文件
 	 */
-	protected List<File> getFileBySuffix(List<File> files,List<String> suffixs){
+	public List<File> getFileBySuffixs(List<File> files,List<String> suffixs){
 		List<File> resFiles = new ArrayList<File>();
 		for(File f : files){
 			//如果f是文件，and f的后缀名不为空
@@ -95,9 +79,28 @@ public class NymFileAssist {
 		List<File> lists = new ArrayList<File>();
 		for(File file : list)
 			lists.add(file);
-		return getFileBySuffix(lists,suffix);
+		List<String> suffixs = new ArrayList<String>();
+		suffixs.add(suffix);
+		return getFileBySuffixs(lists,suffixs);
 	}
 	
+	/**
+	 * 根据多个后缀名筛选文件
+	 * 
+	 * 将 数组类型的 文件列表 转成 List类型的
+	 * @author Blacard
+	 * @create 2016年9月4日 上午8:11:24
+	 * @param list
+	 * @param suffixs
+	 * @return
+	 */
+	protected List<File> getFileBySuffixs(File[] list,List<String> suffixs){
+		List<File> lists = new ArrayList<File>();
+		for(File file : list){
+			lists.add(file);
+		}
+		return getFileBySuffixs(lists,suffixs);
+	}
 	/**
 	 * 获取所有文件
 	 * @author Blacard
