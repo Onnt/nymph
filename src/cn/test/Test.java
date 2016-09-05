@@ -1,12 +1,15 @@
 package cn.test;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.blacard.dbopera.opera.Query;
 import cn.blacard.dbopera.para.DBConnectPara;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
+import cn.blacard.nymph.net.info.IpInfo;
 import cn.blacard.nymph.sound.Sound;
 import cn.blacard.nymph.text.TextOut;
 
@@ -29,11 +32,51 @@ public class Test {
 	
 	
 	
+	public static void main(String[] args) throws IOException {
+
+	}
 	
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * 根据文件大小 筛选文件
+	 * @author Blacard
+	 * @create 2016年9月4日 上午8:22:13
+	 * @param args
+	 */
+	public static void main_(String[] args) {
+		NymFile nymFile = new NymFile("D://视频");
+		List<File> dirs = nymFile.getAllFiles();
+	}
+	
+	
+	
+	/**
+	 * 筛选多个后缀名
+	 * @author Blacard
+	 * @create 2016年9月3日 下午11:45:15
+	 * @param args
+	 */
+	public static void main_mutil_file(String[] args) {
+		NymFile file = new NymFile("G://");
+		List<String> list = new ArrayList<String>();
+		list.add("jpg");list.add("txt");
+		List<File> files = file.getFileBySuffixs(list);
+		TextOut to  = new TextOut("D://ssa.txt");
+		for(File f : files){
+			System.out.println(f.getAbsolutePath());
+			to.putln(f.getAbsolutePath());
+		}
+	}
 	
 	
 	/**
