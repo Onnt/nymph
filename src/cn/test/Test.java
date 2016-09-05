@@ -25,15 +25,6 @@ import cn.blacard.nymph.text.TextOut;
  */
 public class Test {
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * 根据文件大小 筛选文件  测试解决冲突2
 	 * @author Blacard
