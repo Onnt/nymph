@@ -6,7 +6,12 @@ import java.util.List;
 
 import cn.blacard.nymph.String.StringTool;
 
-
+/**
+ * 
+ * @author Blacard
+ * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
+ * @Create 2016年9月3日 下午11:00:30
+ */
 public class NymFile extends NymFileAssist{
 	
 	public NymFile(String path){
@@ -18,6 +23,7 @@ public class NymFile extends NymFileAssist{
 	
 	/**
 	 * 获取所有文件
+	 * 包含 目录和文件
 	 * @author Blacard
 	 * @create 2016年9月2日 上午11:14:56
 	 * @return
@@ -28,14 +34,20 @@ public class NymFile extends NymFileAssist{
 	}
 	/**
 	 * 根据后缀名筛选文件
+	 * 
 	 * @author Blacard
 	 * @create 2016年9月2日 上午11:15:08
 	 * @param suffix
 	 * @return
 	 */
 	public List<File> getFileBySuffix(String suffix){
-		return getFileBySuffix(getAllFiles(),suffix);
+		List<String> suffixs = new ArrayList<String>();
+		suffixs.add(suffix);
+		return getFileBySuffixs(getAllFiles(),suffixs);
 	}
+	public List<File> getFileBySuffixs(List<String> suffixs){
+		return getFileBySuffixs(getAllFiles(),suffixs);
+	}                                                                                                                                                                                                                             
 	/**
 	 * 根据后缀名筛选当前文件夹下文件
 	 * @author Blacard
@@ -45,5 +57,8 @@ public class NymFile extends NymFileAssist{
 	 */
 	public List<File> getCurrDirFileBySuffix(String suffix){
 		return getFileBySuffix(this.file.listFiles(),suffix);
+	}
+	public List<File> getCurrDirFileBySuffixs(List<String> suffixs){
+		return getFileBySuffixs(this.file.listFiles(),suffixs);
 	}
 }
