@@ -32,23 +32,10 @@ public class Test {
 	
 	
 	
-	public static void main(String[] args) throws IOException {
-
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	/**
-	 * 根据文件大小 筛选文件
+	 * 根据文件大小 筛选文件  测试解决冲突2
 	 * @author Blacard
 	 * @create 2016年9月4日 上午8:22:13
 	 * @param args
