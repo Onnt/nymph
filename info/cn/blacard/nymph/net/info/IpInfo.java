@@ -15,6 +15,10 @@ public class IpInfo {
 	private String city;
 	private String district;
 	private String carrier;
+	
+
+	private String httpUrl = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
+	private String apiKey = "bfec71ab14bac71a994a0c68399a540d";
 	/**
 	 * 给构造函数传IP
 	 * 会自动去获取关于此IP的一些信息
@@ -108,9 +112,6 @@ public class IpInfo {
 	
 	
 	
-	
-	private String httpUrl = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
-	
 	private String request(String httpUrl, String httpArg) {
 	    BufferedReader reader = null;
 	    String result = null;
@@ -121,7 +122,7 @@ public class IpInfo {
 	        HttpURLConnection connection = (HttpURLConnection) url
 	                .openConnection();
 	        connection.setRequestMethod("GET");
-	        connection.setRequestProperty("apikey",  "bfec71ab14bac71a994a0c68399a540d");
+	        connection.setRequestProperty("apikey",  apiKey);
 	        connection.connect();
 	        InputStream is = connection.getInputStream();
 	        reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -135,6 +136,7 @@ public class IpInfo {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+	    System.out.println("输出："+result);
 	    return result;
 	}
 	private  String getValue(String json,String key){

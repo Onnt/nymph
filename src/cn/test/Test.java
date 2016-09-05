@@ -25,6 +25,15 @@ import cn.blacard.nymph.text.TextOut;
  */
 public class Test {
 	
+	
+	public static void main(String[] args) {
+		int j = 0;
+		for(int i = 0 ; i < 100; i++){
+			IpInfo ip = new IpInfo("114.215.83.50");
+		}
+		
+	}
+	
 	/**
 	 * 根据文件大小 筛选文件  测试解决冲突2
 	 * @author Blacard
