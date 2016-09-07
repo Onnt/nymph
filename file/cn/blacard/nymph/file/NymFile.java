@@ -80,4 +80,45 @@ public class NymFile extends NymFileAssist{
 			return length;
 		}
 	}
+	/**
+	 * 格式化 文件大小
+	 * 配上单位
+	 * @author Blacard
+	 * @Create 2016年9月7日 下午5:29:35
+	 * @param length
+	 * @return
+	 */
+	public String formatLength(long length){
+		int level = 0 ;
+		String fmt = "";
+		while(length > 1024){
+			length = length / 1024;
+			level++;
+		}
+		switch(level){
+			case 0:
+				fmt = " B";
+				break;
+			case 1:
+				fmt = " KB";
+				break;
+			case 2:
+				fmt = " MB";
+				break;
+			case 3:
+				fmt = " GB";
+				break;
+			case 4:
+				fmt = " TB";
+				break;
+			case 5:
+				fmt = "PB";
+				break;
+			case 6:
+				fmt = "EB";
+				break;
+				default : ;
+		}
+		return length+fmt;
+	}
 }

@@ -27,17 +27,15 @@ public class Test {
 	
 	
 
-	
 	/**
 	 * 根据文件大小 筛选文件
 	 * @author Blacard
 	 * @create 2016年9月4日 上午8:22:13
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		NymFile nymFile = new NymFile("E://nymph_v_0.0.1.jar");
-		System.out.println(nymFile.length());
-//		List<File> dirs = nymFile.getAllFiles();
+	public static void main_file_size(String[] args) {
+		NymFile nymFile = new NymFile("E://115");
+		System.out.println("formar:"+nymFile.formatLength(nymFile.length()));
 	}
 	
 	/**
