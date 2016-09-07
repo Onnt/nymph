@@ -1,7 +1,6 @@
 package cn.test;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,6 @@ import cn.blacard.dbopera.opera.Query;
 import cn.blacard.dbopera.para.DBConnectPara;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
-import cn.blacard.nymph.net.info.IpInfo;
 import cn.blacard.nymph.sound.Sound;
 import cn.blacard.nymph.text.TextOut;
 
@@ -31,7 +29,7 @@ public class Test {
 	 * 根据文件大小 筛选文件
 	 * @author Blacard
 	 * @create 2016年9月4日 上午8:22:13
-	 * @param args
+	 * @param 
 	 */
 	public static void main_file_size(String[] args) {
 		NymFile nymFile = new NymFile("E://115");
