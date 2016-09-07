@@ -6,15 +6,17 @@ import com.iflytek.cloud.speech.SpeechSynthesizer;
 import com.iflytek.cloud.speech.SpeechUtility;
 import com.iflytek.cloud.speech.SynthesizerListener;
 
-public class Sound {
+import cn.blacard.nymph.sound.constant.Voice;
 
-	public void  speak(String word){
+public class Sound {
+	
+	public void  speak(String word,String voice){
 		// 将“12345678”替换成您申请的APPID，申请地址：http://open.voicecloud.cn  
 		SpeechUtility.createUtility(SpeechConstant.APPID +"=57a011cc");  
 		//1.创建SpeechSynthesizer对象  
 		SpeechSynthesizer mTts= SpeechSynthesizer.createSynthesizer( );  
 		//2.合成参数设置，详见《iFlytek MSC Reference Manual》SpeechSynthesizer 类  
-		mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoqi");//设置发音人  
+		mTts.setParameter(SpeechConstant.VOICE_NAME, voice);//设置发音人  
 		mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速  
 		mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100  
 		//设置合成音频保存位置（可自定义保存位置），保存在“./iflytek.pcm”  
@@ -28,10 +30,7 @@ public class Sound {
 		    //percent为缓冲进度0~100，beginPos为缓冲音频在文本中开始位置，endPos表示缓冲音频在文本中结束位置，info为附加信息。  
 		    public void onBufferProgress(int percent, int beginPos, int endPos, String info) {}  
 		    //开始播放  
-		    public void onSpeakBegin() {
-		    	
-		    	System.out.println("在播放？");
-		    }  
+		    public void onSpeakBegin() {}
 		    //暂停播放  
 		    public void onSpeakPaused() {}  
 		    //播放进度回调  
@@ -43,4 +42,9 @@ public class Sound {
 		//3.开始合成  
 		mTts.startSpeaking(word, mSynListener);  
 	}
+	
+	public void speak(String word){
+		speak(word,Voice.小婧);
+	}
+	
 }

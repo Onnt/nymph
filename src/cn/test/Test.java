@@ -26,39 +26,17 @@ import cn.blacard.nymph.text.TextOut;
 public class Test {
 	
 	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) throws IOException {
 
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * 根据文件大小 筛选文件
 	 * @author Blacard
 	 * @create 2016年9月4日 上午8:22:13
 	 * @param args
 	 */
-	public static void main_(String[] args) {
-		NymFile nymFile = new NymFile("D://视频");
-		List<File> dirs = nymFile.getAllFiles();
+	public static void main_file_size(String[] args) {
+		NymFile nymFile = new NymFile("E://115");
+		System.out.println("formar:"+nymFile.formatLength(nymFile.length()));
 	}
-	
-	
 	
 	/**
 	 * 筛选多个后缀名
@@ -116,9 +94,6 @@ public class Test {
 		for(File f:new NymFile("F://").getFileBySuffix("jpg"))
 			System.out.println(f.getAbsolutePath());
 	}
-	
-	
-	
 	
 	/**
 	 * 下载文件测试
