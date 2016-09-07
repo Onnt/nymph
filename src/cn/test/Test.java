@@ -26,26 +26,19 @@ import cn.blacard.nymph.text.TextOut;
 public class Test {
 	
 	
-	public static void main(String[] args) {
-		int j = 0;
-		for(int i = 0 ; i < 100; i++){
-			IpInfo ip = new IpInfo("114.215.83.50");
-		}
-		
-	}
+
 	
 	/**
-	 * 根据文件大小 筛选文件  测试解决冲突2
+	 * 根据文件大小 筛选文件
 	 * @author Blacard
 	 * @create 2016年9月4日 上午8:22:13
 	 * @param args
 	 */
-	public static void main_(String[] args) {
-		NymFile nymFile = new NymFile("D://视频");
-		List<File> dirs = nymFile.getAllFiles();
+	public static void main(String[] args) {
+		NymFile nymFile = new NymFile("E://nymph_v_0.0.1.jar");
+		System.out.println(nymFile.length());
+//		List<File> dirs = nymFile.getAllFiles();
 	}
-	
-	
 	
 	/**
 	 * 筛选多个后缀名
@@ -103,9 +96,6 @@ public class Test {
 		for(File f:new NymFile("F://").getFileBySuffix("jpg"))
 			System.out.println(f.getAbsolutePath());
 	}
-	
-	
-	
 	
 	/**
 	 * 下载文件测试

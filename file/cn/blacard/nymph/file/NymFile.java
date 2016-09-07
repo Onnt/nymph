@@ -61,4 +61,23 @@ public class NymFile extends NymFileAssist{
 	public List<File> getCurrDirFileBySuffixs(List<String> suffixs){
 		return getFileBySuffixs(this.file.listFiles(),suffixs);
 	}
+	/**
+	 * 获取文件大小
+	 * 如果是文件夹 则 统计文件夹下所有文件的大小
+	 * @author Blacard
+	 * @Create 2016年9月7日 下午4:16:27
+	 * @return
+	 */
+	public long length(){
+		if(file.isFile())
+			return file.length();
+		else{
+			getAllFiles();
+			long length = 0;
+			for(File f : allFile){
+				length = length + f.length();
+			}
+			return length;
+		}
+	}
 }
