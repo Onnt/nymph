@@ -6,6 +6,7 @@ import java.util.List;
 
 import cn.blacard.dbopera.opera.Query;
 import cn.blacard.dbopera.para.DBConnectPara;
+import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
 import cn.blacard.nymph.sound.Sound;
@@ -24,7 +25,45 @@ import cn.blacard.nymph.text.TextOut;
 public class Test {
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 根据文件大小 筛选文件
 	 * @author Blacard
@@ -33,7 +72,7 @@ public class Test {
 	 */
 	public static void main_file_size(String[] args) {
 		NymFile nymFile = new NymFile("E://115");
-		System.out.println("formar:"+nymFile.formatLength(nymFile.length()));
+		System.out.println("formar:"+NymFormat.fileLength(nymFile.length()));
 	}
 	
 	/**
