@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="file"/>
-	<classpathentry kind="src" path="info"/>
 	<classpathentry kind="src" path="net"/>
 	<classpathentry kind="src" path="weather"/>
 	<classpathentry kind="src" path="Database"/>
