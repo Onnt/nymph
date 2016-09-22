@@ -1,17 +1,8 @@
 package cn.test;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-import cn.blacard.dbopera.opera.Query;
-import cn.blacard.dbopera.para.DBConnectPara;
-import cn.blacard.nymph.String.NymFormat;
-import cn.blacard.nymph.file.NymFile;
-import cn.blacard.nymph.net.down.DownFromUrl;
-import cn.blacard.nymph.sound.Sound;
-import cn.blacard.nymph.text.TextOut;
-
+import cn.blacard.nymph.text.NymProperties;
 
 /**
  * 
@@ -23,6 +14,16 @@ import cn.blacard.nymph.text.TextOut;
  * @phone 18037170703
  */
 public class Test {
-	
+	/**
+	 * 测试properties参数获取
+	 * @author Blacard
+	 * @create 2016年9月22日 下午4:23:10
+	 * @param args
+	 * @throws IOException 
+	 */
+	public static void main(String[] args) throws IOException {
+		NymProperties nymPptis = new NymProperties("src/cn/test/hehe.properties");
+		System.out.println(nymPptis.getValue("username"));
+	}
 
 }
