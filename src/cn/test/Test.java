@@ -2,6 +2,7 @@ package cn.test;
 
 import java.io.IOException;
 
+import cn.blacard.nymph.date.NymTime;
 import cn.blacard.nymph.text.NymProperties;
 
 /**
@@ -14,6 +15,11 @@ import cn.blacard.nymph.text.NymProperties;
  * @phone 18037170703
  */
 public class Test {
+	
+	public static void main(String[] args) {
+		String time =NymTime.toTime(NymTime.timestampToDate(1443418222l));
+		System.out.println("time:"+time);
+	}
 	/**
 	 * 测试properties参数获取
 	 * @author Blacard
@@ -21,7 +27,7 @@ public class Test {
 	 * @param args
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main_proper(String[] args) throws IOException {
 		NymProperties nymPptis = new NymProperties("src/cn/test/hehe.properties");
 		System.out.println(nymPptis.getValue("username"));
 	}
