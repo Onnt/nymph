@@ -9,7 +9,7 @@ import cn.blacard.dbopera.para.DBConnectPara;
 import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
-import cn.blacard.nymph.sound.Sound;
+import cn.blacard.nymph.sound.SoundAbandon;
 import cn.blacard.nymph.text.TextOut;
 
 public class ClearTest {
@@ -72,7 +72,7 @@ public class ClearTest {
 	 * @param args
 	 */
 	public static void main_sound(String[] args) {
-		Sound sound = new Sound();
+		SoundAbandon sound = new SoundAbandon();
 		sound.speak("早上好");
 	}
 	
