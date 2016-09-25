@@ -1,8 +1,13 @@
 package cn.test;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+import java.io.IOException;
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
 import com.iflytek.cloud.speech.SpeechConstant;
 import com.iflytek.cloud.speech.SpeechError;
 import com.iflytek.cloud.speech.SpeechSynthesizer;
@@ -11,6 +16,10 @@ import com.iflytek.cloud.speech.SynthesizerListener;
 
 import cn.blacard.nymph.sound.Sound;
 import cn.blacard.nymph.sound.constant.Voice;
+=======
+import cn.blacard.nymph.date.NymTime;
+import cn.blacard.nymph.text.NymProperties;
+>>>>>>> refs/remotes/origin/master
 
 /**
  * 
@@ -39,6 +48,7 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		speak("第一次");
 		speak("第二次");
 		
@@ -70,4 +80,21 @@ public class Test {
 		//3.开始合成  
 		mTts.startSpeaking(word, mSynListener);  
 	}
+=======
+		String time =NymTime.toTime(NymTime.timestampToDate(1443418222l));
+		System.out.println("time:"+time);
+	}
+	/**
+	 * 测试properties参数获取
+	 * @author Blacard
+	 * @create 2016年9月22日 下午4:23:10
+	 * @param args
+	 * @throws IOException 
+	 */
+	public static void main_proper(String[] args) throws IOException {
+		NymProperties nymPptis = new NymProperties("src/cn/test/hehe.properties");
+		System.out.println(nymPptis.getValue("username"));
+	}
+
+>>>>>>> refs/remotes/origin/master
 }
