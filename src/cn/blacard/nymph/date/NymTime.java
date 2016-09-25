@@ -44,7 +44,7 @@ public class NymTime {
 		GregorianCalendar gc =new GregorianCalendar();
 		gc.setTime(date);
 		gc.add(i, add);
-		return toTime(gc.getTime());
+		return toString(gc.getTime());
 	}
 	/**
 	 * 将Date类型的日期转换成String类型。
@@ -52,7 +52,7 @@ public class NymTime {
 	 * @param d
 	 * @return
 	 */
-	public static String toTime(Date d){
+	public static String toString(Date d){
 		return sdf.format(d);
 	}
 	/**
