@@ -106,4 +106,87 @@ public class NymTime {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		return time.equals(sdf.format(new Date()));
 	}
+
+	public static String getAPM(Date date){
+		return getAPM(toString(date));
+	}
+	public static String getAPM(String time){
+		int hour = Integer.parseInt(time.substring(11, 13));
+		String apm = "";
+		switch(hour){
+		case 0:
+			apm = "子时";
+			break;
+		case 1:
+			apm = "丑时";
+			break;
+		case 2:
+			apm = "丑时";
+			break;
+		case 3:
+			apm = "寅时";
+			break;
+		case 4:
+			apm = "寅时";
+			break;
+		case 5:
+			apm = "早上";
+			break;
+		case 6:
+			apm = "早上";
+			break;
+		case 7:
+			apm = "早上";
+			break;
+		case 8:
+			apm = "早上";
+			break;
+		case 9:
+			apm = "上午";
+			break;
+		case 10:
+			apm = "上午";
+			break;
+		case 11:
+			apm = "中午";
+			break;
+		case 12:
+			apm = "中午";
+			break;
+		case 13:
+			apm = "下午";
+			break;
+		case 14:
+			apm = "下午";
+			break;
+		case 15:
+			apm = "下午";
+			break;
+		case 16:
+			apm = "下午";
+			break;
+		case 17:
+			apm = "下午";
+			break;
+		case 18:
+			apm = "下午";
+			break;
+		case 19:
+			apm = "晚上";
+			break;
+		case 20:
+			apm = "晚上";
+			break;
+		case 21:
+			apm = "晚上";
+			break;
+		case 22:
+			apm = "晚上";
+			break;
+		case 23:
+			apm = "子时";
+			break;
+		}
+		return apm;
+	}
 }
