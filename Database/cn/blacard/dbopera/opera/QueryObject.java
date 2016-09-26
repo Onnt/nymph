@@ -135,7 +135,23 @@ public class QueryObject<T> extends OperaBase{
 		return list;
 	}
 
-
+	/**
+	 * 只查询一条数据。
+	 * @author Blacard
+	 * @create 2016年9月26日 下午3:17:13
+	 * @param sql
+	 * @param args
+	 * @param clazz
+	 * @return
+	 */
+	public Object queryOne(String sql, Object[] args, Class clazz) {
+		List<T> list = query(sql,args,clazz);
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}else{
+			return null;
+		}
+	}
 	// 执行(update insert delete)之类的操作
 	public int executeSQL(String sql, Object[] args) {
 		PreparedStatement pstmt = null;
