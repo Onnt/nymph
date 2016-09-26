@@ -1,4 +1,4 @@
-package cn.blacard.nymph.inputAndOutput;
+
 
 import java.util.Scanner;
 /**

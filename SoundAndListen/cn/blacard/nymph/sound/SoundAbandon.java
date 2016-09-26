@@ -8,6 +8,7 @@ import com.iflytek.cloud.speech.SynthesizerListener;
 
 import cn.blacard.nymph.sound.constant.Voice;
 
+@Deprecated
 public class SoundAbandon {
 	
 	public void  speak(String word,String voice){
