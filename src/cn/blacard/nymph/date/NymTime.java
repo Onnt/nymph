@@ -18,13 +18,23 @@ public class NymTime {
 	 */
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
+	private Date date ;
 	public NymTime(String format){
 		this.sdf =new SimpleDateFormat(format);
 	}
 	public NymTime(){
 		
 	}
+	public NymTime(Date date){
+		this.date = date;
+	} 
 	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	/**
 	 *	时间计算工具
 	 *
@@ -46,6 +56,9 @@ public class NymTime {
 		gc.add(i, add);
 		return toString(gc.getTime());
 	}
+	public String addTime(int i,int add){
+		return addTime(date,i,add);
+	}
 	/**
 	 * 将Date类型的日期转换成String类型。
 	 * 格式默认为"yyyy-MM-dd HH:mm:ss"
@@ -55,6 +68,10 @@ public class NymTime {
 	public static String toString(Date d){
 		return sdf.format(d);
 	}
+	public String toString(){
+		return toString(date);
+	}
+	
 	/**
 	 * 把String类型的日期转换成Date类型
 	 * @param strDate
@@ -92,6 +109,9 @@ public class NymTime {
 	 */
 	public static long dateToTimestamp(Date date){
 		return date.getTime();
+	}
+	public long toTimestamp(){
+		return dateToTimestamp(date);
 	}
 	/**
 	 * 给定时间是否和现在相等
@@ -188,5 +208,14 @@ public class NymTime {
 			break;
 		}
 		return apm;
+	}
+	public static int getInt(Date date,int field){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		return cal.get(field);
+	}
+	
+	public int getInt(int field){
+		return getInt(date,field);
 	}
 }
