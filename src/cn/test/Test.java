@@ -1,6 +1,7 @@
 package cn.test;
 
-import cn.blacard.nymph.sound.Sound;
+import cn.blacard.nymph.date.ChineseCalendar;
+
 /**
  * 
  * <h3>title:</h3>
@@ -12,6 +13,7 @@ import cn.blacard.nymph.sound.Sound;
  */
 public class Test {
 	public static void main(String[] args) {
-		Sound.speak("谢谢");
+		String solar = ChineseCalendar.sCalendarLundarToSolar(2016, 10, 11);
+		System.out.println(solar);
 	}
 }
