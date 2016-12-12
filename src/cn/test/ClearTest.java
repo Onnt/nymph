@@ -9,7 +9,6 @@ import cn.blacard.dbopera.para.DBConnectPara;
 import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
-import cn.blacard.nymph.sound.SoundAbandon;
 import cn.blacard.nymph.text.TextOut;
 
 public class ClearTest {
@@ -62,20 +61,6 @@ public class ClearTest {
 		for(File f : list)
 			System.out.println(f.getAbsolutePath());
 	}
-	
-	
-	
-	/**
-	 * 声音测试
-	 * @author Blacard
-	 * @create 2016年9月2日 上午11:16:34
-	 * @param args
-	 */
-	public static void main_sound(String[] args) {
-		SoundAbandon sound = new SoundAbandon();
-		sound.speak("早上好");
-	}
-	
 	
 	
 	/**
