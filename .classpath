@@ -37,6 +37,5 @@
 	<classpathentry kind="lib" path="lib/database/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="lib/KeDaXunFei/json-jena-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/KeDaXunFei/Msc.jar"/>
-	<classpathentry kind="lib" path="lib/nymph_service_0.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
