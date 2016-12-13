@@ -1,12 +1,23 @@
-package cn.blacard.nymph.net.ip;
+package cn.blacard.nymph.net.tool;
 
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
+import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
 import net.sf.json.JSONObject;
 
-public class IPToolDeal {
+public class HighPrecisionIpPositioningTool {
 	
-	protected HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip){
+	public LocationEntity getLocationByIp(String ip){
+		HighPrecisionIpPositioningEntity entity = getHighPrecisionIpPositionByIp(ip);
+		if(entity.getResult().getError()==161){
+			return entity.getContent().getLocation();
+		}else{
+			System.out.println(this.getClass().getName()+":通过IP获取经纬度是发生错误，错误码："+entity.getResult().getError());
+			return null;
+		}
+	}
+	
+	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip){
 		HtmlGet get = new HtmlGet();
 		String result = get.getPage(createRequestUrl(ip));
 		HighPrecisionIpPositioningEntity entity = (HighPrecisionIpPositioningEntity)JSONObject.toBean(JSONObject.fromObject(result), HighPrecisionIpPositioningEntity.class);

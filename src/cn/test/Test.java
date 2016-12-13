@@ -2,7 +2,7 @@ package cn.test;
 
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
-import cn.blacard.nymph.net.ip.IPTool;
+import cn.blacard.nymph.net.tool.IPTool;
 import net.sf.json.JSONObject;
 
 /**

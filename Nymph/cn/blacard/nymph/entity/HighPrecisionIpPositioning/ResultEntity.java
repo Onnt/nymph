@@ -9,15 +9,16 @@ public class ResultEntity extends BaseEntity{
 	 */
 	private static final long serialVersionUID = -2686314813823223624L;
 	
-	private String error;
+	private int error;
 	
 	private String loc_time;
 
-	public String getError() {
+
+	public int getError() {
 		return error;
 	}
 
-	public void setError(String error) {
+	public void setError(int error) {
 		this.error = error;
 	}
 
@@ -29,7 +30,7 @@ public class ResultEntity extends BaseEntity{
 		this.loc_time = loc_time;
 	}
 
-	public ResultEntity(String error, String loc_time) {
+	public ResultEntity(int error, String loc_time) {
 		super();
 		this.error = error;
 		this.loc_time = loc_time;
