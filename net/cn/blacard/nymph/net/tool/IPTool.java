@@ -10,7 +10,7 @@ public class IPTool{
 	 * @author Blacard
 	 * @create 2016年12月13日 下午5:24:14
 	 * @param ip
-	 * @return
+	 * @return 
 	 */
 	public static String getAddressByIp(String ip){
 		return GeocodingTool.locationToAddress(HighPrecisionIpPositioningTool.getLocationByIp(ip));
