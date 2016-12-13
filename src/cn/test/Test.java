@@ -2,6 +2,7 @@ package cn.test;
 
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
+import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
 import net.sf.json.JSONObject;
 
@@ -24,7 +25,8 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
-		System.out.println(IPTool.getAddressByIp("58.34.140.86"));
+		System.out.println(IPTool.getAddressByIp("180.162.251.9"));
+		
 	}
 	/**
 	 * JSONObject转 Bean测试

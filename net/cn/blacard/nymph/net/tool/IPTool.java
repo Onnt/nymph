@@ -1,13 +1,10 @@
 package cn.blacard.nymph.net.tool;
 
-import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.GeocodingTool;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 
 public class IPTool{
-	
-	private static HighPrecisionIpPositioningTool ipPositionTool = new HighPrecisionIpPositioningTool();
-	
+		
 	/**
 	 * 通过IP获取地理位置信息
 	 * @author Blacard
@@ -16,8 +13,7 @@ public class IPTool{
 	 * @return
 	 */
 	public static String getAddressByIp(String ip){
-		LocationEntity location = ipPositionTool.getLocationByIp(ip);
-		return GeocodingTool.locationToAddress(location);
+		return GeocodingTool.locationToAddress(HighPrecisionIpPositioningTool.getLocationByIp(ip));
 	}
 	
 }
