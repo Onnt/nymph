@@ -1,16 +1,38 @@
 package cn.blacard.nymph.net.ip;
 
-import cn.blacard.nymph.entity.JingWeiDuEntity;
+import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
+import net.sf.json.JSONObject;
 
 public class IPToolDeal {
-	protected static JingWeiDuEntity getJingWeiDu(){
-		HtmlGet get = new HtmlGet();
-		System.out.println(get.getPage("http://api.map.baidu.com/highacciploc/v1?qcip=58.34.140.86&qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll"));
-		return null;
-	}
 	
-	public static void main(String[] args) {
-		getJingWeiDu();
+	protected HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip){
+		HtmlGet get = new HtmlGet();
+		String result = get.getPage(createRequestUrl(ip));
+		HighPrecisionIpPositioningEntity entity = (HighPrecisionIpPositioningEntity)JSONObject.toBean(JSONObject.fromObject(result), HighPrecisionIpPositioningEntity.class);
+		return entity;
+	}
+		
+	private String createRequestUrl(String ip){
+		return createRequestUrl(
+				"http://api.map.baidu.com/highacciploc/v1",
+				"pc",
+				"yMOZ0v2ANY6UF0l6CNfVnVae",
+				"bd09ll",
+				ip);
+	}
+	private String createRequestUrl(String apiUrl,String qterm,String ak,String coord,String qcip){
+		StringBuffer sb = new StringBuffer();
+		//请求地址
+		sb.append(apiUrl);
+		//待定位终端类型,mb:移动设备，pc：固定设备
+		sb.append("?qterm="+qterm);
+		//开发者密钥
+		sb.append("&ak="+ak);
+		//返回坐标类型 bd09：百度墨卡托坐标，db09ll：百度经纬度坐标，gcj02：国测局经纬度坐标 
+		sb.append("&coord="+coord);
+		//待定位IP地址
+		sb.append("&qcip="+qcip);
+		return sb.toString();
 	}
 }
