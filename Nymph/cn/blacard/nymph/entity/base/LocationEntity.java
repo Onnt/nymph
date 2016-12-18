@@ -33,9 +33,30 @@ public class LocationEntity extends BaseEntity{
 	}
 
 	@Override
+	/**
+	 * 转换成字符串
+	 * <br/>
+	 * 纬经度，sample:"25.1552,121.654"
+	 */
 	public String toString() {
-		
 		return this.lat+","+this.lng;
 	}
-	
+	/**
+	 * 转成经纬度，sample:"121.6544,25.1552"
+	 * @author Blacard
+	 * @create 2016年12月18日 下午8:30:25
+	 * @return
+	 */
+	public String toStringLngLat(){
+		return this.lng+","+this.lat;
+	}
+	/**
+	 * 转成纬经度.sample:"25.1552,121.654"
+	 * @author Blacard
+	 * @create 2016年12月18日 下午8:30:30
+	 * @return
+	 */
+	public String toStringLatLng(){
+		return toString();
+	}
 }
