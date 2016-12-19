@@ -1,8 +1,9 @@
 package cn.blacard.nymph.net.weather;
 
 import cn.blacard.nymph.entity.base.LocationEntity;
-import cn.blacard.nymph.entity.weather.ForecastWeatherEntity;
-import cn.blacard.nymph.entity.weather.RealtimeWeatherEntity;
+import cn.blacard.nymph.net.tool.GeocodingTool;
+import cn.blacard.nymph.entity.ForecastWeatherEntity;
+import cn.blacard.nymph.entity.RealtimeWeatherEntity;
 
 /**
  * 获取天气状况
@@ -12,17 +13,25 @@ import cn.blacard.nymph.entity.weather.RealtimeWeatherEntity;
  */
 public class Weather extends WeatherDeal{
 	
-	private String location;
+	private LocationEntity location;
 
-	public Weather(LocationEntity location) {
-		this.location = location.toStringLngLat();
-	}
-	
-	public Weather(String location){
-		this.location = location;
-	}
 	/**
 	 * 
+	 * @param location 经纬度
+	 */
+	public Weather(LocationEntity location) {
+		this.location = location;
+	}
+	
+	/**
+	 * 赋予经纬度
+	 * @param location 经纬度 sample:"121.6544,25.1552"
+	 */
+	public Weather(String address){
+		this.location = GeocodingTool.addressToLocation(address);
+	}
+	/**
+	 * 获取实时天气
 	 * @author Blacard
 	 * @create 2016年12月18日 下午8:01:39
 	 * @return
@@ -50,12 +59,5 @@ public class Weather extends WeatherDeal{
 			System.out.println("Weaher - getForecastWeather 获取实时天气失败");
 			return null;
 		}
-	}
-	
-	
-	
-	
-	public static void main(String[] args) {
-
 	}
 }

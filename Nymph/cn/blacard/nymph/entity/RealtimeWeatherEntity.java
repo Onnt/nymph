@@ -1,4 +1,4 @@
-package cn.blacard.nymph.entity.weather;
+package cn.blacard.nymph.entity;
 
 import cn.blacard.nymph.base.BaseEntity;
 import cn.blacard.nymph.entity.weather.realtime.RealtimeResultEntity;

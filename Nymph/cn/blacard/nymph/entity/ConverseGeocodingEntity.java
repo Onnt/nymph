@@ -1,7 +1,7 @@
 package cn.blacard.nymph.entity;
 
 import cn.blacard.nymph.base.BaseEntity;
-import cn.blacard.nymph.entity.ConverseGeocoding.ResultEntity;
+import cn.blacard.nymph.entity.Geocoding.ConverseGeocodingResultEntity;
 
 public class ConverseGeocodingEntity extends BaseEntity{
 
@@ -12,7 +12,7 @@ public class ConverseGeocodingEntity extends BaseEntity{
 	
 	private int status;
 	
-	private ResultEntity result;
+	private ConverseGeocodingResultEntity result;
 
 	public int getStatus() {
 		return status;
@@ -22,15 +22,15 @@ public class ConverseGeocodingEntity extends BaseEntity{
 		this.status = status;
 	}
 
-	public ResultEntity getResult() {
+	public ConverseGeocodingResultEntity getResult() {
 		return result;
 	}
 
-	public void setResult(ResultEntity result) {
+	public void setResult(ConverseGeocodingResultEntity result) {
 		this.result = result;
 	}
 
-	public ConverseGeocodingEntity(int status, ResultEntity result) {
+	public ConverseGeocodingEntity(int status, ConverseGeocodingResultEntity result) {
 		super();
 		this.status = status;
 		this.result = result;
