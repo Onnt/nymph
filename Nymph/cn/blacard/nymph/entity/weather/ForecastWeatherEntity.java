@@ -1,20 +1,14 @@
 package cn.blacard.nymph.entity.weather;
 
 import cn.blacard.nymph.base.BaseEntity;
-import cn.blacard.nymph.entity.weather.realtime.RealtimeResultEntity;
+import cn.blacard.nymph.entity.weather.forecast.ForecastResultEntity;
 
-/**
- * 
- * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月17日 下午7:13:13
- */
-public class RealtimeWeatherEntity extends BaseEntity{
+public class ForecastWeatherEntity extends BaseEntity{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8634409131571842374L;
+	private static final long serialVersionUID = -4822528405108190860L;
 	
 	private String status;
 	private String lang;
@@ -22,7 +16,7 @@ public class RealtimeWeatherEntity extends BaseEntity{
 	private long tzshift;
 	private double[] location;
 	private String unit;
-	private RealtimeResultEntity result;
+	private ForecastResultEntity result;
 	public String getStatus() {
 		return status;
 	}
@@ -59,14 +53,14 @@ public class RealtimeWeatherEntity extends BaseEntity{
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public RealtimeResultEntity getResult() {
+	public ForecastResultEntity getResult() {
 		return result;
 	}
-	public void setResult(RealtimeResultEntity result) {
+	public void setResult(ForecastResultEntity result) {
 		this.result = result;
 	}
-	public RealtimeWeatherEntity(String status, String lang, long server_time, long tzshift, double[] location,
-			String unit, RealtimeResultEntity result) {
+	public ForecastWeatherEntity(String status, String lang, long server_time, long tzshift, double[] location,
+			String unit, ForecastResultEntity result) {
 		super();
 		this.status = status;
 		this.lang = lang;
@@ -76,7 +70,9 @@ public class RealtimeWeatherEntity extends BaseEntity{
 		this.unit = unit;
 		this.result = result;
 	}
-	public RealtimeWeatherEntity() {
+	public ForecastWeatherEntity() {
 		super();
 	}
+	
+
 }

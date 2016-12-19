@@ -1,4 +1,5 @@
-package cn.blacard.nymph.entity.weather;
+package cn.blacard.nymph.entity.weather.forecast;
+
 
 import cn.blacard.nymph.base.BaseEntity;
 
@@ -7,10 +8,11 @@ public class WindEntity extends BaseEntity{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6571126320728946786L;
+	private static final long serialVersionUID = -225047226419934738L;
 	
 	private double direction;
 	private double speed;
+	private String datetime;
 	public double getDirection() {
 		return direction;
 	}
@@ -23,14 +25,12 @@ public class WindEntity extends BaseEntity{
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	public WindEntity(double direction, double speed) {
-		super();
-		this.direction = direction;
-		this.speed = speed;
+	public String getDatetime() {
+		return datetime;
 	}
-	public WindEntity() {
-		super();
+	public void setDatetime(String datetime) {
+		this.datetime = datetime;
 	}
 	
-
+	
 }

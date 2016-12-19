@@ -1,4 +1,4 @@
-package cn.blacard.nymph.entity.weather;
+package cn.blacard.nymph.entity.weather.realtime;
 
 import cn.blacard.nymph.base.BaseEntity;
 
@@ -8,7 +8,7 @@ import cn.blacard.nymph.base.BaseEntity;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月17日 下午7:20:52
  */
-public class ResultEntity extends BaseEntity{
+public class RealtimeResultEntity extends BaseEntity{
 
 	/**
 	 * 
@@ -71,7 +71,7 @@ public class ResultEntity extends BaseEntity{
 	public void setWind(WindEntity wind) {
 		this.wind = wind;
 	}
-	public ResultEntity(String status, double temperature, String skycon, int pm25, double cloudrate, double humidity,
+	public RealtimeResultEntity(String status, double temperature, String skycon, int pm25, double cloudrate, double humidity,
 			PrecipitationEntity precipitation, WindEntity wind) {
 		super();
 		this.status = status;
@@ -83,7 +83,7 @@ public class ResultEntity extends BaseEntity{
 		this.precipitation = precipitation;
 		this.wind = wind;
 	}
-	public ResultEntity() {
+	public RealtimeResultEntity() {
 		super();
 	}
 	

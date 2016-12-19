@@ -2,8 +2,10 @@ package cn.test;
 
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
+import cn.blacard.nymph.entity.weather.ForecastWeatherEntity;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
+import cn.blacard.nymph.net.weather.WeatherDeal;
 import net.sf.json.JSONObject;
 
 /**
@@ -18,12 +20,24 @@ import net.sf.json.JSONObject;
 public class Test {
 	
 	/**
+	 * 获取天气预报，测试
+	 * @author Blacard
+	 * @create 2016年12月20日 上午5:06:11
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ForecastWeatherEntity entity = new WeatherDeal().getForecastWeather("121.6544,25.1552");
+		
+		System.out.println(entity.getResult().getDaily().getColdRisk()[0].getDesc());
+	}
+	
+	/**
 	 * IP 转 地址
 	 * @author Blacard
 	 * @create 2016年12月13日 上午11:51:33
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_ip_to_address(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 		System.out.println(IPTool.getAddressByIp("180.162.251.9"));
 		

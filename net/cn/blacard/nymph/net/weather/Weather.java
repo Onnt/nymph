@@ -1,6 +1,7 @@
 package cn.blacard.nymph.net.weather;
 
 import cn.blacard.nymph.entity.base.LocationEntity;
+import cn.blacard.nymph.entity.weather.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.weather.RealtimeWeatherEntity;
 
 /**
@@ -27,7 +28,28 @@ public class Weather extends WeatherDeal{
 	 * @return
 	 */
 	public RealtimeWeatherEntity getRealtimeWeather(){
-		return this.getRealtimeWeather(location);
+		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
+		if(entity.getStatus().equals("ok")){
+			return entity;
+		}else{
+			System.out.println("Weaher - getRealtimeWeather 获取实时天气失败");
+			return null;
+		}
+	}
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月18日 下午8:01:39
+	 * @return
+	 */
+	public ForecastWeatherEntity getForecastWeather(){
+		ForecastWeatherEntity entity = this.getForecastWeather(location);
+		if(entity.getStatus().equals("ok")){
+			return entity;
+		}else{
+			System.out.println("Weaher - getForecastWeather 获取实时天气失败");
+			return null;
+		}
 	}
 	
 	
