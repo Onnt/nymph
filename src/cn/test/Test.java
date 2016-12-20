@@ -4,6 +4,7 @@ import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.GeocodingTool;
+import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
 import cn.blacard.nymph.net.weather.Weather;
 import net.sf.json.JSONObject;
@@ -27,7 +28,7 @@ public class Test {
 	 */
 	public static void main_address_to_location(String[] args) {
 		
-		LocationEntity location = GeocodingTool.addressToLocation("南阳");
+		LocationEntity location = GeocodingTool.addressToLocation("洛阳市");
 		
 		System.out.println("经纬度 ： "+location.toString());
 	}
@@ -39,11 +40,12 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		
-		Weather weather = new Weather("嘉定区");
-		
+		Weather weather = new Weather("洛阳市");
+	
 		System.out.println(weather.getForecastWeather().getResult().getHourly().getDescription());
-		System.out.println(weather.getRealtimeWeather().getResult().getSkycon());
-		System.out.println(weather.getRealtimeWeather().getResult().getTemperature());
+		System.out.println(weather.getRealtimeWeather().getResult().getSkycon().toString());
+		System.out.println("当前温度："+weather.getRealtimeWeather().getResult().getTemperature()+" ℃");
+		System.out.println(weather.getForecastWeather().getResult().getDaily().getSkycon()[0].getValue());
 	}
 	
 	/**
