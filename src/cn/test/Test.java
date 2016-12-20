@@ -25,7 +25,8 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
-		System.out.println(IPTool.getAddressByIp("180.162.251.9"));
+//		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
+		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96.159").toString());
 		
 	}
 	/**
