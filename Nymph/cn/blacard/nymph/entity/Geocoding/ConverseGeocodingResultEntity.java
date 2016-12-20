@@ -1,11 +1,11 @@
-package cn.blacard.nymph.entity.ConverseGeocoding;
+package cn.blacard.nymph.entity.Geocoding;
 
 import java.util.List;
 
 import cn.blacard.nymph.base.BaseEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 
-public class ResultEntity extends BaseEntity{
+public class ConverseGeocodingResultEntity extends BaseEntity{
 
 	/**
 	 * 
@@ -15,14 +15,23 @@ public class ResultEntity extends BaseEntity{
 	private LocationEntity location;
 	private String formatted_address;
 	private String business;
-//	private AddressComponentEntity addressComponent;
-	private String addressComponent;
+	private AddressComponentEntity addressComponent;
 	
 	private List<String> pois;
 	
 	private List<String> poiRegions;
 	private String sematic_description;
 	private int cityCode;
+	
+	
+
+	public AddressComponentEntity getAddressComponent() {
+		return addressComponent;
+	}
+
+	public void setAddressComponent(AddressComponentEntity addressComponent) {
+		this.addressComponent = addressComponent;
+	}
 
 	public LocationEntity getLocation() {
 		return location;
@@ -47,16 +56,6 @@ public class ResultEntity extends BaseEntity{
 	public void setBusiness(String business) {
 		this.business = business;
 	}
-
-	public String getAddressComponent() {
-		return addressComponent;
-	}
-
-	public void setAddressComponent(String addressComponent) {
-		this.addressComponent = addressComponent;
-	}
-
-
 	public List<String> getPois() {
 		return pois;
 	}
@@ -91,7 +90,7 @@ public class ResultEntity extends BaseEntity{
 		this.cityCode = cityCode;
 	}
 
-	public ResultEntity(LocationEntity location, String formatted_address, String business, int cityCode) {
+	public ConverseGeocodingResultEntity(LocationEntity location, String formatted_address, String business, int cityCode) {
 		super();
 		this.location = location;
 		this.formatted_address = formatted_address;
@@ -99,7 +98,7 @@ public class ResultEntity extends BaseEntity{
 		this.cityCode = cityCode;
 	}
 
-	public ResultEntity() {
+	public ConverseGeocodingResultEntity() {
 		super();
 	}
 }

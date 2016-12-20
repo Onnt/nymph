@@ -6,11 +6,15 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * 获取properties文件中参数
+ * 获取properties文件中参数 
+ * <br/>
+ * 
+ * 这个方法被证明是一个很傻比的方法
  * @author Blacard
  * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
  * @create 2016年9月22日 下午4:22:17
  */
+@Deprecated
 public class NymProperties {
 	
 	private String filePath;

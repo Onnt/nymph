@@ -1,6 +1,7 @@
 package cn.blacard.nymph.net.tool;
 
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
+import cn.blacard.nymph.entity.GeocodingEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
 import net.sf.json.JSONObject;
@@ -41,7 +42,20 @@ public class GeocodingTool {
 			return null;
 		}
 	}
+
 	
+	public static LocationEntity addressToLocation(String address){
+		GeocodingEntity entity = tool.getGeocoding(address);
+		if(entity.getStatus()==0){
+			return entity.getResult().getLocation();
+		}else{
+			System.out.println(
+					tool.getClass().getName()+
+					": 根据地理位置获取经纬度时发生错误，错误码："
+					+entity.getStatus());
+			return null;
+		}
+	}
 	
 	
 	/* ==========================================
@@ -49,6 +63,20 @@ public class GeocodingTool {
 	 * ==========================================
 	 */
 	
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月20日 上午7:05:46
+	 * @param location
+	 * @return
+	 */
+	private GeocodingEntity getGeocoding(String address){
+		String requestUrl = createRequestUrl(address);
+		JSONObject jsonObj =JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
+		return (GeocodingEntity) JSONObject.toBean(
+						jsonObj,
+						GeocodingEntity.class);
+	}
 	/**
 	 * 
 	 * @author Blacard
@@ -64,6 +92,22 @@ public class GeocodingTool {
 						ConverseGeocodingEntity.class);
 	}
 	
+	
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月20日 上午6:40:18
+	 * @param address
+	 * @return
+	 */
+	private String createRequestUrl(String address){
+		return createRequestUrl(
+				"json",
+				"yMOZ0v2ANY6UF0l6CNfVnVae",
+				null,
+				address);
+	}
+	
 	/**
 	 * 
 	 * @author Blacard
@@ -75,7 +119,8 @@ public class GeocodingTool {
 		return createRequestUrl(
 				"json",
 				"yMOZ0v2ANY6UF0l6CNfVnVae",
-				location.toString());
+				location.toString(),
+				null);
 	}
 	/**
 	 * 
@@ -86,13 +131,19 @@ public class GeocodingTool {
 	 * @param location
 	 * @return
 	 */
-	private String createRequestUrl(String output,String ak,String location){
+	private String createRequestUrl(String output,String ak,String location,String address){
 		StringBuffer sb = new StringBuffer();
 		sb.append("http://api.map.baidu.com/geocoder/v2/");
 		//格式，json 或者xml
 		sb.append("?output="+output);
 		sb.append("&ak="+ak);
-		sb.append("&location="+location);
+		
+		if(location != null && (!location.equals(""))){
+			sb.append("&location="+location);
+		}
+		if(address != null && (!address.equals(""))){
+			sb.append("&address="+address);
+		}
 		return sb.toString();
 	}
 }

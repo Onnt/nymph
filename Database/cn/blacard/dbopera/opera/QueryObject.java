@@ -204,5 +204,14 @@ public class QueryObject<T> extends OperaBase{
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 关闭自身所有链接
+	 * @author Blacard
+	 * @create 2016年12月15日 上午3:10:17
+	 */
+	public void closeAll(){
+		this.closeConnect();
+	}
 
 }
