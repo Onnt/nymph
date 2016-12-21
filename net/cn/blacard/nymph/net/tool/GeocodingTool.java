@@ -43,7 +43,13 @@ public class GeocodingTool {
 		}
 	}
 
-	
+	/**
+	 * 地址 转 经纬度
+	 * @author Blacard
+	 * @create 2016年12月22日 上午5:59:14
+	 * @param address
+	 * @return
+	 */
 	public static LocationEntity addressToLocation(String address){
 		GeocodingEntity entity = tool.getGeocoding(address);
 		if(entity.getStatus()==0){
@@ -57,26 +63,38 @@ public class GeocodingTool {
 		}
 	}
 	
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月22日 上午6:07:37
+	 * @param location
+	 * @return
+	 */
+	public static ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location){
+		return tool.getConverseGeocoding(location);
+	}
+	
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月22日 上午6:07:41
+	 * @param address
+	 * @return
+	 */
+	public static GeocodingEntity getGeocodingEntity(String address){
+		return tool.getGeocoding(address);
+	}
+	
+	
+	
+	
 	
 	/* ==========================================
 	 * 			以下为私有方法
 	 * ==========================================
 	 */
 	
-	/**
-	 * 
-	 * @author Blacard
-	 * @create 2016年12月20日 上午7:05:46
-	 * @param location
-	 * @return
-	 */
-	private GeocodingEntity getGeocoding(String address){
-		String requestUrl = createRequestUrl(address);
-		JSONObject jsonObj =JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
-		return (GeocodingEntity) JSONObject.toBean(
-						jsonObj,
-						GeocodingEntity.class);
-	}
+
 	/**
 	 * 
 	 * @author Blacard
@@ -92,6 +110,20 @@ public class GeocodingTool {
 						ConverseGeocodingEntity.class);
 	}
 	
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月20日 上午7:05:46
+	 * @param location
+	 * @return
+	 */
+	private GeocodingEntity getGeocoding(String address){
+		String requestUrl = createRequestUrl(address);
+		JSONObject jsonObj =JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
+		return (GeocodingEntity) JSONObject.toBean(
+						jsonObj,
+						GeocodingEntity.class);
+	}
 	
 	/**
 	 * 
