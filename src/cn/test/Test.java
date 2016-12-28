@@ -4,6 +4,7 @@ import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
+import cn.blacard.nymph.net.html.HtmlGet;
 import cn.blacard.nymph.net.tool.GeocodingTool;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
@@ -41,7 +42,7 @@ public class Test {
 	 * @create 2016年12月20日 上午5:06:11
 	 * @param args
 	 */
-	public static void main_weather(String[] args) {
+	public static void main_address_to_weather(String[] args) {
 		
 		Weather weather = new Weather("洛阳市");
 	
@@ -57,10 +58,13 @@ public class Test {
 	 * @create 2016年12月13日 上午11:51:33
 	 * @param args
 	 */
-	public static void main_ip_to_address(String[] args) {
+	public static void main(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
-		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96.159").toString());
+//		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96as.159").toString());
+		HtmlGet get = new HtmlGet();
+		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");
+		System.out.println(str);
 		
 	}
 	/**

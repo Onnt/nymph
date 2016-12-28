@@ -14,16 +14,22 @@ public class HtmlGet{
 	public String getPage(String path){
 		
 		try {
-			URL url = new URL(path);
 			
+			URL url = new URL(path);
+			System.out.println("HtmlGet-getPage URL:"+path);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			InputStream inputStream = conn.getInputStream();
 			byte[] data = readInputStream(inputStream);
+			
+			String str = new String(data,"UTF-8");
+			System.out.println("HtmlGet-getPage:正常执行，结果集："+str);
+			
 			return  new String(data,"UTF-8");
 		} catch (MalformedURLException e) {
 			System.out.println("HtmlGet 1");
 		} catch (IOException e) {
-			System.out.println("HtmlGet 2");
+			System.out.println("HtmlGet-getPage:IO异常 "+e.getMessage());
+			e.printStackTrace();
 		}
 		return null;
 	}
