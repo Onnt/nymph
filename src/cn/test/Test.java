@@ -1,8 +1,10 @@
 package cn.test;
 
 import cn.blacard.nymph.date.ChineseCalendar;
+import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
+import cn.blacard.nymph.net.html.HtmlGet;
 import cn.blacard.nymph.net.tool.GeocodingTool;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
@@ -27,10 +29,12 @@ public class Test {
 	 * @param args
 	 */
 	public static void main_address_to_location(String[] args) {
+//	public static void main(String[] args) {
+		LocationEntity location = GeocodingTool.addressToLocation("南翔镇");
 		
-		LocationEntity location = GeocodingTool.addressToLocation("洛阳市");
-		
+		ConverseGeocodingEntity entity = GeocodingTool.getConverseGeocodingEntity(location);
 		System.out.println("经纬度 ： "+location.toString());
+		System.out.println(entity.getResult().getAddressComponent().getStreet());
 	}
 	/**
 	 * 获取天气预报，测试
@@ -38,8 +42,8 @@ public class Test {
 	 * @create 2016年12月20日 上午5:06:11
 	 * @param args
 	 */
-	public static void main_weather(String[] args) {
-		
+//	public static void main_weather(String[] args) {
+	public static void main_address_to_weather(String[] args) {
 		Weather weather = new Weather("洛阳");
 	
 		System.out.println(weather.getForecastWeather().getResult().getHourly().getDescription());
@@ -58,7 +62,10 @@ public class Test {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
 		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("58.34.140.86").toString());
-		
+//		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96as.159").toString());
+		HtmlGet get = new HtmlGet();
+		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");
+		System.out.println(str);
 	}
 	/**
 	 * JSONObject转 Bean测试
