@@ -38,14 +38,14 @@ public class Test {
 	 * @create 2016年12月20日 上午5:06:11
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_weather(String[] args) {
 		
-		Weather weather = new Weather("洛阳市");
+		Weather weather = new Weather("洛阳");
 	
 		System.out.println(weather.getForecastWeather().getResult().getHourly().getDescription());
 		System.out.println(weather.getRealtimeWeather().getResult().getSkycon().toString());
 		System.out.println("当前温度："+weather.getRealtimeWeather().getResult().getTemperature()+" ℃");
-		System.out.println(weather.getForecastWeather().getResult().getDaily().getSkycon()[0].getValue());
+//		System.out.println(weather.getForecastWeather().getResult().getDaily().getSkycon()[0].getValue());
 	}
 	
 	/**
@@ -54,10 +54,10 @@ public class Test {
 	 * @create 2016年12月13日 上午11:51:33
 	 * @param args
 	 */
-	public static void main_ip_to_address(String[] args) {
+	public static void main(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
-		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96.159").toString());
+		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("58.34.140.86").toString());
 		
 	}
 	/**
