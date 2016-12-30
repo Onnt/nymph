@@ -5,6 +5,7 @@ import java.util.Date;
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.date.ChineseCalendarDeal;
 import cn.blacard.nymph.date.NymTime;
+import cn.blacard.nymph.date.NymTimeOld;
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
@@ -88,8 +89,13 @@ public class Test {
 	 * @create 2016年12月13日 上午10:28:25
 	 * @param args
 	 */
+	public static void main_chinese_calendar(String[] args) {
+		Date solar = ChineseCalendar.toSunDate("2017-05-26");
+		System.out.println(NymTimeOld.toString(solar));
+	}
+	
 	public static void main(String[] args) {
-		Date solar = ChineseCalendar.toSunDate("2016-12-12");
-		System.out.println(NymTime.toString(solar));
+		NymTime time = new NymTime("2016-12-30 20:38:49");
+		System.out.println(time.getDate());
 	}
 }
