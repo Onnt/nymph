@@ -5,7 +5,15 @@ import java.util.logging.Logger;
 import cn.blacard.dbopera.constant.DBStyle;
 
 /**
- * 数据库连接参数实体
+ * <b>数据库连接参数实体</b><br/>
+ * 构造器参数列表：<br/>
+ * String style, String ip, String dbName, String user, String pass<br/>
+ * <b>style</b>：数据库类型，用DBStyle<br/>
+ * <b>ip</b>：数据库IP地址，非默认端口需要在IP后面添加端口。
+ * DBStyle.MYSQL默认3306，DBStyle.SQLSERVER 默认为1433<br/>
+ * <b>dbName</b>：数据库 库名<br/>
+ * <b>user</b>：数据库登陆账号<br/>
+ * <b>pass</b>：数据库登陆密码<br/>
  * @author Blacard
  * @changeTime 2016年8月30日15:48:59
  * @since 2016年8月30日15:48:48
