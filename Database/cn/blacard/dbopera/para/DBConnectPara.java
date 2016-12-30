@@ -65,15 +65,9 @@ public class DBConnectPara {
 		initPara();
 		return DRIVER;
 	}
-	public void setDRIVER(String dRIVER) {
-		DRIVER = dRIVER;
-	}
 	public String getURL() {
 		initPara();
 		return URL;
-	}
-	public void setURL(String uRL) {
-		URL = uRL;
 	}
 	public DBConnectPara() {
 		super();
