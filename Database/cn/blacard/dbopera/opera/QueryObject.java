@@ -16,8 +16,12 @@ import cn.blacard.dbopera.connect.Connect;
 import cn.blacard.dbopera.para.DBConnectPara;
 
 /**
- * <T> 
- * 数据库增删改查操作
+ * <h1>数据库增删改查操作</h1>
+ * <b>使用注意事项：</b><br/>
+ * 1. <T>要传入的是数据库对应表被查询的实体对象<br/>
+ * 2. 实体对象的变量需要和表中列名完全对应<br/>
+ * 3. 实体数据类型不能用基本类型，必须是封装类型。<br/>
+ * 4. 其他不知道还有什么，等想到了补充上。或者请联系我的邮箱提出您宝贵的意见<br/>
  * @author Blacard
  * @changeTime 2016年8月30日16:02:16
  * @since 2016年8月30日16:02:06
