@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * description 
+ * 这个类还有很大问题，需要优化
  * author SunAo
  * create time 2016年8月9日 下午3:26:55
  * e-mail : blacard@163.com

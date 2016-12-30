@@ -1,6 +1,10 @@
 package cn.test;
 
+import java.util.Date;
+
 import cn.blacard.nymph.date.ChineseCalendar;
+import cn.blacard.nymph.date.ChineseCalendarDeal;
+import cn.blacard.nymph.date.NymTime;
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
@@ -58,7 +62,7 @@ public class Test {
 	 * @create 2016年12月13日 上午11:51:33
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_ip_to_address(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
 		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("58.34.140.86").toString());
@@ -84,8 +88,8 @@ public class Test {
 	 * @create 2016年12月13日 上午10:28:25
 	 * @param args
 	 */
-	public static void main_nongli(String[] args) {
-		String solar = ChineseCalendar.sCalendarLundarToSolar(2016, 10, 11);
-		System.out.println(solar);
+	public static void main(String[] args) {
+		Date solar = ChineseCalendar.toSunDate("2016-12-12");
+		System.out.println(NymTime.toString(solar));
 	}
 }
