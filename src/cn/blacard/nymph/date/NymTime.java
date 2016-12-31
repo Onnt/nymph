@@ -18,46 +18,56 @@ public class NymTime {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	/**
-	 * 
+	 * 本类的日期本体，如果实例化此类，必需给date赋值
 	 */
 	private Date date;
 	
 	/**
-	 * 
-	 * @param date
+	 * 用Date类型实例化此类
+	 * @param date Date类型
 	 */
 	public NymTime(Date date){
 		this.date = date;
 	}
 	/**
-	 * 
-	 * @param timestamp
+	 * 用时间戳实例化此类
+	 * @param timestamp 时间戳
 	 */
 	public NymTime(long timestamp){
 		this.date = NymTime.timestampToDate(timestamp);
 	}
 	/**
-	 * 
-	 * @param date
+	 * 用字符串类型的时间实例化此类。<br/>
+	 * 字符串默认格式为“yyyy-MM-dd HH:mm:ss”<br/>
+	 * 如果有其他格式请用 NymTime(String date,String format)
+	 * @param date “yyyy-MM-dd HH:mm:ss” 格式的时间
 	 */
 	public NymTime(String date){
 		this.date = NymTime.toDate(date,format);
 	}
 	/**
-	 * 
-	 * @param date
-	 * @param format
+	 * 用指定格式(format)的字符串时间(date)实例化此类。
+	 * format会更新此类的format
+	 * @param date 时间
+	 * @param format 时间格式
 	 */
 	public NymTime(String date,String format){
 		setFormat(format);
 		this.date = NymTime.toDate(date, format);
 	}
+	/**
+	 * 用Date类型时间实例化此类。
+	 * format会更新此类的format
+	 * @param date Date时间
+	 * @param format  format时间格式
+	 */
 	public NymTime(Date date,String format){
 		setFormat(format);
 		this.date = date;
 	}
 	/**
-	 * 
+	 * 将时间转换成字符串返回。
+	 * 格式由format指定
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:30:54
 	 * @return
@@ -66,21 +76,21 @@ public class NymTime {
 		return format.format(date);
 	}
 	/**
-	 * 
+	 * 将给定时间转成字符串返回
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:31:18
-	 * @param date
+	 * @param date Date类型时间
 	 * @return
 	 */
 	public static String toString(Date date){
 		return sdf.format(date);
 	}
 	/**
-	 * 
+	 *  将给定时间转成字符串返回
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:31:30
-	 * @param date
-	 * @param format
+	 * @param date Date类型时间
+	 * @param format 格式
 	 * @return
 	 */
 	public static String toString(Date date,String format){
@@ -88,7 +98,7 @@ public class NymTime {
 		return this_sdf.format(date);
 	}
 	/**
-	 * 
+	 * 获取Date类型时间
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:31:57
 	 * @return
@@ -97,6 +107,7 @@ public class NymTime {
 		return date;
 	}
 	/**
+	 * 将时间转成Date类型<br/>
 	 * 最好能自动匹配各种格式的时间
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:32:12
@@ -112,7 +123,7 @@ public class NymTime {
 		return null;
 	}
 	/**
-	 * 
+	 * 将时间转换成format类型的时间
 	 * @author Blacard
 	 * @create 2016年12月30日 下午7:32:23
 	 * @param date
@@ -128,6 +139,14 @@ public class NymTime {
 		}
 		return null;
 	}
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月31日 下午7:09:58
+	 * @param date
+	 * @param format
+	 * @return
+	 */
 	public static Date toDate(String date,SimpleDateFormat format){
 		try {
 			return format.parse(date);
