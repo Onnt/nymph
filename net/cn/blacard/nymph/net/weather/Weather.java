@@ -55,7 +55,7 @@ public class Weather extends WeatherDeal{
 		if(entity.getStatus().equals("ok")){
 			return entity;
 		}else{
-			System.out.println("Weaher - getRealtimeWeather 获取实时天气失败");
+			System.out.println("Weaher - getRealtimeWeather 获取实时天气失败 \n"+entity.toErrorString());
 			return null;
 		}
 	}
@@ -70,7 +70,7 @@ public class Weather extends WeatherDeal{
 		if(entity.getStatus().equals("ok")){
 			return entity;
 		}else{
-			System.out.println("Weaher - getForecastWeather 获取实时天气失败");
+			System.out.println("Weaher - getForecastWeather 获取实时天气失败 \n "+entity.toErrorString());
 			return null;
 		}
 	}

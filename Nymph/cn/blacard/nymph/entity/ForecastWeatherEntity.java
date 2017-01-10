@@ -17,6 +17,14 @@ public class ForecastWeatherEntity extends BaseEntity{
 	private double[] location;
 	private String unit;
 	private ForecastResultEntity result;
+	private String error;
+	
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
+	}
 	public String getStatus() {
 		return status;
 	}
@@ -73,6 +81,8 @@ public class ForecastWeatherEntity extends BaseEntity{
 	public ForecastWeatherEntity() {
 		super();
 	}
-	
+	public String toErrorString() {
+		return "status:"+status+";error:"+error;
+	}
 
 }

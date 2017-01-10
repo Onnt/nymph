@@ -23,6 +23,16 @@ public class RealtimeWeatherEntity extends BaseEntity{
 	private double[] location;
 	private String unit;
 	private RealtimeResultEntity result;
+	
+	private String error;
+	
+	
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
+	}
 	public String getStatus() {
 		return status;
 	}
@@ -78,5 +88,9 @@ public class RealtimeWeatherEntity extends BaseEntity{
 	}
 	public RealtimeWeatherEntity() {
 		super();
+	}
+	
+	public String toErrorString() {
+		return "status:"+status+";error:"+error;
 	}
 }
