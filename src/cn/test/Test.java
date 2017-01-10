@@ -3,17 +3,15 @@ package cn.test;
 import java.util.Date;
 
 import cn.blacard.nymph.date.ChineseCalendar;
-import cn.blacard.nymph.date.ChineseCalendarDeal;
 import cn.blacard.nymph.date.NymTime;
 import cn.blacard.nymph.date.NymTimeOld;
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
-import cn.blacard.nymph.net.html.HtmlGet;
 import cn.blacard.nymph.net.tool.GeocodingTool;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
-import cn.blacard.nymph.net.tool.IPTool;
 import cn.blacard.nymph.net.weather.Weather;
+import cn.blacard.nymph.random.NumberRandom;
 import net.sf.json.JSONObject;
 
 /**
@@ -66,11 +64,11 @@ public class Test {
 	public static void main_ip_to_address(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
-		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("58.34.140.86").toString());
+		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("219.158.100.25").toString());
 //		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96as.159").toString());
-		HtmlGet get = new HtmlGet();
-		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");
-		System.out.println(str);
+//		HtmlGet get = new HtmlGet();
+//		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");
+//		System.out.println(str);
 	}
 	/**
 	 * JSONObject转 Bean测试
@@ -94,8 +92,14 @@ public class Test {
 		System.out.println(NymTimeOld.toString(solar));
 	}
 	
-	public static void main(String[] args) {
+	public static void main_NymTime(String[] args) {
 		NymTime time = new NymTime("2016-12-30 20:38:49");
 		System.out.println(time.getDate());
+	}
+	
+	public static void main_random(String[] args) {
+		for(int i = 0 ; i < 100; i++){
+			System.out.println(NumberRandom.getRandom(0, 9));
+		}
 	}
 }
