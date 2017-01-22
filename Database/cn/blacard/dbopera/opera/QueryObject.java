@@ -134,7 +134,8 @@ public class QueryObject<T> extends OperaBase{
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closeAll(null, pstmt, conn);
+			closeAll(rs, pstmt, conn);
+			closeAll();
 		}
 		return list;
 	}
@@ -180,9 +181,10 @@ public class QueryObject<T> extends OperaBase{
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
-			System.out.println("��ݿ�����쳣��");
+			System.out.println("增删改时出现异常");
 		} finally {
-			closeAll(null, pstmt, conn);
+			closeAll(rs, pstmt, conn);
+			closeAll();
 		}
 		return count;
 	}
