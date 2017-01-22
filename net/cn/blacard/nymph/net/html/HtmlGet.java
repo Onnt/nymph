@@ -22,11 +22,11 @@ public class HtmlGet{
 			byte[] data = readInputStream(inputStream);
 			
 			String str = new String(data,"UTF-8");
-			System.out.println("HtmlGet-getPage:正常执行，结果集："+str);
 			
 			return  new String(data,"UTF-8");
 		} catch (MalformedURLException e) {
-			System.out.println("HtmlGet 1");
+			System.out.println("HtmlGet-getPage:MalformedURLException异常 "+e.getMessage());
+			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("HtmlGet-getPage:IO异常 "+e.getMessage());
 			e.printStackTrace();
