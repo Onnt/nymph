@@ -2,6 +2,7 @@ package cn.blacard.dbopera.opera;
 
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 

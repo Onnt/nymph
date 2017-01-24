@@ -103,7 +103,7 @@ public class DBConnectPara {
 			break;
 		case DBStyle.MYSQL:
 			DRIVER = "com.mysql.jdbc.Driver";
-			URL = "jdbc:mysql://"+getDealIP(ip,3306)+"/"+dbName;
+			URL = "jdbc:mysql://"+getDealIP(ip,3306)+"/"+dbName+"?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 			break;
 		case DBStyle.ORACLE:
 			DRIVER = "";
