@@ -1,4 +1,4 @@
-package cn.blacard.dbopera.opera;
+package cn.blacard.dbopera.query;
 
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import cn.blacard.dbopera.connect.Connect;
  * @author Blacard
  * @e_mail blacard@163.com
  */
-public class DBInfoQuery extends OperaBase{
+public class QueryDBInfo extends QueryBase{
 	
 	/**
 	 * 获取数据库的所有表 的表名
@@ -51,6 +51,6 @@ public class DBInfoQuery extends OperaBase{
 	 * @return
 	 */
 	public List<List<String>> getTableColumns(String tableName){
-		return new Query().query("select * from information_schema.columns where table_name='"+tableName+"'");
+		return new QueryList().query("select * from information_schema.columns where table_name='"+tableName+"'");
 	}
 }

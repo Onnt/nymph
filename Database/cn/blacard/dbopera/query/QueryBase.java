@@ -1,4 +1,4 @@
-package cn.blacard.dbopera.opera;
+package cn.blacard.dbopera.query;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,9 +18,9 @@ import cn.blacard.dbopera.para.DBConnectPara;
  * @e_mail blacard@163.com
  *
  */
-public class OperaBase {
+public class QueryBase {
 
-	protected Logger log = Logger.getLogger(Query.class.getName());
+	protected Logger log = Logger.getLogger(QueryList.class.getName());
 	
 	protected ResultSet rs = null;
 	protected Statement sta = null;

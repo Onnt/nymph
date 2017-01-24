@@ -1,4 +1,4 @@
-package cn.blacard.dbopera.opera;
+package cn.blacard.dbopera.query;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -28,7 +28,7 @@ import cn.blacard.dbopera.para.DBConnectPara;
  * @e-mail blacard@163.com
  * @param <T>
  */
-public class QueryObject<T> extends OperaBase{
+public class QueryObject<T> extends QueryBase{
 	//数据库连接参数
 	private DBConnectPara para;
 	

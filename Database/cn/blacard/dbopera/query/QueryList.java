@@ -1,4 +1,4 @@
-package cn.blacard.dbopera.opera;
+package cn.blacard.dbopera.query;
 
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -18,13 +18,13 @@ import cn.blacard.dbopera.para.DBConnectPara;
  * @author Blacard
  * @e_mail blacard@163.com
  */
-public class Query extends OperaBase{
+public class QueryList extends QueryBase{
 
 	/**
 	 * 用构造器传入数据库连接参数
 	 * @param para
 	 */
-	public Query(DBConnectPara para){
+	public QueryList(DBConnectPara para){
 		Connect.setConnPara(para);
 	}
 	
@@ -33,7 +33,7 @@ public class Query extends OperaBase{
 	 * 用此构造器之前
 	 * 请确认给Connect设置了数据库连接参数
 	 */
-	public Query(){
+	public QueryList(){
 		super();
 	}
 	

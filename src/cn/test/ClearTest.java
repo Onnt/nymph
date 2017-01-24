@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.blacard.dbopera.opera.Query;
 import cn.blacard.dbopera.para.DBConnectPara;
+import cn.blacard.dbopera.query.QueryList;
 import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
@@ -110,7 +110,7 @@ public class ClearTest {
 	 */
 	public static void main_testDBConnect(String[] args) {
 		DBConnectPara dbp = new DBConnectPara("mysql","blacard.cn","BLACARD","root","yunbin");
-		Query q = new Query(dbp);
+		QueryList q = new QueryList(dbp);
 		for(List<String> list :q.query("select * from person"))
 			for(String s : list)
 				System.out.println(s);
