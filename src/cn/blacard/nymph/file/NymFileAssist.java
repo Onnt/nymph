@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.String.StringTool;
 
 /**
@@ -55,9 +56,9 @@ public class NymFileAssist {
 		List<File> resFiles = new ArrayList<File>();
 		for(File f : files){
 			//如果f是文件，and f的后缀名不为空
-			if(f.isFile()&&StringTool.getSuffix(f.getName())!=null){
+			if(f.isFile()&&Nym.string.getSuffix(f.getName())!=null){
 				//获取到f的后缀名
-				String suf = StringTool.getSuffix(f.getName());
+				String suf = Nym.string.getSuffix(f.getName());
 				//当前文件和 循环和所有后缀名 进行对比
 				for(String suffix : suffixs){
 					if(suf.equals(suffix))

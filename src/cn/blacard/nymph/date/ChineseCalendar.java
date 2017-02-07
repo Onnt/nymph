@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import cn.blacard.nymph.Nym;
+
 /**
  * 中国农历 转换工具
  * @author Blacard
@@ -20,7 +22,7 @@ public class ChineseCalendar {
 	 * @param moonDate 农历
 	 * @return 阳历
 	 */
-	public static Date toSunDate(Date moonDate){
+	public Date toSunDate(Date moonDate){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(moonDate);
 		int year = cal.get(Calendar.YEAR);
@@ -32,7 +34,7 @@ public class ChineseCalendar {
 		try {
 			resultDate = format.parse(chineseDateStr);
 			//减去偏移量
-			resultDate = NymTime.addTime(resultDate, Calendar.DAY_OF_MONTH, -1);
+			resultDate = Nym.time.addTime(resultDate, Calendar.DAY_OF_MONTH, -1);
 		} catch (ParseException e) {
 			System.out.println("ChineseCalendar - toChineseDate ： 将结果字符转换为Date类型时发生异常");
 			e.printStackTrace();
@@ -47,7 +49,7 @@ public class ChineseCalendar {
 	 * @param sunDate
 	 * @return
 	 */
-	public static Date toMoonDate(Date sunDate){
+	public Date toMoonDate(Date sunDate){
 		return null;
 	}
 }

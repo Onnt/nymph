@@ -6,14 +6,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
-
 /**
-@author  Blacard
-邮箱：blacard@163.com
-@date 创建时间：2016年8月25日 下午9:23:15 
+ * 读取文本内容
+ * @author Blacard
+ * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
+ * @create 2016年8月25日 下午9:23:15 
   */
 public class TextRead {
-	public static String read(File file){
+	public String read(File file){
 		StringBuffer sb = new StringBuffer();
 		try {
 			String encoding="GBK";
@@ -36,7 +36,7 @@ public class TextRead {
 		return sb.toString();
 	}
 	
-	public static String read(String file){
+	public String read(String file){
 		return read(new File(file));
 	}
 

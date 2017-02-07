@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.String.StringTool;
 
 /**
@@ -62,10 +63,10 @@ public class DownFromUrl {
     }  
   
     public void downFromUrl(String url,String savePath) throws IOException{
-    	downFromUrl(url, StringTool.getFileName(url), savePath);
+    	downFromUrl(url, Nym.string.getFileName(url), savePath);
     }
     public void downFromUrl(String url) throws IOException{
-    	downFromUrl(url, StringTool.getFileName(url), "D://NymDownLoad");
+    	downFromUrl(url, Nym.string.getFileName(url), "D://NymDownLoad");
     }
     /**
      * 从输入流中获取字节数组 

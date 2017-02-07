@@ -6,20 +6,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
-@author  Blacard
-���䣺blacard@163.com
-@date ����ʱ�䣺2016��7��11�� ����10:51:59 
-  */
+ * 字符串处理工具
+ * @author Blacard
+ * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
+ * @create 2016年7月11日 下午10:51:59
+ */
 public class StringTool {
 	/**
-	 * ƥ���str��
-	 * �������������ʽƥ����ַ�
-	 * ��ӵ�List�з���
-	 * @param str  ����ƥ����ַ�
-	 * @param regEx  ���������ʽ
-	 * @return ƥ�䵽���ַ��list����
+	 * 在给定的字符串中匹配对应正则表达式，
+	 * 所有符合表达式的字符打包至集合中返回
+	 * @param str 
+	 * @param regEx  正则表达式
+	 * @return 
 	 */
-	public static List<String> getStringsByReg(String str,String regEx){
+	public List<String> getStringsByReg(String str,String regEx){
 		List<String> list = new ArrayList<String>();
 		Matcher m = Pattern.compile(regEx).matcher(str);
 		while(m.find()){
@@ -27,15 +27,17 @@ public class StringTool {
 		}
 		return list;
 	}
+
 	/**
-	 * ƥ���str��
-	 * ���������ʽ ƥ����ַ�
-	 * ������ֻ��һ��ƥ��������
-	 * @param str Ҫƥ����ַ�
-	 * @param regEx ���������ʽ
-	 * @return ���û��ƥ����򷵻�null
-	 */ 
-	public static String getStringByReg(String str,String regEx){
+	 * 在给定的字符串中匹配对应正则表达式，
+	 * 只返回第一个匹配的结果
+	 * @author Blacard
+	 * @create 2017年2月7日 下午5:49:30
+	 * @param str
+	 * @param regEx
+	 * @return
+	 */
+	public String getStringByReg(String str,String regEx){
 		List<String> list = getStringsByReg(str,regEx);
 		if(list==null||list.size()==0){
 			return null;
@@ -52,7 +54,7 @@ public class StringTool {
 	 * @param str
 	 * @return
 	 */
-    public static String replaceBlank(String str) {
+    public String replaceBlank(String str) {
         String dest = "";
         if (str!=null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
@@ -69,7 +71,7 @@ public class StringTool {
 	 * @param str
 	 * @return 后缀名
 	 */
-	public static String getSuffix(String str){
+	public String getSuffix(String str){
 		if(str.contains(".") && str.lastIndexOf(".") < str.length())
 			return str.substring(str.lastIndexOf(".")+1, str.length());
 		else
@@ -82,7 +84,7 @@ public class StringTool {
 	 * @param str
 	 * @return
 	 */
-	public static String getFileName(String str){
+	public String getFileName(String str){
 		return str.substring(str.lastIndexOf("/")+1,str.length());
 	}
 }

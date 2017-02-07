@@ -17,7 +17,7 @@ public class NumberRandom {
 		 * @param substract 随即减
 		 * @return result
 		 */
-		public static int getRandom(int base,int add,int substract){
+		public int getRandom(int base,int add,int substract){
 			return base+getRandom(add)-getRandom(substract);
 		}
 		/**
@@ -27,7 +27,7 @@ public class NumberRandom {
 		 * @param base 某个数字
 		 * @return 某个数字以内的随机数，int类型
 		 */
-		private static int getRandom(int base){
+		private int getRandom(int base){
 			return (int) Math.floor((Math.random()*(base+1)));
 		}
 
@@ -39,7 +39,7 @@ public class NumberRandom {
 		 * @param add 基础值 加 这个数字以内的随机数
 		 * @return
 		 */
-		public static int getRandom(int base,int add){
+		public int getRandom(int base,int add){
 			return getRandom(base,add,0);
 		}
 }
