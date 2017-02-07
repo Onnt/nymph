@@ -5,8 +5,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * 中国农历 转换工具
+ * @author Blacard
+ * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
+ * @create 2017年2月7日 下午4:04:44
+ */
 public class ChineseCalendar { 
 	
+	/**
+	 * 农历转换为阳历
+	 * @author Blacard
+	 * @create 2017年2月7日 下午4:05:18
+	 * @param moonDate 农历
+	 * @return 阳历
+	 */
 	public static Date toSunDate(Date moonDate){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(moonDate);
@@ -26,16 +39,14 @@ public class ChineseCalendar {
 		}
 		return resultDate;
 	}
-	public static Date toSunDate(String moonDate){
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			return toSunDate(format.parse(moonDate));
-		} catch (ParseException e) {
-			System.out.println("ChineseCalendar - toSunDate(String moonDate)：时间转换为Date类型时出现异常");
-			e.printStackTrace();
-		}
-		return null;
-	}
+	
+	/**
+	 * 阳历转换为农历，暂时未完成
+	 * @author Blacard
+	 * @create 2017年2月7日 下午4:08:51
+	 * @param sunDate
+	 * @return
+	 */
 	public static Date toMoonDate(Date sunDate){
 		return null;
 	}
