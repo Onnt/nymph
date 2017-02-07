@@ -4,6 +4,7 @@ import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.String.StringTool;
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.date.NymTime;
+import cn.blacard.nymph.net.down.DownFromUrl;
 import cn.blacard.nymph.random.NumberRandom;
 import cn.blacard.nymph.text.TextRead;
 
@@ -54,4 +55,12 @@ public class Nym {
 	 * 读取文本内容
 	 */
 	public final static TextRead textRead = new TextRead();
+	
+	
+	/**
+	 * 
+	 */
+	public final static DownFromUrl down = new DownFromUrl();
+	
+	// 以上方法不依赖jar包
 }

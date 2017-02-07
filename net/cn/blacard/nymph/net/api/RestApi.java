@@ -8,9 +8,10 @@ import java.net.URL;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 /**
-
+ * 
  * @author Blacard
- *
+ * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
+ * @create 2017年2月7日 下午6:06:53
  */
 public class RestApi {
 
