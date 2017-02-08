@@ -1,5 +1,7 @@
 package cn.blacard.nymph.net.tool;
 
+import java.io.IOException;
+
 import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
@@ -12,8 +14,9 @@ public class IPTool{
 	 * @create 2016年12月13日 下午5:24:14
 	 * @param ip
 	 * @return 
+	 * @throws IOException 
 	 */
-	public static String getAddressByIp(String ip){
+	public static String getAddressByIp(String ip) throws IOException{
 		return Nym.geocoding.locationToAddress(new HighPrecisionIpPositioningTool().getLocationByIp(ip));
 	}
 	
@@ -23,8 +26,9 @@ public class IPTool{
 	 * @create 2017年2月8日 上午10:37:07
 	 * @param ip
 	 * @return
+	 * @throws IOException 
 	 */
-	public  LocationEntity getLocationByIp(String ip){
+	public  LocationEntity getLocationByIp(String ip) throws IOException{
 		return new HighPrecisionIpPositioningTool().getLocationByIp(ip);
 	}
 }

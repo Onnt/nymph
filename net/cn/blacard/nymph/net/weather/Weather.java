@@ -2,6 +2,9 @@ package cn.blacard.nymph.net.weather;
 
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.GeocodingTool;
+
+import java.io.IOException;
+
 import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.entity.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.RealtimeWeatherEntity;
@@ -40,8 +43,9 @@ public class Weather extends WeatherDeal{
 	/**
 	 * 获取该地点的天气状况
 	 * @param location 经纬度 sample:"121.6544,25.1552"
+	 * @throws IOException 
 	 */
-	public Weather(String address){
+	public Weather(String address) throws IOException{
 		//将自然语言描述的地点 转换成 经纬度
 		this.location = Nym.geocoding.addressToLocation(address);
 	}
@@ -50,8 +54,9 @@ public class Weather extends WeatherDeal{
 	 * @author Blacard
 	 * @create 2016年12月18日 下午8:01:39
 	 * @return 返回所有关于实时天气的信息
+	 * @throws IOException 
 	 */
-	public RealtimeWeatherEntity getRealtimeWeather(){
+	public RealtimeWeatherEntity getRealtimeWeather() throws IOException{
 		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;
@@ -65,8 +70,9 @@ public class Weather extends WeatherDeal{
 	 * @author Blacard
 	 * @create 2016年12月18日 下午8:01:39
 	 * @return 返回所有关于预报天气的信息
+	 * @throws IOException 
 	 */
-	public ForecastWeatherEntity getForecastWeather(){
+	public ForecastWeatherEntity getForecastWeather() throws IOException{
 		ForecastWeatherEntity entity = this.getForecastWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;

@@ -1,5 +1,7 @@
 package cn.blacard.nymph.net.tool;
 
+import java.io.IOException;
+
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
@@ -21,8 +23,9 @@ public class HighPrecisionIpPositioningTool {
 	 * @create 2016年12月13日 下午9:06:48
 	 * @param ip
 	 * @return
+	 * @throws IOException 
 	 */
-	public  LocationEntity getLocationByIp(String ip){
+	public  LocationEntity getLocationByIp(String ip) throws IOException{
 		HighPrecisionIpPositioningEntity entity = this.getHighPrecisionIpPositionByIp(ip);
 		if(entity.getResult().getError()==161){
 			return entity.getContent().getLocation();
@@ -43,8 +46,9 @@ public class HighPrecisionIpPositioningTool {
 	 * @create 2016年12月13日 下午9:33:59
 	 * @param ip
 	 * @return
+	 * @throws IOException 
 	 */
-	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip){
+	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip) throws IOException{
 		HtmlGet get = new HtmlGet();
 		String result = get.getPage(createRequestUrl(ip));
 		HighPrecisionIpPositioningEntity entity = (HighPrecisionIpPositioningEntity)JSONObject.toBean(JSONObject.fromObject(result), HighPrecisionIpPositioningEntity.class);

@@ -1,6 +1,7 @@
 package cn.test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,8 +14,6 @@ import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
-import cn.blacard.nymph.net.tool.GeocodingTool;
-import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.weather.Weather;
 import cn.blacard.nymph.text.TextOut;
 import net.sf.json.JSONObject;
@@ -130,8 +129,9 @@ public class ClearTest {
 	 * @author Blacard
 	 * @create 2016年12月20日 上午7:08:33
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main_address_to_location(String[] args) {
+	public static void main_address_to_location(String[] args) throws IOException {
 //	public static void main(String[] args) {
 		LocationEntity location = Nym.geocoding.addressToLocation("南翔镇");
 		
@@ -144,9 +144,10 @@ public class ClearTest {
 	 * @author Blacard
 	 * @create 2016年12月20日 上午5:06:11
 	 * @param args
+	 * @throws IOException 
 	 */
 //	public static void main_weather(String[] args) {
-	public static void main_address_to_weather(String[] args) {
+	public static void main_address_to_weather(String[] args) throws IOException {
 		Weather weather = new Weather("洛阳");
 	
 		System.out.println(weather.getForecastWeather().getResult().getHourly().getDescription());
@@ -160,8 +161,9 @@ public class ClearTest {
 	 * @author Blacard
 	 * @create 2016年12月13日 上午11:51:33
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main_ip_to_address(String[] args) {
+	public static void main_ip_to_address(String[] args) throws IOException {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
 		System.out.println(Nym.ip.getLocationByIp("219.158.100.25").toString());

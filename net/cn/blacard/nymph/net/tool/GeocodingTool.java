@@ -1,5 +1,7 @@
 package cn.blacard.nymph.net.tool;
 
+import java.io.IOException;
+
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.GeocodingEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
@@ -26,8 +28,9 @@ public class GeocodingTool {
 	 * @create 2016年12月13日 下午6:16:02
 	 * @param location
 	 * @return
+	 * @throws IOException 
 	 */
-	public String locationToAddress(LocationEntity location){
+	public String locationToAddress(LocationEntity location) throws IOException{
 		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
 		if(entity.getStatus()==0){
 			return entity.getResult().getFormatted_address();
@@ -46,8 +49,9 @@ public class GeocodingTool {
 	 * @create 2016年12月22日 上午5:59:14
 	 * @param address
 	 * @return
+	 * @throws IOException 
 	 */
-	public LocationEntity addressToLocation(String address){
+	public LocationEntity addressToLocation(String address) throws IOException{
 		GeocodingEntity entity = this.getGeocoding(address);
 		if(entity.getStatus()==0){
 			return entity.getResult().getLocation();
@@ -66,8 +70,9 @@ public class GeocodingTool {
 	 * @create 2016年12月22日 上午6:07:37
 	 * @param location
 	 * @return
+	 * @throws IOException 
 	 */
-	public ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location){
+	public ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location) throws IOException{
 		return this.getConverseGeocoding(location);
 	}
 	
@@ -77,8 +82,9 @@ public class GeocodingTool {
 	 * @create 2016年12月22日 上午6:07:41
 	 * @param address
 	 * @return
+	 * @throws IOException 
 	 */
-	public GeocodingEntity getGeocodingEntity(String address){
+	public GeocodingEntity getGeocodingEntity(String address) throws IOException{
 		return this.getGeocoding(address);
 	}
 	
@@ -98,13 +104,14 @@ public class GeocodingTool {
 	 * @create 2016年12月13日 下午6:15:41
 	 * @param location
 	 * @return
+	 * @throws IOException 
 	 */
-	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location){
+	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
 		String requestUrl = createRequestUrl(location);
-		JSONObject jsonObj =JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
+		JSONObject jsonObj = JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
 		return (ConverseGeocodingEntity) JSONObject.toBean(
-						jsonObj,
-						ConverseGeocodingEntity.class);
+					jsonObj,
+					ConverseGeocodingEntity.class);
 	}
 	
 	/**
@@ -113,13 +120,14 @@ public class GeocodingTool {
 	 * @create 2016年12月20日 上午7:05:46
 	 * @param location
 	 * @return
+	 * @throws IOException 
 	 */
-	private GeocodingEntity getGeocoding(String address){
+	private GeocodingEntity getGeocoding(String address) throws IOException{
 		String requestUrl = createRequestUrl(address);
-		JSONObject jsonObj =JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
+		JSONObject jsonObj  = JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
 		return (GeocodingEntity) JSONObject.toBean(
-						jsonObj,
-						GeocodingEntity.class);
+					jsonObj,
+					GeocodingEntity.class);
 	}
 	
 	/**

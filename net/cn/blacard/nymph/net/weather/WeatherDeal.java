@@ -1,5 +1,7 @@
 package cn.blacard.nymph.net.weather;
 
+import java.io.IOException;
+
 import cn.blacard.nymph.entity.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.RealtimeWeatherEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
@@ -19,8 +21,9 @@ public class WeatherDeal {
 	 * @create 2016年12月20日 上午6:14:15
 	 * @param location 经纬度 sample:"121.6544,25.1552"
 	 * @return
+	 * @throws IOException 
 	 */
-	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location){
+	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location) throws IOException{
 		HtmlGet get = new HtmlGet();
 		String realtimeWeather = get.getPage(createRequestUrl(location,"realtime.json"));
 		return (RealtimeWeatherEntity)JSONObject.toBean(
@@ -34,8 +37,9 @@ public class WeatherDeal {
 	 * @create 2016年12月19日 上午7:07:48
 	 * @param location 经纬度 sample:"121.6544,25.1552"
 	 * @return
+	 * @throws IOException 
 	 */
-	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) {
+	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException {
 		HtmlGet get = new HtmlGet();
 		String forecastWeather = get.getPage(createRequestUrl(location,"forecast.json"));
 		return (ForecastWeatherEntity)JSONObject.toBean(
