@@ -11,30 +11,19 @@ import org.apache.commons.lang3.StringEscapeUtils;
 
 public class HtmlGet{
 	
-	public String getPage(String path){
+	public String getPage(String path) throws IOException{
 		
-		try {
+		URL url = new URL(path);
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		InputStream inputStream = conn.getInputStream();
+		byte[] data = readInputStream(inputStream);
+		
+		String str = new String(data,"UTF-8");
 			
-			URL url = new URL(path);
-			System.out.println("HtmlGet-getPage URL:"+path);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			InputStream inputStream = conn.getInputStream();
-			byte[] data = readInputStream(inputStream);
-			
-			String str = new String(data,"UTF-8");
-			
-			return  new String(data,"UTF-8");
-		} catch (MalformedURLException e) {
-			System.out.println("HtmlGet-getPage:MalformedURLException异常 "+e.getMessage());
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("HtmlGet-getPage:IO异常 "+e.getMessage());
-			e.printStackTrace();
-		}
-		return null;
+		return  new String(data,"UTF-8");
 	}
 	
-	public String getData(String path){
+	public String getData(String path) throws IOException{
 		return StringEscapeUtils.unescapeJava(getPage(path));
 	}
 	
