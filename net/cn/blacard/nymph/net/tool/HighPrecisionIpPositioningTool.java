@@ -14,10 +14,7 @@ import net.sf.json.JSONObject;
  * @Create 2016年12月13日 下午8:32:44
  */
 public class HighPrecisionIpPositioningTool {
-	
-	//获取本类的静态实例化对象，本工具类只开放静态方法，非静态方法全部私有
-	private static HighPrecisionIpPositioningTool tool = new HighPrecisionIpPositioningTool();
-	
+	 
 	/**
 	 * 通过IP获取经纬度
 	 * @author Blacard
@@ -25,12 +22,12 @@ public class HighPrecisionIpPositioningTool {
 	 * @param ip
 	 * @return
 	 */
-	public static LocationEntity getLocationByIp(String ip){
-		HighPrecisionIpPositioningEntity entity = tool.getHighPrecisionIpPositionByIp(ip);
+	public  LocationEntity getLocationByIp(String ip){
+		HighPrecisionIpPositioningEntity entity = this.getHighPrecisionIpPositionByIp(ip);
 		if(entity.getResult().getError()==161){
 			return entity.getContent().getLocation();
 		}else{
-			System.out.println(tool.getClass().getName()+":通过IP获取经纬度是发生错误，错误码："+entity.getResult().getError());
+			System.out.println(this.getClass().getName()+":通过IP获取经纬度是发生错误，错误码："+entity.getResult().getError());
 			return null;
 		}
 	}

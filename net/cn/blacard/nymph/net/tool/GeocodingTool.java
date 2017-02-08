@@ -12,16 +12,13 @@ import net.sf.json.JSONObject;
  * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding</a><br/>
  * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务<br/>
  * 
- * 工具类默认开放方法均为静态类，开放方法相当于service
+ * 开放方法相当于service
  * 
  * @author Blacard
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月13日 下午9:48:39
  */
 public class GeocodingTool {
-	
-	//获取本类的静态实例化对象，本工具类只开放静态方法，非静态方法全部私有
-	private static GeocodingTool tool = new GeocodingTool();
 	
 	/**
 	 * 经纬度 转 地理位置
@@ -30,13 +27,13 @@ public class GeocodingTool {
 	 * @param location
 	 * @return
 	 */
-	public static String locationToAddress(LocationEntity location){
-		ConverseGeocodingEntity entity = tool.getConverseGeocoding(location);
+	public String locationToAddress(LocationEntity location){
+		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
 		if(entity.getStatus()==0){
 			return entity.getResult().getFormatted_address();
 		}else{
 			System.out.println(
-					tool.getClass().getName()+
+					this.getClass().getName()+
 					": 逆向编译地理位置时发生错误，错误码："
 					+entity.getStatus());
 			return null;
@@ -50,13 +47,13 @@ public class GeocodingTool {
 	 * @param address
 	 * @return
 	 */
-	public static LocationEntity addressToLocation(String address){
-		GeocodingEntity entity = tool.getGeocoding(address);
+	public LocationEntity addressToLocation(String address){
+		GeocodingEntity entity = this.getGeocoding(address);
 		if(entity.getStatus()==0){
 			return entity.getResult().getLocation();
 		}else{
 			System.out.println(
-					tool.getClass().getName()+
+					this.getClass().getName()+
 					": 根据地理位置获取经纬度时发生错误，错误码："
 					+entity.getStatus());
 			return null;
@@ -70,8 +67,8 @@ public class GeocodingTool {
 	 * @param location
 	 * @return
 	 */
-	public static ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location){
-		return tool.getConverseGeocoding(location);
+	public ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location){
+		return this.getConverseGeocoding(location);
 	}
 	
 	/**
@@ -81,8 +78,8 @@ public class GeocodingTool {
 	 * @param address
 	 * @return
 	 */
-	public static GeocodingEntity getGeocodingEntity(String address){
-		return tool.getGeocoding(address);
+	public GeocodingEntity getGeocodingEntity(String address){
+		return this.getGeocoding(address);
 	}
 	
 	

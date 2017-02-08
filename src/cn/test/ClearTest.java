@@ -133,9 +133,9 @@ public class ClearTest {
 	 */
 	public static void main_address_to_location(String[] args) {
 //	public static void main(String[] args) {
-		LocationEntity location = GeocodingTool.addressToLocation("南翔镇");
+		LocationEntity location = Nym.geocoding.addressToLocation("南翔镇");
 		
-		ConverseGeocodingEntity entity = GeocodingTool.getConverseGeocodingEntity(location);
+		ConverseGeocodingEntity entity = Nym.geocoding.getConverseGeocodingEntity(location);
 		System.out.println("经纬度 ： "+location.toString());
 		System.out.println(entity.getResult().getAddressComponent().getStreet());
 	}
@@ -164,7 +164,7 @@ public class ClearTest {
 	public static void main_ip_to_address(String[] args) {
 //		HighPrecisionIpPositioningEntity entity = IPTool.getHighPrecisionIpPositioningByIP("58.34.140.86");
 //		System.out.println(IPTool.getAddressByIp("115.51.96.159"));
-		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("219.158.100.25").toString());
+		System.out.println(Nym.ip.getLocationByIp("219.158.100.25").toString());
 //		System.out.println(HighPrecisionIpPositioningTool.getLocationByIp("115.51.96as.159").toString());
 //		HtmlGet get = new HtmlGet();
 //		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");

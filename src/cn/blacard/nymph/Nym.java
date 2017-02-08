@@ -1,10 +1,14 @@
 package cn.blacard.nymph;
 
+
 import cn.blacard.nymph.String.NymFormat;
 import cn.blacard.nymph.String.StringTool;
 import cn.blacard.nymph.date.ChineseCalendar;
 import cn.blacard.nymph.date.NymTime;
 import cn.blacard.nymph.net.down.DownFromUrl;
+import cn.blacard.nymph.net.tool.GeocodingTool;
+import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
+import cn.blacard.nymph.net.tool.IPTool;
 import cn.blacard.nymph.random.NumberRandom;
 import cn.blacard.nymph.text.TextRead;
 
@@ -18,7 +22,7 @@ import cn.blacard.nymph.text.TextRead;
  * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
  * @create 2017年2月7日 下午5:50:49
  */
-public class Nym {
+public class Nym{
 	/**
 	 * 中国农历 转换工具
 	 * <li>将农历转换为日历</li>
@@ -63,4 +67,26 @@ public class Nym {
 	public final static DownFromUrl down = new DownFromUrl();
 	
 	// 以上方法不依赖jar包
+	
+	/**
+	 * <h1>地址解析和逆地址解析功能</h1>
+	 * <a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding">
+	 * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding</a><br/>
+	 * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务<br>
+	 * 依赖JSON包 <br>
+	 * 依赖 org.apache.commons.lang3包
+	 */
+	public final static GeocodingTool geocoding = new GeocodingTool();
+	
+	/**
+	 * <h1>高精度IP定位</h1>
+	 * <a href="http://lbsyun.baidu.com/index.php?title=webapi/high-acc-ip">官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/high-acc-ip</a><br/>
+	 * 
+	 * 	依赖JSON包 <br>
+	 * 依赖 org.apache.commons.lang3包
+	 * @author Blacard
+	 * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
+	 * @Create 2016年12月13日 下午8:32:44
+	 */
+	public final static IPTool ip= new IPTool();
 }

@@ -2,6 +2,7 @@ package cn.blacard.nymph.net.weather;
 
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.GeocodingTool;
+import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.entity.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.RealtimeWeatherEntity;
 
@@ -42,7 +43,7 @@ public class Weather extends WeatherDeal{
 	 */
 	public Weather(String address){
 		//将自然语言描述的地点 转换成 经纬度
-		this.location = GeocodingTool.addressToLocation(address);
+		this.location = Nym.geocoding.addressToLocation(address);
 	}
 	/**
 	 * 获取实时天气

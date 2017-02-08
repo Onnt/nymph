@@ -75,7 +75,7 @@ public class DownFromUrl {
      * @return
      * @throws IOException
      */
-    public static  byte[] readInputStream(InputStream inputStream) throws IOException {    
+    private byte[] readInputStream(InputStream inputStream) throws IOException {    
         byte[] buffer = new byte[1024];    
         int len = 0;    
         ByteArrayOutputStream bos = new ByteArrayOutputStream();    
