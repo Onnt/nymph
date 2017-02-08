@@ -20,16 +20,7 @@ public class NumberRandom {
 		public int getRandom(int base,int add,int substract){
 			return base+getRandom(add)-getRandom(substract);
 		}
-		/**
-		 * 在某个数以内的随机数
-		 * @author Blacard
-		 * @Create 2016年9月18日 下午5:13:48
-		 * @param base 某个数字
-		 * @return 某个数字以内的随机数，int类型
-		 */
-		private int getRandom(int base){
-			return (int) Math.floor((Math.random()*(base+1)));
-		}
+
 
 		/**
 		 * 某个数字 加 另一个数字以内的随机数
@@ -41,5 +32,16 @@ public class NumberRandom {
 		 */
 		public int getRandom(int base,int add){
 			return getRandom(base,add,0);
+		}
+		
+		/**
+		 * 在某个数以内的随机数
+		 * @author Blacard
+		 * @Create 2016年9月18日 下午5:13:48
+		 * @param base 某个数字
+		 * @return 某个数字以内的随机数，int类型
+		 */
+		private int getRandom(int base){
+			return (int) Math.floor((Math.random()*(base+1)));
 		}
 }

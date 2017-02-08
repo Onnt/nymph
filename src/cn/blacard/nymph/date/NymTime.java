@@ -85,7 +85,20 @@ public class NymTime {
 		}
 		return d;
 	}
-
+	/**
+	 * 
+	 * @author Blacard
+	 * @create 2016年12月30日 下午7:32:29
+	 * @param timestamp
+	 * @return
+	 */
+	public Date toDate(long timestamp){
+		if((timestamp/100000000L)>1000){
+			return new Date(timestamp);
+		}else{
+			return new Date(timestamp * 1000);
+		}
+	}
 	/**
 	 * 
 	 * @author Blacard
@@ -115,20 +128,7 @@ public class NymTime {
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return toDate(date,this_sdf);
 	}
-	/**
-	 * 
-	 * @author Blacard
-	 * @create 2016年12月30日 下午7:32:29
-	 * @param timestamp
-	 * @return
-	 */
-	public Date toDate(long timestamp){
-		if((timestamp/100000000L)>1000){
-			return new Date(timestamp);
-		}else{
-			return new Date(timestamp * 1000);
-		}
-	}
+
 	
 	/**
 	 * 

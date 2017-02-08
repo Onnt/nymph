@@ -60,7 +60,7 @@ public class NymFormat {
 	 * @param str 数字加单位形式表示的文件大小
 	 * @return 转换后的纯数字文件大小
 	 */
-	public static long fileSizeToLong(String str){
+	public  long fileSizeToLong(String str){
 		//获取到参数的数字部分
 		float n = Float.parseFloat(str.substring(0,str.length()-2));
 		//获取到参数的单位部分
