@@ -14,6 +14,7 @@ import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
+import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.weather.Weather;
 import cn.blacard.nymph.text.TextOut;
 
@@ -178,7 +179,7 @@ public class ClearTest {
 	 * @create 2016年12月13日 上午10:28:25
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_chinese(String[] args) {
 		Date solar = Nym.chineseCalendar.toSunDate(new Date());
 		System.out.println(Nym.time.toString(solar));
 	}
@@ -186,6 +187,15 @@ public class ClearTest {
 	public static void main_random(String[] args) {
 		for(int i = 0 ; i < 100; i++){
 			System.out.println(Nym.random.getRandom(0, 9));
+		}
+	}
+	
+	public static void main(String[] args) {
+		try {
+			System.out.println(Nym.ip.getLocationByIp("58.34.141.111"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

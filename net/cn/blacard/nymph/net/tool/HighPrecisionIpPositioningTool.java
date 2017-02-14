@@ -52,7 +52,7 @@ public class HighPrecisionIpPositioningTool {
 	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip) throws IOException{
 		HtmlGet get = new HtmlGet();
 		String result = get.getPage(createRequestUrl(ip));
-		return (HighPrecisionIpPositioningEntity) JSON.parse(result);
+		return JSON.parseObject(result,HighPrecisionIpPositioningEntity.class);
 	}
 	
 	/**

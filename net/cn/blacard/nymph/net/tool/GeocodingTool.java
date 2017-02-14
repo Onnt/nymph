@@ -110,7 +110,7 @@ public class GeocodingTool {
 	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
 		String requestUrl = createRequestUrl(location);
 		String respStr = new HtmlGet().getPage(requestUrl);
-		return (ConverseGeocodingEntity) JSON.parse(respStr);
+		return JSON.parseObject(respStr,ConverseGeocodingEntity.class);
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class GeocodingTool {
 	private GeocodingEntity getGeocoding(String address) throws IOException{
 		String requestUrl = createRequestUrl(address);
 		String respStr = new HtmlGet().getPage(requestUrl);
-		return (GeocodingEntity) JSON.parse(respStr);
+		return JSON.parseObject(respStr,GeocodingEntity.class);
 	}
 	
 	/**

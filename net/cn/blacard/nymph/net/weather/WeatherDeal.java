@@ -28,7 +28,7 @@ public class WeatherDeal {
 		HtmlGet get = new HtmlGet();
 		String realtimeWeather = get.getPage(createRequestUrl(location,"realtime.json"));
 		
-		return (RealtimeWeatherEntity) JSON.parse(realtimeWeather);
+		return JSON.parseObject(realtimeWeather,RealtimeWeatherEntity.class);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class WeatherDeal {
 	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException {
 		HtmlGet get = new HtmlGet();
 		String forecastWeather = get.getPage(createRequestUrl(location,"forecast.json"));
-		return (ForecastWeatherEntity) JSON.parse(forecastWeather);
+		return JSON.parseObject(forecastWeather,ForecastWeatherEntity.class);
 	}
 	
 	/**
