@@ -2,11 +2,12 @@ package cn.blacard.nymph.net.weather;
 
 import java.io.IOException;
 
+import com.alibaba.fastjson.JSON;
+
 import cn.blacard.nymph.entity.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.RealtimeWeatherEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
-import net.sf.json.JSONObject;
 
 /**
  * 
@@ -26,9 +27,8 @@ public class WeatherDeal {
 	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location) throws IOException{
 		HtmlGet get = new HtmlGet();
 		String realtimeWeather = get.getPage(createRequestUrl(location,"realtime.json"));
-		return (RealtimeWeatherEntity)JSONObject.toBean(
-						JSONObject.fromObject(realtimeWeather),
-						RealtimeWeatherEntity.class);
+		
+		return (RealtimeWeatherEntity) JSON.parse(realtimeWeather);
 	}
 
 	/**
@@ -42,9 +42,7 @@ public class WeatherDeal {
 	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException {
 		HtmlGet get = new HtmlGet();
 		String forecastWeather = get.getPage(createRequestUrl(location,"forecast.json"));
-		return (ForecastWeatherEntity)JSONObject.toBean(
-						JSONObject.fromObject(forecastWeather),
-						ForecastWeatherEntity.class);
+		return (ForecastWeatherEntity) JSON.parse(forecastWeather);
 	}
 	
 	/**

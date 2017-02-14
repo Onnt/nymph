@@ -16,7 +16,6 @@ import cn.blacard.nymph.file.NymFile;
 import cn.blacard.nymph.net.down.DownFromUrl;
 import cn.blacard.nymph.net.weather.Weather;
 import cn.blacard.nymph.text.TextOut;
-import net.sf.json.JSONObject;
 
 public class ClearTest {
 	
@@ -172,17 +171,7 @@ public class ClearTest {
 //		String str = get.getPage("http://api.map.baidu.com/highacciploc/v1?qterm=pc&ak=yMOZ0v2ANY6UF0l6CNfVnVae&coord=bd09ll&qcip=116.225.64.220");
 //		System.out.println(str);
 	}
-	/**
-	 * JSONObject转 Bean测试
-	 * @author Blacard
-	 * @create 2016年12月13日 上午10:29:00
-	 * @param args
-	 */
-	public static void main_json_to_bean(String[] args) {
-		JSONObject hehe = JSONObject.fromObject("{'content':{'location':{'lat':31.225112,'lng':121.443857},'locid':'8a6e357f270e6ef2688ab1a34ef2b89e','radius':30,'confidence':1.0},'result':{'error':161,'loc_time':'2016-12-13 10:07:34'}}");
-		HighPrecisionIpPositioningEntity entity = (HighPrecisionIpPositioningEntity)JSONObject.toBean(hehe,HighPrecisionIpPositioningEntity.class);
-		System.out.println(entity.getResult().getError());
-	}
+
 	/**
 	 * 农历，公历转换测试
 	 * @author Blacard

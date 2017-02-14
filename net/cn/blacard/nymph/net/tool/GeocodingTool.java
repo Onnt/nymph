@@ -2,11 +2,12 @@ package cn.blacard.nymph.net.tool;
 
 import java.io.IOException;
 
+import com.alibaba.fastjson.JSON;
+
 import cn.blacard.nymph.entity.ConverseGeocodingEntity;
 import cn.blacard.nymph.entity.GeocodingEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
-import net.sf.json.JSONObject;
 
 /**
  * <h1>地址解析和逆地址解析功能</h1>
@@ -108,10 +109,8 @@ public class GeocodingTool {
 	 */
 	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
 		String requestUrl = createRequestUrl(location);
-		JSONObject jsonObj = JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
-		return (ConverseGeocodingEntity) JSONObject.toBean(
-					jsonObj,
-					ConverseGeocodingEntity.class);
+		String respStr = new HtmlGet().getPage(requestUrl);
+		return (ConverseGeocodingEntity) JSON.parse(respStr);
 	}
 	
 	/**
@@ -124,10 +123,8 @@ public class GeocodingTool {
 	 */
 	private GeocodingEntity getGeocoding(String address) throws IOException{
 		String requestUrl = createRequestUrl(address);
-		JSONObject jsonObj  = JSONObject.fromObject(new HtmlGet().getPage(requestUrl));
-		return (GeocodingEntity) JSONObject.toBean(
-					jsonObj,
-					GeocodingEntity.class);
+		String respStr = new HtmlGet().getPage(requestUrl);
+		return (GeocodingEntity) JSON.parse(respStr);
 	}
 	
 	/**

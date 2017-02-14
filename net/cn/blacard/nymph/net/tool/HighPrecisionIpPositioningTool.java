@@ -2,10 +2,11 @@ package cn.blacard.nymph.net.tool;
 
 import java.io.IOException;
 
+import com.alibaba.fastjson.JSON;
+
 import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
-import net.sf.json.JSONObject;
 
 /**
  * <h1>高精度IP定位</h1>
@@ -51,8 +52,7 @@ public class HighPrecisionIpPositioningTool {
 	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip) throws IOException{
 		HtmlGet get = new HtmlGet();
 		String result = get.getPage(createRequestUrl(ip));
-		HighPrecisionIpPositioningEntity entity = (HighPrecisionIpPositioningEntity)JSONObject.toBean(JSONObject.fromObject(result), HighPrecisionIpPositioningEntity.class);
-		return entity;
+		return (HighPrecisionIpPositioningEntity) JSON.parse(result);
 	}
 	
 	/**
