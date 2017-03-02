@@ -1,5 +1,6 @@
 package cn.blacard.nymph;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -103,7 +104,7 @@ public class NymphDemo {
 	 * @create 2017年2月8日 下午2:20:42
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_string(String[] args) {
 		
 		//去掉字符串中所有空白符(空格，制表符，回车符)
 		String str = "this is a demo String";
@@ -111,5 +112,18 @@ public class NymphDemo {
 		
 		//获取文件后缀名
 		System.out.println(Nym.string.getSuffix("haha.mp4"));
+	}
+	
+	/**
+	 * 文本读取
+	 * @author Blacard
+	 * @create 2017年3月1日 上午11:13:41
+	 * @param args
+	 */
+	public static void main(String[] args) {
+//		String path = "文本的路径";
+		String path="D://a.txt";
+		Nym.textRead.read(new File(path));
+		Nym.textRead.read(path);
 	}
 }

@@ -89,10 +89,6 @@ public class GeocodingTool {
 		return this.getGeocoding(address);
 	}
 	
-	
-	
-	
-	
 	/* ==========================================
 	 * 			以下为私有方法
 	 * ==========================================
@@ -128,7 +124,7 @@ public class GeocodingTool {
 	}
 	
 	/**
-	 * 
+	 * 创建请求地址
 	 * @author Blacard
 	 * @create 2016年12月20日 上午6:40:18
 	 * @param address
@@ -143,7 +139,7 @@ public class GeocodingTool {
 	}
 	
 	/**
-	 * 
+	 *  创建请求
 	 * @author Blacard
 	 * @create 2016年12月13日 下午6:15:48
 	 * @param location
