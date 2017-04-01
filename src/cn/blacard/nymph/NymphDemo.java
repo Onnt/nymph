@@ -36,7 +36,7 @@ public class NymphDemo {
 	 * @create 2017年2月8日 上午11:40:23
 	 * @param args
 	 */
-	public static void main_NymTime(String[] args) {
+	public static void main(String[] args) {
 		//Date类型转字符串类型
 		System.out.println(Nym.time.toString(new Date()));
 		
@@ -67,7 +67,8 @@ public class NymphDemo {
 		System.out.println(Nym.time.addTime(new Date(),Calendar.DAY_OF_MONTH,48));
 		//算出56小时之前的日期
 		System.out.println(Nym.time.addTime(new Date(), Calendar.HOUR_OF_DAY, -56));
-		
+	
+		System.out.println(Nym.time.setDate(new Date()).timeToZero().getString());
 	}
 	
 	/**
@@ -120,7 +121,7 @@ public class NymphDemo {
 	 * @create 2017年3月1日 上午11:13:41
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main_TextRead(String[] args) {
 //		String path = "文本的路径";
 		String path="D://a.txt";
 		Nym.textRead.read(new File(path));
