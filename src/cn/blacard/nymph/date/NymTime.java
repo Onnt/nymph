@@ -12,7 +12,32 @@ import java.util.Date;
  * @create 2016年12月30日 下午7:07:28
  */
 public class NymTime {
-
+	
+	private Date date;
+	
+	public NymTime(){
+		
+	}
+	public NymTime(Date date){
+		this.date = date;
+	}
+	public NymTime(String date){
+		this.date = toDate(date);
+	}
+	public String getString(){
+		return toString(date);
+	}
+	public Date getDate(){
+		return date;
+	}
+	public NymTime setDate(Date date){
+		this.date = date;
+		return this;
+	}
+	public NymTime setDate(String date){
+		this.date = toDate(date);
+		return this;
+	}
 	/**
 	 * 将给定时间转成字符串返回.
 	 * @author Blacard
@@ -34,6 +59,10 @@ public class NymTime {
 	public String toString(Date date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return this_sdf.format(date);
+	}
+	public NymTime format(String format){
+		this.date = toDate(toString(this.date,format));
+		return this;
 	}
 	/**
 	 * 将时间转成Date类型<br/>
@@ -155,5 +184,10 @@ public class NymTime {
 		cal.setTime(date);
 		cal.add(UNIT, add);
 		return cal.getTime();
+	}
+	
+	public NymTime addTime(int unit, int add){
+		this.date = addTime(date,unit,add);
+		return this;
 	}
 }
