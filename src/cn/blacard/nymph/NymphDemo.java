@@ -68,7 +68,7 @@ public class NymphDemo {
 		//算出56小时之前的日期
 		System.out.println(Nym.time.addTime(new Date(), Calendar.HOUR_OF_DAY, -56));
 	
-		System.out.println(Nym.time.setDate(new Date()).timeToZero().getString());
+		Nym.time.setDate(new Date()).timeToZero().format("").format("").format("").format("").format("").addTime(0, 0).getDate();
 	}
 	
 	/**
