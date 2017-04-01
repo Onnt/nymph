@@ -191,14 +191,20 @@ public class NymTime {
 		return this;
 	}
 	
-	
-	public Date timeToZero(Date date){
+	public Date setTimeGetDate(Date date,int hour,int minute,int second){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		cal.set(Calendar.HOUR, 0);
-		cal.set(Calendar.MINUTE, 0);
-		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.HOUR, hour);
+		cal.set(Calendar.MINUTE, minute);
+		cal.set(Calendar.SECOND, second);
 		return cal.getTime();
+	}
+	public NymTime setTimeGetDate(int hour,int minute,int second){
+		this.date = setTimeGetDate(date,hour,minute,second);
+		return this;
+	}
+	public Date timeToZero(Date date){
+		return setTimeGetDate(date,0,0,0);
 	}
 	
 	public NymTime timeToZero(){
