@@ -21,7 +21,6 @@ public class NumberRandom {
 			return base+getRandom(add)-getRandom(substract);
 		}
 
-
 		/**
 		 * 某个数字 加 另一个数字以内的随机数
 		 * @author Blacard
