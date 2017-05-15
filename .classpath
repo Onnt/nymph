@@ -29,5 +29,6 @@
 	<classpathentry kind="lib" path="lib/database/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="lib" path="lib/database/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="lib/fastjson-1.1.6.jar"/>
+	<classpathentry kind="lib" path="lib/database/mongo-java-driver-3.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
