@@ -7,17 +7,11 @@ import java.util.Date;
 
 /**
  * Nymph 代码使用示例
- * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2017年2月8日 上午11:33:53
  */
 public class NymphDemo {
 	
 	/**
 	 * 中国农历转换工具 使用说明
-	 * @author Blacard
-	 * @create 2017年2月8日 上午11:34:36
-	 * @param args
 	 */
 	public static void main_chineseCalendar(String[] args) {
 		String date_str = "2017-02-02"; //一个农历日期
@@ -32,8 +26,6 @@ public class NymphDemo {
 	
 	/**
 	 * 时间转换以及计算工具
-	 * @author Blacard
-	 * @create 2017年2月8日 上午11:40:23
 	 * @param args
 	 */
 	public static void main(String[] args) {
