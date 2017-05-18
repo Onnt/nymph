@@ -50,7 +50,7 @@ public class QueryDBInfo extends QueryBase{
 	 * @param tableName
 	 * @return
 	 */
-	public List<List<String>> getTableColumns(String tableName){
-		return new QueryList().query("select * from information_schema.columns where table_name='"+tableName+"'");
-	}
+//	public List<List<String>> getTableColumns(String tableName){
+//		return new QueryList().query("select * from information_schema.columns where table_name='"+tableName+"'");
+//	}
 }

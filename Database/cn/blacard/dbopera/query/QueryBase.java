@@ -20,8 +20,6 @@ import cn.blacard.dbopera.para.DBConnectPara;
  */
 public class QueryBase {
 
-	protected Logger log = Logger.getLogger(QueryList.class.getName());
-	
 	protected ResultSet rs = null;
 	protected Statement sta = null;
 	protected Connection conn = null;
