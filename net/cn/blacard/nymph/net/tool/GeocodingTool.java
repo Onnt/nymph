@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.blacard.nymph.entity.ConverseGeocodingEntity;
-import cn.blacard.nymph.entity.GeocodingEntity;
+import cn.blacard.nymph.entity.Geocoding.ConverseGeocodingEntity;
+import cn.blacard.nymph.entity.Geocoding.GeocodingEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
 

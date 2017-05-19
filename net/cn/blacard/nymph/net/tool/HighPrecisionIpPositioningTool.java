@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.blacard.nymph.entity.HighPrecisionIpPositioningEntity;
+import cn.blacard.nymph.entity.HighPrecisionIpPositioning.HighPrecisionIpPositioningEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
 
