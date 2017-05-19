@@ -11,6 +11,9 @@ import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
 import cn.blacard.nymph.random.NumberRandom;
 import cn.blacard.nymph.text.TextRead;
+import cn.virde.nymph.db.mongo.MongoUtil;
+import cn.virde.nymph.db.sql.DBConnInfo;
+import cn.virde.nymph.db.sql.SqlDbUtil;
 
 /**
  * Nymph项目中的工具类集合。
@@ -82,4 +85,13 @@ public class Nym{
 	 * @Create 2016年12月13日 下午8:32:44
 	 */
 	public final static IPTool ip= new IPTool();
+	
+	
+	public final static <T> SqlDbUtil<T> getSqlDbUtil(DBConnInfo info){
+		return new SqlDbUtil<T>(info);
+	}
+	
+	public final static MongoUtil getMongoUtil(DBConnInfo info){
+		return new MongoUtil(info);
+	}
 }
