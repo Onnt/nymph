@@ -1,4 +1,4 @@
-package cn.blacard.nymph.file;
+package cn.virde.nymph.file;
 
 public class NymFileType {
 	private static final String VIDEO = "video";

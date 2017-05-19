@@ -1,11 +1,11 @@
-package cn.blacard.nymph.date;
+package cn.virde.nymph.date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import cn.blacard.nymph.Nym;
+import cn.virde.nymph.Nym;
 
 /**
  * 中国农历 转换工具

@@ -1,4 +1,4 @@
-package cn.blacard.nymph.text;
+package cn.virde.nymph.text;
 
 import java.io.File;
 import java.io.FileWriter;

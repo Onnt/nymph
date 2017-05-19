@@ -1,11 +1,11 @@
-package cn.blacard.nymph.file;
+package cn.virde.nymph.file;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.blacard.nymph.Nym;
-import cn.blacard.nymph.String.StringTool;
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.String.StringTool;
 
 /**
  * 文件操作的辅助类 的 辅助类

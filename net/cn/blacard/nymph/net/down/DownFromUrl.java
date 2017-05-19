@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cn.blacard.nymph.Nym;
+import cn.virde.nymph.Nym;
 
 /**
  * <h3>从网络URL下载文件</h3>

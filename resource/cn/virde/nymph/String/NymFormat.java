@@ -1,8 +1,8 @@
-package cn.blacard.nymph.String;
+package cn.virde.nymph.String;
 
 import java.util.Date;
 
-import cn.blacard.nymph.Nym;
+import cn.virde.nymph.Nym;
 
 /**
  * <h3>格式化 各种数据形式</h3>

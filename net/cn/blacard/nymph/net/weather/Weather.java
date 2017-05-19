@@ -4,10 +4,9 @@ import cn.blacard.nymph.entity.ForecastWeatherEntity;
 import cn.blacard.nymph.entity.RealtimeWeatherEntity;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.GeocodingTool;
+import cn.virde.nymph.Nym;
 
 import java.io.IOException;
-
-import cn.blacard.nymph.Nym;
 
 /**
  * <h1>获取指定地点的天气状况</h1>

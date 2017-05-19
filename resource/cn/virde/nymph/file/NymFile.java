@@ -1,10 +1,10 @@
-package cn.blacard.nymph.file;
+package cn.virde.nymph.file;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.blacard.nymph.String.StringTool;
+import cn.virde.nymph.String.StringTool;
 
 /**
  * 

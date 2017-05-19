@@ -2,9 +2,9 @@ package cn.blacard.nymph.net.tool;
 
 import java.io.IOException;
 
-import cn.blacard.nymph.Nym;
 import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
+import cn.virde.nymph.Nym;
 
 public class IPTool{
 		

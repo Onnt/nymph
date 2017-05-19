@@ -1,4 +1,4 @@
-package cn.blacard.nymph.random;
+package cn.virde.nymph.random;
 /**
  * 
  * <h3>快速生成随机数</h3>
