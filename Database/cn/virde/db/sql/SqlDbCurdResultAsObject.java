@@ -73,7 +73,8 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 		return "set"+ field.getName().substring(0, 1).toUpperCase()+ field.getName().substring(1);
 	}
 	private void openPreparedStatement(String sql,Object[] args) throws SQLException, ClassNotFoundException{
-		ppsta = getConn().prepareStatement(sql);
+		open();
+		ppsta = conn.prepareStatement(sql);
 		if (args != null && args.length > 0) {
 			for (int i = 0; i < args.length; i++) {
 				ppsta.setObject(i + 1, args[i]);
@@ -81,6 +82,43 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 		}
 	}
 	
+	
+
+	// 执行(update insert delete)之类的操作
+	public int executeSQL(String sql, Object[] args) throws SQLException, ClassNotFoundException {
+		open();
+		int count = 0;
+		try {
+			if(conn == null) System.out.println("conn . is null");
+			conn.setAutoCommit(false);
+			ppsta = conn.prepareStatement(sql);
+			//
+			if (args != null && args.length > 0) {
+				for (int i = 0; i < args.length; i++) {
+					ppsta.setObject(i + 1,args[i]);
+				}
+			}
+			count = ppsta.executeUpdate();
+			conn.commit();
+		} catch (Exception e) {
+			try {
+				conn.rollback();//出现异常，事务回滚
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			System.out.println("增删改时出现异常");
+		} finally {
+			close();
+		}
+		return count;
+	}
+	
+	
+	
+	private void open() throws ClassNotFoundException, SQLException{
+		conn = getConn();
+	}
 	private void close() throws SQLException{
 		closePpsta(ppsta); ppsta = null;
 		closeConn(conn); conn = null;

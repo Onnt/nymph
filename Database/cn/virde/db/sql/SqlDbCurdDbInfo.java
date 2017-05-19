@@ -1,28 +1,31 @@
-package cn.blacard.dbopera.query;
+package cn.virde.db.sql;
 
+import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.blacard.dbopera.connect.Connect;
+public class SqlDbCurdDbInfo extends SqlDbCurd{
 
-
-/**
- *	获取关于数据库的基本信息
- * @changeTime 2016年8月30日16:05:53
- * @since 2016年8月30日16:06:04
- * @author Blacard
- * @e_mail blacard@163.com
- */
-public class QueryDBInfo extends QueryBase{
 	
+	private Connection conn ;
+	private ResultSet rs ; 
+	
+	public SqlDbCurdDbInfo(SqlDbConnectInfo info) {
+		super(info);
+	}
+	
+
 	/**
 	 * 获取数据库的所有表 的表名
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public List<String> getAllTableNames() {
-		conn = Connect.getConn();
+	public List<String> getAllTableNames() throws SQLException, ClassNotFoundException {
+		open();
 		List<String> list = new ArrayList<String>();
 		DatabaseMetaData dbmd = null;
 		try {
@@ -41,10 +44,11 @@ public class QueryDBInfo extends QueryBase{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
-			Connect.closeAll(rs, sta, conn);
+			close();
 		}
 		return list;
 	}
+	
 	/**
 	 * 获取表所有列的列名
 	 * @param tableName
@@ -53,4 +57,13 @@ public class QueryDBInfo extends QueryBase{
 //	public List<List<String>> getTableColumns(String tableName){
 //		return new QueryList().query("select * from information_schema.columns where table_name='"+tableName+"'");
 //	}
+	
+	private void open() throws ClassNotFoundException, SQLException{
+		conn = getConn();
+	}
+	private void close() throws SQLException{
+		closeConn(conn) ;  conn = null;
+		closeRs(rs) ; rs = null;
+	}
+	
 }

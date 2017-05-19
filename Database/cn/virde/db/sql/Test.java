@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-import cn.blacard.dbopera.constant.DBStyle;
 import cn.blacard.nymph.Nym;
+import cn.virde.db.constant.DBStyle;
 
 public class Test {
 	

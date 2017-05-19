@@ -2,7 +2,7 @@ package cn.virde.db.sql;
 
 import java.util.logging.Logger;
 
-import cn.blacard.dbopera.constant.DBStyle;
+import cn.virde.db.constant.DBStyle;
 
 /**
  * <b>数据库连接参数实体</b><br/>

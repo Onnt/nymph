@@ -1,4 +1,4 @@
-package cn.blacard.dbopera.constant;
+package cn.virde.db.constant;
 
 /**
  * 数据库类型
