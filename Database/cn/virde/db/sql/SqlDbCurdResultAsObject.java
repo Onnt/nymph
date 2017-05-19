@@ -29,7 +29,6 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 		List<T> list = createResultObjectList(clazz);
 
 		close();
-		
 		return list;
 	}
 	

@@ -37,6 +37,14 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		return list;
 	}
 	
+	
+	public int executeSql(String excuteSql) throws SQLException, ClassNotFoundException{
+		open();
+		int count = sta.executeUpdate(excuteSql);
+		close();
+		return count;
+	}
+	
 	private void open() throws ClassNotFoundException, SQLException{
 		conn = getConn();
 		sta = conn.createStatement();
