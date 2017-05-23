@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SqlDbCurd {
+import cn.virde.nymph.Nymph;
+
+public class SqlDbCurd implements Nymph{
 
 	public DBConnInfo info = null; 
 	public SqlDbCurd(DBConnInfo info){
@@ -16,29 +18,55 @@ public class SqlDbCurd {
 
 	public Connection getConn() throws ClassNotFoundException, SQLException{
 		Connection conn = null;
-		Class.forName(info.getDRIVER());
-		conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
+		try {
+			Class.forName(info.getDRIVER());
+		} catch (ClassNotFoundException e) {
+			log.i("加载JDBC时出现异常。JDBC DRIVER:"+info.getDRIVER(), e);
+			throw e;
+		}
+		try {
+			conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
+		} catch (SQLException e) {
+			log.i("获取JDBC Connection时出现异常，", e);
+			throw e ;
+		}
 		return conn;
 	}
 
-	public void closeConn(Connection conn) throws SQLException{
+	public void closeConn(Connection conn){
 		if (conn != null) {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				log.i("conn 对象关闭时出现异常", e);
+			}
 		}
 	}
-	public void closeSta(Statement sta) throws SQLException{
+	public void closeSta(Statement sta) {
 		if (sta != null) {
-			sta.close();
+			try {
+				sta.close();
+			} catch (SQLException e) {
+				log.i("sta 对象关闭时出现异常",e);
+			}
 		}
 	}
-	public void closeRs(ResultSet rs) throws SQLException{
+	public void closeRs(ResultSet rs){
 		if (rs != null) {
-			rs.close();
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				log.i("rs 对象关闭时出现异常",e);
+			}
 		}
 	}
-	public void closePpsta(PreparedStatement ppsta) throws SQLException{
+	public void closePpsta(PreparedStatement ppsta){
 		if(ppsta != null){
-			ppsta.close();
+			try {
+				ppsta.close();
+			} catch (SQLException e) {
+				log.i("ppsta 对象关闭时出现异常",e);
+			}
 		}
 	}
 }
