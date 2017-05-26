@@ -6,6 +6,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoIterable;
 
 import cn.virde.nymph.Nymph;
 import cn.virde.nymph.db.sql.DBConnInfo;
@@ -37,7 +38,7 @@ public class MongoUtil implements Nymph{
 		}
 	}
 	public boolean isSuccessConn(){
-		Document command = new Document("buildInfo",1);
+		Document command = new Document("ping",1);
 		log.i("正在验证MongoDB连接……");
 		try{
 			Document doc = getDatabase().runCommand(command);
@@ -47,5 +48,14 @@ public class MongoUtil implements Nymph{
 			log.i("验证失败，请检查数据库连接是否正确");
 			return false ;
 		}
+	}
+	public boolean isExistColl(String collName){
+		MongoIterable<String> collNames = getDatabase().listCollectionNames();
+		for(String collName_: collNames){
+			 if (collName_.equalsIgnoreCase(collName)) {
+				 return true ;
+			 }
+		}
+		return false ;
 	}
 }
