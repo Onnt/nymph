@@ -7,9 +7,10 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import cn.virde.nymph.Nymph;
 import cn.virde.nymph.db.sql.DBConnInfo;
 
-public class MongoUtil {
+public class MongoUtil implements Nymph{
 	private MongoClient mongoClient ;
 	private DBConnInfo dbInfo ; 
 	public MongoUtil(DBConnInfo dbInfo){
@@ -33,6 +34,18 @@ public class MongoUtil {
 	public void close() {
 		if (mongoClient != null) {
 			mongoClient.close();
+		}
+	}
+	public boolean isSuccessConn(){
+		Document command = new Document("buildInfo",1);
+		log.i("正在验证MongoDB连接……");
+		try{
+			Document doc = getDatabase().runCommand(command);
+			log.i("验证成功,数据库版本：" + doc.getString("version"));
+			return true ;
+		}catch(Exception e){
+			log.i("验证失败，请检查数据库连接是否正确");
+			return false ;
 		}
 	}
 }
