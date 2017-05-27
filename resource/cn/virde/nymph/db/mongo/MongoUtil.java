@@ -38,7 +38,7 @@ public class MongoUtil implements Nymph{
 		}
 	}
 	public boolean isSuccessConn(){
-		Document command = new Document("ping",1);
+		Document command = new Document("buildInfo",1);
 		log.i("正在验证MongoDB连接……");
 		try{
 			Document doc = getDatabase().runCommand(command);
