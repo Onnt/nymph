@@ -12,6 +12,7 @@ import cn.virde.nymph.date.NymTime;
 import cn.virde.nymph.db.mongo.MongoUtil;
 import cn.virde.nymph.db.sql.DBConnInfo;
 import cn.virde.nymph.db.sql.SqlDbUtil;
+import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.random.NumberRandom;
 import cn.virde.nymph.text.TextRead;
 
@@ -94,4 +95,7 @@ public class Nym{
 	public final static MongoUtil getMongoUtil(DBConnInfo info){
 		return new MongoUtil(info);
 	}
+	
+	
+	public final static NymHttp http = new NymHttp();
 }

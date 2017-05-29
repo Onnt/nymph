@@ -8,6 +8,7 @@ import java.net.URL;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
+@Deprecated
 public class HtmlGet{
 	
 	public String getPage(String path) throws IOException{
@@ -16,7 +17,6 @@ public class HtmlGet{
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		InputStream inputStream = conn.getInputStream();
 		byte[] data = readInputStream(inputStream);
-		
 		String str = new String(data,"UTF-8");
 			
 		return  new String(data,"UTF-8");
