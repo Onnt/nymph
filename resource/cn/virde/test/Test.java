@@ -1,20 +1,11 @@
 package cn.virde.test;
 
+import cn.virde.nymph.NymLog;
 
-import java.util.Set;
-
-import cn.virde.nymph.net.page.Page;
-
-public class Test {	
+public class Test extends  NymLog{	
 	public static void main(String[] args) {
-		Page page = new Page("http://www.mmjpg.com/mm/997");
 		
-		System.out.println(page.getHtml());
 		
-		Set<String> urls = page.getUrls();
-		for(String s : urls ){
-			System.out.println(s);
-		}
-		
+		new Test().i("sdf");
 	}
 }

@@ -12,7 +12,12 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.NymLog;
+
 public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
+
+	private NymLog log = Nym.getLogger(this.getClass().getName());
 	
 	private PreparedStatement ppsta ;
 	private ResultSet rs ;

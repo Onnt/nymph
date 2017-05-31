@@ -6,10 +6,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.NymLog;
 
-import cn.virde.nymph.Nymph;
+public class NymHttp{
 
-public class NymHttp implements Nymph{
+	private NymLog log = Nym.getLogger(this.getClass().getName());
+	
 	
 	private URLConnection connection ;
 	private BufferedReader reader ; 

@@ -7,7 +7,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.NymLog;
+
 public class SqlDbCurdResultAsListList extends SqlDbCurd{
+
+	private NymLog log = Nym.getLogger(this.getClass().getName());
 	
 	private Connection conn;
 	private ResultSet rs ;

@@ -98,4 +98,8 @@ public class Nym{
 	
 	
 	public final static NymHttp http = new NymHttp();
+	
+	public final static NymLog getLogger(String className){
+		return null;
+	}
 }

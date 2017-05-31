@@ -2,7 +2,7 @@ package cn.virde.nymph;
 
 import java.util.Date;
 
-public class NymphLog {
+public class NymLog {
 	public void i(String msg){
 		String name = this.getClass().getName();
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");

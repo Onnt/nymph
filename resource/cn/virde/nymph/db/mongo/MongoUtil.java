@@ -8,10 +8,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 
-import cn.virde.nymph.Nymph;
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.NymLog;
 import cn.virde.nymph.db.sql.DBConnInfo;
 
-public class MongoUtil implements Nymph{
+public class MongoUtil{
+	
+	private NymLog log = Nym.getLogger(this.getClass().getName());
+	
 	private MongoClient mongoClient ;
 	private DBConnInfo dbInfo ; 
 	public MongoUtil(DBConnInfo dbInfo){

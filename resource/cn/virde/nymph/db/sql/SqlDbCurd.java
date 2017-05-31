@@ -7,10 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import cn.virde.nymph.Nymph;
+import cn.virde.nymph.Nym;
+import cn.virde.nymph.NymLog;
 
-public class SqlDbCurd implements Nymph{
-
+public class SqlDbCurd{
+	
+	private NymLog log = Nym.getLogger(this.getClass().getName());
+	
 	public DBConnInfo info = null; 
 	public SqlDbCurd(DBConnInfo info){
 		this.info = info ;
