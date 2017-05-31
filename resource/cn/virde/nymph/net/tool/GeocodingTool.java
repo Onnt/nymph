@@ -1,13 +1,13 @@
-package cn.blacard.nymph.net.tool;
+package cn.virde.nymph.net.tool;
 
 import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.blacard.nymph.net.html.HtmlGet;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingEntity;
 import cn.virde.nymph.entity.Geocoding.GeocodingEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
+import cn.virde.nymph.net.html.HtmlGet;
 
 /**
  * <h1>地址解析和逆地址解析功能</h1>

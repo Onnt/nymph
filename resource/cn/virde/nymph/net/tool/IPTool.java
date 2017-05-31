@@ -1,8 +1,7 @@
-package cn.blacard.nymph.net.tool;
+package cn.virde.nymph.net.tool;
 
 import java.io.IOException;
 
-import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 

@@ -1,12 +1,12 @@
-package cn.blacard.nymph.net.tool;
+package cn.virde.nymph.net.tool;
 
 import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.blacard.nymph.net.html.HtmlGet;
 import cn.virde.nymph.entity.HighPrecisionIpPositioning.HighPrecisionIpPositioningEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
+import cn.virde.nymph.net.html.HtmlGet;
 
 /**
  * <h1>高精度IP定位</h1>

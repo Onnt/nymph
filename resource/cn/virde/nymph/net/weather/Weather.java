@@ -1,4 +1,4 @@
-package cn.blacard.nymph.net.weather;
+package cn.virde.nymph.net.weather;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;

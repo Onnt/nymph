@@ -1,4 +1,4 @@
-package cn.blacard.nymph.net.html;
+package cn.virde.nymph.net.html;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

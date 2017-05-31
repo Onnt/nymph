@@ -1,4 +1,4 @@
-package cn.blacard.nymph.net.down;
+package cn.virde.nymph.net.down;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

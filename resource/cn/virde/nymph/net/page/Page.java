@@ -6,8 +6,9 @@ import java.util.HashSet;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
-import cn.blacard.nymph.net.html.HtmlGet;
-import cn.blacard.nymph.net.html.HtmlUnit;
+import cn.virde.nymph.net.html.HtmlGet;
+import cn.virde.nymph.net.html.HtmlUnit;
+
 
 
 
