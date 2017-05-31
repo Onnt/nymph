@@ -12,13 +12,10 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.NymLog;
+import cn.virde.nymph.util.Log;
 
 public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 
-	private NymLog log = Nym.getLogger(this.getClass().getName());
-	
 	private PreparedStatement ppsta ;
 	private ResultSet rs ;
 	private Connection conn ;
@@ -27,6 +24,7 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 		super(info);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List<T> query(String sql, Object[] args, Class clazz) {
 		if(!openPreparedStatement(sql,args)) return null;
 		executeQuery();
@@ -35,7 +33,7 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 			list = createResultObjectList(clazz);
 		} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException
 				| IllegalArgumentException | InvocationTargetException | SQLException e) {
-			log.i("出现异常，异常不明确，这个地方需要分解", e);
+			Log.info("出现异常，异常不明确，这个地方需要分解", e);
 		}
 		close();
 		return list;
@@ -45,11 +43,12 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 			rs = ppsta.executeQuery();
 			return true;
 		} catch (SQLException e) {
-			log.i("ppsta.executeQuery()时出现异常情况，操作已经终止", e);
+			Log.info("ppsta.executeQuery()时出现异常情况，操作已经终止", e);
 			close();
 			return false ;
 		}
 	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List<T> createResultObjectList(Class clazz) throws InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException, SQLException{
 		List<T> list = new ArrayList<T>();
 		while (rs.next()) {
@@ -62,19 +61,21 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 		try {
 			return rsmd.getColumnCount();
 		} catch (SQLException e) {
-			log.i("通过查询结果元信息获取行数时发生异常，操作将继续但不会获得任何结果", e);
+			Log.info("通过查询结果元信息获取行数时发生异常，操作将继续但不会获得任何结果", e);
 			return -1 ;
 		}
 	}
+	@SuppressWarnings("unused")
 	private ResultSetMetaData getResultSetMetaData(){
 		ResultSetMetaData rsmd;
 		try {
 			return rs.getMetaData();
 		} catch (SQLException e) {
-			log.i("获取查询结果元信息时发生异常,操作将终止",e);
+			Log.info("获取查询结果元信息时发生异常,操作将终止",e);
 			return null;
 		}
 	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Object createObj(Class clazz) throws InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException{
 		
 		ResultSetMetaData rsmd = getResultSetMetaData();
@@ -123,7 +124,7 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 			ppsta = conn.prepareStatement(sql);
 			return true;
 		} catch (SQLException e) {
-			log.i("创建Ppsta时出现异常，操作已经终止", e);
+			Log.info("创建Ppsta时出现异常，操作已经终止", e);
 			close();
 			return false;
 		}
@@ -133,7 +134,7 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 			ppsta.setObject(i, para);
 			return true;
 		} catch (SQLException e) {
-			log.i("给ppsta初始化参数时发生异常，操作已经终止",e);
+			Log.info("给ppsta初始化参数时发生异常，操作已经终止",e);
 			close();
 			return false;
 		}
@@ -177,7 +178,7 @@ public class SqlDbCurdResultAsObject<T> extends SqlDbCurd{
 			conn = getConn();
 			return true;
 		} catch (ClassNotFoundException | SQLException e) {
-			log.i("打开链接时出现异常，操作已经终止", e);
+			Log.info("打开链接时出现异常，操作已经终止", e);
 			close();
 			return false;
 		}

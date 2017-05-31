@@ -19,6 +19,7 @@ import cn.blacard.nymph.net.html.HtmlUnit;
  * @邮箱：blacard@163.com
  * @date 创建时间：2016年7月10日 下午7:03:58 
  */
+@SuppressWarnings("deprecation")
 public class Page{
 	
 	/**

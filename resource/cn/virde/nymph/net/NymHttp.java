@@ -6,14 +6,10 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.NymLog;
+import cn.virde.nymph.util.Log;
 
 public class NymHttp{
 
-	private NymLog log = Nym.getLogger(this.getClass().getName());
-	
-	
 	private URLConnection connection ;
 	private BufferedReader reader ; 
 	
@@ -33,7 +29,7 @@ public class NymHttp{
 			connection = url.openConnection();
 			return true ;
 		} catch (IOException e) {
-			log.i("打开链接时出现错误，操作已经终止",e);
+			Log.info("打开链接时出现错误，操作已经终止",e);
 			return false;
 		}
 	}
@@ -48,7 +44,7 @@ public class NymHttp{
 			connection.connect();
 			return true ;
 		} catch (IOException e) {
-			log.i("Connection在打开实际链接时出现异常",e);
+			Log.info("Connection在打开实际链接时出现异常",e);
 			return false ;
 		}
 	}
@@ -62,7 +58,7 @@ public class NymHttp{
 			}
 			return result.toString() ; 
 		} catch (IOException e) {
-			log.i("从BufferReader中获取返回值时出现异常",e);
+			Log.info("从BufferReader中获取返回值时出现异常",e);
 			return null;
 		}
 	}
@@ -72,7 +68,7 @@ public class NymHttp{
 			        connection.getInputStream()));
 			return true ;
 		} catch (IOException e) {
-			log.i("获取BufferReader时出现异常",e);
+			Log.info("获取BufferReader时出现异常",e);
 			return false ;
 		}
 	}

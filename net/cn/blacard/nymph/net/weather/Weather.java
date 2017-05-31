@@ -1,6 +1,5 @@
 package cn.blacard.nymph.net.weather;
 
-import cn.blacard.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.ForecastWeatherEntity;

@@ -21,6 +21,7 @@ import cn.virde.nymph.entity.base.LocationEntity;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月13日 下午9:48:39
  */
+@SuppressWarnings("deprecation")
 public class GeocodingTool {
 	
 	/**

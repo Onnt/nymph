@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
 @Deprecated
 public class HtmlGet{
 	
+	@SuppressWarnings("unused")
 	public String getPage(String path) throws IOException{
 		
 		URL url = new URL(path);

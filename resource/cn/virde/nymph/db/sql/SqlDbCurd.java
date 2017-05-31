@@ -7,12 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.NymLog;
+import cn.virde.nymph.util.Log;
 
 public class SqlDbCurd{
-	
-	private NymLog log = Nym.getLogger(this.getClass().getName());
 	
 	public DBConnInfo info = null; 
 	public SqlDbCurd(DBConnInfo info){
@@ -24,13 +21,13 @@ public class SqlDbCurd{
 		try {
 			Class.forName(info.getDRIVER());
 		} catch (ClassNotFoundException e) {
-			log.i("加载JDBC时出现异常。JDBC DRIVER:"+info.getDRIVER(), e);
+			Log.info("加载JDBC时出现异常。JDBC DRIVER:"+info.getDRIVER(), e);
 			throw e;
 		}
 		try {
 			conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
 		} catch (SQLException e) {
-			log.i("获取JDBC Connection时出现异常，", e);
+			Log.info("获取JDBC Connection时出现异常，", e);
 			throw e ;
 		}
 		return conn;
@@ -41,7 +38,7 @@ public class SqlDbCurd{
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				log.i("conn 对象关闭时出现异常", e);
+				Log.info("conn 对象关闭时出现异常", e);
 			}
 		}
 	}
@@ -50,7 +47,7 @@ public class SqlDbCurd{
 			try {
 				sta.close();
 			} catch (SQLException e) {
-				log.i("sta 对象关闭时出现异常",e);
+				Log.info("sta 对象关闭时出现异常",e);
 			}
 		}
 	}
@@ -59,7 +56,7 @@ public class SqlDbCurd{
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				log.i("rs 对象关闭时出现异常",e);
+				Log.info("rs 对象关闭时出现异常",e);
 			}
 		}
 	}
@@ -68,7 +65,7 @@ public class SqlDbCurd{
 			try {
 				ppsta.close();
 			} catch (SQLException e) {
-				log.i("ppsta 对象关闭时出现异常",e);
+				Log.info("ppsta 对象关闭时出现异常",e);
 			}
 		}
 	}

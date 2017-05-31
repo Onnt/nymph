@@ -3,7 +3,6 @@ package cn.virde.nymph;
 
 import cn.blacard.nymph.net.down.DownFromUrl;
 import cn.blacard.nymph.net.tool.GeocodingTool;
-import cn.blacard.nymph.net.tool.HighPrecisionIpPositioningTool;
 import cn.blacard.nymph.net.tool.IPTool;
 import cn.virde.nymph.String.NymFormat;
 import cn.virde.nymph.String.StringTool;
@@ -99,7 +98,4 @@ public class Nym{
 	
 	public final static NymHttp http = new NymHttp();
 	
-	public final static NymLog getLogger(String className){
-		return new NymLog(className);
-	}
 }

@@ -18,6 +18,7 @@ public class SqlDbUtil<T> {
 		return listListUtil.query(querySql);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public List<T> query(String sql, Object[] args, Class clazz) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, SQLException{
 		return objectUtil.query(sql, args, clazz);
 	}

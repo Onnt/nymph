@@ -7,13 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.NymLog;
+import cn.virde.nymph.util.Log;
 
 public class SqlDbCurdResultAsListList extends SqlDbCurd{
 
-	private NymLog log = Nym.getLogger(this.getClass().getName());
-	
 	private Connection conn;
 	private ResultSet rs ;
 	private Statement sta ;
@@ -39,7 +36,7 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			return sta.executeQuery(querySql);
 		} catch (SQLException e) {
-			log.i("执行Sql时出现错误，操作已经终止，sql："+querySql, e);
+			Log.info("执行Sql时出现错误，操作已经终止，sql："+querySql, e);
 		}
 		return null;
 	}
@@ -47,7 +44,7 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			return rs.next();
 		} catch (SQLException e) {
-			log.i("rs.next()时出现异常，操作已经终止，（PS:讲真的，这个错误我不能理解）", e);
+			Log.info("rs.next()时出现异常，操作已经终止，（PS:讲真的，这个错误我不能理解）", e);
 		}
 		return false;
 	}
@@ -63,7 +60,7 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			return rs.getMetaData().getColumnCount();
 		} catch (SQLException e) {
-			log.i("获取查询结果总数时出现异常", e);
+			Log.info("获取查询结果总数时出现异常", e);
 			return 0 ;
 		}
 	}
@@ -71,7 +68,7 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			return rs.getString(index);
 		} catch (SQLException e) {
-			log.i("根据columnIndex从ResultSet取值时发生异常，columnIndex:"+index, e);
+			Log.info("根据columnIndex从ResultSet取值时发生异常，columnIndex:"+index, e);
 			return "";
 		}
 	}
@@ -87,7 +84,7 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			return sta.executeUpdate(sql);
 		} catch (SQLException e) {
-			log.i("执行Statement.executeUpdate()时出现异常，sql:"+sql, e);
+			Log.info("执行Statement.executeUpdate()时出现异常，sql:"+sql, e);
 			return -1 ;
 		}
 	}
@@ -96,13 +93,13 @@ public class SqlDbCurdResultAsListList extends SqlDbCurd{
 		try {
 			conn = getConn();
 		} catch (ClassNotFoundException | SQLException e) {
-			log.i("打开链接时出现异常，操作已经终止", e);
+			Log.info("打开链接时出现异常，操作已经终止", e);
 			return false;
 		}
 		try {
 			sta = conn.createStatement();
 		} catch (SQLException e) {
-			log.i("创建Statement时出现异常，操作已经终止", e);
+			Log.info("创建Statement时出现异常，操作已经终止", e);
 			return false;
 		}
 		return true;

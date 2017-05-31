@@ -15,6 +15,7 @@ import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月18日 下午8:05:10
  */
+@SuppressWarnings("deprecation")
 public class WeatherDeal {	
 	/**
 	 * 根据经纬度获取实时天气

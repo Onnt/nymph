@@ -8,13 +8,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.NymLog;
 import cn.virde.nymph.db.sql.DBConnInfo;
+import cn.virde.nymph.util.Log;
 
 public class MongoUtil{
-	
-	private NymLog log = Nym.getLogger(this.getClass().getName());
 	
 	private MongoClient mongoClient ;
 	private DBConnInfo dbInfo ; 
@@ -43,13 +40,13 @@ public class MongoUtil{
 	}
 	public boolean isSuccessConn(){
 		Document command = new Document("buildInfo",1);
-		log.i("正在验证MongoDB连接……");
+		Log.info("正在验证MongoDB连接……");
 		try{
 			Document doc = getDatabase().runCommand(command);
-			log.i("验证成功,数据库版本：" + doc.getString("version"));
+			Log.info("验证成功,数据库版本：" + doc.getString("version"));
 			return true ;
 		}catch(Exception e){
-			log.i("验证失败，请检查数据库连接是否正确");
+			Log.info("验证失败，请检查数据库连接是否正确");
 			return false ;
 		}
 	}

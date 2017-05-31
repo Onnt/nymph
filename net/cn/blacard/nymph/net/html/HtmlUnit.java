@@ -11,6 +11,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 
 public class HtmlUnit {
+	@SuppressWarnings("resource")
 	public String getPage(String path) throws FailingHttpStatusCodeException, MalformedURLException, IOException{
         final WebClient webClient = new WebClient(BrowserVersion.CHROME);  
         webClient.getOptions().setThrowExceptionOnScriptError(false);  
