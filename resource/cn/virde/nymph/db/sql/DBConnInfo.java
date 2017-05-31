@@ -1,6 +1,6 @@
 package cn.virde.nymph.db.sql;
 
-import cn.blacard.nymph.enums.common.DBStyle;
+import cn.virde.nymph.enums.common.DBStyle;
 
 /**
  * <b>数据库连接参数实体</b><br/>

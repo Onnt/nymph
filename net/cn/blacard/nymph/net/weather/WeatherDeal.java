@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.blacard.nymph.entity.ForecastWeatherEntity;
-import cn.blacard.nymph.entity.RealtimeWeatherEntity;
-import cn.blacard.nymph.entity.base.LocationEntity;
 import cn.blacard.nymph.net.html.HtmlGet;
+import cn.virde.nymph.entity.base.LocationEntity;
+import cn.virde.nymph.entity.weather.ForecastWeatherEntity;
+import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
 
 /**
  * 
