@@ -1,7 +1,5 @@
 package cn.virde.nymph.db.sql;
 
-import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class SqlDbUtil<T> {
@@ -19,7 +17,7 @@ public class SqlDbUtil<T> {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public List<T> query(String sql, Object[] args, Class clazz) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, SQLException{
+	public List<T> query(String sql, Object[] args, Class clazz){
 		return objectUtil.query(sql, args, clazz);
 	}
 
