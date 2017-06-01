@@ -1,6 +1,8 @@
 package cn.virde.nymph;
 
 
+import java.io.IOException;
+
 import cn.virde.nymph.String.NymFormat;
 import cn.virde.nymph.String.StringTool;
 import cn.virde.nymph.date.ChineseCalendar;
@@ -12,8 +14,10 @@ import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.IPTool;
+import cn.virde.nymph.net.weather.Weather;
 import cn.virde.nymph.random.NumberRandom;
 import cn.virde.nymph.text.TextRead;
+import cn.virde.nymph.util.Log;
 
 /**
  * Nymph项目中的工具类集合。
@@ -24,7 +28,7 @@ public class Nym{
 	 * <li>将农历转换为日历</li>
 	 * <li>日历转换为阳历</li>
 	 */
-	public final static ChineseCalendar chineseCalendar = new ChineseCalendar();
+	public final static ChineseCalendar calendar = new ChineseCalendar();
 	
 	/**
 	 * 时间日期工具，
@@ -54,7 +58,7 @@ public class Nym{
 	/**
 	 * 读取文本内容
 	 */
-	public final static TextRead textRead = new TextRead();
+	public final static TextRead text = new TextRead();
 	
 	
 	/**
@@ -86,7 +90,18 @@ public class Nym{
 	 */
 	public final static IPTool ip= new IPTool();
 	
+	public final static NymHttp http = new NymHttp();
 	
+	public final static Weather getWeather(String addr){
+		try {
+			return new Weather(addr);
+		} catch (IOException e) {
+			Log.info("getWeather时出现异常");
+			return null;
+		}
+	}
+	
+
 	public final static <T> SqlDbUtil<T> getSqlDbUtil(DBConnInfo info){
 		return new SqlDbUtil<T>(info);
 	}
@@ -95,7 +110,5 @@ public class Nym{
 		return new MongoUtil(info);
 	}
 	
-	
-	public final static NymHttp http = new NymHttp();
 	
 }

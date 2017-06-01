@@ -1,14 +1,17 @@
 package cn.virde.test;
 
+import java.io.IOException;
+
 import cn.virde.nymph.Nym;
 
 public class Test{
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		String str = Nym.http.get("http://hot.ynet.com/2017/05/31/177422t1593.html");
 		
-		System.out.println(str);
+		String sunRise = Nym.getWeather("上海市").getForecastWeather().getResult().getDaily().getAstro()[0].getSunset().getTime();
+		
+		System.out.println(sunRise);
 		
 	}
 	
