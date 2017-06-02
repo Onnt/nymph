@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import cn.virde.nymph.String.NymFormat;
 import cn.virde.nymph.String.StringTool;
+import cn.virde.nymph.code.NymCode;
 import cn.virde.nymph.date.ChineseCalendar;
 import cn.virde.nymph.date.NymTime;
 import cn.virde.nymph.db.mongo.MongoUtil;
@@ -91,6 +92,8 @@ public class Nym{
 	public final static IPTool ip= new IPTool();
 	
 	public final static NymHttp http = new NymHttp();
+	
+	public final static NymCode code = new NymCode();
 	
 	public final static Weather getWeather(String addr){
 		try {

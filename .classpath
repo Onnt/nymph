@@ -28,5 +28,9 @@
 	<classpathentry kind="lib" path="lib/database/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="lib/fastjson-1.1.6.jar"/>
 	<classpathentry kind="lib" path="lib/database/mongo-java-driver-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jwt/jackson-annotations-2.8.8.jar"/>
+	<classpathentry kind="lib" path="lib/jwt/jackson-core-2.8.8.jar"/>
+	<classpathentry kind="lib" path="lib/jwt/jackson-databind-2.8.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/jwt/jjwt-0.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
