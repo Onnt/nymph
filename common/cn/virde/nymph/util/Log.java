@@ -5,6 +5,8 @@ import java.util.Date;
 import cn.virde.nymph.Nym;
 
 public class Log {
+	//TODO 模式切换，日志文件输出模式 和 控制台输出模式 以及 双输出模式
+	
 	public static void info(String msg){
 		
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());

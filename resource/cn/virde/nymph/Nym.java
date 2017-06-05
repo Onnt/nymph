@@ -17,6 +17,7 @@ import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.IPTool;
 import cn.virde.nymph.net.weather.Weather;
 import cn.virde.nymph.random.NumberRandom;
+import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
 import cn.virde.nymph.util.Log;
 
@@ -94,6 +95,8 @@ public class Nym{
 	public final static NymHttp http = new NymHttp();
 	
 	public final static NymCode code = new NymCode();
+	
+	public final static SystemInfo system = new SystemInfo();
 	
 	public final static Weather getWeather(String addr){
 		try {
