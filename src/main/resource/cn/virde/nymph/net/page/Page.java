@@ -1,7 +1,6 @@
 package cn.virde.nymph.net.page;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.HashSet;
 
 //import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
