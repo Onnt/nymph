@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import cn.virde.nymph.util.Log;
 
@@ -65,12 +69,42 @@ public class NymHttp{
 	private boolean getReader(){
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-			        connection.getInputStream()));
+			        connection.getInputStream(),getCharset()));
 			return true ;
 		} catch (IOException e) {
 			Log.info("获取BufferReader时出现异常",e);
 			return false ;
 		}
+	}
+	private String getCharset(){
+
+        // 网页编码  
+        String strencoding = "utf-8";  
+  
+        /** 
+         * 首先根据header信息，判断页面编码 
+         */  
+        // map存放的是header信息(url页面的头信息)  
+        Map<String, List<String>> map = connection.getHeaderFields();  
+        Set<String> keys = map.keySet();  
+        Iterator<String> iterator = keys.iterator();  
+  
+        // 遍历,查找字符编码  
+        String key = null;  
+        String tmp = null;  
+        while (iterator.hasNext()) {  
+            key = iterator.next();  
+            tmp = map.get(key).toString().toLowerCase();  
+            // 获取content-type charset  
+            if (key != null && key.equals("Content-Type")) {  
+                int m = tmp.indexOf("charset=");  
+                if (m != -1) {  
+                    strencoding = tmp.substring(m + 8).replace("]", "");  
+                    return strencoding;  
+                }  
+            }  
+        }  
+        return strencoding;  
 	}
 	public static String post(){
 		return null;
