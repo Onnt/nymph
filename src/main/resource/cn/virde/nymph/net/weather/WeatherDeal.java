@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.ForecastWeatherEntity;
 import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
-import cn.virde.nymph.net.html.HtmlGet;
 
 /**
  * 
@@ -15,7 +15,6 @@ import cn.virde.nymph.net.html.HtmlGet;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月18日 下午8:05:10
  */
-@SuppressWarnings("deprecation")
 public class WeatherDeal {	
 	/**
 	 * 根据经纬度获取实时天气
@@ -25,9 +24,8 @@ public class WeatherDeal {
 	 * @return
 	 * @throws IOException 
 	 */
-	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location) throws IOException{
-		HtmlGet get = new HtmlGet();
-		String realtimeWeather = get.getPage(createRequestUrl(location,"realtime.json"));
+	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location){
+		String realtimeWeather = Nym.http.get(createRequestUrl(location,"realtime.json"));
 		
 		return JSON.parseObject(realtimeWeather,RealtimeWeatherEntity.class);
 	}
@@ -40,9 +38,8 @@ public class WeatherDeal {
 	 * @return
 	 * @throws IOException 
 	 */
-	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException {
-		HtmlGet get = new HtmlGet();
-		String forecastWeather = get.getPage(createRequestUrl(location,"forecast.json"));
+	protected ForecastWeatherEntity getForecastWeather(LocationEntity location){
+		String forecastWeather = Nym.http.get(createRequestUrl(location,"forecast.json"));
 		return JSON.parseObject(forecastWeather,ForecastWeatherEntity.class);
 	}
 	

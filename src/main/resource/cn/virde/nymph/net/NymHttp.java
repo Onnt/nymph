@@ -33,7 +33,7 @@ public class NymHttp{
 			connection = url.openConnection();
 			return true ;
 		} catch (IOException e) {
-			Log.info("打开链接时出现错误，操作已经终止",e);
+			Log.info("请求时出现错误，操作已经终止，请求：" + str,e);
 			return false;
 		}
 	}

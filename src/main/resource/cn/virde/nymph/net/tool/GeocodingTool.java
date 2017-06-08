@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingEntity;
 import cn.virde.nymph.entity.Geocoding.GeocodingEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
-import cn.virde.nymph.net.html.HtmlGet;
 
 /**
  * <h1>地址解析和逆地址解析功能</h1>
@@ -21,7 +21,6 @@ import cn.virde.nymph.net.html.HtmlGet;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月13日 下午9:48:39
  */
-@SuppressWarnings("deprecation")
 public class GeocodingTool {
 	
 	/**
@@ -32,7 +31,7 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	public String locationToAddress(LocationEntity location) throws IOException{
+	public String locationToAddress(LocationEntity location){
 		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
 		if(entity.getStatus()==0){
 			return entity.getResult().getFormatted_address();
@@ -53,7 +52,7 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	public LocationEntity addressToLocation(String address) throws IOException{
+	public LocationEntity addressToLocation(String address){
 		GeocodingEntity entity = this.getGeocoding(address);
 		if(entity.getStatus()==0){
 			return entity.getResult().getLocation();
@@ -104,9 +103,9 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
+	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location){
 		String requestUrl = createRequestUrl(location);
-		String respStr = new HtmlGet().getPage(requestUrl);
+		String respStr = Nym.http.get(requestUrl);
 		return JSON.parseObject(respStr,ConverseGeocodingEntity.class);
 	}
 	
@@ -118,9 +117,9 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	private GeocodingEntity getGeocoding(String address) throws IOException{
+	private GeocodingEntity getGeocoding(String address){
 		String requestUrl = createRequestUrl(address);
-		String respStr = new HtmlGet().getPage(requestUrl);
+		String respStr = Nym.http.get(requestUrl);
 		return JSON.parseObject(respStr,GeocodingEntity.class);
 	}
 	

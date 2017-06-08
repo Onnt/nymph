@@ -15,7 +15,7 @@ public class IPTool{
 	 * @return 
 	 * @throws IOException 
 	 */
-	public static String getAddressByIp(String ip) throws IOException{
+	public static String getAddressByIp(String ip){
 		return Nym.geocoding.locationToAddress(new HighPrecisionIpPositioningTool().getLocationByIp(ip));
 	}
 	
@@ -27,7 +27,7 @@ public class IPTool{
 	 * @return
 	 * @throws IOException 
 	 */
-	public  LocationEntity getLocationByIp(String ip) throws IOException{
+	public  LocationEntity getLocationByIp(String ip){
 		return new HighPrecisionIpPositioningTool().getLocationByIp(ip);
 	}
 }

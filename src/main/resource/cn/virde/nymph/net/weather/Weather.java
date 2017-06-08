@@ -70,7 +70,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于预报天气的信息
 	 * @throws IOException 
 	 */
-	public ForecastWeatherEntity getForecastWeather() throws IOException{
+	public ForecastWeatherEntity getForecastWeather(){
 		ForecastWeatherEntity entity = this.getForecastWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;

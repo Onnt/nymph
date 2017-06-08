@@ -4,9 +4,9 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSON;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.HighPrecisionIpPositioning.HighPrecisionIpPositioningEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
-import cn.virde.nymph.net.html.HtmlGet;
 
 /**
  * <h1>高精度IP定位</h1>
@@ -16,7 +16,6 @@ import cn.virde.nymph.net.html.HtmlGet;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年12月13日 下午8:32:44
  */
-@SuppressWarnings("deprecation")
 public class HighPrecisionIpPositioningTool {
 	 
 	/**
@@ -27,7 +26,7 @@ public class HighPrecisionIpPositioningTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	public  LocationEntity getLocationByIp(String ip) throws IOException{
+	public  LocationEntity getLocationByIp(String ip){
 		HighPrecisionIpPositioningEntity entity = this.getHighPrecisionIpPositionByIp(ip);
 		if(entity.getResult().getError()==161){
 			return entity.getContent().getLocation();
@@ -50,9 +49,8 @@ public class HighPrecisionIpPositioningTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip) throws IOException{
-		HtmlGet get = new HtmlGet();
-		String result = get.getPage(createRequestUrl(ip));
+	private HighPrecisionIpPositioningEntity getHighPrecisionIpPositionByIp(String ip){
+		String result = Nym.http.get(createRequestUrl(ip));
 		return JSON.parseObject(result,HighPrecisionIpPositioningEntity.class);
 	}
 	
