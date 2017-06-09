@@ -43,7 +43,7 @@ public class Weather extends WeatherDeal{
 	 * @param location 经纬度 sample:"121.6544,25.1552"
 	 * @throws IOException 
 	 */
-	public Weather(String address) throws IOException{
+	public Weather(String address){
 		//将自然语言描述的地点 转换成 经纬度
 		this.location = Nym.geocoding.addressToLocation(address);
 	}
@@ -54,7 +54,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于实时天气的信息
 	 * @throws IOException 
 	 */
-	public RealtimeWeatherEntity getRealtimeWeather() throws IOException{
+	public RealtimeWeatherEntity getRealtimeWeather(){
 		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;

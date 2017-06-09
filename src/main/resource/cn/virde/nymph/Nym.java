@@ -99,12 +99,7 @@ public class Nym{
 	public final static SystemInfo system = new SystemInfo();
 	
 	public final static Weather getWeather(String addr){
-		try {
-			return new Weather(addr);
-		} catch (IOException e) {
-			Log.info("getWeather时出现异常");
-			return null;
-		}
+		return new Weather(addr);
 	}
 	
 
