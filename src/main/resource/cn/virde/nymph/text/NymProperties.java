@@ -14,7 +14,6 @@ import java.util.Properties;
  * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
  * @create 2016年9月22日 下午4:22:17
  */
-@Deprecated
 public class NymProperties {
 	
 	private String filePath;
@@ -37,7 +36,7 @@ public class NymProperties {
             // 如果将in改为下面的方法，必须要将.Properties文件和此class类文件放在同一个包中  
             //in = propertiesTools.class.getResourceAsStream(fileNamePath);  
             props.load(in);  
-            String value = props.getProperty(key);  
+            String value = props.getProperty(key);
             // 有乱码时要进行重新编码  
             // new String(props.getProperty("name").getBytes("ISO-8859-1"), "GBK");  
             return value;  
