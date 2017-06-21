@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.alibaba.fastjson.JSON;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.config.Config;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.ForecastWeatherEntity;
 import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
@@ -65,8 +66,8 @@ public class WeatherDeal {
 	 */
 	private String createRequestUrl(String location,String requestType){
 		return createRequestUrl(
-				"https://api.caiyunapp.com/v2/",
-				"=1yScNbEm4R2rhE-",
+				Config.weather.url,
+				Config.weather.key,
 				location,
 				requestType);
 	}

@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.alibaba.fastjson.JSON;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.config.Config;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingEntity;
 import cn.virde.nymph.entity.Geocoding.GeocodingEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
@@ -132,8 +133,6 @@ public class GeocodingTool {
 	 */
 	private String createRequestUrl(String address){
 		return createRequestUrl(
-				"json",
-				"yMOZ0v2ANY6UF0l6CNfVnVae",
 				null,
 				address);
 	}
@@ -147,8 +146,6 @@ public class GeocodingTool {
 	 */
 	private String createRequestUrl(LocationEntity location){
 		return createRequestUrl(
-				"json",
-				"yMOZ0v2ANY6UF0l6CNfVnVae",
 				location.toString(),
 				null);
 	}
@@ -161,12 +158,12 @@ public class GeocodingTool {
 	 * @param location
 	 * @return
 	 */
-	private String createRequestUrl(String output,String ak,String location,String address){
+	private String createRequestUrl(String location,String address){
 		StringBuffer sb = new StringBuffer();
-		sb.append("http://api.map.baidu.com/geocoder/v2/");
+		sb.append(Config.geocoding.url);
 		//格式，json 或者xml
-		sb.append("?output="+output);
-		sb.append("&ak="+ak);
+		sb.append("?output="+Config.geocoding.output);
+		sb.append("&ak="+Config.geocoding.ak);
 		
 		if(location != null && (!location.equals(""))){
 			sb.append("&location="+location);

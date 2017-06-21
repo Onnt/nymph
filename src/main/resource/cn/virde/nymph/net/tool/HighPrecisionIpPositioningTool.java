@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.alibaba.fastjson.JSON;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.config.Config;
 import cn.virde.nymph.entity.HighPrecisionIpPositioning.HighPrecisionIpPositioningEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
 
@@ -57,22 +58,6 @@ public class HighPrecisionIpPositioningTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月13日 下午9:34:02
-	 * @param ip
-	 * @return
-	 */
-	private String createRequestUrl(String ip){
-		return createRequestUrl(
-				"http://api.map.baidu.com/highacciploc/v1",
-				"pc",
-				"yMOZ0v2ANY6UF0l6CNfVnVae",
-				"bd09ll",
-				ip);
-	}
-	
-	/**
-	 * 
-	 * @author Blacard
 	 * @create 2016年12月13日 下午9:34:10
 	 * @param apiUrl
 	 * @param qterm
@@ -81,16 +66,16 @@ public class HighPrecisionIpPositioningTool {
 	 * @param qcip
 	 * @return
 	 */
-	private String createRequestUrl(String apiUrl,String qterm,String ak,String coord,String qcip){
+	private String createRequestUrl(String qcip){
 		StringBuffer sb = new StringBuffer();
 		//请求地址
-		sb.append(apiUrl);
+		sb.append(Config.highPosi.url);
 		//待定位终端类型,mb:移动设备，pc：固定设备
-		sb.append("?qterm="+qterm);
+		sb.append("?qterm="+Config.highPosi.qterm);
 		//开发者密钥
-		sb.append("&ak="+ak);
+		sb.append("&ak="+Config.highPosi.ak);
 		//返回坐标类型 bd09：百度墨卡托坐标，db09ll：百度经纬度坐标，gcj02：国测局经纬度坐标 
-		sb.append("&coord="+coord);
+		sb.append("&coord="+Config.highPosi.coord);
 		//待定位IP地址
 		sb.append("&qcip="+qcip);
 		return sb.toString();
