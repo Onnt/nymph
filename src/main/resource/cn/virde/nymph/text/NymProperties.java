@@ -53,7 +53,6 @@ public class NymProperties {
             InputStream in = new BufferedInputStream (new FileInputStream(filePath));  
             pps.load(in);
             String value = pps.getProperty(key);
-            System.out.println(key + " = " + value);
             return value;
             
         }catch (IOException e) {
