@@ -11,12 +11,11 @@ import cn.virde.nymph.db.sql.SqlDbUtil;
 import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
-import cn.virde.nymph.net.tool.IPTool;
+import cn.virde.nymph.net.tool.PositionTool;
 import cn.virde.nymph.net.weather.Weather;
 import cn.virde.nymph.random.NumberRandom;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
-import cn.virde.nymph.util.Log;
 
 /**
  * Nymph项目中的工具类集合。
@@ -77,21 +76,11 @@ public class Nym{
 	 */
 	public final static GeocodingTool geocoding = new GeocodingTool();
 	
-	/**
-	 * <h1>高精度IP定位</h1>
-	 * <a href="http://lbsyun.baidu.com/index.php?title=webapi/high-acc-ip">官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/high-acc-ip</a><br/>
-	 * 
-	 * 	依赖JSON包 <br>
-	 * 依赖 org.apache.commons.lang3包
-	 * @author Blacard
-	 * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
-	 * @Create 2016年12月13日 下午8:32:44
-	 */
-	public final static IPTool ip= new IPTool();
-	
 	public final static NymHttp http = new NymHttp();
 	
 	public final static NymCode code = new NymCode();
+	
+	public final static PositionTool position = new PositionTool();
 	
 	public final static SystemInfo system = new SystemInfo();
 	
