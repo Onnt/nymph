@@ -19,12 +19,24 @@ public class Log {
 		syso(traceInfo);
 		
 	}
+	
 	public static void info(String msg,Exception e){
 		
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
 		syso(time + " " + msg + "。 异常信息："+e.getMessage());
+		syso(traceInfo);
+		
+	}
+
+	public static void info(String msg,String alert){
+		
+        String traceInfo = getTraceInfo(new Throwable().getStackTrace());
+		String time = Nym.time.toString(new Date(), "hh:mm:ss");
+		
+		syso(time + " " + msg);
+		syso("异常提示信息："+alert);
 		syso(traceInfo);
 		
 	}

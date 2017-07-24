@@ -7,5 +7,5 @@ public class Config {
 	
 	public final static GeocodingConfig geocoding = new GeocodingConfig();
 	
-	public final static HighPositionConfig highPosi = new HighPositionConfig();
+	public final static PositionConfig position = new PositionConfig();
 }
