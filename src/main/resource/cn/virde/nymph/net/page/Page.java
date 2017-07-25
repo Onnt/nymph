@@ -3,13 +3,7 @@ package cn.virde.nymph.net.page;
 import java.io.IOException;
 import java.util.HashSet;
 
-//import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-
-import cn.virde.nymph.net.html.HtmlGet;
-//import cn.virde.nymph.net.html.HtmlUnit;
-
-
-
+import cn.virde.nymph.Nym;
 
 /**
  * 一个页面
@@ -19,7 +13,6 @@ import cn.virde.nymph.net.html.HtmlGet;
  * @邮箱：blacard@163.com
  * @date 创建时间：2016年7月10日 下午7:03:58 
  */
-@SuppressWarnings("deprecation")
 public class Page{
 	
 	/**
@@ -42,9 +35,6 @@ public class Page{
 	 */
 	private HashSet<String> urls = new HashSet<String>();
 	
-	
-	private HtmlGet htmlGet = new HtmlGet();
-	
 	/**
 	 * 由url 生成 Page对象，
 	 * 在Page对象实例化的时候就会获取设置所有的属性，
@@ -54,12 +44,7 @@ public class Page{
 	public Page(String pageUrl){
 		this.pageUrl = pageUrl;
 		//获取页面html内容
-		try {
-			this.html = htmlGet.getPage(pageUrl);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.html = Nym.http.getHtml(pageUrl);
 
 		//顺序不能乱，setUrls 需要  Host
 		//设置页面hostname
