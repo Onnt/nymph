@@ -41,7 +41,11 @@ public class NymHttp extends NymHttpGet{
 	    }
 		
 	}
-
+	
+	public String getHtml(String url){
+		return new NymHttpGetHtml().getHtml(url);
+	}
+	
 	private static void doGet() throws ClientProtocolException, IOException{
 	    CloseableHttpClient httpclient = HttpClients.createDefault();
 	    HttpGet httpGet = new HttpGet("http://www.baidu.com");
