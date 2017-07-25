@@ -40,6 +40,29 @@ public class Log {
 		syso(traceInfo);
 		
 	}
+
+	public static void error(String msg,Exception e){
+		
+        String traceInfo = getTraceInfo(new Throwable().getStackTrace());
+		String time = Nym.time.toString(new Date(), "hh:mm:ss");
+		syso("==================错误提示=====================");
+		syso(time + " " + msg + "。 异常信息："+e.getMessage());
+		syso(traceInfo);
+		syso("============================================");
+		
+	}
+
+	public static void error(String msg,String alert){
+		
+        String traceInfo = getTraceInfo(new Throwable().getStackTrace());
+		String time = Nym.time.toString(new Date(), "hh:mm:ss");
+
+		syso("========错误提示======错误提示=======错误提示=======");
+		syso(time + " " + msg);
+		syso("异常提示信息："+alert);
+		syso(traceInfo);
+		syso("============================================");
+	}
 	
 	private static String getTraceInfo(StackTraceElement[] stacks){
         StringBuffer sb = new StringBuffer();     
