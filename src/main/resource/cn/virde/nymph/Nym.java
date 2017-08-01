@@ -84,11 +84,6 @@ public class Nym{
 	
 	public final static SystemInfo system = new SystemInfo();
 	
-	public final static Weather getWeather(String addr){
-		return new Weather(addr);
-	}
-	
-
 	public final static <T> SqlDbUtil<T> getSqlDbUtil(DBConnInfo info){
 		return new SqlDbUtil<T>(info);
 	}

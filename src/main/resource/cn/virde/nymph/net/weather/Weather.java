@@ -4,6 +4,7 @@ import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.ForecastWeatherEntity;
 import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
+import cn.virde.nymph.exception.LocationException;
 
 import java.io.IOException;
 
@@ -30,6 +31,20 @@ public class Weather extends WeatherDeal{
 		this.location = location;
 	}
 	/**
+	 * 获取该地点的天气状况
+	 * @param location 经纬度 sample:"121.6544,25.1552"
+	 * @throws LocationException 
+	 * @throws IOException 
+	 */
+	public Weather(String address) throws LocationException{
+		if(Nym.string.isIP(address)){
+			Nym.position.getLocationByIp(address);
+		}else{
+			//将自然语言描述的地点 转换成 经纬度
+			this.location = Nym.geocoding.addressToLocation(address);
+		}
+	}
+	/**
 	 * 获取指定经纬度的天气状况
 	 * @param lng  经度
 	 * @param lat  纬度
@@ -37,15 +52,6 @@ public class Weather extends WeatherDeal{
 	public Weather(double lng,double lat){
 		this.location.setLng(lng);
 		this.location.setLat(lat);
-	}
-	/**
-	 * 获取该地点的天气状况
-	 * @param location 经纬度 sample:"121.6544,25.1552"
-	 * @throws IOException 
-	 */
-	public Weather(String address){
-		//将自然语言描述的地点 转换成 经纬度
-		this.location = Nym.geocoding.addressToLocation(address);
 	}
 	/**
 	 * 获取实时天气
