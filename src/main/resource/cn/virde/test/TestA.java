@@ -1,13 +1,12 @@
 package cn.virde.test;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.text.TextOut;
+import cn.virde.nymph.net.page.Page;
 
 public class TestA{
 	
 	public static void main(String[] args) throws Exception {
-		new TextOut("C://Qiu/a.txt").putln("haha");
-		
+		Page page = new Page("http://www.yy.com/shenqu/");
+		System.out.println(page.getHtml());
 	}
 	
 }

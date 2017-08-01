@@ -7,12 +7,13 @@ import org.junit.Test;
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.forecast.AstroEntity;
+import cn.virde.nymph.exception.LocationException;
 import cn.virde.nymph.net.weather.Weather;
 
 public class WeatherTest {
 	
 	@Test
-	public void getSunState(){
+	public void getSunState() throws LocationException{
 		String ip = "180.169.14.34";
 		LocationEntity location = Nym.position.getLocationByIp(ip);
 		Weather weather = new Weather(location);
@@ -45,7 +46,7 @@ public class WeatherTest {
     	if(s < 60){
     		return s+"秒";
     	}else if( s < 60*60){
-    		return s/60 + "分 " + s%60 + "秒"; 
+    		return s/60 + "分 " + s % 60 + "秒"; 
     	}else if( s < 60*60*24){
     		return s/(60*60) + "小时 " + (s%(60*60))/60 + "分"; 
     	}else{
