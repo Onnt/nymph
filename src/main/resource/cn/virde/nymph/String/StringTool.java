@@ -87,4 +87,17 @@ public class StringTool {
 	public String getFileName(String str){
 		return str.substring(str.lastIndexOf("/")+1,str.length());
 	}
+	
+
+    public boolean isIP(String str){  
+        if(str.length() < 7 || str.length() > 15 || "".equals(str)){  
+            return false;  
+        }  
+        
+        String rexp = "([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}";  
+        Pattern pat = Pattern.compile(rexp);    
+        Matcher mat = pat.matcher(str);    
+        boolean ipAddress = mat.find();  
+        return ipAddress;  
+    }
 }
