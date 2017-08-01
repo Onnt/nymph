@@ -9,6 +9,7 @@ import cn.virde.nymph.config.Config;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingEntity;
 import cn.virde.nymph.entity.Geocoding.GeocodingEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
+import cn.virde.nymph.exception.LocationException;
 
 /**
  * <h1>地址解析和逆地址解析功能</h1>
@@ -30,18 +31,15 @@ public class GeocodingTool {
 	 * @create 2016年12月13日 下午6:16:02
 	 * @param location
 	 * @return
+	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public String locationToAddress(LocationEntity location){
+	public String locationToAddress(LocationEntity location) throws LocationException{
 		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
 		if(entity.getStatus()==0){
 			return entity.getResult().getFormatted_address();
 		}else{
-			System.out.println(
-					this.getClass().getName()+
-					": 逆向编译地理位置时发生错误，错误码："
-					+entity.getStatus());
-			return null;
+			throw new LocationException("逆向编译地理位置时发生错误，错误码：" + entity.getStatus());
 		}
 	}
 
@@ -51,18 +49,15 @@ public class GeocodingTool {
 	 * @create 2016年12月22日 上午5:59:14
 	 * @param address
 	 * @return
+	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public LocationEntity addressToLocation(String address){
+	public LocationEntity addressToLocation(String address) throws LocationException{
 		GeocodingEntity entity = this.getGeocoding(address);
 		if(entity.getStatus()==0){
 			return entity.getResult().getLocation();
 		}else{
-			System.out.println(
-					this.getClass().getName()+
-					": 根据地理位置获取经纬度时发生错误，错误码："
-					+entity.getStatus());
-			return null;
+			throw new LocationException("根据地理位置获取经纬度时发生错误，错误码：" + entity.getStatus());
 		}
 	}
 	

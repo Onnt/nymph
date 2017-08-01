@@ -44,16 +44,18 @@ public class PositionTool {
 	 * 经纬度转地址
 	 * @param location
 	 * @return
+	 * @throws LocationException 
 	 */
-	public String locationToAddress(LocationEntity location){
+	public String locationToAddress(LocationEntity location) throws LocationException{
 		return new GeocodingTool().locationToAddress(location);
 	}
 	/**
 	 * 地址转经纬度
 	 * @param address
 	 * @return
+	 * @throws LocationException 
 	 */
-	public LocationEntity addressToLocation(String address){
+	public LocationEntity addressToLocation(String address) throws LocationException{
 		return new GeocodingTool().addressToLocation(address);
 	}
 }

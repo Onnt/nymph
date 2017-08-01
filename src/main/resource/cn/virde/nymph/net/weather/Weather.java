@@ -38,7 +38,7 @@ public class Weather extends WeatherDeal{
 	 */
 	public Weather(String address) throws LocationException{
 		if(Nym.string.isIP(address)){
-			Nym.position.getLocationByIp(address);
+			this.location = Nym.position.getLocationByIp(address);
 		}else{
 			//将自然语言描述的地点 转换成 经纬度
 			this.location = Nym.geocoding.addressToLocation(address);
