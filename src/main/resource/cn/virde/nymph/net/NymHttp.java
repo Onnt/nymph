@@ -17,7 +17,7 @@ import cn.virde.nymph.util.Log;
 
 public class NymHttp extends NymHttpGet{
 	
-	public void post(String url,List<NameValuePair> params) throws IOException{
+	public int post(String url,List<NameValuePair> params) throws IOException{
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 	    HttpPost httpPost = new HttpPost(url);
 	    //拼接参数
@@ -27,9 +27,11 @@ public class NymHttp extends NymHttpGet{
 	    CloseableHttpResponse response = null;
 		try {
 			response = httpclient.execute(httpPost);
+			int statusCode = response.getStatusLine().getStatusCode();
 	        Log.info("状态："+response.getStatusLine()+" 请求url：" + url);
 	        HttpEntity entity2 = response.getEntity();
 	        EntityUtils.consume(entity2);
+	        return statusCode;
 		} catch (IOException e) {
 			Log.info("请求url："+url+"时出现IO异常", e);
 			throw e ;
