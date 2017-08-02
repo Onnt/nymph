@@ -16,4 +16,4 @@
   2. net包方法和结构优化
   3. Weather(String) 增加对IP地址的支持
   4. 增加LocationException异常，并在相应功能上抛
-  5. post请求返回状态码
+  5. post请求优化，增加Not200Exception和返回请求响应实体
