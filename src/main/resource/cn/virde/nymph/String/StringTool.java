@@ -100,4 +100,11 @@ public class StringTool {
         boolean ipAddress = mat.find();  
         return ipAddress;  
     }
+    
+    public boolean isFormat(String str,String regFormat){
+	    // 编译正则表达式
+	    Pattern pattern = Pattern.compile(regFormat);
+	    Matcher matcher = pattern.matcher(str);
+	    return matcher.matches();
+    }
 }

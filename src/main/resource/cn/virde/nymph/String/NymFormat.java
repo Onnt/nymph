@@ -1,5 +1,6 @@
 package cn.virde.nymph.String;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import cn.virde.nymph.Nym;
@@ -20,11 +21,13 @@ public class NymFormat {
 	 */
 	public String fileLength(long length){
 		int level = 0 ;
-		String fmt = "";
-		while(length > 1024){
-			length = length / 1024;
+		double d_length = length ;
+		while(d_length > 1024){
+			d_length = d_length / 1024;
 			level++;
 		}
+		
+		String fmt = "";
 		switch(level){
 			case 0:
 				fmt = " B";
@@ -49,7 +52,8 @@ public class NymFormat {
 				break;
 				default : ;
 		}
-		return length+fmt;
+		DecimalFormat df = new DecimalFormat("#0.00");   
+		return df.format(d_length) + fmt;
 	}
 	/**
 	 * 将以数字加单位形式的文件大小转换成具体数字
@@ -61,21 +65,28 @@ public class NymFormat {
 	 * @return 转换后的纯数字文件大小
 	 */
 	public  long fileSizeToLong(String str){
-		//获取到参数的数字部分
-		float n = Float.parseFloat(str.substring(0,str.length()-2));
-		//获取到参数的单位部分
-		String unit = str.substring(str.length()-2,str.length());
+		str = str.toUpperCase().replaceAll(" ", "");
+		
+		int index = 2 ; 
+		if(!str.contains("B"))
+			index = 1 ;
+
+		float n = Float.parseFloat(str.substring(0,str.length() - index));
+		String unit = str.substring(str.length() - index ,str.length());
 		//定义返回结果
 		long result = 0;
 		//将参数的数字部分转换成long类型，乘1000是防止丢失小数部分
 		long  num = (long)(n*1000);
 		switch(unit.toUpperCase()){
+		case "K":
 		case "KB":
 			result = 1024*num;
 			break;
+		case "M" :
 		case "MB":
 			result = 1024*1024*num;
 			break;
+		case "G" :
 		case "GB":
 			result =  1024*1024*1024*num;
 			break;
@@ -166,5 +177,11 @@ public class NymFormat {
 			break;
 		}
 		return apm;
+	}
+	
+	public static void main(String[] args) {
+		long length = Nym.format.fileSizeToLong("1022.33 mb");
+		System.out.println(length);
+		System.out.println(Nym.format.fileLength(length));
 	}
 }
