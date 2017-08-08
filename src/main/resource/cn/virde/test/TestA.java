@@ -1,12 +1,16 @@
 package cn.virde.test;
 
-import cn.virde.nymph.net.page.Page;
+import java.io.File;
+
+import cn.virde.nymph.Nym;
 
 public class TestA{
 	
 	public static void main(String[] args) throws Exception {
-		Page page = new Page("http://www.yy.com/shenqu/");
-		System.out.println(page.getHtml());
+		File file = new File("C://opt/1.mp3");
+		File toFile = new File("C://opt/2.mp3");
+		
+		Nym.file.move(file, toFile);
 	}
 	
 }

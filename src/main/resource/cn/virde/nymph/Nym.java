@@ -8,11 +8,11 @@ import cn.virde.nymph.date.NymTime;
 import cn.virde.nymph.db.mongo.MongoUtil;
 import cn.virde.nymph.db.sql.DBConnInfo;
 import cn.virde.nymph.db.sql.SqlDbUtil;
+import cn.virde.nymph.file.NymFileOpera;
 import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
-import cn.virde.nymph.net.weather.Weather;
 import cn.virde.nymph.random.NumberRandom;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
@@ -63,6 +63,8 @@ public class Nym{
 	 * 
 	 */
 	public final static DownFromUrl down = new DownFromUrl();
+	
+	public final static NymFileOpera file = new NymFileOpera();
 	
 	// 以上方法不依赖jar包
 	

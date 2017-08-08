@@ -13,7 +13,7 @@ import cn.virde.nymph.Nym;
  * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
  * @Create 2016年8月31日 下午5:23:57
  */
-public class NymFileAssist {
+public class NymFileAssist{
 	protected File file = null;
 	protected List<File> allFile = new ArrayList<File>();
 	
