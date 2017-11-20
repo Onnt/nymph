@@ -21,7 +21,7 @@ public class NymTime {
 	public NymTime(Date date){
 		this.date = date;
 	}
-	public NymTime(String date){
+	public NymTime(String date) throws ParseException{
 		this.date = toDate(date);
 	}
 	public String getString(){
@@ -34,7 +34,7 @@ public class NymTime {
 		this.date = date;
 		return this;
 	}
-	public NymTime setDate(String date){
+	public NymTime setDate(String date) throws ParseException{
 		this.date = toDate(date);
 		return this;
 	}
@@ -60,7 +60,7 @@ public class NymTime {
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return this_sdf.format(date);
 	}
-	public NymTime format(String format){
+	public NymTime format(String format) throws ParseException{
 		this.date = toDate(toString(this.date,format));
 		return this;
 	}
@@ -78,8 +78,9 @@ public class NymTime {
 	 * @create 2016年12月30日 下午7:32:12
 	 * @param date
 	 * @return
+	 * @throws ParseException 
 	 */
-	public Date toDate(String date){
+	public Date toDate(String date) throws ParseException{
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日");
@@ -105,8 +106,7 @@ public class NymTime {
 						try{
 							d = toDate(Long.parseLong(date));
 						}catch(Exception e4){
-							System.out.println("NymTime - ERROR:输入的日期格式不被支持，日期："+date);
-							e3.printStackTrace();
+							throw new ParseException("NymTime - ERROR:输入的日期格式不被支持，日期："+date, 0);
 						}
 					}
 				}

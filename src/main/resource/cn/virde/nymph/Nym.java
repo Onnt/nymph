@@ -1,13 +1,11 @@
 package cn.virde.nymph;
 
+
 import cn.virde.nymph.String.NymFormat;
 import cn.virde.nymph.String.StringTool;
 import cn.virde.nymph.code.NymCode;
-import cn.virde.nymph.date.ChineseCalendar;
+import cn.virde.nymph.date.LunarCalendarUtil;
 import cn.virde.nymph.date.NymTime;
-import cn.virde.nymph.db.mongo.MongoUtil;
-import cn.virde.nymph.db.sql.DBConnInfo;
-import cn.virde.nymph.db.sql.SqlDbUtil;
 import cn.virde.nymph.file.NymFileOpera;
 import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
@@ -21,26 +19,14 @@ import cn.virde.nymph.text.TextRead;
  * Nymph项目中的工具类集合。
  */
 public class Nym{
-	/**
-	 * 中国农历 转换工具
-	 * <li>将农历转换为日历</li>
-	 * <li>日历转换为阳历</li>
-	 */
-	public final static ChineseCalendar calendar = new ChineseCalendar();
 	
-	/**
-	 * 时间日期工具，
-	 * <li>String to Date </li>
-	 * <li>Date to String</li>
-	 * <li>timestamp to Date </li>
-	 * <li>Date to timestamp</li>
-	 * <li>时间加减</li>
-	 */
+	// 农历工具
+	public final static LunarCalendarUtil lunar = new LunarCalendarUtil();
+	
+	// 时间 日期工具
 	public final static NymTime time = new NymTime();
 	
-	/**
-	 * 随机数工具
-	 */
+	// 随机数工具
 	public final static NumberRandom random = new NumberRandom();
 	
 	/**
@@ -85,14 +71,5 @@ public class Nym{
 	public final static PositionTool position = new PositionTool();
 	
 	public final static SystemInfo system = new SystemInfo();
-	
-	public final static <T> SqlDbUtil<T> getSqlDbUtil(DBConnInfo info){
-		return new SqlDbUtil<T>(info);
-	}
-	
-	public final static MongoUtil getMongoUtil(DBConnInfo info){
-		return new MongoUtil(info);
-	}
-	
-	
+
 }
