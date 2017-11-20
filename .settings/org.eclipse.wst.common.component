@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="nymph">
+        <wb-resource deploy-path="/" source-path="/src/main/resource"/>
+        <wb-resource deploy-path="/" source-path="/src/main/common"/>
+        <wb-resource deploy-path="/" source-path="/src/main/config"/>
+        <wb-resource deploy-path="/" source-path="/src/main/test"/>
+        <wb-resource deploy-path="/" source-path="/src/main/db"/>
+    </wb-module>
+</project-modules>

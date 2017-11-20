@@ -10,6 +10,17 @@
 
 如果你需要大量调用，请尽量换成自己的开发者密匙
 
+## 使用说明
+
+### 时间处理模块
+
+* 公历和农历相互转换
+1. 农历转公历
+`Nym.lunar.lunarDateTo(Date lunarDate);`
+2. 公历转农历 
+`Nym.lunar.toLunarDate(Date date);`
+
+
 ## 版本更新历史
 * v_9.7.0 2017年7月25日 11:50:27
   1. 去掉了高精度IP定位，用普通IP定位替代
@@ -17,3 +28,4 @@
   3. Weather(String) 增加对IP地址的支持
   4. 增加LocationException异常，并在相应功能上抛
   5. post请求优化，增加Not200Exception和返回请求响应实体
+  6. 数据库工具优化完善，支持多线程

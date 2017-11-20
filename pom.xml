@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>cn.virde.nymph</groupId>
-  <artifactId>nymph</artifactId>
+  <groupId>cn.virde</groupId>
   <version>0.0.1-SNAPSHOT</version>
+  <artifactId>AmnesiaCity-nymph</artifactId>
   <packaging>jar</packaging>
 
-  <name>nymph</name>
+  <name>AmnesiaCity-nymph</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -27,18 +27,23 @@
       </plugins>  
   </build>  
 
+
   <dependencies>
+  
+<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+
+    
 	<dependency>
 	    <groupId>org.apache.maven.plugins</groupId>
 	    <artifactId>maven-resources-plugin</artifactId>
 	    <version>2.4.3</version>
 	</dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     <!-- 数据库驱动 -->
     <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
 	<dependency>
@@ -126,6 +131,5 @@
     <artifactId>httpcore</artifactId>
     <version>4.4.6</version>
 </dependency>
-    
   </dependencies>
 </project>
