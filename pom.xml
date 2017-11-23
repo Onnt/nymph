@@ -39,18 +39,13 @@
 </dependency>
 
     
-	<dependency>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-resources-plugin</artifactId>
-	    <version>2.4.3</version>
-	</dependency>
     <!-- 数据库驱动 -->
     <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
-	<dependency>
-	    <groupId>org.mongodb</groupId>
-	    <artifactId>mongo-java-driver</artifactId>
-	    <version>3.2.2</version>
-	</dependency>
+<dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver</artifactId>
+        <version>3.5.0</version>
+</dependency>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
 	    <groupId>mysql</groupId>

@@ -1,15 +1,7 @@
-//package cn.virde.nymph.db.sql;
-//
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
-//import java.sql.Statement;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import cn.virde.nymph.util.Log;
-//
-//public class SqlDbCurdResultAsListList extends SqlDbCurd{
-//
+package cn.virde.nymph.db.sql;
+
+public class SqlDbCurdResultAsListList{
+
 //	private ResultSet rs ;
 //	private Statement sta ;
 //	
@@ -92,4 +84,4 @@
 //		closeSta(sta); sta = null;
 //		closeRs(rs); rs = null;
 //	}
-//}
+}

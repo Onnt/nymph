@@ -167,7 +167,7 @@ public class NymTime {
 	 * @return
 	 */
 	public long toTimestamp(Date date){
-		return date.getTime();
+		return date.getTime()/1000;
 	}
 	
 	/**
