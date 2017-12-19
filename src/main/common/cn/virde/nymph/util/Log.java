@@ -41,6 +41,11 @@ public class Log {
 		syso(traceInfo);
 		
 	}
+	
+	public synchronized static void alert(String msg) {
+		String time = Nym.time.toString(new Date(), "hh:mm:ss");
+		syso(time + " " + msg );
+	}
 
 	public synchronized static void error(String msg,Exception e){
 		

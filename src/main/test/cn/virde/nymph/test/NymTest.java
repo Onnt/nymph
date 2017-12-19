@@ -1,6 +1,7 @@
 package cn.virde.nymph.test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Set;
 
 import org.junit.Test;
@@ -46,13 +47,11 @@ public class NymTest {
 	public void sendPost(String mobile) throws IOException, Not200Exception{
 //		String
 		
-		Nym.http.post("http://localhost:8090/readings_platform/jf/platform/user/save?user.departmentids=4cc9dec0e91c4f08a77a5a014ebc0c1d&user.departmentnames=%E6%B3%B0%E5%85%B4%E5%B8%82%E5%A4%A7%E9%98%9F%E5%85%9A%E5%A7%94&userInfo.idcard=&userInfo.names=%E6%9C%AA%E5%91%BD%E5%90%8D&user.username=13700000006&password=111111&userInfo.email=13700000006%40qq.com&userInfo.mobile=13700000006&userInfo.telephone=13700000006&userInfo.qq=13700000006&userInfo.birthday=2017-07-31", null);
+		Nym.http.post("http://localhost:8090/readings_platform/jf/platform/user/save?user.departmentids=4cc9dec0e91c4f08a77a5a014ebc0c1d&user.departmentnames=%E6%B3%B0%E5%85%B4%E5%B8%82%E5%A4%A7%E9%98%9F%E5%85%9A%E5%A7%94&userInfo.idcard=&userInfo.names=%E6%9C%AA%E5%91%BD%E5%90%8D&user.username=13700000006&password=111111&userInfo.email=13700000006%40qq.com&userInfo.mobile=13700000006&userInfo.telephone=13700000006&userInfo.qq=13700000006&userInfo.birthday=2017-07-31", new HashMap<String,String>());
 	}
 	
 	public static void main(String[] args) throws IOException, Not200Exception {
 
-		Nym.http.post("http://localhost:8090/readings_platform/jf/platform/user/save?user.departmentids=4cc9dec0e91c4f08a77a5a014ebc0c1d&user.departmentnames=%E6%B3%B0%E5%85%B4%E5%B8%82%E5%A4%A7%E9%98%9F%E5%85%9A%E5%A7%94&userInfo.idcard=&userInfo.names=%E6%9C%AA%E5%91%BD%E5%90%8D&user.username=13700000006&password=111111&userInfo.email=13700000006%40qq.com&userInfo.mobile=13700000006&userInfo.telephone=13700000006&userInfo.qq=13700000006&userInfo.birthday=2017-07-31", null);
-	
 	}
 	
 }
