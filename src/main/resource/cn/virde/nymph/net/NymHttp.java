@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -34,7 +35,7 @@ public class NymHttp extends NymHttpGet{
 	    }
 	    
 	    CloseableHttpResponse response = httpclient.execute(httpPost);
-	    Log.info("状态："+response.getStatusLine()+" 请求url：" + url);
+	    Log.alert("状态："+response.getStatusLine()+" 请求url：" + url);
 	        
 	    int statusCode = response.getStatusLine().getStatusCode();
 		if(statusCode != 200)
@@ -52,6 +53,19 @@ public class NymHttp extends NymHttpGet{
 				
 	}
 	
+	public String post(String url,Map<String,String> map) throws IOException, Not200Exception {
+		return post(url,mapToListParams(map));
+	}
+	
+	private List<NameValuePair> mapToListParams(Map<String,String> map){
+		if(map==null || map.size() == 0) return null;
+		
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		for(Map.Entry<String, String> m: map.entrySet()) {
+			params.add(new BasicNameValuePair(m.getKey(), m.getValue()));
+		}
+		return params;
+	}
 	public String getHtml(String url){
 		return new NymHttpGetHtml().getHtml(url);
 	}
