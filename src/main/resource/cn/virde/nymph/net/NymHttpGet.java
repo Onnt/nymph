@@ -10,11 +10,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import cn.virde.nymph.Nym;
+
 public class NymHttpGet {
 
 	private URLConnection connection ;
 	private BufferedReader reader ; 
 	
+	
+	public String get(String url,Map<String,String> params) throws IOException {
+		return get(Nym.string.makeUrlWithParams(url, params));
+	}
+	public String makeUrlWithParams(String url,Map<String,String> params) {
+		
+		return null;
+	}
 	public String get(String str) throws IOException{
 		URL url = new URL(str);
 		connection = url.openConnection();
