@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 /**
  * 字符串处理工具
  * @author Blacard
@@ -152,5 +151,22 @@ public class StringTool {
 			map.put(param[0], param[1]);
 		}
 		return map ;
+	}
+	
+	/**
+	 * 传入链接和参数，拼接返回。
+	 * 缺陷：没有验证url的既有参数
+	 * @param url
+	 * @param params
+	 * @return
+	 */
+	public String makeUrlWithParams(String url,Map<String,String> params) {
+		if(params==null||params.size()==0) return url ;
+		
+		StringBuffer sb = new StringBuffer();
+		for(Map.Entry<String, String> m : params.entrySet()) {
+			sb.append(m.getKey()+"="+m.getValue()+"&");
+		}
+		return url +"?"+ sb.toString().substring(0, sb.length()-1);
 	}
 }
