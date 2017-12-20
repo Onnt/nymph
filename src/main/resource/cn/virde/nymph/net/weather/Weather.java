@@ -36,7 +36,7 @@ public class Weather extends WeatherDeal{
 	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public Weather(String address) throws LocationException{
+	public Weather(String address) throws LocationException, IOException{
 		if(Nym.string.isIP(address)){
 			this.location = Nym.position.getLocationByIp(address);
 		}else{
@@ -60,7 +60,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于实时天气的信息
 	 * @throws IOException 
 	 */
-	public RealtimeWeatherEntity getRealtimeWeather(){
+	public RealtimeWeatherEntity getRealtimeWeather() throws IOException{
 		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;
@@ -76,7 +76,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于预报天气的信息
 	 * @throws IOException 
 	 */
-	public ForecastWeatherEntity getForecastWeather(){
+	public ForecastWeatherEntity getForecastWeather() throws IOException{
 		ForecastWeatherEntity entity = this.getForecastWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;

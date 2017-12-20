@@ -1,5 +1,6 @@
 package cn.virde.nymph.weather.test;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import cn.virde.nymph.net.weather.Weather;
 public class WeatherTest {
 	
 	@Test
-	public void getSunState() throws LocationException, ParseException{
+	public void getSunState() throws LocationException, ParseException, IOException{
 		String ip = "180.169.14.34";
 		LocationEntity location = Nym.position.getLocationByIp(ip);
 		Weather weather = new Weather(location);

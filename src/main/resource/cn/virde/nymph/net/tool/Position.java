@@ -1,5 +1,7 @@
 package cn.virde.nymph.net.tool;
 
+import java.io.IOException;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -13,11 +15,11 @@ public class Position {
 	
 	private JSONObject position ;
 
-	public Position() throws LocationException{
+	public Position() throws LocationException, IOException{
 		setPosition(null);
 	}
 	
-	public Position(String ip) throws LocationException{
+	public Position(String ip) throws LocationException, IOException{
 		if(isValiIp(ip)){
 			setPosition(ip);
 		}else{
@@ -42,7 +44,7 @@ public class Position {
 		return location;
 	}
 
-	public void setPosition(String ip) throws LocationException {
+	public void setPosition(String ip) throws LocationException, IOException {
 		String reqUrl = Config.position.getReqUrl(ip) ;
 		String resp = Nym.http.get(reqUrl);
 		

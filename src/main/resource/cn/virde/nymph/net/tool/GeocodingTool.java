@@ -34,7 +34,7 @@ public class GeocodingTool {
 	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public String locationToAddress(LocationEntity location) throws LocationException{
+	public String locationToAddress(LocationEntity location) throws LocationException, IOException{
 		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
 		if(entity.getStatus()==0){
 			return entity.getResult().getFormatted_address();
@@ -52,7 +52,7 @@ public class GeocodingTool {
 	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public LocationEntity addressToLocation(String address) throws LocationException{
+	public LocationEntity addressToLocation(String address) throws LocationException, IOException{
 		GeocodingEntity entity = this.getGeocoding(address);
 		if(entity.getStatus()==0){
 			return entity.getResult().getLocation();
@@ -99,7 +99,7 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location){
+	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
 		String requestUrl = createRequestUrl(location);
 		String respStr = Nym.http.get(requestUrl);
 		return JSON.parseObject(respStr,ConverseGeocodingEntity.class);
@@ -113,7 +113,7 @@ public class GeocodingTool {
 	 * @return
 	 * @throws IOException 
 	 */
-	private GeocodingEntity getGeocoding(String address){
+	private GeocodingEntity getGeocoding(String address) throws IOException{
 		String requestUrl = createRequestUrl(address);
 		String respStr = Nym.http.get(requestUrl);
 		return JSON.parseObject(respStr,GeocodingEntity.class);

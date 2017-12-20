@@ -10,72 +10,33 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import cn.virde.nymph.util.Log;
-
 public class NymHttpGet {
 
 	private URLConnection connection ;
 	private BufferedReader reader ; 
 	
-	public String get(String str){
-		if(!getURLConnect(str)) return null;
-		setReqeustPara();
-		if(!connect()) return null;
-		if(!getReader()) return null;
+	public String get(String str) throws IOException{
+		URL url = new URL(str);
+		connection = url.openConnection();
 		
-		return getRespStr();
-	}
-	
-	protected boolean getURLConnect(String str){
-		URL url;
-		try {
-			url = new URL(str);
-			connection = url.openConnection();
-			return true ;
-		} catch (IOException e) {
-			Log.info("请求时出现错误，操作已经终止，请求：" + str,e);
-			return false;
-		}
-	}
-	protected void setReqeustPara(){
         connection.setRequestProperty("accept", "*/*");
         connection.setRequestProperty("connection", "Keep-Alive");
         connection.setRequestProperty("user-agent",
                 "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-	}
-	protected boolean connect(){
-		try {
-			connection.connect();
-			return true ;
-		} catch (IOException e) {
-			Log.info("Connection在打开实际链接时出现异常",e);
-			return false ;
+        
+        connection.connect();
+        
+        reader = new BufferedReader(new InputStreamReader(
+		        connection.getInputStream(),getCharset()));
+        
+        String line;
+        StringBuffer result = new StringBuffer();
+		while ((line = reader.readLine()) != null) {
+		    result.append(line);
 		}
+		return result.toString() ; 
 	}
 	
-	protected String getRespStr(){
-        try {
-            String line;
-            StringBuffer result = new StringBuffer();
-			while ((line = reader.readLine()) != null) {
-			    result.append(line);
-			}
-			return result.toString() ; 
-		} catch (IOException e) {
-			Log.info("从BufferReader中获取返回值时出现异常",e);
-			return null;
-		}
-	}
-	protected boolean getReader(){
-		try {
-			reader = new BufferedReader(new InputStreamReader(
-			        connection.getInputStream(),getCharset()));
-			return true ;
-		} catch (IOException e) {
-			Log.info("获取BufferReader时出现异常",e);
-			return false ;
-		}
-	}
 	protected String getCharset(){
 
         // 网页编码  
