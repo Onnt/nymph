@@ -7,6 +7,7 @@ import cn.virde.nymph.code.NymCode;
 import cn.virde.nymph.date.LunarCalendarUtil;
 import cn.virde.nymph.date.NymTime;
 import cn.virde.nymph.file.NymFileOpera;
+import cn.virde.nymph.json.JsonUtil;
 import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
@@ -45,6 +46,10 @@ public class Nym{
 	 */
 	public final static NumberTool number = new NumberTool();
 	
+	/**
+	 * json 处理工具
+	 */
+	public final static JsonUtil json = new JsonUtil();
 	/**
 	 * 读取文本内容
 	 */
