@@ -11,6 +11,7 @@ import cn.virde.nymph.net.NymHttp;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
+import cn.virde.nymph.number.NumberTool;
 import cn.virde.nymph.random.NumberRandom;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
@@ -38,6 +39,11 @@ public class Nym{
 	 * 字符串处理工具
 	 */
 	public final static StringTool string = new StringTool();
+	
+	/**
+	 * 数字处理工具
+	 */
+	public final static NumberTool number = new NumberTool();
 	
 	/**
 	 * 读取文本内容
