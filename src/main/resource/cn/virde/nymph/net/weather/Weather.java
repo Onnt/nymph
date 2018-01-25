@@ -60,7 +60,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于实时天气的信息
 	 * @throws IOException 
 	 */
-	public RealtimeWeatherEntity getRealtimeWeather() throws IOException{
+	public final RealtimeWeatherEntity getRealtimeWeather() throws IOException{
 		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;
@@ -76,7 +76,7 @@ public class Weather extends WeatherDeal{
 	 * @return 返回所有关于预报天气的信息
 	 * @throws IOException 
 	 */
-	public ForecastWeatherEntity getForecastWeather() throws IOException{
+	public final ForecastWeatherEntity getForecastWeather() throws IOException{
 		ForecastWeatherEntity entity = this.getForecastWeather(location);
 		if(entity.getStatus().equals("ok")){
 			return entity;

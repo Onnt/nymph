@@ -25,7 +25,7 @@ public class WeatherDeal {
 	 * @return
 	 * @throws IOException 
 	 */
-	protected RealtimeWeatherEntity getRealtimeWeather(LocationEntity location) throws IOException{
+	protected final RealtimeWeatherEntity getRealtimeWeather(LocationEntity location) throws IOException{
 		String realtimeWeather = Nym.http.get(createRequestUrl(location,"realtime.json"));
 		
 		return JSON.parseObject(realtimeWeather,RealtimeWeatherEntity.class);
@@ -39,7 +39,7 @@ public class WeatherDeal {
 	 * @return
 	 * @throws IOException 
 	 */
-	protected ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException{
+	protected final ForecastWeatherEntity getForecastWeather(LocationEntity location) throws IOException{
 		String forecastWeather = Nym.http.get(createRequestUrl(location,"forecast.json"));
 		return JSON.parseObject(forecastWeather,ForecastWeatherEntity.class);
 	}
@@ -88,6 +88,8 @@ public class WeatherDeal {
 		sb.append(key);
 		sb.append("/"+location);
 		sb.append("/"+requestType);
+		
+		sb.append("?unit=metric:v2");
 		return sb.toString();
 	}
  }

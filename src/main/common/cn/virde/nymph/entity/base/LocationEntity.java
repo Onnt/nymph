@@ -60,10 +60,10 @@ public class LocationEntity extends BaseEntity{
 	}
 	/**
 	 * 构造器
-	 * @param lat 经度
-	 * @param lng 纬度
+	 * @param lng 经度
+	 * @param lat 纬度
 	 */
-	public LocationEntity(double lat, double lng) {
+	public LocationEntity(double lng, double lat) {
 		super();
 		this.lat = lat;
 		this.lng = lng;

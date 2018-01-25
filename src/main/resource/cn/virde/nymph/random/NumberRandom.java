@@ -36,17 +36,6 @@ public class NumberRandom {
 			return getRandom(base,add,0);
 		}
 		/**
-		 * 随机获取一个参数
-		 * @author Virde
-		 * @time 2018年1月25日 上午11:32:07
-		 * @param args
-		 * @return
-		 */
-		public String string(String...args) {
-			int randomIndex = Nym.random.getRandom(0, args.length-1);
-			return args[randomIndex];
-		}
-		/**
 		 * 在某个数以内的随机数
 		 * @author Blacard
 		 * @Create 2016年9月18日 下午5:13:48

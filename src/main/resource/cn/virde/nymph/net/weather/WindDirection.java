@@ -14,6 +14,8 @@ public class WindDirection {
 	private double direction ;
 	// 风向名称。如，正北风，正南风，西南风。偏北风
 	private String name ;
+	// 方向名字
+	private String directionName ;
 	
 	/**
 	 * direction 如果大于360 ,会进行取余计算
@@ -25,26 +27,6 @@ public class WindDirection {
 	}
 	
 	private void calculation() {
-		name = getDirectionName(direction) + "风" ;
-	}
-	
-	public double getDirection() {
-		return direction;
-	}
-
-	public void setDirection(double direction) {
-		this.direction = direction;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	private String getDirectionName(double direction) {
-		String directionName = "" ;
 		if(direction <= 22.5 ) {
 			directionName = "北" ;
 		}else if(direction <= 67.5) {
@@ -64,8 +46,33 @@ public class WindDirection {
 		}else{
 			directionName = "北" ;
 		}
-		return directionName ;
+		name = directionName + "风" ;
 	}
+	
+	public double getDirection() {
+		return direction;
+	}
+
+	public void setDirection(double direction) {
+		this.direction = direction;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getDirectionName() {
+		return directionName;
+	}
+
+	public void setDirectionName(String directionName) {
+		this.directionName = directionName;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(new WindDirection(23.232).getName());
 	}
