@@ -1,4 +1,7 @@
 package cn.virde.nymph.random;
+
+import cn.virde.nymph.Nym;
+
 /**
  * 
  * <h3>快速生成随机数</h3>
@@ -32,7 +35,17 @@ public class NumberRandom {
 		public int getRandom(int base,int add){
 			return getRandom(base,add,0);
 		}
-		
+		/**
+		 * 随机获取一个参数
+		 * @author Virde
+		 * @time 2018年1月25日 上午11:32:07
+		 * @param args
+		 * @return
+		 */
+		public String string(String...args) {
+			int randomIndex = Nym.random.getRandom(0, args.length-1);
+			return args[randomIndex];
+		}
 		/**
 		 * 在某个数以内的随机数
 		 * @author Blacard

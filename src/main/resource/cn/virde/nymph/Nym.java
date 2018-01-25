@@ -13,7 +13,7 @@ import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
 import cn.virde.nymph.number.NumberTool;
-import cn.virde.nymph.random.NumberRandom;
+import cn.virde.nymph.random.Random;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
 
@@ -29,7 +29,7 @@ public class Nym{
 	public final static NymTime time = new NymTime();
 	
 	// 随机数工具
-	public final static NumberRandom random = new NumberRandom();
+	public final static Random random = new Random();
 	
 	/**
 	 * 格式化 各种数据形式
