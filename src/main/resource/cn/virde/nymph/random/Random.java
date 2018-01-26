@@ -1,6 +1,7 @@
 package cn.virde.nymph.random;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.entity.base.LocationEntity;
 
 public class Random extends NumberRandom{
 
@@ -15,5 +16,15 @@ public class Random extends NumberRandom{
 		if(args.length == 0 ) return null;
 		int randomIndex = Nym.random.getRandom(0, args.length-1);
 		return args[randomIndex];
+	}
+	
+	/**
+	 * 随机获取全国范围内任一地点
+	 * @author Virde
+	 * @time 2018年1月26日 下午2:47:45
+	 * @return
+	 */
+	public LocationEntity randomChineseAddress() {
+		return null;
 	}
 }

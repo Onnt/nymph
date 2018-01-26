@@ -91,8 +91,15 @@ public class StringTool {
 	}
 	
 
+	/**
+	 * 判断这个字符串是否是IP地址
+	 * @author Virde
+	 * @time 2018年1月26日 下午2:03:54
+	 * @param str
+	 * @return
+	 */
     public boolean isIP(String str){  
-        if(str.length() < 7 || str.length() > 15 || "".equals(str)){  
+        if(str == null || str.length() < 7 || str.length() > 15 || "".equals(str)){  
             return false;  
         }  
         

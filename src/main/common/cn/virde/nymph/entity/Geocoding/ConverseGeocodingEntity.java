@@ -1,5 +1,6 @@
 package cn.virde.nymph.entity.Geocoding;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.common.base.BaseEntity;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingResultEntity;
 
@@ -40,5 +41,8 @@ public class ConverseGeocodingEntity extends BaseEntity{
 		super();
 	}
 	
-	
+	@Override
+	public String toString() {
+		return Nym.json.objectToJsonString(this);
+	}
 }

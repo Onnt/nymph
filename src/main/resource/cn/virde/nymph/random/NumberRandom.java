@@ -1,7 +1,5 @@
 package cn.virde.nymph.random;
 
-import cn.virde.nymph.Nym;
-
 /**
  * 
  * <h3>快速生成随机数</h3>
