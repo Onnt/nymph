@@ -1,4 +1,4 @@
-package cn.virde.nymph.net.weather;
+package cn.virde.nymph.entity.weather.realtime;
 
 /**
  * 

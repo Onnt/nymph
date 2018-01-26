@@ -1,6 +1,7 @@
 package cn.virde.nymph.entity.weather.realtime;
 
 import cn.virde.nymph.common.base.BaseEntity;
+import cn.virde.nymph.enums.common.SkyconsEnum;
 
 /**
  * 
@@ -86,6 +87,10 @@ public class RealtimeResultEntity extends BaseEntity{
 	public RealtimeResultEntity() {
 		super();
 	}
+
 	
+	public String getSkyconName() {
+		return new PrecipitationIntensity(skycon, precipitation.getLocal().getIntensity()).getName();
+	}
 
 }

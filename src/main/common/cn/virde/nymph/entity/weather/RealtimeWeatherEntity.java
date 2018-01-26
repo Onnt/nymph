@@ -93,4 +93,5 @@ public class RealtimeWeatherEntity extends BaseEntity{
 	public String toErrorString() {
 		return "status:"+status+";error:"+error;
 	}
+	
 }

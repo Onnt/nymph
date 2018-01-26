@@ -11,6 +11,7 @@ public class WindEntity extends BaseEntity{
 	
 	private double direction;
 	private double speed;
+	
 	public double getDirection() {
 		return direction;
 	}
@@ -32,5 +33,14 @@ public class WindEntity extends BaseEntity{
 		super();
 	}
 	
-
+	public WindDirection getDirectionDetail() {
+		return new WindDirection(direction);
+ 	}
+	public WindGrade getSpeedDetail() {
+		return new WindGrade(speed);
+	}
+	public String getDescription() {
+		return getDirectionDetail().getName() + " " + getSpeedDetail().getWindGrade()+"级(" + getSpeedDetail().getDescript()+")";
+	}
+	
 }

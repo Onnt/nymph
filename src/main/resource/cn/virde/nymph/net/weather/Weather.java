@@ -22,36 +22,46 @@ public class Weather extends WeatherDeal{
 	
 	//要获取天气的地理位置信息
 	private LocationEntity location;
-
+	
+	private String address ; 
 	/**
 	 * 获取该经纬度的天气状况
 	 * @param location 经纬度
+	 * @throws IOException 
+	 * @throws LocationException 
 	 */
-	public Weather(LocationEntity location) {
+	public Weather(LocationEntity location) throws LocationException, IOException {
 		this.location = location;
+		this.address = Nym.geocoding.getConverseGeocodingEntity(location).getResult().getAddressComponent().getCity();
 	}
 	/**
+	 * 可以同时接受IP地址和自然语言描述作为位置
 	 * 获取该地点的天气状况
 	 * @param location 经纬度 sample:"121.6544,25.1552"
 	 * @throws LocationException 
 	 * @throws IOException 
 	 */
-	public Weather(String address) throws LocationException, IOException{
-		if(Nym.string.isIP(address)){
-			this.location = Nym.position.getLocationByIp(address);
+	public Weather(String addressOrIp) throws LocationException, IOException{
+		if(Nym.string.isIP(addressOrIp)){
+			this.location = Nym.position.getLocationByIp(addressOrIp);
+			this.address = Nym.geocoding.getConverseGeocodingEntity(location).getResult().getAddressComponent().getCity();
 		}else{
 			//将自然语言描述的地点 转换成 经纬度
-			this.location = Nym.geocoding.addressToLocation(address);
+			this.location = Nym.geocoding.addressToLocation(addressOrIp);
+			this.address = addressOrIp ;
 		}
 	}
 	/**
 	 * 获取指定经纬度的天气状况
 	 * @param lng  经度
 	 * @param lat  纬度
+	 * @throws IOException 
+	 * @throws LocationException 
 	 */
-	public Weather(double lng,double lat){
+	public Weather(double lng,double lat) throws LocationException, IOException{
 		this.location.setLng(lng);
 		this.location.setLat(lat);
+		this.address = Nym.geocoding.getConverseGeocodingEntity(location).getResult().getAddressComponent().getCity();
 	}
 	/**
 	 * 获取实时天气
@@ -85,4 +95,12 @@ public class Weather extends WeatherDeal{
 			return null;
 		}
 	}
+	
+	public LocationEntity getLocation() {
+		return location;
+	}
+	public String getAddress() {
+		return address;
+	}
+	
 }
