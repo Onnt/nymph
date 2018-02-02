@@ -44,7 +44,7 @@
 <dependency>
         <groupId>org.mongodb</groupId>
         <artifactId>mongodb-driver</artifactId>
-        <version>3.5.0</version>
+        <version>3.6.0</version>
 </dependency>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
