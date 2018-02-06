@@ -15,6 +15,14 @@ public class NymTime {
 	
 	private Date date;
 	
+	/**
+	 * 设置日期格式化
+	 * 默认格式化为：yyyy-MM-dd HH:mm:ss
+	 * @author Virde
+	 * @time 2018年2月5日 14:02:48
+	 */
+	private String format = "yyyy-MM-dd HH:mm:ss";
+	
 	public NymTime(){
 		
 	}
@@ -46,7 +54,7 @@ public class NymTime {
 	 * @return 返回日期默认格式为：yyyy-MM-dd HH:mm:ss
 	 */
 	public String toString(Date date){
-		return toString(date,"yyyy-MM-dd HH:mm:ss");
+		return toString(date,format);
 	}
 	/**
 	 *  将给定时间转成字符串返回
@@ -60,9 +68,22 @@ public class NymTime {
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return this_sdf.format(date);
 	}
-	public NymTime format(String format) throws ParseException{
-		this.date = toDate(toString(this.date,format));
-		return this;
+	/**
+	 * 
+	 * @author Virde
+	 * @time 2018年2月5日 下午2:13:30
+	 * @param date
+	 * @param format yyyy-MM-dd HH:mm:ss
+	 * @return
+	 */
+	public String format(Date date,String format) {
+		return toString(date, format);
+	}
+	public String format(String format){
+		return toString(this.date,format);
+	}
+	public String format(){
+		return format(format);
 	}
 	/**
 	 * 将时间转成Date类型<br/>
@@ -190,7 +211,16 @@ public class NymTime {
 		this.date = addTime(date,unit,add);
 		return this;
 	}
-	
+	/**
+	 * 
+	 * @author Virde
+	 * @time 2018年2月5日 下午2:07:24
+	 * @param date
+	 * @param hour
+	 * @param minute
+	 * @param second
+	 * @return
+	 */
 	public Date setTimeGetDate(Date date,int hour,int minute,int second){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
@@ -211,4 +241,11 @@ public class NymTime {
 		this.date = timeToZero(this.date);
 		return this;
 	}
+	public String getFormat() {
+		return format;
+	}
+	public void setFormat(String format) {
+		this.format = format;
+	}
+	
 }
