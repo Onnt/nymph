@@ -39,6 +39,14 @@ public class RealtimeWeather{
 		return address + new RealtimeWeatherBriefMaker(realtimeWeather).getBrief();
 	} 
 	
+	public RealtimeWeatherEntity getRealtimeWeather() {
+		return realtimeWeather;
+	}
+
+	public void setRealtimeWeather(RealtimeWeatherEntity realtimeWeather) {
+		this.realtimeWeather = realtimeWeather;
+	}
+
 	public static void main(String[] args) throws LocationException, IOException {
 		String str = new RealtimeWeather(123.6181640625,25.7998911821).getBrief();
 		System.out.println(str);

@@ -1,6 +1,7 @@
 package cn.virde.nymph.entity.weather.realtime;
 
 import cn.virde.nymph.common.base.BaseEntity;
+import cn.virde.nymph.enums.common.SkyconsConstant;
 import cn.virde.nymph.enums.common.SkyconsEnum;
 
 /**
@@ -90,7 +91,30 @@ public class RealtimeResultEntity extends BaseEntity{
 
 	
 	public String getSkyconName() {
-		return new PrecipitationIntensity(skycon, precipitation.getLocal().getIntensity()).getName();
+		switch(skycon) {
+		case SkyconsConstant.SNOW:
+		case SkyconsConstant.RAIN:
+			return new PrecipitationIntensity(skycon, precipitation.getLocal().getIntensity()).getName();
+		case SkyconsConstant.CLEAR_DAY:
+			return "晴天";
+		case SkyconsConstant.CLEAR_NIGHT:
+			return "晴夜";
+		case SkyconsConstant.CLOUDY:
+			return "多云" ;
+		case SkyconsConstant.FOG:
+			return "大雾";
+		case SkyconsConstant.HAZE:
+			return "雾霾";
+		case SkyconsConstant.PARTLY_CLOUDY_DAY:
+		case SkyconsConstant.PARTLY_CLOUDY_NIGHT:
+			return "局部多云";
+		case SkyconsConstant.SLEET:
+			return "冻雨";
+		case SkyconsConstant.WIND:
+			return "大风";
+		default: 
+			return "";
+		}
 	}
 
 }
