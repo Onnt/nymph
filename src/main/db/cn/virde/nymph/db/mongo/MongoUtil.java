@@ -8,13 +8,20 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.db.ConnInfo;
 import cn.virde.nymph.util.Log;
 
+/**
+ * 
+ * @author Virde
+ * @time 2018年2月8日 下午3:00:10
+ */
 public class MongoUtil{
 	
 	private MongoClient mongoClient ;
 	private ConnInfo dbInfo ; 
+	
 	public MongoUtil(ConnInfo dbInfo){
 		this.dbInfo = dbInfo ;
 		mongoClient = new MongoClient(new MongoClientURI(dbInfo.getURL()));
@@ -38,6 +45,7 @@ public class MongoUtil{
 			mongoClient.close();
 		}
 	}
+	
 	public boolean isSuccessConn(){
 		Document command = new Document("buildInfo",1);
 		Log.info("正在验证MongoDB连接……");
@@ -50,6 +58,7 @@ public class MongoUtil{
 			return false ;
 		}
 	}
+	
 	public boolean isExistColl(String collName){
 		MongoIterable<String> collNames = getDatabase().listCollectionNames();
 		for(String collName_: collNames){
@@ -58,5 +67,12 @@ public class MongoUtil{
 			 }
 		}
 		return false ;
+	}
+	
+	public void insertOne(Object obj) {
+		String json = Nym.json.objectToJsonString(obj);
+		Document doc = Document.parse(json);
+		String collName = Nym.clazz.getField(obj.getClass(), "collName");
+		getColl(collName).insertOne(doc);
 	}
 }
