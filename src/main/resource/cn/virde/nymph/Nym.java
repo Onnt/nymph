@@ -3,6 +3,7 @@ package cn.virde.nymph;
 
 import cn.virde.nymph.String.NymFormat;
 import cn.virde.nymph.String.StringTool;
+import cn.virde.nymph.clazz.ClazzUtil;
 import cn.virde.nymph.code.NymCode;
 import cn.virde.nymph.date.LunarCalendarUtil;
 import cn.virde.nymph.date.NymTime;
@@ -82,5 +83,7 @@ public class Nym{
 	public final static PositionTool position = new PositionTool();
 	
 	public final static SystemInfo system = new SystemInfo();
+	
+	public final static ClazzUtil clazz = new ClazzUtil();
 
 }
