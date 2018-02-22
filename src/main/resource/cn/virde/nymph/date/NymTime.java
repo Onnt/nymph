@@ -190,7 +190,10 @@ public class NymTime {
 	public long toTimestamp(Date date){
 		return date.getTime()/1000;
 	}
-	
+
+	public long toTimestamp(){
+		return date.getTime()/1000;
+	}
 	/**
 	 * 
 	 * @author Blacard

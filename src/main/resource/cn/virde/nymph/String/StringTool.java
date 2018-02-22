@@ -154,8 +154,12 @@ public class StringTool {
 		}
 		String[] paramKeyV = pageUrl.split("&");
 		for(String keyV : paramKeyV) {
-			String[] param = keyV.split("=");
-			map.put(param[0], param[1]);
+			if(keyV.contains("=")) {
+				String[] param = keyV.split("=");
+				map.put(param[0], param[1]);
+			}else {
+				map.put(keyV, "");
+			}
 		}
 		return map ;
 	}
