@@ -23,7 +23,9 @@ public class TextRead {
 		        BufferedReader bufferedReader = new BufferedReader(read);
 		        String lineTxt = null;
 		        while((lineTxt = bufferedReader.readLine()) != null){
-		            sb.append(lineTxt);
+		        	sb.append("\r\n");
+		        	sb.append(lineTxt);
+		            
 		        }
 		        read.close();
 		     }else{
@@ -39,5 +41,4 @@ public class TextRead {
 	public String read(String file){
 		return read(new File(file));
 	}
-
 }
