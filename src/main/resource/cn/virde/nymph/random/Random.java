@@ -1,5 +1,7 @@
 package cn.virde.nymph.random;
 
+import java.util.UUID;
+
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 
@@ -26,5 +28,15 @@ public class Random extends NumberRandom{
 	 */
 	public LocationEntity randomChineseAddress() {
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @author SunAo
+	 * @date 2018年3月26日 下午1:39:48
+	 * @return
+	 */
+	public String uuid() {
+		return UUID.randomUUID().toString();
 	}
 }
