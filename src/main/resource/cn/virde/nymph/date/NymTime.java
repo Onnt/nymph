@@ -12,9 +12,9 @@ import java.util.Date;
  * @create 2016年12月30日 下午7:07:28
  */
 public class NymTime {
-	
+	public final static CalendarUtil cal = new CalendarUtil();
 	private Date date;
-	
+
 	/**
 	 * 设置日期格式化
 	 * 默认格式化为：yyyy-MM-dd HH:mm:ss
@@ -67,6 +67,17 @@ public class NymTime {
 	public String toString(Date date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return this_sdf.format(date);
+	}
+	/**
+	 *  
+	 * @author Virde
+	 * @date 2018年4月10日 下午5:02:34
+	 * @param timestamp
+	 * @return
+	 */
+	public String toString(long timestamp) {
+		Date d = toDate(timestamp);
+		return toString(d) ;
 	}
 	/**
 	 * 
@@ -250,5 +261,5 @@ public class NymTime {
 	public void setFormat(String format) {
 		this.format = format;
 	}
-	
+
 }
