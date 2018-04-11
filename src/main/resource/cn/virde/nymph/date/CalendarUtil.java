@@ -3,6 +3,7 @@ package cn.virde.nymph.date;
 import java.util.Calendar;
 import java.util.Date;
 
+import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.date.TimeInterval;
 
 /**
@@ -47,6 +48,34 @@ public class CalendarUtil {
 	 */
 	public TimeInterval getYesterdayTimeInterval() {
 		return getTimeInterval(-1,0);
+	}
+	
+	/**
+	 * 
+	 * @author SunAo
+	 * @date 2018年4月11日 下午3:24:53
+	 * @param a 几个月前的 -1 上个月 -2 上上个月
+	 * @return
+	 */
+	public TimeInterval getOneMonth(int a) {
+		TimeInterval respObj = new TimeInterval();
+		Calendar cal = Calendar.getInstance() ;
+		cal.setTime(new Date());
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		
+		cal.add(Calendar.MONTH,  a);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		respObj.setStart(cal.getTime().getTime());
+		
+		cal.set(Calendar.HOUR_OF_DAY, 23);
+		cal.set(Calendar.MINUTE, 59);
+		cal.set(Calendar.SECOND, 59);
+		cal.roll(Calendar.DAY_OF_MONTH, -1);
+		
+		respObj.setEnd(cal.getTime().getTime());
+		return respObj ;
 	}
 	
 }
