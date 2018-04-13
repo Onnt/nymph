@@ -3,7 +3,6 @@ package cn.virde.nymph.date;
 import java.util.Calendar;
 import java.util.Date;
 
-import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.date.TimeInterval;
 
 /**
@@ -13,16 +12,24 @@ import cn.virde.nymph.entity.date.TimeInterval;
  */
 public class CalendarUtil {
 	
-	/**
-	 * 获取某个时间间隔。
-	 * 这个时间间隔由两个参数指定
-	 * @author SunAo
-	 * @date 2018年4月10日 下午8:56:19
-	 * @param amount1 第一次计算
-	 * @param amount2 第二次计算
-	 */
-	public TimeInterval getTimeInterval(int amount1 , int amount2 ) {
+	public TimeInterval getTimeInterval(Date date,int field , int amount1,int amount2) {
+		TimeInterval time = new TimeInterval();
+		Calendar cal = Calendar.getInstance() ;
+		
+		cal.setTime(date);
+		cal.add(field, amount1);
+		time.setStartDate(cal.getTime());
 
+		cal.add(field, amount2);
+		time.setEndDate(cal.getTime());
+		
+		return time ;
+	}
+	public TimeInterval getTimeInterval(int field , int amount1,int amount2) {
+		return getTimeInterval(new Date(), field, amount1, amount2) ;
+	}
+
+	public TimeInterval getTimeIntervalOnDay(int amount1 , int amount2 ) {
 		TimeInterval time = new TimeInterval();
 		Calendar cal = Calendar.getInstance() ;
 		cal.setTime(new Date());
@@ -40,6 +47,23 @@ public class CalendarUtil {
 		
 		return time ;
 	}
+	/**
+	 * 获取某个时间间隔。
+	 * 这个时间间隔由两个参数指定
+	 * @author SunAo
+	 * @date 2018年4月10日 下午8:56:19
+	 * 
+	 * 这个方法已经遗弃，请使用getTimeIntervalOnDay替代
+	 * @author SunAo
+	 * @date 2018年4月13日 15:15:33
+	 * 
+	 * @param amount1 第一次计算
+	 * @param amount2 第二次计算
+	 */
+//	@Deprecated
+//	public TimeInterval getTimeInterval(int amount1 , int amount2 ) {
+//		return getTimeIntervalOnDay(amount1, amount2);
+//	}
 	
 	/**
 	 * 获取昨天的开始结束时间
@@ -47,7 +71,7 @@ public class CalendarUtil {
 	 * @date 2018年4月10日 下午8:59:05
 	 */
 	public TimeInterval getYesterdayTimeInterval() {
-		return getTimeInterval(-1,0);
+		return getTimeIntervalOnDay(-1, 0);
 	}
 	
 	/**
