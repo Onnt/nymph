@@ -7,6 +7,11 @@ import java.net.UnknownHostException;
 
 import cn.virde.nymph.util.Log;
 
+/**
+ * 
+ * @author Virde
+ * @date 2018年4月13日 下午3:24:56
+ */
 public class SystemInfo {
 
 	private InetAddress inet = null; 
@@ -19,7 +24,12 @@ public class SystemInfo {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:02
+	 * @return
+	 */
 	public String getMac(){
 		if(isInetNull()) return "";
 		
@@ -28,6 +38,12 @@ public class SystemInfo {
 		
 		return macByteToString(mac);
 	}
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:07
+	 * @return
+	 */
 	private byte[] getMacByte(){
 		try {
 			return NetworkInterface.getByInetAddress(inet).getHardwareAddress();
@@ -36,6 +52,13 @@ public class SystemInfo {
 			return null;
 		}
 	}
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:11
+	 * @param mac
+	 * @return
+	 */
 	private String macByteToString(byte[] mac){
 		StringBuffer sb = new StringBuffer("");
 		for(int i=0; i<mac.length; i++) {
@@ -54,7 +77,12 @@ public class SystemInfo {
 		return sb.toString().toUpperCase();
 	}
 	
-	
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:17
+	 * @return
+	 */
 	public String getHostName(){
 		
 		if(isInetNull()) return "";
@@ -62,13 +90,24 @@ public class SystemInfo {
 		return inet.getHostName();
 	}
 	
-	
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:20
+	 * @return
+	 */
 	public String getLANIP(){
 		
 		if(isInetNull()) return "";
 		
 		return inet.getHostAddress();
 	}
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年4月13日 下午3:25:24
+	 * @return
+	 */
 	private boolean isInetNull(){
 		if(inet == null){
 			Log.info("InetAddress 为空，不能成功获取信息,将返回空字符");
