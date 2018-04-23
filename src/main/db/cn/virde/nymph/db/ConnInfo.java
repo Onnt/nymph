@@ -2,6 +2,11 @@ package cn.virde.nymph.db;
 
 import cn.virde.nymph.enums.common.DBStyle;
 
+/**
+ * 
+ * @author Virde
+ * @date 2018年4月23日 下午3:59:25
+ */
 public class ConnInfo {
 
 	//数据库类型

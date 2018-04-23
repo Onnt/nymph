@@ -14,7 +14,7 @@ package cn.virde.nymph.office;
 ///**
 // * java to excel 导入appache的poi 3.15 jar 包
 // */
-//public class Test {
+public class Test {
 //
 //    // 产生要储存的集合
 //    protected static List<User> getUsers() {
@@ -62,4 +62,4 @@ package cn.virde.nymph.office;
 //            e.printStackTrace();
 //        }
 //    }
-//}
+}

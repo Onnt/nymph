@@ -1,5 +1,10 @@
 package cn.virde.nymph.db.exception;
 
+/**
+ * 
+ * @author Virde
+ * @date 2018年4月23日 下午3:59:13
+ */
 public class NymDBException extends Exception{
 
 	public NymDBException(String message) {

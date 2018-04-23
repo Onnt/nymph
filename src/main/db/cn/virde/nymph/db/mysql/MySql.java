@@ -16,6 +16,12 @@ import cn.virde.nymph.db.exception.NymDBException;
 import cn.virde.nymph.enums.common.DBStyle;
 import cn.virde.nymph.util.Log;
 
+/**
+ * 
+ * @author Virde
+ * @date 2018年4月23日 下午3:58:46
+ * @param <T>
+ */
 public class MySql<T> extends DatabaseClient{
 	
 	public MySql(String ip,String dbName,String user,String pass) {

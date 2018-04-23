@@ -1,5 +1,7 @@
 package cn.virde.nymph.random;
 
+import cn.virde.nymph.Nym;
+
 /**
  * 
  * <h3>快速生成随机数</h3>
@@ -32,6 +34,17 @@ public class NumberRandom {
 		 */
 		public int getRandom(int base,int add){
 			return getRandom(base,add,0);
+		}
+		/**
+		 * 按百分比获取boolean值，
+		 * 比如 base = 20 ，20%几率返回true。
+		 * 算法有待优化。
+		 * @author Virde
+		 * @date 2018年4月23日 上午9:56:33
+		 * @return
+		 */
+		public boolean getBoolean(int base) {
+			return  getRandom(100) < base ;
 		}
 		/**
 		 * 在某个数以内的随机数

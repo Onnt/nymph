@@ -1,5 +1,6 @@
 package cn.virde.nymph.db;
 
+import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,8 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import cn.virde.nymph.db.exception.NymDBException;
+import cn.virde.nymph.db.mysql.ConnPool;
 import cn.virde.nymph.util.Log;
 
+/**
+ * 
+ * @author Virde
+ * @date 2018年4月23日 下午3:59:20
+ */
 public abstract class DatabaseClient {
 
 	protected Connection conn ;
@@ -19,16 +26,31 @@ public abstract class DatabaseClient {
 	protected PreparedStatement ppsta ;
 
 	protected ConnInfo info ;
-	
+
+//	protected void open() throws NymDBException{
+//		try {
+//			if(conn != null && !conn.isClosed()) return;
+//			Class.forName(info.getDRIVER());
+//			conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
+//		} catch (ClassNotFoundException e) {
+//			throw new NymDBException("加载JDBC时出现ClassNotFound异常。JDBC DRIVER:"+info.getDRIVER());
+//		} catch (SQLException e) {
+//			throw new NymDBException("加载JDBC时出现SqlException:"+e.getMessage()+"。JDBC DRIVER:"+info.getDRIVER());
+//		}
+//	}
 	protected void open() throws NymDBException{
 		try {
 			if(conn != null && !conn.isClosed()) return;
-			Class.forName(info.getDRIVER());
-			conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
+			if(ConnPool.notInit()) {
+				ConnPool.init(info);
+			}
+			conn = ConnPool.getConnection() ;
 		} catch (ClassNotFoundException e) {
 			throw new NymDBException("加载JDBC时出现ClassNotFound异常。JDBC DRIVER:"+info.getDRIVER());
 		} catch (SQLException e) {
 			throw new NymDBException("加载JDBC时出现SqlException:"+e.getMessage()+"。JDBC DRIVER:"+info.getDRIVER());
+		} catch (PropertyVetoException e) {
+			e.printStackTrace();
 		}
 	}
 
