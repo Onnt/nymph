@@ -13,29 +13,29 @@ public class ValidInfo implements Serializable{
 	
 	private static final long serialVersionUID = 940281963976920102L;
 	
-	private boolean _isValid ;
+	private boolean isOk ;
 	private String info;
 	
 	private List<ValidInfo> result = new ArrayList<ValidInfo>();
 	
-	public boolean is_isValid() {
+	public boolean isOk() {
 		if(this.result != null &&  this.result.size() > 0) {
-			this._isValid = false ;
+			this.isOk = false ;
 		}else {
-			this._isValid = true ;
+			this.isOk = true ;
 		}
-		return _isValid;
+		return isOk;
 	}
-	public void set_isValid(boolean _isValid) {
-		this._isValid = _isValid;
+	public void setIsOk(boolean isOk) {
+		this.isOk = isOk;
 	}
 	public String getInfo() {
 		if(this.info == null) {
 			if(this.result.size() > 0) {
-				this._isValid = false ;
+				this.isOk = false ;
 				this.info = "参数验证未通过";
 			}else {
-				this._isValid = true ;
+				this.isOk = true ;
 				this.info = "参数验证通过";
 			}
 		}
@@ -50,7 +50,7 @@ public class ValidInfo implements Serializable{
 	
 	public static ValidInfo un(String info) {
 		ValidInfo respInfo = new ValidInfo();
-		respInfo.set_isValid(false);
+		respInfo.setIsOk(false);
 		respInfo.setInfo(info);
 		return respInfo;
 	}

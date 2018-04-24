@@ -4,12 +4,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.virde.nymph.common.info.ValidInfo;
 import cn.virde.nymph.db.ConnInfo;
 import cn.virde.nymph.db.DatabaseClient;
 import cn.virde.nymph.db.exception.NymDBException;
@@ -181,5 +183,26 @@ public class MySql<T> extends DatabaseClient{
 		}
 		return list;
 	}
-	
+	/**
+	 * 测试是否能够链接成功 
+	 * @author Virde
+	 * @date 2018年4月24日 上午11:29:24
+	 * @return
+	 */
+	public ValidInfo valid() {
+		ValidInfo validInfo = new ValidInfo();
+		try {
+			Class.forName(info.getDRIVER());
+		} catch (ClassNotFoundException e) {
+			validInfo.add(e.getMessage());
+		}
+		try {
+			conn = DriverManager.getConnection(info.getURL(), info.getUser(), info.getPass());
+		} catch (SQLException e) {
+			validInfo.add(e.getMessage());
+		}finally {
+			close();
+		}
+		return validInfo ;
+	}
 }
