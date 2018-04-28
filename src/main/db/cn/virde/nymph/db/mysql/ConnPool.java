@@ -21,7 +21,7 @@ public class ConnPool {
     	return notInit ;
     }
     public static void init(ConnInfo connInfo) throws ClassNotFoundException, PropertyVetoException {
-            Class.forName(connInfo.getDRIVER());  
+//            Class.forName(connInfo.getDRIVER());  
             comboPooledDataSource = new ComboPooledDataSource();  
             comboPooledDataSource.setDriverClass(connInfo.getDRIVER());  
             comboPooledDataSource.setJdbcUrl(connInfo.getURL());  

@@ -37,9 +37,12 @@ public class MySql<T> extends DatabaseClient{
 	@SuppressWarnings("rawtypes")
 	public synchronized List<T> query(String sql, Object[] args, Class clazz) throws NymDBException, SQLException{
 		try {
+//			long start = System.currentTimeMillis();
 			openPreparedStatement(sql,args);
 			rs = ppsta.executeQuery();
 			List<T> list = createResultObjectList(clazz);
+//			long end = System.currentTimeMillis() ;
+//			Log.alert("查询耗时：" + (end - start) +"ms，SQL："+sql);
 			return list;
 		} catch (NymDBException e) {
 			throw e ;
@@ -128,6 +131,7 @@ public class MySql<T> extends DatabaseClient{
 	}
 	// 执行(update insert delete)之类的操作
 	public synchronized int executeSQL(String sql, Object[] args) throws NymDBException, SQLException{
+//		long start = System.currentTimeMillis() ;
 		open();
 		int count = 0;
 		try {
@@ -136,6 +140,9 @@ public class MySql<T> extends DatabaseClient{
 			initPpstaParas(args);
 			count = ppsta.executeUpdate();
 			conn.commit();
+
+//			long end = System.currentTimeMillis() ;
+//			Log.alert("执行耗时：" + (end - start) +"ms，SQL:"+sql);
 			return count;
 		} catch (SQLException e) {
 			try {
