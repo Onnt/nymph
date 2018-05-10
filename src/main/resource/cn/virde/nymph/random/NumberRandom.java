@@ -1,6 +1,5 @@
 package cn.virde.nymph.random;
 
-import cn.virde.nymph.Nym;
 
 /**
  * 
@@ -47,6 +46,17 @@ public class NumberRandom {
 			return  getRandom(100) < base ;
 		}
 		/**
+		 * 在某个范围取随机数
+		 * @author Virde
+		 * @date 2018年5月10日 下午2:06:59
+		 * @param start
+		 * @param end
+		 * @return
+		 */
+		public int getRandomRange(int start, int end) {
+			return getRandom(start, end - start) ;
+		}
+		/**
 		 * 在某个数以内的随机数
 		 * @author Blacard
 		 * @Create 2016年9月18日 下午5:13:48
@@ -56,4 +66,5 @@ public class NumberRandom {
 		private int getRandom(int base){
 			return (int) Math.floor((Math.random()*(base+1)));
 		}
+		
 }
