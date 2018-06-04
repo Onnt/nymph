@@ -12,6 +12,8 @@ public class Log {
 	// 日志文件输出地址
 	private static String logFile ;
 	
+	private static LogPrint logPrint ;
+	
 	public synchronized static void info(String msg){
 		
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
@@ -88,16 +90,28 @@ public class Log {
 	private synchronized static void syso(String text){
 		switch(mode){
 		case "console" :
-			System.out.println(text);
+			println(text);
 			break;
 		case "fileOut" :
 			new TextOut(logFile).putln(text);
 			break;
 		case "console_and_file" :
-			System.out.println(text);
+			println(text);
 			new TextOut(logFile).putln(text);
 			break;
 		default : ;
 		}
 	}
+	
+	// 定制日志的打印方式
+	public static void setLogPrint(LogPrint print) {
+		logPrint = print ;
+	}
+	public static void println(String text) {
+		if(logPrint == null)
+			System.out.println(text);
+		else 
+			logPrint.println(text);
+	}
+
 }
