@@ -2,20 +2,30 @@ package cn.virde.nymph.util;
 
 import java.util.Date;
 
+
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.text.TextOut;
-
+/**
+ * 升级功能
+ * 需要增加日志的输出等级控制 
+ * @author Virde
+ * @date 2018年6月4日 下午6:21:02
+ */
 public class Log {
 	
 	// 模式切换，日志文件输出模式 和 控制台输出模式 以及 双输出模式
-	private static String mode = "console" ;
+	private static volatile String mode = "console" ;
 	// 日志文件输出地址
-	private static String logFile ;
+	private static volatile String logFile ;
 	
-	private static LogPrint logPrint ;
+	private static volatile LogPrint logPrint ;
+	
+	public static final int LEVEL_INFO = 1;
+	public static final int LEVEL_ALERT = 2 ;
+	private static volatile int LEVEL = LEVEL_INFO;
 	
 	public synchronized static void info(String msg){
-		
+		if(LEVEL < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
@@ -25,7 +35,7 @@ public class Log {
 	}
 	
 	public synchronized static void info(String msg,Exception e){
-		
+		if(LEVEL < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
@@ -35,7 +45,7 @@ public class Log {
 	}
 
 	public synchronized static void info(String msg,String alert){
-		
+		if(LEVEL < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
