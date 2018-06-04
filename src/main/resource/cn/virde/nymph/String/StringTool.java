@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
  * 字符串处理工具
  * @author Blacard
@@ -182,4 +183,9 @@ public class StringTool {
 		}
 		return url +"?"+ sb.toString().substring(0, sb.length()-1);
 	}
+	
+	public String getHost(String url) {
+		return getStringByReg(url, "(http|ftp|https):\\/\\/([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}");
+	}
+	
 }
