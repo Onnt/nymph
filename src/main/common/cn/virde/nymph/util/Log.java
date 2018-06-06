@@ -124,4 +124,12 @@ public class Log {
 			logPrint.println(text);
 	}
 
+	public static int getLEVEL() {
+		return LEVEL;
+	}
+
+	public static void setLEVEL(int lEVEL) {
+		LEVEL = lEVEL;
+	}
+
 }
