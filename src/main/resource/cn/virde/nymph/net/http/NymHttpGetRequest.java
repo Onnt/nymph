@@ -1,8 +1,9 @@
-package cn.virde.nymph.net;
+package cn.virde.nymph.net.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Iterator;
@@ -12,20 +13,34 @@ import java.util.Set;
 
 import cn.virde.nymph.Nym;
 
-@Deprecated
-public class NymHttpGet {
+/**
+ * 
+ * @author Virde
+ * @date 2018年6月7日 下午3:01:50
+ */
+public class NymHttpGetRequest {
 
 	private URLConnection connection ;
 	private BufferedReader reader ; 
 	
+	public String get(String url,Map<String,String> params) throws NymHttpException{
+		try {
+			return get(Nym.string.makeUrlWithParams(url, params));
+		} catch (IOException e) {
+			throw new NymHttpException("IO Exception,detail info:" + e.getMessage());
+		}
+	}
+	public <T> T get(String url,Object params,Class<T> clazz) throws NymHttpException {
+		try {
+			String result = get(Nym.string.makeUrlWithParams(url, params));
+			return (T) Nym.json.jsonToObject(result, clazz);
+		} catch (IOException e) {
+			throw new NymHttpException("IO Exception,detail info:" + e.getMessage());
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			throw new NymHttpException("parames error,detail info:" + e.getMessage());
+		}
+	}
 	
-	public String get(String url,Map<String,String> params) throws IOException {
-		return get(Nym.string.makeUrlWithParams(url, params));
-	}
-	public String makeUrlWithParams(String url,Map<String,String> params) {
-		
-		return null;
-	}
 	public String get(String str) throws IOException{
 		URL url = new URL(str);
 		connection = url.openConnection();

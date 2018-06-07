@@ -12,13 +12,13 @@ public class JsonUtil {
 	/**
 	 * 
 	 * @author Virde
+	 * @param <T>
 	 * @time 2018年1月24日 下午3:51:53
 	 * @param json
 	 * @param clazz
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public Object jsonToObject(String json,@SuppressWarnings("rawtypes") Class clazz) {
+	public <T> T jsonToObject(String json,Class<T> clazz) {
 		return JSON.parseObject(json, clazz);
 	}
 	

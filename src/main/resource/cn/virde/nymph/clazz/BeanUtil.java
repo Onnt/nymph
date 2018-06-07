@@ -21,8 +21,7 @@ public class BeanUtil {
 	 * @param b
 	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static <T> List<T> copyList(List<?> list , Class b){
+	public static <T> List<T> copyList(List<?> list , Class<T> b){
 		List<T> respList = new ArrayList<T>();
 		for(Object a : list ) {
 			T obj = copy(a, b);
@@ -40,8 +39,7 @@ public class BeanUtil {
 	 * @param b
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static <T> T copy(Object a , Class b) {
+	public static <T> T copy(Object a , Class<T> b) {
 		try {
 			return _copy(a,b);
 		} catch (IllegalArgumentException e) {
@@ -77,8 +75,7 @@ public class BeanUtil {
  	 * @throws IllegalArgumentException
  	 * @throws InvocationTargetException
  	 */
-	@SuppressWarnings({ "rawtypes", "unused", "unchecked" })
-	private static <T> T _copy(Object a , Class b) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+	private static <T> T _copy(Object a , Class<T> b) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		T obj = (T) b.newInstance();
 		
 		Method[] aMethods = a.getClass().getMethods();

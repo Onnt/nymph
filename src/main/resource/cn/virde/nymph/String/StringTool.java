@@ -1,5 +1,6 @@
 package cn.virde.nymph.String;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import cn.virde.nymph.Nym;
 
 /**
  * 字符串处理工具
@@ -182,6 +185,21 @@ public class StringTool {
 			sb.append(m.getKey()+"="+m.getValue()+"&");
 		}
 		return url +"?"+ sb.toString().substring(0, sb.length()-1);
+	}
+	
+	/**
+	 * 
+	 * @author Virde
+	 * @date 2018年6月7日 下午3:04:30
+	 * @param url
+	 * @param params
+	 * @return
+	 * @throws InvocationTargetException 
+	 * @throws IllegalArgumentException 
+	 * @throws IllegalAccessException 
+	 */
+	public String makeUrlWithParams(String url,Object params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return makeUrlWithParams(url, Nym.clazz.getField(params)) ;
 	}
 	
 	public String getHost(String url) {
