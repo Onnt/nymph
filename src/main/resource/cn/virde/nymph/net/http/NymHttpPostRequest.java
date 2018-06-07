@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,14 +52,35 @@ public class NymHttpPostRequest extends NymHttpGetRequest{
 	public <T> T post(String url,Object params,Class<T> clazz) throws NymHttpException{
 		try {
 			Map<String, String> mapParams = Nym.clazz.getField(params);
-			String result = post(url, mapParams);
-			return Nym.json.jsonToObject(result, clazz);
+			return post(url, mapParams, clazz);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			throw new NymHttpException("params error, detail info:"+e.getMessage()) ;
+		}
+	}
+	public <T> T post(String url,Map<String,String> map,Class<T> clazz) throws NymHttpException{
+		try {
+			String result = post(url, map);
+			return Nym.json.jsonToObject(result, clazz);
 		}catch (IOException | Not200Exception e) {
 			throw new NymHttpException("IO Exception, detail info:"+e.getMessage()) ;
 		}
-	}	
+	}
+	public <T> T post(String url,String key,String value,Class<T> clazz) throws NymHttpException {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put(key, value);
+		return post(url, map, clazz);
+	}
+
+	public <T> T post(Class<T> clazz,String...args) throws NymHttpException {
+		String url = args[0];
+		if(args.length > 1 && args.length % 2 != 1) {
+			throw new NymHttpException("a key required need a value");
+		}
+		if(args.length == 1) {
+			return post(url,null,clazz) ;
+		}
+		return get(url, getParams(args), clazz) ;
+	}
 	/**
 	 * 
 	 * @author Virde
