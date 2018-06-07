@@ -13,6 +13,7 @@ import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.http.NymHttp;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
+import cn.virde.nymph.net.v2.NymHttp;
 import cn.virde.nymph.number.NumberTool;
 import cn.virde.nymph.random.Random;
 import cn.virde.nymph.system.SystemInfo;
