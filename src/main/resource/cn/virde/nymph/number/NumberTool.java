@@ -45,7 +45,7 @@ public class NumberTool {
 		return format(d,"#.00");
 	}
 	
-	public String format(double d,String format) {
+	private String format(double d,String format) {
 		DecimalFormat df = new DecimalFormat(format);
 		return df.format(d);
 	}
