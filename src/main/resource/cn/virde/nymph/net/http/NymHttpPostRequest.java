@@ -13,11 +13,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
@@ -135,7 +139,32 @@ public class NymHttpPostRequest extends NymHttpGetRequest{
 		return new NymHttpGetHtml().getHtml(url);
 	}
 	
-
+	/**
+	 * 
+	 * @param url
+	 * @param key
+	 * @param value
+	 * @param raw
+	 * @param clazz
+	 * @return
+	 * @throws NymHttpException
+	 */
+	public <T> T postRaw(String url,String key,String value,Object raw,Class<T> clazz) throws NymHttpException {
+		try {
+			HttpClient httpClient = HttpClientBuilder.create().build();  
+			HttpPost post = new HttpPost(Nym.string.makeUrlWithParams(url,key,value));  
+			StringEntity postingString = new StringEntity(Nym.json.objectToJsonString(raw),"utf-8");
+			// json传递  
+		    post.setEntity(postingString); 
+		    post.setHeader("Content-type", "application/json; charset=utf-8");  
+		    HttpResponse response = httpClient.execute(post);  
+		    String content = EntityUtils.toString(response.getEntity());
+			return Nym.json.jsonToObject(content, clazz); 
+		} catch (IOException e) {
+			throw new NymHttpException("io error，detail info :" + e.getMessage() );
+		}
+	}
+	
     private static String getStreamAsString(InputStream stream, String charset) throws IOException {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream, charset), 8192);

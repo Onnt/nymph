@@ -186,6 +186,23 @@ public class StringTool {
 		}
 		return url +"?"+ sb.toString().substring(0, sb.length()-1);
 	}
+	public String makeUrlWithParams(String...args) {
+		if(args.length == 0 )
+			return null ;
+		if(args.length == 1) 
+			return args[0] ;
+		
+		Map<String,String> map = new HashMap<String,String>();
+		String key = "" ;
+		for(int i = 1 ; i < args.length ; i++) {
+			if(i % 2 == 1) {
+				key = args[i] ;
+			}else {
+				map.put(key, args[i]) ;
+			}
+		}
+		return makeUrlWithParams(args[0], map);
+	}
 	
 	/**
 	 * 
