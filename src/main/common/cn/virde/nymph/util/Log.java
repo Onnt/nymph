@@ -14,18 +14,26 @@ import cn.virde.nymph.text.TextOut;
 public class Log {
 	
 	// 模式切换，日志文件输出模式 和 控制台输出模式 以及 双输出模式
-	private static volatile String mode = "console" ;
+	public static final String MODE_FILEOUT = "fileOut" ;
+	public static final String MODE_CONSOLE = "console" ;
+	public static final String MODE_CONSOLE_FILE = "console_and_file" ;
+	private static volatile String mode = MODE_CONSOLE ;
 	// 日志文件输出地址
 	private static volatile String logFile ;
 	
+	// 利用接口支持用户自定义的日志输出方式
 	private static volatile LogPrint logPrint ;
 	
+	// 日志输出级别
 	public static final int LEVEL_INFO = 1;
 	public static final int LEVEL_ALERT = 2 ;
-	private static volatile int LEVEL = LEVEL_INFO;
+	private static volatile int level = LEVEL_INFO;
+	
+	// 设置是否为开发者模式，开发者模式下debug日志会输出
+	private static boolean isDev = true ;
 	
 	public synchronized static void info(String msg){
-		if(LEVEL < LEVEL_ALERT ) return ;
+		if(level < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
@@ -35,7 +43,7 @@ public class Log {
 	}
 	
 	public synchronized static void info(String msg,Exception e){
-		if(LEVEL < LEVEL_ALERT ) return ;
+		if(level < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
@@ -45,7 +53,7 @@ public class Log {
 	}
 
 	public synchronized static void info(String msg,String alert){
-		if(LEVEL < LEVEL_ALERT ) return ;
+		if(level < LEVEL_ALERT ) return ;
         String traceInfo = getTraceInfo(new Throwable().getStackTrace());
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		
@@ -58,6 +66,10 @@ public class Log {
 	public synchronized static void alert(String msg) {
 		String time = Nym.time.toString(new Date(), "hh:mm:ss");
 		syso(time + " " + msg );
+	}
+	public synchronized static void debug(String msg) {
+		if(isDev) 
+			alert(msg) ;
 	}
 
 	public synchronized static void error(String msg,Exception e){
@@ -85,11 +97,11 @@ public class Log {
 
 	public synchronized static void setFileOutMode(String file){
 		Log.logFile = file ;
-		Log.mode = "fileOut" ;
+		Log.mode = MODE_FILEOUT ;
 	}
 	public synchronized static void setDoubleMode(String file){
 		Log.logFile = file ;
-		Log.mode = "console_and_file" ;
+		Log.mode = MODE_CONSOLE_FILE ;
 	}
 	
 	private synchronized static String getTraceInfo(StackTraceElement[] stacks){
@@ -99,13 +111,13 @@ public class Log {
 	}	
 	private synchronized static void syso(String text){
 		switch(mode){
-		case "console" :
+		case MODE_CONSOLE :
 			println(text);
 			break;
-		case "fileOut" :
+		case MODE_FILEOUT :
 			new TextOut(logFile).putln(text);
 			break;
-		case "console_and_file" :
+		case MODE_CONSOLE_FILE :
 			println(text);
 			new TextOut(logFile).putln(text);
 			break;
@@ -124,12 +136,16 @@ public class Log {
 			logPrint.println(text);
 	}
 
-	public static int getLEVEL() {
-		return LEVEL;
+	public static int getLevel() {
+		return level;
 	}
 
-	public static void setLEVEL(int lEVEL) {
-		LEVEL = lEVEL;
+	public static void setLevel(int level) {
+		Log.level = level;
+	}
+	
+	public static void isDev(boolean isDev) {
+		Log.isDev = isDev ;
 	}
 
 }
