@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 
-import org.junit.Test;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.forecast.AstroEntity;
 import cn.virde.nymph.exception.LocationException;
 import cn.virde.nymph.net.weather.Weather;
+import org.junit.jupiter.api.Test;
 
 public class WeatherTest {
 	
