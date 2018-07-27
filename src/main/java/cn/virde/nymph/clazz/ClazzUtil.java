@@ -6,9 +6,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.virde.nymph.Nym;
-import cn.virde.nymph.common.info.RespInfo;
-import cn.virde.nymph.db.test.Person;
 import cn.virde.nymph.exception.NotExistFieldException;
 
 /**

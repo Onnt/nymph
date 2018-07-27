@@ -2,7 +2,6 @@ package cn.virde.nymph.entity.weather.realtime;
 
 import cn.virde.nymph.common.base.BaseEntity;
 import cn.virde.nymph.enums.common.SkyconsConstant;
-import cn.virde.nymph.enums.common.SkyconsEnum;
 
 /**
  * 
