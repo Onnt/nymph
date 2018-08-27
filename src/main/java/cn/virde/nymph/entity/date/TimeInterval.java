@@ -8,7 +8,6 @@ import cn.virde.nymph.Nym;
 
 import static java.util.Calendar.*;
 
-import java.awt.event.MouseAdapter;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -330,15 +329,4 @@ public class TimeInterval {
 		return new TimeInterval(startDate,endDate).getEveryMonth();
 	}
 	
-	public static void main(String[] args) throws ParseException {
-		Date start = Nym.time.toDate("2018-8-15 12:00:01");
-		Date end   = Nym.time.toDate("2018-8-22 20:00:41");
-		List<TimeInterval> list = getEveryDay(start,end);
-		
-		list.forEach(e->{
-			System.out.println(e.getUnixStart());
-			System.out.println(e.getUnixEnd());
-			System.out.println("");
-		});
-	}
 }
