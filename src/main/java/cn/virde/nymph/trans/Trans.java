@@ -27,7 +27,7 @@ public class Trans {
 	 * @param obj
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	public <T> T trans(String str) {
 //		"^[0-9]+(.[0-9]{2})?$"
 		
@@ -43,6 +43,7 @@ public class Trans {
 		return (T) i ;
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 //		Double d = new Trans().get("sdf");
 //		System.out.println(d);

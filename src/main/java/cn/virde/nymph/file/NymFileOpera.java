@@ -22,7 +22,8 @@ public class NymFileOpera extends NymFileAssist{
 	   } 
    }
 
-   public void copy(File oldFile,File newFile) throws IOException { 
+   @SuppressWarnings("unused")
+public void copy(File oldFile,File newFile) throws IOException { 
        if (oldFile.exists()) {
     	   InputStream inStream = new FileInputStream(oldFile); 
            FileOutputStream fs = new FileOutputStream(newFile); 

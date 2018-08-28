@@ -1,19 +1,18 @@
 package cn.virde.nymph.office;
-//package cn.virde.test.xlsx;
-//
-//import org.apache.poi.hssf.usermodel.HSSFCell;
-//import org.apache.poi.hssf.usermodel.HSSFRow;
-//import org.apache.poi.hssf.usermodel.HSSFSheet;
-//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-//
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-///**
-// * java to excel 导入appache的poi 3.15 jar 包
-// */
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * java to excel 导入appache的poi 3.15 jar 包
+ */
 public class Test {
 //
 //    // 产生要储存的集合

@@ -7,7 +7,9 @@ package cn.virde.nymph.net.weather;
  */
 public class CloudRate {
 	
+	@SuppressWarnings("unused")
 	private double cloudrate ;
+	@SuppressWarnings("unused")
 	private String description ;
 	
 	public CloudRate(double cloudrate) {

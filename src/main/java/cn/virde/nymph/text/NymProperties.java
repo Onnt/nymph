@@ -76,7 +76,8 @@ public class NymProperties {
         pps.store(out, "Update " + pKey + " name");
     }
     //读取Properties的全部信息
-    private static void getAllProperties(String filePath) throws IOException {
+    @SuppressWarnings("unused")
+	private static void getAllProperties(String filePath) throws IOException {
         Properties pps = new Properties();
         InputStream in = new BufferedInputStream(new FileInputStream(filePath));
         pps.load(in);
