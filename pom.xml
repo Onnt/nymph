@@ -10,6 +10,33 @@
   <name>AmnesiaCity-nymph</name>
   <url>http://maven.apache.org</url>
 
+	<parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+	</parent>
+	
+	<licenses>
+        <license>
+            <name>GNU Lesser General Public License Version 3</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/Onnt/nymph.git</url>
+        <connection>scm:git:https://github.com/Onnt/nymph.git</connection>
+        <developerConnection>scm:git:https://github.com/Onnt/nymph.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Virde</name>
+            <email>suna@virde.com</email>
+            <organization>Amnesia Studio</organization>
+        </developer>
+    </developers>
+    
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -29,46 +56,46 @@
 
 
   <dependencies>
-  <dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-resources-plugin</artifactId>
-    <version>2.4.3</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
-<dependency>
-    <groupId>com.mchange</groupId>
-    <artifactId>c3p0</artifactId>
-    <version>0.9.5.2</version>
-</dependency>
+  	<dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-resources-plugin</artifactId>
+	    <version>2.4.3</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+	<dependency>
+	    <groupId>com.mchange</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.5.2</version>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/junit/junit -->
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-    <scope>test</scope>
-</dependency>
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-<dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-    <version>2.9.0</version>
-</dependency>
+	<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+	<dependency>
+	    <groupId>redis.clients</groupId>
+	    <artifactId>jedis</artifactId>
+	    <version>2.9.0</version>
+	</dependency>
     
-<!-- 数据库驱动 -->
-<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
-<dependency>
-        <groupId>org.mongodb</groupId>
-        <artifactId>mongodb-driver</artifactId>
-        <version>3.6.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.11</version>
-</dependency>
+	<!-- 数据库驱动 -->
+	<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+	<dependency>
+	        <groupId>org.mongodb</groupId>
+	        <artifactId>mongodb-driver</artifactId>
+	        <version>3.6.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.11</version>
+	</dependency>
 	
 	
     <!-- https://mvnrepository.com/artifact/com.hynnet/sqljdbc-chs -->
@@ -100,70 +127,70 @@
 	    <version>2.8.8</version>
 	</dependency>
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-core</artifactId>
-    <version>2.8.8</version>
-</dependency>
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-annotations</artifactId>
-    <version>2.8.8</version>
-</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.8.8</version>
+	</dependency>
+	    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-annotations</artifactId>
+	    <version>2.8.8</version>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
-<dependency>
-    <groupId>commons-logging</groupId>
-    <artifactId>commons-logging</artifactId>
-    <version>1.1.1</version>
-</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+	<dependency>
+	    <groupId>commons-logging</groupId>
+	    <artifactId>commons-logging</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
 
     <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-<dependency>
-    <groupId>commons-codec</groupId>
-    <artifactId>commons-codec</artifactId>
-    <version>1.10</version>
-</dependency>
+	<dependency>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>1.10</version>
+	</dependency>
     
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-<dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-lang3</artifactId>
-    <version>3.4</version>
-</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.4</version>
+	</dependency>
     
-<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-<dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient</artifactId>
-    <version>4.5.4</version>
-</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.4</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpcore</artifactId>
+	    <version>4.4.8</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.17</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>3.17</version>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
-<dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpcore</artifactId>
-    <version>4.4.8</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>3.17</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>3.17</version>
-</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
-		<dependency>
-		    <groupId>com.sun.mail</groupId>
-		    <artifactId>javax.mail</artifactId>
-		    <version>1.6.0</version>
-		</dependency>
+	<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>1.6.0</version>
+	</dependency>
   </dependencies>
 </project>
