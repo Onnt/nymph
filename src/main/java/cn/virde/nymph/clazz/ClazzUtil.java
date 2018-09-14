@@ -11,17 +11,17 @@ import cn.virde.nymph.exception.NotExistFieldException;
 /**
  * 
  * @author Virde
- * @time 2018年2月8日 下午3:53:30
+ * 2018年2月8日 下午3:53:30
  */
 public class ClazzUtil {
 	
 	/**
 	 * 
 	 * @author Virde
-	 * @time 2018年2月8日 下午3:53:35
-	 * @param clazz
-	 * @param key
-	 * @return
+	 * 2018年2月8日 下午3:53:35
+	 * @param clazz 类类型
+	 * @param key 关键字
+	 * @return 返回
 	 */
 	public String getField(Class clazz,String key){
 		Field[] fields = clazz.getDeclaredFields();
@@ -40,14 +40,14 @@ public class ClazzUtil {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年6月7日 下午3:24:14
-	 * @param a
-	 * @param key
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
-	 * @throws NotExistFieldException
+	 * 2018年6月7日 下午3:24:14
+	 * @param a 对象a
+	 * @param key 关键字
+	 * @return 返回
+	 * @throws IllegalAccessException 异常
+	 * @throws IllegalArgumentException 异常
+	 * @throws InvocationTargetException 异常
+	 * @throws NotExistFieldException 异常
 	 */
 	public Object getField(Object a,String key) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NotExistFieldException {
 		Method[] aMethods = a.getClass().getMethods() ;
@@ -63,12 +63,12 @@ public class ClazzUtil {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年6月7日 下午3:24:08
-	 * @param a
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
+	 * 2018年6月7日 下午3:24:08
+	 * @param a 对象a
+	 * @return 返回
+	 * @throws IllegalAccessException  异常
+	 * @throws IllegalArgumentException 异常
+	 * @throws InvocationTargetException 异常
 	 */
 	public Map<String,String> getField(Object a) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		Map<String,String> respMap = new HashMap<String,String>();

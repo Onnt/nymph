@@ -4,11 +4,11 @@ import cn.virde.nymph.common.base.BaseEntity;
 
 /**
  * <h1>经纬度 实体</h1>
- * @lng longitude 经度
- * @lat Latitude 纬度
+ * lng longitude 经度
+ * lat Latitude 纬度
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月20日 上午6:21:53
+ 
+ * 2016年12月20日 上午6:21:53
  */
 public class LocationEntity extends BaseEntity{
 
@@ -24,8 +24,8 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 获取 纬度
 	 * @author Blacard
-	 * @create 2016年12月20日 上午6:20:21
-	 * @return
+	 * 2016年12月20日 上午6:20:21
+	 * @return 返回
 	 */
 	public double getLat() {
 		return lat;
@@ -33,7 +33,7 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 设置纬度
 	 * @author Blacard
-	 * @create 2016年12月20日 上午6:21:00
+	 * 2016年12月20日 上午6:21:00
 	 * @param lat 纬度
 	 */
 	public void setLat(double lat) {
@@ -42,8 +42,8 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 获取经度
 	 * @author Blacard
-	 * @create 2016年12月20日 上午6:20:45
-	 * @return
+	 * 2016年12月20日 上午6:20:45
+	 * @return 返回
 	 */
 	public double getLng() {
 		return lng;
@@ -52,8 +52,8 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 设置经度
 	 * @author Blacard
-	 * @create 2016年12月20日 上午6:21:00
-	 * @param lat 经度
+	 * 2016年12月20日 上午6:21:00
+	 * @param lng 经度
 	 */
 	public void setLng(double lng) {
 		this.lng = lng;
@@ -75,7 +75,7 @@ public class LocationEntity extends BaseEntity{
 	@Override
 	/**
 	 * 转换成字符串
-	 * <br/>
+	 * 
 	 * 纬经度，sample:"25.1552,121.654"
 	 */
 	public String toString() {
@@ -84,8 +84,8 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 转成经纬度，sample:"121.6544,25.1552"
 	 * @author Blacard
-	 * @create 2016年12月18日 下午8:30:25
-	 * @return
+	 * 2016年12月18日 下午8:30:25
+	 * @return 返回
 	 */
 	public String toStringLngLat(){
 		return this.lng+","+this.lat;
@@ -93,8 +93,8 @@ public class LocationEntity extends BaseEntity{
 	/**
 	 * 转成纬经度.sample:"25.1552,121.654"
 	 * @author Blacard
-	 * @create 2016年12月18日 下午8:30:30
-	 * @return
+	 * 2016年12月18日 下午8:30:30
+	 * @return 返回
 	 */
 	public String toStringLatLng(){
 		return toString();

@@ -21,8 +21,8 @@ import cn.virde.nymph.util.Log;
 /**
  * 
  * @author Virde
- * @date 2018年4月23日 下午3:58:46
- * @param <T>
+ * 2018年4月23日 下午3:58:46
+ * @param <T> 要查询数据的具体类型
  */
 public class MySql<T> extends DatabaseClient{
 	
@@ -161,10 +161,8 @@ public class MySql<T> extends DatabaseClient{
 
 	/**
 	 * 获取数据库的所有表 的表名
-	 * @return
-	 * @throws NymDBException 
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
+	 * @return 返回
+	 * @throws NymDBException  异常
 	 */
 	public List<String> getAllTableNames() throws NymDBException {
 		open();
@@ -193,8 +191,8 @@ public class MySql<T> extends DatabaseClient{
 	/**
 	 * 测试是否能够链接成功 
 	 * @author Virde
-	 * @date 2018年4月24日 上午11:29:24
-	 * @return
+	 * 2018年4月24日 上午11:29:24
+	 * @return 返回
 	 */
 	public ValidInfo valid() {
 		ValidInfo validInfo = new ValidInfo();

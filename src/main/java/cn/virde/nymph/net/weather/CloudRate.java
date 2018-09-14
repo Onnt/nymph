@@ -3,7 +3,7 @@ package cn.virde.nymph.net.weather;
 /**
  * 这个类先不写了
  * @author Virde
- * @time 2018年1月26日 上午11:13:19
+ * 2018年1月26日 上午11:13:19
  */
 public class CloudRate {
 	

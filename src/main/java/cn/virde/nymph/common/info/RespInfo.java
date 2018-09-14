@@ -3,16 +3,20 @@ package cn.virde.nymph.common.info;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSONObject;
+import cn.virde.nymph.common.base.BaseInfo;
 
 /**
  * 
  * @author Virde
- * @time 2018年1月17日 下午4:10:43
+ * 2018年1月17日 下午4:10:43
  */
-public class RespInfo{
+public class RespInfo extends BaseInfo{
 
-	private boolean isOk ;
+
+	private boolean succ ;
+
+	private int code ;
+
 	private String info ;
 	
 	private Object data ;
@@ -25,11 +29,11 @@ public class RespInfo{
 	public void setData(Object data) {
 		this.data = data;
 	}
-	public void setIsOk(boolean isOk) {
-		this.isOk = isOk;
+	public void setSucc(boolean succ){
+		this.succ = succ ;
 	}
-	public boolean getIsOk() {
-		return isOk;
+	public boolean getSucc(){
+		return succ ;
 	}
 	public String getInfo() {
 		return info;
@@ -37,16 +41,36 @@ public class RespInfo{
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
-	public RespInfo(boolean isOk, String info, Object data) {
-		super();
-		this.isOk = isOk;
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public RespInfo(boolean succ, int code, String info, Object data) {
+		this.succ = succ;
+		this.code = code;
 		this.info = info;
 		this.data = data;
 	}
-	public RespInfo(boolean isOk, String info) {
+
+	public RespInfo(boolean succ, String info, Object data){
 		super();
-		this.isOk = isOk;
+		this.succ = succ;
+		this.info = info;
+		this.data = data;
+	}
+
+	public RespInfo(boolean succ, int code, String info) {
+		this.succ = succ;
+		this.code = code;
+		this.info = info;
+	}
+
+	public RespInfo(boolean succ, String info) {
+		super();
+		this.succ = succ;
 		this.info = info;
 	}
 	
@@ -54,28 +78,43 @@ public class RespInfo{
 		super();
 	}
 	
+	public static RespInfo ok_format(String info,Object...data) {
+		return ok(String.format(info,data));
+	}
 	public static RespInfo ok(String info){
-		return new RespInfo(true,info);
+		return new RespInfo(true,0,info);
+	}
+	public void setOk(String info){
+		setSucc(true);
+		setCode(0);
+		setInfo(info);
 	}
 	public static RespInfo ok(String info,Object data){
-		return new RespInfo(true,info,data);
+		return new RespInfo(true,0,info,data);
+	}
+	public void setOk(String info,Object data){
+		setOk(info);
+		setData(data);
 	}
 	public static RespInfo error(String info){
-		return new RespInfo(false,info);
+		return new RespInfo(false,-1,info);
 	}
-	
-	public static RespInfo valid(ValidInfo validInfo) {
-		return new RespInfo(validInfo.isOk(),validInfo.getInfo(),validInfo.getResult());
+	public static RespInfo error(String info,Object...data) {
+		return error(String.format(info, data));
 	}
+	public void setError(String info){
+		setSucc(false);
+		setCode(-1);
+		setInfo(info);
+	}
+//	public static RespInfo valid(ValidInfo validInfo) {
+//		return new RespInfo(validInfo.isOk(),validInfo.getInfo(),validInfo.getResult());
+//	}
 	
 	public Map<String, Object> getParams() {
 		return params;
 	}
 	public void setParams(Map<String, Object> params) {
 		this.params = params;
-	}
-	@Override
-	public String toString() {
-		return JSONObject.toJSONString(this);
 	}
 }

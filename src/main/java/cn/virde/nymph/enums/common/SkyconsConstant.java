@@ -3,7 +3,7 @@ package cn.virde.nymph.enums.common;
 /**
  * 
  * @author Virde
- * @time 2018年1月25日 下午2:08:45
+ * 2018年1月25日 下午2:08:45
  */
 public class SkyconsConstant {
 	public final static String CLEAR_DAY = "CLEAR_DAY";

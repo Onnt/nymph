@@ -6,8 +6,8 @@ import cn.virde.nymph.enums.common.SkyconsConstant;
 /**
  * 
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月17日 下午7:20:52
+ 
+ * 2016年12月17日 下午7:20:52
  */
 public class RealtimeResultEntity extends BaseEntity{
 

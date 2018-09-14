@@ -6,7 +6,7 @@ package cn.virde.nymph.entity.weather.realtime;
  * 主要分海洋，大陆，高空进行确定。
  * 利用风向可以在人们的生活，生产，建厂，农业，交通，军事等各种领域发挥积极作用
  * @author Virde
- * @time 2018年1月24日 下午6:09:58
+ * 2018年1月24日 下午6:09:58
  */
 public class WindDirection {
 	

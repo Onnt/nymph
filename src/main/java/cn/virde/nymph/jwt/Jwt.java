@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * 
  * @author Virde
- * @time 2018年1月17日 下午4:11:01
+ * 2018年1月17日 下午4:11:01
  */
 public class Jwt {
 	private String id ;
@@ -43,7 +43,7 @@ public class Jwt {
 	
 	/**
 	 * 设置jwt超时时间，单位是秒
-	 * @param timeout
+	 * @param timeout 超时时间
 	 */
 	public void setTimeout(long timeout) {
 		long now = new Date().getTime();

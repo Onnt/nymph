@@ -10,8 +10,7 @@ import cn.virde.nymph.Nym;
 /**
  * 中国农历工具
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2017年2月7日 下午4:04:44
+ * 2017年2月7日 下午4:04:44
  */
 public class LunarCalendarUtil { 
 		

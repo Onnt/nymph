@@ -14,7 +14,7 @@ import cn.virde.nymph.util.Log;
 /**
  * 
  * @author Virde
- * @date 2018年4月23日 下午3:59:20
+ * 2018年4月23日 下午3:59:20
  */
 public abstract class DatabaseClient {
 

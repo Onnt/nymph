@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 /**
  * 读取文本内容
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2016年8月25日 下午9:23:15 
+ * 
+ * 2016年8月25日 下午9:23:15 
   */
 public class TextRead {
 	public String read(File file){

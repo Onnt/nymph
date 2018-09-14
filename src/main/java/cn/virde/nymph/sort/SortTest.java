@@ -1,13 +1,7 @@
 package cn.virde.nymph.sort;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-
-import com.mongodb.client.model.Collation;
-
 
 public class SortTest {
 	public static void main(String[] args) {

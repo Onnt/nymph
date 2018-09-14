@@ -34,24 +34,19 @@ import cn.virde.nymph.util.Log;
 /**
  * 
  * @author Virde
- * @date 2018年6月7日 下午3:40:29
+ * 2018年6月7日 下午3:40:29
  */
 public class NymHttpPostRequest extends NymHttpGetRequest{
 
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年6月7日 下午3:44:13
-	 * @param url
-	 * @param params
-	 * @param clazz
-	 * @return
-	 * @throws NymHttpException 
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws IllegalAccessException 
-	 * @throws Not200Exception 
-	 * @throws IOException 
+	 * 2018年6月7日 下午3:44:13
+	 * @param url 请求url
+	 * @param params 请求参数
+	 * @param clazz 返回数据类型
+	 * @return 返回
+	 * @throws NymHttpException  异常
 	 */
 	public <T> T post(String url,Object params,Class<T> clazz) throws NymHttpException{
 		try {
@@ -88,12 +83,12 @@ public class NymHttpPostRequest extends NymHttpGetRequest{
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年6月7日 下午3:43:35
-	 * @param url
-	 * @param params
-	 * @return
-	 * @throws IOException
-	 * @throws Not200Exception
+	 * 2018年6月7日 下午3:43:35
+	 * @param url 请求url
+	 * @param params 请求参数
+	 * @return 返回
+	 * @throws IOException 异常
+	 * @throws Not200Exception 异常
 	 */
 	public String post(String url,List<NameValuePair> params) throws IOException, Not200Exception{
 		CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -141,13 +136,13 @@ public class NymHttpPostRequest extends NymHttpGetRequest{
 	
 	/**
 	 * 
-	 * @param url
-	 * @param key
-	 * @param value
-	 * @param raw
-	 * @param clazz
-	 * @return
-	 * @throws NymHttpException
+	 * @param url 请求url
+	 * @param key 请求key
+	 * @param value 请求value
+	 * @param raw 底线
+	 * @param clazz 返回类型
+	 * @return 返回
+	 * @throws NymHttpException 异常
 	 */
 	public <T> T postRaw(String url,String key,String value,Object raw,Class<T> clazz) throws NymHttpException {
 		try {

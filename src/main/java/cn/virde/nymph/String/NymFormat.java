@@ -8,16 +8,16 @@ import cn.virde.nymph.Nym;
 /**
  * <h3>格式化 各种数据形式</h3>
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @createTime 2016年9月8日 下午4:05:31
+ * 
+ * 2016年9月8日 下午4:05:31
  */
 public class NymFormat {
 	/**
 	 * 将数字转换为 自然语言描述的文件大小
 	 * @author Blacard
-	 * @Create 2016年9月7日 下午5:29:35
-	 * @param length
-	 * @return
+	 * 2016年9月7日 下午5:29:35
+	 * @param length 文件大小
+	 * @return 返回
 	 */
 	public String fileLength(long length){
 		int level = 0 ;
@@ -60,9 +60,9 @@ public class NymFormat {
 	 * 例：“3.3MB” 转换为 “3460300” 
 	 * 目前仅支持 KB,MB,GB 单位的转换
 	 * @author Blacard
-	 * @create 2016年9月19日 上午11:42:32
+	 * 2016年9月19日 上午11:42:32
 	 * @param str 数字加单位形式表示的文件大小
-	 * @return 转换后的纯数字文件大小
+	 * @return 返回 转换后的纯数字文件大小
 	 */
 	public  long fileSizeToLong(String str){
 		str = str.toUpperCase().replaceAll(" ", "");
@@ -177,11 +177,5 @@ public class NymFormat {
 			break;
 		}
 		return apm;
-	}
-	
-	public static void main(String[] args) {
-		long length = Nym.format.fileSizeToLong("1022.33 mb");
-		System.out.println(length);
-		System.out.println(Nym.format.fileLength(length));
 	}
 }

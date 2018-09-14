@@ -19,17 +19,17 @@ import java.util.Properties;
  * 实现一个简单的邮件发送工具
  * 以后如果有用的话再好好修改吧 
  * @author SunAo
- * @date 2018年4月13日 下午2:32:19
+ * 2018年4月13日 下午2:32:19
  */
 public class Mail extends MailInfo{
 	
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:55:28
-	 * @param info
-	 * @return
-	 * @throws Exception 
+	 * 2018年4月13日 下午3:55:28
+	 * @param info 邮件信息
+	 * @return 返回
+	 * @throws Exception  异常
 	 */
 	public boolean send(MailInfo info) throws Exception {
 
@@ -79,8 +79,8 @@ public class Mail extends MailInfo{
      * @param session 和服务器交互的会话
      * @param sendMail 发件人邮箱
      * @param receiveMail 收件人邮箱
-     * @return
-     * @throws Exception
+     * @return 返回
+     * @throws Exception 异常
      */
     public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
         // 1. 创建一封邮件

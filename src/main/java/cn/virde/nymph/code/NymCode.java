@@ -18,11 +18,9 @@ public class NymCode {
 	private  String JWT_SECRET = "V4cCI6Mjk5Mjc3MjIzNn0";
 	/**
 	  * 创建 jwt
-	  * @param id
-	  * @param subject
-	  * @param ttlMillis
-	  * @return
-	  * @throws Exception
+	  * @param id id字段
+	  * @param subject 字段
+	  * @return 返回
 	  */
 	  public String encode(String id, String subject){
 	       SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256 ;
@@ -45,9 +43,8 @@ public class NymCode {
 
 	  /**
 	  * 解密 jwt
-	  * @param jwt
-	  * @return
-	  * @throws Exception
+	  * @param jwt 待解密jwt字段
+	  * @return 返回
 	  */
 	  public Claims decode(String jwt){
 	       SecretKey key = generalKey();

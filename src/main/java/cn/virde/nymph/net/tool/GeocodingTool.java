@@ -14,25 +14,25 @@ import cn.virde.nymph.exception.LocationException;
 /**
  * <h1>地址解析和逆地址解析功能</h1>
  * <a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding">
- * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding</a><br/>
- * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务<br/>
+ * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding</a>
+ * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务
  * 
  * 开放方法相当于service
  * 
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月13日 下午9:48:39
+ 
+ * 2016年12月13日 下午9:48:39
  */
 public class GeocodingTool {
 	
 	/**
 	 * 经纬度 转 地理位置
 	 * @author Blacard
-	 * @create 2016年12月13日 下午6:16:02
-	 * @param location
-	 * @return
-	 * @throws LocationException 
-	 * @throws IOException 
+	 * 2016年12月13日 下午6:16:02
+	 * @param location 经纬度
+	 * @return 返回
+	 * @throws LocationException  异常
+	 * @throws IOException  异常
 	 */
 	public String locationToAddress(LocationEntity location) throws LocationException, IOException{
 		ConverseGeocodingEntity entity = this.getConverseGeocoding(location);
@@ -46,11 +46,11 @@ public class GeocodingTool {
 	/**
 	 * 地址 转 经纬度
 	 * @author Blacard
-	 * @create 2016年12月22日 上午5:59:14
-	 * @param address
-	 * @return
-	 * @throws LocationException 
-	 * @throws IOException 
+	 * 2016年12月22日 上午5:59:14
+	 * @param address 自然语言描述的地理位置
+	 * @return 返回
+	 * @throws LocationException  异常
+	 * @throws IOException  异常
 	 */
 	public LocationEntity addressToLocation(String address) throws LocationException, IOException{
 		GeocodingEntity entity = this.getGeocoding(address);
@@ -64,10 +64,10 @@ public class GeocodingTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月22日 上午6:07:37
-	 * @param location
-	 * @return
-	 * @throws IOException 
+	 * 2016年12月22日 上午6:07:37
+	 * @param location 经纬度
+	 * @return 返回
+	 * @throws IOException  异常
 	 */
 	public ConverseGeocodingEntity getConverseGeocodingEntity(LocationEntity location) throws IOException{
 		return this.getConverseGeocoding(location);
@@ -76,10 +76,10 @@ public class GeocodingTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月22日 上午6:07:41
-	 * @param address
-	 * @return
-	 * @throws IOException 
+	 * 2016年12月22日 上午6:07:41
+	 * @param address 自然语言描述的地理位置
+	 * @return 返回
+	 * @throws IOException  异常
 	 */
 	public GeocodingEntity getGeocodingEntity(String address) throws IOException{
 		return this.getGeocoding(address);
@@ -94,10 +94,10 @@ public class GeocodingTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月13日 下午6:15:41
-	 * @param location
-	 * @return
-	 * @throws IOException 
+	 * 2016年12月13日 下午6:15:41
+	 * @param location 经纬度
+	 * @return 返回
+	 * @throws IOException  异常
 	 */
 	private ConverseGeocodingEntity getConverseGeocoding(LocationEntity location) throws IOException{
 		String requestUrl = createRequestUrl(location);
@@ -108,10 +108,10 @@ public class GeocodingTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月20日 上午7:05:46
-	 * @param location
-	 * @return
-	 * @throws IOException 
+	 * 2016年12月20日 上午7:05:46
+	 * @param location 经纬度
+	 * @return 返回
+	 * @throws IOException  异常
 	 */
 	private GeocodingEntity getGeocoding(String address) throws IOException{
 		String requestUrl = createRequestUrl(address);
@@ -122,9 +122,9 @@ public class GeocodingTool {
 	/**
 	 * 创建请求地址
 	 * @author Blacard
-	 * @create 2016年12月20日 上午6:40:18
-	 * @param address
-	 * @return
+	 * 2016年12月20日 上午6:40:18
+	 * @param address 自然语言描述的地理位置
+	 * @return 返回
 	 */
 	private String createRequestUrl(String address){
 		return createRequestUrl(
@@ -135,9 +135,9 @@ public class GeocodingTool {
 	/**
 	 *  创建请求
 	 * @author Blacard
-	 * @create 2016年12月13日 下午6:15:48
-	 * @param location
-	 * @return
+	 * 2016年12月13日 下午6:15:48
+	 * @param location 经纬度
+	 * @return 返回
 	 */
 	private String createRequestUrl(LocationEntity location){
 		return createRequestUrl(
@@ -147,11 +147,10 @@ public class GeocodingTool {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月13日 下午6:15:53
-	 * @param output
-	 * @param ak
-	 * @param location
-	 * @return
+	 * 2016年12月13日 下午6:15:53
+	 * @param location 经纬度
+	 * @param address 自然语言描述的地理位置
+	 * @return 返回
 	 */
 	private String createRequestUrl(String location,String address){
 		StringBuffer sb = new StringBuffer();

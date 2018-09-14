@@ -14,21 +14,20 @@ import cn.virde.nymph.Nym;
  * <h3>从网络URL下载文件</h3>
  * 
  * @author Blacard
- * @联系方式 
- * 邮箱：blacard@163.com<br/>
+ * 邮箱：blacard@163.com
  * 手机：18037170703
- * @createTime 2016年9月1日 下午2:10:38
+ * 2016年9月1日 下午2:10:38
  */
 public class DownFromUrl {
 	
 	/**
 	 * 从网络中下载文件
 	 * @author Blacard
-	 * @Create 2016年9月1日 下午2:14:09
-	 * @param urlStr
-	 * @param fileName
-	 * @param savePath
-	 * @throws IOException
+	 * 2016年9月1日 下午2:14:09
+	 * @param urlStr 下载url地址
+	 * @param fileName 本地存储文件名
+	 * @param savePath 本地存储文件路径
+	 * @throws IOException 异常
 	 */
     public void  downFromUrl(String urlStr,String fileName,String savePath) throws IOException{  
         URL url = new URL(urlStr);    
@@ -70,10 +69,10 @@ public class DownFromUrl {
     /**
      * 从输入流中获取字节数组 
      * @author Blacard
-     * @Create 2016年9月1日 下午2:22:02
-     * @param inputStream
-     * @return
-     * @throws IOException
+     * 2016年9月1日 下午2:22:02
+     * @param inputStream 输入流
+     * @return 返回
+     * @throws IOException 异常
      */
     private byte[] readInputStream(InputStream inputStream) throws IOException {    
         byte[] buffer = new byte[1024];    

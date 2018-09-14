@@ -11,12 +11,12 @@ import java.io.IOException;
 /**
  * <h1>获取指定地点的天气状况</h1>
  * <p>采用的是彩云天气的API<br>
- * <a href="http://wiki.swarma.net/index.php/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94API/v2">官方文档</a><br/>
+ * <a href="http://wiki.swarma.net/index.php/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94API/v2">官方文档</a>
  *  官方文档更新也不是很及时，只能当作参考，具体以返回数据结构为准。
  * </p>
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月18日 下午7:36:31
+ 
+ * 2016年12月18日 下午7:36:31
  */
 public class Weather extends WeatherDeal{
 	
@@ -27,8 +27,8 @@ public class Weather extends WeatherDeal{
 	/**
 	 * 获取该经纬度的天气状况
 	 * @param location 经纬度
-	 * @throws IOException 
-	 * @throws LocationException 
+	 * @throws IOException  异常
+	 * @throws LocationException  异常
 	 */
 	public Weather(LocationEntity location) throws LocationException, IOException {
 		this.location = location;
@@ -37,9 +37,9 @@ public class Weather extends WeatherDeal{
 	/**
 	 * 可以同时接受IP地址和自然语言描述作为位置
 	 * 获取该地点的天气状况
-	 * @param location 经纬度 sample:"121.6544,25.1552"
-	 * @throws LocationException 
-	 * @throws IOException 
+	 * @param addressOrIp 经纬度 sample:"121.6544,25.1552"
+	 * @throws LocationException  异常
+	 * @throws IOException  异常
 	 */
 	public Weather(String addressOrIp) throws LocationException, IOException{
 		if(Nym.string.isIP(addressOrIp)){
@@ -55,8 +55,8 @@ public class Weather extends WeatherDeal{
 	 * 获取指定经纬度的天气状况
 	 * @param lng  经度
 	 * @param lat  纬度
-	 * @throws IOException 
-	 * @throws LocationException 
+	 * @throws IOException  异常
+	 * @throws LocationException  异常
 	 */
 	public Weather(double lng,double lat) throws LocationException, IOException{
 		this.location.setLng(lng);
@@ -66,9 +66,9 @@ public class Weather extends WeatherDeal{
 	/**
 	 * 获取实时天气
 	 * @author Blacard
-	 * @create 2016年12月18日 下午8:01:39
-	 * @return 返回所有关于实时天气的信息
-	 * @throws IOException 
+	 * 2016年12月18日 下午8:01:39
+	 * @return 返回 返回所有关于实时天气的信息
+	 * @throws IOException  异常
 	 */
 	public final RealtimeWeatherEntity getRealtimeWeather() throws IOException{
 		RealtimeWeatherEntity entity = this.getRealtimeWeather(location);
@@ -82,9 +82,9 @@ public class Weather extends WeatherDeal{
 	/**
 	 * 获取预报天气
 	 * @author Blacard
-	 * @create 2016年12月18日 下午8:01:39
-	 * @return 返回所有关于预报天气的信息
-	 * @throws IOException 
+	 * 2016年12月18日 下午8:01:39
+	 * @return 返回 返回所有关于预报天气的信息
+	 * @throws IOException  异常
 	 */
 	public final ForecastWeatherEntity getForecastWeather() throws IOException{
 		ForecastWeatherEntity entity = this.getForecastWeather(location);

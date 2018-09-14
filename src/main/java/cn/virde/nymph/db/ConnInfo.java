@@ -5,7 +5,7 @@ import cn.virde.nymph.enums.common.DBStyle;
 /**
  * 
  * @author Virde
- * @date 2018年4月23日 下午3:59:25
+ * 2018年4月23日 下午3:59:25
  */
 public class ConnInfo {
 
@@ -124,9 +124,9 @@ public class ConnInfo {
 	 * 如果传入IP时加了端口，
 	 * 就用传入的端口。
 	 * 如果没有传入端口，就用默认的端口连接
-	 * @param ip
-	 * @param defaultPort
-	 * @return
+	 * @param ip 可能加了端口的IP
+	 * @param defaultPort 默认端口
+	 * @return 返回
 	 */
 	private String getDealIP(String ip,int defaultPort){
 		return ip.contains(":")?ip:ip+":"+defaultPort;

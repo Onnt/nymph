@@ -9,7 +9,7 @@ import cn.virde.nymph.exception.LocationException;
 /**
  * 
  * @author Virde
- * @time 2018年1月25日 上午10:18:03
+ * 2018年1月25日 上午10:18:03
  */
 public class RealtimeWeather{
 	

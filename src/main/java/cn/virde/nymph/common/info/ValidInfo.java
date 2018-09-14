@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 
  * @author Virde
- * @time 2018年1月17日 下午4:10:51
+ * 2018年1月17日 下午4:10:51
  */
 public class ValidInfo implements Serializable{
 	

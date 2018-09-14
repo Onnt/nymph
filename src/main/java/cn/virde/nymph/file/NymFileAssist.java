@@ -10,8 +10,8 @@ import cn.virde.nymph.Nym;
  * 文件操作的辅助类 的 辅助类
  * 一些小的操作 都放在这个地方
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年8月31日 下午5:23:57
+ 
+ * 2016年8月31日 下午5:23:57
  */
 public class NymFileAssist{
 	protected File file = null;
@@ -20,8 +20,8 @@ public class NymFileAssist{
 	/**
 	 * 递归 获取文件夹下所有文件
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:13:27
-	 * @param path
+	 * 2016年9月2日 上午11:13:27
+	 * @param path 文件路径
 	 */
 	protected void getAllFile(String path){
 		File thisFile = new File(path);
@@ -46,10 +46,10 @@ public class NymFileAssist{
 	/**
 	 * 筛选匹配多个后缀名
 	 * @author Blacard
-	 * @create 2016年9月3日 下午11:06:34
+	 * 2016年9月3日 下午11:06:34
  	 * @param files 待筛选的文件列表
 	 * @param suffixs 要匹配的多个后缀名
-	 * @return 在文件列表里匹配到后缀名的对应文件
+	 * @return 返回 在文件列表里匹配到后缀名的对应文件
 	 */
 	public List<File> getFileBySuffixs(List<File> files,List<String> suffixs){
 		List<File> resFiles = new ArrayList<File>();
@@ -70,10 +70,10 @@ public class NymFileAssist{
 	/**
 	 * 根据后缀名 筛选文件
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:14:02 
-	 * @param list
-	 * @param suffix
-	 * @return
+	 * 2016年9月2日 上午11:14:02 
+	 * @param list 列表
+	 * @param suffix 后缀名
+	 * @return 返回
 	 */
 	protected List<File> getFileBySuffix(File[] list,String suffix){
 		List<File> lists = new ArrayList<File>();
@@ -89,10 +89,10 @@ public class NymFileAssist{
 	 * 
 	 * 将 数组类型的 文件列表 转成 List类型的
 	 * @author Blacard
-	 * @create 2016年9月4日 上午8:11:24
+	 * 2016年9月4日 上午8:11:24
 	 * @param list
 	 * @param suffixs
-	 * @return
+	 * @return 返回
 	 */
 	protected List<File> getFileBySuffixs(File[] list,List<String> suffixs){
 		List<File> lists = new ArrayList<File>();
@@ -104,7 +104,7 @@ public class NymFileAssist{
 	/**
 	 * 获取所有文件
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:14:28
+	 * 2016年9月2日 上午11:14:28
 	 * @param file
 	 */
 	protected void getAllFile(File file){

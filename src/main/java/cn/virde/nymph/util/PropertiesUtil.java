@@ -10,9 +10,7 @@ import java.util.Properties;
 
 /**
  * 加载配置文件属性
- * 
  * @author lvchaohua
- *
  */
 public class PropertiesUtil {
 

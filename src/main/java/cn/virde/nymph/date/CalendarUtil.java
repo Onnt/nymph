@@ -8,7 +8,7 @@ import cn.virde.nymph.entity.date.TimeInterval;
 /**
  * 
  * @author SunAo
- * @date 2018年4月10日 下午8:54:49
+ * 2018年4月10日 下午8:54:49
  */
 public class CalendarUtil {
 	
@@ -51,11 +51,11 @@ public class CalendarUtil {
 	 * 获取某个时间间隔。
 	 * 这个时间间隔由两个参数指定
 	 * @author SunAo
-	 * @date 2018年4月10日 下午8:56:19
+	 * 2018年4月10日 下午8:56:19
 	 * 
 	 * 这个方法已经遗弃，请使用getTimeIntervalOnDay替代
 	 * @author SunAo
-	 * @date 2018年4月13日 15:15:33
+	 * 2018年4月13日 15:15:33
 	 * 
 	 * @param amount1 第一次计算
 	 * @param amount2 第二次计算
@@ -68,7 +68,7 @@ public class CalendarUtil {
 	/**
 	 * 获取昨天的开始结束时间
 	 * @author SunAo
-	 * @date 2018年4月10日 下午8:59:05
+	 * 2018年4月10日 下午8:59:05
 	 */
 	public TimeInterval getYesterdayTimeInterval() {
 		return getTimeIntervalOnDay(-1, 0);
@@ -77,9 +77,9 @@ public class CalendarUtil {
 	/**
 	 * 
 	 * @author SunAo
-	 * @date 2018年4月11日 下午3:24:53
+	 * 2018年4月11日 下午3:24:53
 	 * @param a 几个月前的 -1 上个月 -2 上上个月
-	 * @return
+	 * @return 返回
 	 */
 	public TimeInterval getOneMonth(int a) {
 		TimeInterval respObj = new TimeInterval();

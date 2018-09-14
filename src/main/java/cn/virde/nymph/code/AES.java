@@ -16,7 +16,7 @@ import cn.virde.nymph.util.Log;
 
 /**
  * @author Virde
- * @date 2018年6月8日 下午3:44:41
+ * 2018年6月8日 下午3:44:41
  */
 public class AES {
       private static final String defaultCharset = "UTF-8";  
@@ -26,7 +26,7 @@ public class AES {
      * 
      * @param data 需要加密的内容 
      * @param key 加密密码 
-     * @return 
+     * @return 返回 
      */  
     public static String encode(String data, String key) {  
         return doAES(data, key, Cipher.ENCRYPT_MODE);  
@@ -37,7 +37,7 @@ public class AES {
      * 
      * @param data 待解密内容 
      * @param key 解密密钥 
-     * @return 
+     * @return 返回 
      */  
     public static String decode(String data, String key) {  
         return doAES(data, key, Cipher.DECRYPT_MODE);  
@@ -49,7 +49,7 @@ public class AES {
      * @param data 待处理数据 
      * @param password  密钥 
      * @param mode 加解密mode 
-     * @return 
+     * @return 返回 
      */  
     private static String doAES(String data, String key, int mode) {  
         try {  
@@ -97,8 +97,8 @@ public class AES {
     /** 
      * 将二进制转换成16进制 
      * 
-     * @param buf 
-     * @return 
+     * @param buf buffer
+     * @return 返回 
      */  
     public static String parseByte2HexStr(byte buf[]) {  
     	StringBuffer sb = new StringBuffer();  
@@ -114,8 +114,8 @@ public class AES {
     /** 
      * 将16进制转换为二进制 
      * 
-     * @param hexStr 
-     * @return 
+     * @param hexStr hexString
+     * @return 返回 
      */  
     public static byte[] parseHexStr2Byte(String hexStr) {  
         if (hexStr.length() < 1)  

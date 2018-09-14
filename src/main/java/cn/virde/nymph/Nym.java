@@ -67,11 +67,10 @@ public class Nym{
 	// 以上方法不依赖jar包
 	
 	/**
-	 * <h1>地址解析和逆地址解析功能</h1>
-	 * <a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding">
-	 * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding</a><br/>
-	 * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务<br>
-	 * 依赖JSON包 <br>
+	 * 地址解析和逆地址解析功能
+	 * 官网API文档:http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
+	 * 提供从地址到经纬度坐标或者从经纬度坐标到地址的转换服务
+	 * 依赖JSON包
 	 * 依赖 org.apache.commons.lang3包
 	 */
 	public final static GeocodingTool geocoding = new GeocodingTool();

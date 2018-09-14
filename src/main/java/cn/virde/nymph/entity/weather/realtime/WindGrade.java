@@ -3,7 +3,7 @@ package cn.virde.nymph.entity.weather.realtime;
 /**
  * 
  * @author Virde
- * @time 2018年1月24日 下午6:10:08
+ * 2018年1月24日 下午6:10:08
  */
 public class WindGrade {
 	

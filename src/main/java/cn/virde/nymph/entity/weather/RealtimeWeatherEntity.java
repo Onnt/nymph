@@ -6,8 +6,7 @@ import cn.virde.nymph.entity.weather.realtime.RealtimeResultEntity;
 /**
  * 
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年12月17日 下午7:13:13
+ * 2016年12月17日 下午7:13:13
  */
 public class RealtimeWeatherEntity extends BaseEntity{
 

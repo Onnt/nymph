@@ -1,16 +1,12 @@
 package cn.virde.nymph.sort;
 
-import java.util.List;
-
-
-import cn.virde.nymph.Nym;
 
 /**
  * 这个类的作用就是：我给你一个列表，指定一个字段。你根据这个字段帮我排序，升降我来指定
  * 或者，我给你一个数组，你帮我把数组排序。
  * 又或者，……
  * @author SunAo
- * @date 2018年4月13日 下午5:11:26
+ * 2018年4月13日 下午5:11:26
  */
 public class Sort {
 	public final static int DESC = 1;

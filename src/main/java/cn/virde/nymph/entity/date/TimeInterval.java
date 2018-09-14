@@ -2,19 +2,20 @@ package cn.virde.nymph.entity.date;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
 
 import cn.virde.nymph.Nym;
 
 import static java.util.Calendar.*;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Virde
- * @time 2018年1月25日 下午5:50:03
- * @change 2018年8月22日 17:12:07
+ * 2018年1月25日 下午5:50:03
+ * change 2018年8月22日 17:12:07
  */
 public class TimeInterval {
 	
@@ -67,40 +68,16 @@ public class TimeInterval {
 	public boolean isNull() {
 		return startDate == null || endDate == null ;
 	}
-	
-	/**
-	 * 给定一个日期，
-	 * 设置开始时间为这个日期的00:00:00，
-	 * 结束时间为这个日期的23:59:59
-	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
-	 */
-	public void setIntervalByDay(Date date) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
-		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
-		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
-		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
-		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
-		cal.set(SECOND,cal.getActualMaximum(SECOND));
-		setEndDate(cal.getTime());
-	}
-	public static TimeInterval getIntervalByDay(Date date) {
-		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByDay(date);
-		return timeInterval;
-	}
+
 	/**
 	 * 给定一个时间
 	 * 设置开始时间为这个时间的零分零秒
 	 * 结束时间为这个时间的59分59秒
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
+	 * 2018年8月22日 17:04:46
 	 */
 	public void setIntervalByHour(Date date) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
@@ -116,13 +93,57 @@ public class TimeInterval {
 	}
 	/**
 	 * 给定一个日期，
+	 * 设置开始时间为这个日期的00:00:00，
+	 * 结束时间为这个日期的23:59:59
+	 * @author Virde
+	 * 2018年8月22日 17:04:46
+	 */
+	public void setIntervalByDay(Date date) {
+		Calendar cal = getInstance();
+		cal.setTime(date);
+		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
+		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
+		cal.set(SECOND,cal.getActualMinimum(SECOND));
+		setStartDate(cal.getTime());
+		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
+		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
+		cal.set(SECOND,cal.getActualMaximum(SECOND));
+		setEndDate(cal.getTime());
+	}
+	public static TimeInterval getIntervalByDay(Date date) {
+		TimeInterval timeInterval = new TimeInterval();
+		timeInterval.setIntervalByDay(date);
+		return timeInterval;
+	}
+	
+	public void setIntervalByWeek(Date date) {
+		Calendar cal = getInstance();
+		cal.setTime(date);
+		cal.set(DAY_OF_WEEK, cal.getActualMinimum(DAY_OF_WEEK));
+		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
+		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
+		cal.set(SECOND,cal.getActualMinimum(SECOND));
+		setStartDate(cal.getTime());
+		cal.set(DAY_OF_WEEK, cal.getMaximum(DAY_OF_WEEK));
+		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
+		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
+		cal.set(SECOND,cal.getActualMaximum(SECOND));
+		setEndDate(cal.getTime());
+	}
+	public static TimeInterval getIntervalByWeek(Date date) {
+		TimeInterval timeInterval = new TimeInterval();
+		timeInterval.setIntervalByWeek(date);
+		return timeInterval;
+	}
+	/**
+	 * 给定一个日期，
 	 * 设置开始时间为这个月的1日 00:00:00，
 	 * 结束时间为这个月最后一天的23:59:59
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
+	 * 2018年8月22日 17:04:46
 	 */
 	public void setIntervalByMonth(Date date) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(DAY_OF_MONTH, cal.getActualMinimum(DAY_OF_MONTH));
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
@@ -146,10 +167,10 @@ public class TimeInterval {
 	 * 设置开始时间为这一年的第一天的00:00:00，
 	 * 结束时间为这一年最后一天的23:59:59
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
+	 * 2018年8月22日 17:04:46
 	 */
 	public void setIntervalByYear(Date date) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(MONTH, cal.getActualMinimum(MONTH));
 		cal.set(DAY_OF_MONTH, cal.getActualMinimum(DAY_OF_MONTH));
@@ -174,12 +195,12 @@ public class TimeInterval {
 	 * 获取开始时间到结束时间中间的每一个小时，不包含开始时间和结束时间所在的小时
 	 * 如果没有符合条件的结果则返回空的列表
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
-	 * @return
+	 * 2018年8月22日 17:04:46
+	 * @return 返回
 	 */
-	public List<TimeInterval> getEveryHour() {
+	public List<TimeInterval> getIntervalOfEveryHour() {
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
 		cal.setTime(startDate);
 		int startMinute = cal.get(MINUTE);
 		int startSecond = cal.get(SECOND);
@@ -215,19 +236,22 @@ public class TimeInterval {
 		
 		return respList;
 	}
-	public static List<TimeInterval> getEveryHour(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getEveryHour();
+	public static List<TimeInterval> getIntervalOfEveryHour(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).getIntervalOfEveryHour();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一天，不包含开始结束时间所在的天
 	 * 如果没有符合条件的结果则返回空的列表
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
-	 * @return
+	 * 2018年8月22日 17:04:46
+	 * @return 返回
 	 */
-	public List<TimeInterval> getEveryDay() {
+	public List<TimeInterval> getIntervalOfEveryDay() {
+		// 初始化必要变量
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
+		
+		// 计算出到开始时间
 		cal.setTime(startDate);
 		int startHour   = cal.get(HOUR_OF_DAY);
 		int startMinute = cal.get(MINUTE);
@@ -240,6 +264,7 @@ public class TimeInterval {
 		}
 		Date start = cal.getTime();
 		
+		// 计算出结束时间
 		cal.setTime(endDate);
 		int endHour   = cal.get(HOUR_OF_DAY);
 		int endMinute = cal.get(MINUTE);
@@ -252,10 +277,12 @@ public class TimeInterval {
 		}
 		Date end = cal.getTime();
 		
+		// 如果开始时间在结束时间之后，则返回空的列表
 		if(start.after(end)) {
 			return respList;
 		}
 		
+		// 根据开始时间结束时间生成所有节点的时间
 		while(start.before(end)) {
 			TimeInterval ti = getIntervalByDay(start);
 			respList.add(ti);
@@ -265,22 +292,23 @@ public class TimeInterval {
 			start = cal.getTime();
 		}
 		
+		// 返回结果
 		return respList;
 	}
 
-	public static List<TimeInterval> getEveryDay(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getEveryDay();
+	public static List<TimeInterval> getIntervalOfEveryDay(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).getIntervalOfEveryDay();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一个月，不包含开始结束时间所在的月
 	 * 如果没有符合条件的结果则返回空的列表
 	 * @author Virde
-	 * @Date 2018年8月22日 17:04:46
-	 * @return
+	 * 2018年8月22日 17:04:46
+	 * @return 返回
 	 */
-	public List<TimeInterval> getEveryMonth() {
+	public List<TimeInterval> getIntervalOfEveryMonth() {
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = getInstance();
 		cal.setTime(startDate);
 		int startDay    = cal.get(DAY_OF_MONTH);
 		int startHour   = cal.get(HOUR_OF_DAY);
@@ -324,8 +352,110 @@ public class TimeInterval {
 		
 		return respList;
 	}
-	public static List<TimeInterval> getEveryMonth(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getEveryMonth();
+	public static List<TimeInterval> getIntervalOfEveryMonth(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).getIntervalOfEveryMonth();
+	}
+	/**
+	 * 获取开始时间到结束时间中间的每一天
+	 * Author Virde
+	 * time 2018年9月11日 09:20:42
+	 * @param isContainCurr 是否包含开始结束时间当天
+	 * @return 生成的每一天的Date集合
+	 */
+	public List<Date> getEveryDay(Boolean isContainCurr) {
+		// 初始化参数
+		List<Date> respList = new ArrayList<Date>();
+		Calendar startCal = getInstance();
+		Calendar endCal = getInstance();
+		startCal.setTime(startDate);
+		endCal.setTime(endDate);
+		// 计算出开始结束时间
+		if(isContainCurr) {
+			startCal.set(HOUR_OF_DAY, 0);
+			startCal.set(MINUTE, 0);
+			startCal.set(SECOND, 0);
+			endCal.set(HOUR_OF_DAY, 0);
+			endCal.set(MINUTE, 0);
+			endCal.set(SECOND, 0);
+			endCal.add(DAY_OF_MONTH, +1);
+		}else {
+			if(startCal.get(HOUR_OF_DAY)!=0&&startCal.get(MINUTE)!=0&&startCal.get(SECOND)!=0) {
+				startCal.set(HOUR_OF_DAY, 0);
+				startCal.set(MINUTE, 0);
+				startCal.set(SECOND, 0);
+			}
+			startCal.add(DAY_OF_MONTH, +1);
+			if(endCal.get(HOUR_OF_DAY)!=0&&endCal.get(MINUTE)!=0&&endCal.get(SECOND)!=0) {
+				endCal.set(HOUR_OF_DAY, 0);
+				endCal.set(MINUTE, 0);
+				endCal.set(SECOND, 0);
+			}
+		}
+
+		// 如果开始时间在结束时间之后，则返回空的列表
+		if(startCal.getTime().after(endCal.getTime())) {
+			return respList;
+		}
+		// 根据开始结束时间生成列表
+
+		while(startCal.getTime().before(endCal.getTime())) {
+			respList.add(startCal.getTime());
+			startCal.add(DAY_OF_MONTH, +1);
+		}
+		return respList;
+	}
+	public List<Date> getEveryDay() {
+		return getEveryDay(true);
+	}
+	public List<Date> getEveryHour(Boolean isContainCurr) {
+		// 初始化参数
+		List<Date> respList = new ArrayList<Date>();
+		Calendar startCal = getInstance();
+		Calendar endCal = getInstance();
+		startCal.setTime(startDate);
+		endCal.setTime(endDate);
+		// 计算出开始结束时间
+		if(isContainCurr) {
+			startCal.set(MINUTE, 0);
+			startCal.set(SECOND, 0);
+			endCal.set(MINUTE, 0);
+			endCal.set(SECOND, 0);
+			endCal.add(HOUR_OF_DAY, +1);
+		}else {
+			if(startCal.get(MINUTE)!=0&&startCal.get(SECOND)!=0) {
+				startCal.set(MINUTE, 0);
+				startCal.set(SECOND, 0);
+			}
+			startCal.add(HOUR_OF_DAY, +1);
+			if(endCal.get(MINUTE)!=0&&endCal.get(SECOND)!=0) {
+				endCal.set(MINUTE, 0);
+				endCal.set(SECOND, 0);
+			}
+		}
+
+		// 如果开始时间在结束时间之后，则返回空的列表
+		if(startCal.getTime().after(endCal.getTime())) {
+			return respList;
+		}
+		// 根据开始结束时间生成列表
+
+		while(startCal.getTime().before(endCal.getTime())) {
+			respList.add(startCal.getTime());
+			startCal.add(HOUR_OF_DAY, +1);
+		}
+		return respList;
+	}
+	public List<Date> getEveryHour() {
+		return getEveryHour(false);
+	}
+	public static TimeInterval getTodayInterval() {
+		return getIntervalByDay(new Date());
 	}
 	
+	public String toJSONString() {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("startDate", Nym.time.toString(getStartDate()));
+		map.put("endDate", Nym.time.toString(getEndDate()));
+		return Nym.json.objectToJsonString(map);
+	}
 }

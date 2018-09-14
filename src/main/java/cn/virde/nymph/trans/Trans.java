@@ -5,7 +5,7 @@ import cn.virde.nymph.Nym;
 /**
  * 数据转换工具
  * @author SunAo
- * @date 2018年4月12日 下午1:46:36
+ * 2018年4月12日 下午1:46:36
  */
 public class Trans {
 	
@@ -23,9 +23,9 @@ public class Trans {
 	 * 而且试用者也要对数据上下转型非常熟悉才好。
 	 * 麻烦，暂时不写了
 	 * @author SunAo
-	 * @date 2018年4月12日 下午1:47:41
-	 * @param obj
-	 * @return
+	 * 2018年4月12日 下午1:47:41
+	 * @param str 对象
+	 * @return 返回
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })
 	public <T> T trans(String str) {
@@ -41,18 +41,5 @@ public class Trans {
 		Integer i = 0 ;
 		Double d = (double) 0 ;
 		return (T) i ;
-	}
-	
-	@SuppressWarnings("unused")
-	public static void main(String[] args) {
-//		Double d = new Trans().get("sdf");
-//		System.out.println(d);
-//		System.out.println(Nym.string.isFormat("232323.323", "^[0-9]*$"));
-//		System.out.println(Nym.string.isFormat("232323.32", "^[0-9]+(.[0-9]{2})?$"));
-//		System.out.println(Nym.string.isFormat("232323.32", "^[0-9]+(.[0-9]{2})?$"));
-//		System.out.println(Nym.string.isFormat("232323.32", "^[0-9]+(.[0-9]{2})?$"));
-		
-		Float f = 323f ;
-		
 	}
 }

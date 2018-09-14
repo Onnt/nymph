@@ -13,12 +13,12 @@ import cn.virde.nymph.util.Log;
 
 /**
  * 获取properties文件中参数 
- * <br/>
+ * 
  * 
  * 这个方法被证明是一个很傻比的方法
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2016年9月22日 下午4:22:17
+ * 
+ * 2016年9月22日 下午4:22:17
  */
 public class NymProperties {
 	
@@ -30,10 +30,9 @@ public class NymProperties {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年9月22日 下午4:22:09
-	 * @param key
-	 * @return
-	 * @throws IOException
+	 * 2016年9月22日 下午4:22:09
+	 * @param key key值
+	 * @return 返回
 	 */
 	public String getValue(String key){
 		return getValueByKey(file, key);

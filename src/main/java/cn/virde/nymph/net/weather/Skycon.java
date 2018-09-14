@@ -6,7 +6,7 @@ import cn.virde.nymph.enums.common.SkyconsEnum;
 /**
  * 
  * @author Virde
- * @time 2018年1月25日 上午11:02:26
+ * 2018年1月25日 上午11:02:26
  */
 public class Skycon {
 	private SkyconsEnum skycon ;

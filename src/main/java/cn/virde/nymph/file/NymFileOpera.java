@@ -23,7 +23,7 @@ public class NymFileOpera extends NymFileAssist{
    }
 
    @SuppressWarnings("unused")
-public void copy(File oldFile,File newFile) throws IOException { 
+   public void copy(File oldFile,File newFile) throws IOException { 
        if (oldFile.exists()) {
     	   InputStream inStream = new FileInputStream(oldFile); 
            FileOutputStream fs = new FileOutputStream(newFile); 
@@ -88,7 +88,7 @@ public void copy(File oldFile,File newFile) throws IOException {
 
    /**
     * 这个方法没有验证，暂不开放使用
-    * @param path
+    * @param path 路径
     */
    @SuppressWarnings("unused")
    private void delAllFile(String path) { 

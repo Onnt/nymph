@@ -8,8 +8,7 @@ import java.util.Date;
 /**
  * 
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2016年12月30日 下午7:07:28
+ * 2016年12月30日 下午7:07:28
  */
 public class NymTime {
 	public final static CalendarUtil cal = new CalendarUtil();
@@ -19,12 +18,16 @@ public class NymTime {
 	 * 设置日期格式化
 	 * 默认格式化为：yyyy-MM-dd HH:mm:ss
 	 * @author Virde
-	 * @time 2018年2月5日 14:02:48
+	 * 2018年2月5日 14:02:48
 	 */
 	private String format = "yyyy-MM-dd HH:mm:ss";
 	
 	public NymTime(){
 		
+	}
+	public NymTime(Date date,String format) {
+		this.date = date;
+		this.format = format;
 	}
 	public NymTime(Date date){
 		this.date = date;
@@ -49,9 +52,9 @@ public class NymTime {
 	/**
 	 * 将给定时间转成字符串返回.
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:31:18
+	 * 2016年12月30日 下午7:31:18
 	 * @param date Date类型时间
-	 * @return 返回日期默认格式为：yyyy-MM-dd HH:mm:ss
+	 * @return 返回 返回日期默认格式为：yyyy-MM-dd HH:mm:ss
 	 */
 	public String toString(Date date){
 		return toString(date,format);
@@ -59,10 +62,10 @@ public class NymTime {
 	/**
 	 *  将给定时间转成字符串返回
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:31:30
+	 * 2016年12月30日 下午7:31:30
 	 * @param date Date类型时间
 	 * @param format 格式
-	 * @return
+	 * @return 返回
 	 */
 	public String toString(Date date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
@@ -71,9 +74,9 @@ public class NymTime {
 	/**
 	 *  
 	 * @author Virde
-	 * @date 2018年4月10日 下午5:02:34
-	 * @param timestamp
-	 * @return
+	 * 2018年4月10日 下午5:02:34
+	 * @param timestamp 时间戳
+	 * @return 返回
 	 */
 	public String toString(long timestamp) {
 		Date d = toDate(timestamp);
@@ -82,10 +85,10 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Virde
-	 * @time 2018年2月5日 下午2:13:30
-	 * @param date
+	 * 2018年2月5日 下午2:13:30
+	 * @param date 日期
 	 * @param format yyyy-MM-dd HH:mm:ss
-	 * @return
+	 * @return 返回
 	 */
 	public String format(Date date,String format) {
 		return toString(date, format);
@@ -97,7 +100,7 @@ public class NymTime {
 		return format(format);
 	}
 	/**
-	 * 将时间转成Date类型<br/>
+	 * 将时间转成Date类型
 	 * 目前能默认匹配的日期格式有五种
 	 * <ul>
 	 *   <li>yyyy年MM月dd日 HH:mm:ss</li>
@@ -107,10 +110,10 @@ public class NymTime {
 	 *   <li>时间戳</li>
 	 * </ul>
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:32:12
-	 * @param date
-	 * @return
-	 * @throws ParseException 
+	 * 2016年12月30日 下午7:32:12
+	 * @param date 日期
+	 * @return 返回
+	 * @throws ParseException  异常
 	 */
 	public Date toDate(String date) throws ParseException{
 		
@@ -149,9 +152,9 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:32:29
-	 * @param timestamp
-	 * @return
+	 * 2016年12月30日 下午7:32:29
+	 * @param timestamp 时间戳
+	 * @return 返回
 	 */
 	public Date toDate(long timestamp){
 		if((timestamp/100000000L)>1000){
@@ -163,10 +166,10 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月31日 下午7:09:58
-	 * @param date
-	 * @param format
-	 * @return
+	 * 2016年12月31日 下午7:09:58
+	 * @param date 日期
+	 * @param format 格式
+	 * @return 返回
 	 */
 	public Date toDate(String date,SimpleDateFormat format){
 		try {
@@ -180,10 +183,10 @@ public class NymTime {
 	/**
 	 * 将时间转换成format类型的时间
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:32:23
-	 * @param date
-	 * @param format
-	 * @return
+	 * 2016年12月30日 下午7:32:23
+	 * @param date 日期
+	 * @param format 格式
+	 * @return 返回
 	 */
 	public Date toDate(String date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
@@ -194,9 +197,9 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月30日 下午7:33:21
+	 * 2016年12月30日 下午7:33:21
 	 * @param date
-	 * @return
+	 * @return 返回
 	 */
 	public long toTimestamp(Date date){
 		return date.getTime()/1000;
@@ -208,11 +211,11 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Blacard
-	 * @create 2016年12月30日 下午8:47:09
+	 * 2016年12月30日 下午8:47:09
 	 * @param date
 	 * @param UNIT
 	 * @param add
-	 * @return
+	 * @return 返回
 	 */
 	public Date addTime(Date date,int UNIT, int add){
 		Calendar cal =Calendar.getInstance();
@@ -228,12 +231,12 @@ public class NymTime {
 	/**
 	 * 
 	 * @author Virde
-	 * @time 2018年2月5日 下午2:07:24
+	 * 2018年2月5日 下午2:07:24
 	 * @param date
 	 * @param hour
 	 * @param minute
 	 * @param second
-	 * @return
+	 * @return 返回
 	 */
 	public Date setTimeGetDate(Date date,int hour,int minute,int second){
 		Calendar cal = Calendar.getInstance();
@@ -252,7 +255,7 @@ public class NymTime {
 	}
 	
 	public NymTime timeToZero(){
-		this.date = timeToZero(this.date);
+		date = timeToZero(date);
 		return this;
 	}
 	public String getFormat() {

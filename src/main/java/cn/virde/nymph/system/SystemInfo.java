@@ -10,7 +10,7 @@ import cn.virde.nymph.util.Log;
 /**
  * 
  * @author Virde
- * @date 2018年4月13日 下午3:24:56
+ * 2018年4月13日 下午3:24:56
  */
 public class SystemInfo {
 
@@ -27,8 +27,8 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:02
-	 * @return
+	 * 2018年4月13日 下午3:25:02
+	 * @return 返回
 	 */
 	public String getMac(){
 		if(isInetNull()) return "";
@@ -41,8 +41,8 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:07
-	 * @return
+	 * 2018年4月13日 下午3:25:07
+	 * @return 返回
 	 */
 	private byte[] getMacByte(){
 		try {
@@ -55,9 +55,9 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:11
-	 * @param mac
-	 * @return
+	 * 2018年4月13日 下午3:25:11
+	 * @param mac mac地址
+	 * @return 返回
 	 */
 	private String macByteToString(byte[] mac){
 		StringBuffer sb = new StringBuffer("");
@@ -80,8 +80,8 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:17
-	 * @return
+	 * 2018年4月13日 下午3:25:17
+	 * @return 返回
 	 */
 	public String getHostName(){
 		
@@ -93,8 +93,8 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:20
-	 * @return
+	 * 2018年4月13日 下午3:25:20
+	 * @return 返回
 	 */
 	public String getLANIP(){
 		
@@ -105,8 +105,8 @@ public class SystemInfo {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年4月13日 下午3:25:24
-	 * @return
+	 * 2018年4月13日 下午3:25:24
+	 * @return 返回
 	 */
 	private boolean isInetNull(){
 		if(inet == null){

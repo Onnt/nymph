@@ -19,7 +19,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 /**
  * 
  * @author Virde
- * @time 2018年1月17日 下午4:11:07
+ * 2018年1月17日 下午4:11:07
  */
 public class JwtUtil {
 
@@ -30,9 +30,9 @@ public class JwtUtil {
 	/**
 	 * 
 	 * @author Virde
-	 * @time 2018年2月27日 下午1:40:40
-	 * @param jwt
-	 * @return
+	 * 2018年2月27日 下午1:40:40
+	 * @param jwt jwt字段
+	 * @return 返回
 	 */
 	public static String encode(Jwt jwt){
 		return low_encode(jwt.toString());
@@ -41,18 +41,18 @@ public class JwtUtil {
 	/**
 	 * 
 	 * @author Virde
-	 * @time 2018年2月27日 下午1:40:44
-	 * @param id
-	 * @return
+	 * 2018年2月27日 下午1:40:44
+	 * @param id id字段
+	 * @return 返回
 	 */
 	public static String encode(String id) {
 		return encode(new Jwt(id));
 	}
 	  /**
 	  * 解密 jwt
-	  * @param jwt
-	  * @return
-	  * @throws Exception
+	  * @param jwt jwt字段
+	  * @return 返回
+	  * @throws MalformedJwtException 异常
 	  */
 	  public static Jwt decode(String jwt) throws MalformedJwtException{
 	       String json = low_decode(jwt);
@@ -61,11 +61,9 @@ public class JwtUtil {
 	  
 	/**
 	  * 创建 jwt
-	  * @param id
-	  * @param subject
-	  * @param ttlMillis
-	  * @return
-	  * @throws Exception
+	  * @param id id字段
+	  * @return 返回
+	  * @throws Exception 异常
 	  */
 	  private static String low_encode(String id){
 	       SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256 ;
@@ -88,10 +86,10 @@ public class JwtUtil {
 	  /**
 	   * 
 	   * @author Virde
-	   * @time 2018年2月27日 下午1:41:04
-	   * @param jwt
-	   * @return
-	   * @throws MalformedJwtException
+	   * 2018年2月27日 下午1:41:04
+	   * @param jwt jwt字段
+	   * @return 返回
+	   * @throws MalformedJwtException 异常
 	   */
 	 private static String low_decode(String jwt) throws MalformedJwtException{
 	       try {

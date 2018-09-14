@@ -15,7 +15,7 @@ import cn.virde.nymph.util.Log;
 /**
  * 
  * @author Virde
- * @time 2018年2月8日 下午3:00:10
+ * 2018年2月8日 下午3:00:10
  */
 public class MongoUtil{
 	

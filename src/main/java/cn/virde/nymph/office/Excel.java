@@ -14,8 +14,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  *  	 简单的Excel 工具
  *
  * @author SunAo
- * @date 2018年4月13日 下午2:35:16
- * @date 2018年8月28日 09:02:07
+ * 2018年4月13日 下午2:35:16
+ * 2018年8月28日 09:02:07
  */
 public class Excel {
 

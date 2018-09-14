@@ -9,7 +9,7 @@ import cn.virde.nymph.text.TextOut;
  * 升级功能
  * 需要增加日志的输出等级控制 
  * @author Virde
- * @date 2018年6月4日 下午6:21:02
+ * 2018年6月4日 下午6:21:02
  */
 public class Log {
 	

@@ -4,7 +4,7 @@ package cn.virde.nymph.code;
  * 中文名：原地踏步算法
  * 英文名：Step By Step，简称SBS
  * @author Virde
- * @date 2018年5月10日 下午8:10:21
+ * 2018年5月10日 下午8:10:21
  */
 public class SBS {
 	

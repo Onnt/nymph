@@ -10,8 +10,8 @@ import cn.virde.nymph.Nym;
  * 由一个url地址，生成一个Page对象。
  * 包含html文本，页面url地址，页面的域名
  * @author  Blacard
- * @邮箱：blacard@163.com
- * @date 创建时间：2016年7月10日 下午7:03:58 
+ * blacard@163.com
+ * 创建时间：2016年7月10日 下午7:03:58 
  */
 public class Page{
 	
@@ -57,8 +57,8 @@ public class Page{
 	 * 获取页面html内容，
 	 * html内容在构造函数内已经初始化（获取）
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:22:30
-	 * @return 页面html内容
+	 * 2016年12月8日 上午11:22:30
+	 * @return 返回 页面html内容
 	 */
 	public String getHtml(){
 		return html;
@@ -67,8 +67,8 @@ public class Page{
 	/**
 	 * 获取页面的url地址
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:24:11
-	 * @return 页面url地址
+	 * 2016年12月8日 上午11:24:11
+	 * @return 返回 页面url地址
 	 */
 	public String getPageUrl(){
 		return pageUrl;
@@ -78,8 +78,8 @@ public class Page{
 	 * 获取页面中包含的所有url地址，
 	 * 对象实例化时已经获取生成
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:24:46
-	 * @return url集合
+	 * 2016年12月8日 上午11:24:46
+	 * @return 返回 url集合
 	 */
 	public HashSet<String> getUrls(){
 		
@@ -89,8 +89,8 @@ public class Page{
 	/**
 	 * 获取页面的hostName
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:27:52
-	 * @return
+	 * 2016年12月8日 上午11:27:52
+	 * @return 返回
 	 */
 	public String getHost() {
 		
@@ -102,8 +102,8 @@ public class Page{
 	/**
 	 * 设置页面的hostName
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:29:28
-	 * @param host
+	 * 2016年12月8日 上午11:29:28
+	 * @param host 输入的域名
 	 */
 	private void setHost(String host) {
 		this.host = host;
@@ -113,7 +113,7 @@ public class Page{
 	 * 获取生成页面内包含的所有url的set集合
 	 * 目前仅获取了href 和 src 中的链接，其他的忽略
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:31:32
+	 * 2016年12月8日 上午11:31:32
 	 */
 	private void setUrls(){
 		try {
@@ -127,8 +127,8 @@ public class Page{
 	/**
 	 * 这个方法怎么使用还不是很明确
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:31:08
-	 * @return
+	 * 2016年12月8日 上午11:31:08
+	 * @return 返回
 	 */
 //	@SuppressWarnings("unused")
 //	private String getPageByJavScript(){

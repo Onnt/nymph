@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * 
  * @author Blacard
- * @联系方式  邮箱：blacard@163.com <br/> 手机：18037170703
- * @Create 2016年9月3日 下午11:00:30
+ 
+ * 2016年9月3日 下午11:00:30
  */
 public class NymFile extends NymFileAssist{
 	
@@ -23,8 +23,8 @@ public class NymFile extends NymFileAssist{
 	 * 获取所有文件
 	 * 包含 目录和文件
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:14:56
-	 * @return
+	 * 2016年9月2日 上午11:14:56
+	 * @return 返回
 	 */
 	public List<File> getAllFiles(){
 		getAllFile(this.file);
@@ -34,9 +34,9 @@ public class NymFile extends NymFileAssist{
 	 * 根据后缀名筛选文件
 	 * 
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:15:08
-	 * @param suffix
-	 * @return
+	 * 2016年9月2日 上午11:15:08
+	 * @param suffix 后缀名
+	 * @return 返回
 	 */
 	public List<File> getFileBySuffix(String suffix){
 		List<String> suffixs = new ArrayList<String>();
@@ -49,9 +49,9 @@ public class NymFile extends NymFileAssist{
 	/**
 	 * 根据后缀名筛选当前文件夹下文件
 	 * @author Blacard
-	 * @create 2016年9月2日 上午11:15:28
-	 * @param suffix
-	 * @return
+	 * 2016年9月2日 上午11:15:28
+	 * @param suffix 后缀名
+	 * @return 返回
 	 */
 	public List<File> getCurrDirFileBySuffix(String suffix){
 		return getFileBySuffix(this.file.listFiles(),suffix);
@@ -63,8 +63,8 @@ public class NymFile extends NymFileAssist{
 	 * 获取文件大小
 	 * 如果是文件夹 则 统计文件夹下所有文件的大小
 	 * @author Blacard
-	 * @Create 2016年9月7日 下午4:16:27
-	 * @return
+	 * 2016年9月7日 下午4:16:27
+	 * @return 返回
 	 */
 	public long length(){
 		if(file.isFile())

@@ -13,18 +13,18 @@ import cn.virde.nymph.Nym;
  * 对获取到的page进行处理
  * 
  * @author  Blacard
- * @邮箱：blacard@163.com
- * @date 创建时间：2016年7月11日 下午11:06:32 
+ * blacard@163.com
+ * 创建时间：2016年7月11日 下午11:06:32 
   */
 public class PageDeal {
 	
 	/**
 	 * 
 	 * @author Blacard
-	 * @Create 2017年1月23日 下午2:11:55
-	 * @param page
-	 * @return
-	 * @throws IOException
+	 * 2017年1月23日 下午2:11:55
+	 * @param page 页面地址
+	 * @return 返回 
+	 * @throws IOException 异常
 	 */
 	public static HashSet<String> getSrc(Page page) throws IOException{
 		String html = Nym.string.replaceBlank(page.getHtml());        
@@ -44,10 +44,10 @@ public class PageDeal {
 	 * 获取页面中href中包含的连接
 	 * 返回的都是直接能用的链接
 	 * @author Blacard
-	 * @Create 2016年12月8日 上午11:50:53
+	 * 2016年12月8日 上午11:50:53
 	 * @param page 页面
-	 * @return 返回页面内直接能用的链接集合
-	 * @throws IOException
+	 * @return 返回 返回页面内直接能用的链接集合
+	 * @throws IOException 异常
 	 */
 	public static HashSet<String> getHref(Page page) throws IOException{
 		String html = Nym.string.replaceBlank(page.getHtml());       
@@ -74,7 +74,7 @@ public class PageDeal {
 	
 	/**
 	 * 根据页面的链接 获取到 hostName
-	 * @return
+	 * @return 返回
 	 */
 	public static String getHostName(Page page){
 		return Nym.string.getStringByReg(page.getPageUrl(), 
@@ -83,7 +83,7 @@ public class PageDeal {
 
 	/**
 	 * 根据页面的链接 获取到 hostName
-	 * @return
+	 * @return 返回
 	 */
 	public static String getHostName(String page){
 		return Nym.string.getStringByReg(page, 
@@ -96,7 +96,7 @@ public class PageDeal {
 	 * 
 	 * @param page WangZhi，这个参数里面的host要用
 	 * @param str href里的内容
-	 * @return 处理过的链接，可以直接使用，不保证有效性。
+	 * @return 返回 处理过的链接，可以直接使用，不保证有效性。
 	 * 如果内容明显无效，返回null
 	 */
 	@Deprecated
@@ -138,7 +138,7 @@ public class PageDeal {
 	/**
 	 * 校正链接，防止出现格式不正确的链接
 	 * @param str 被校正的链接
-	 * @return 校正过的链接
+	 * @return 返回 校正过的链接
 	 */
 	private static String correcting(String str){
 		String resp = Nym.string.getStringByReg(str, "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?");
@@ -194,10 +194,10 @@ public class PageDeal {
 	/**
 	 * 
 	 * @author Blacard
-	 * @Create 2017年1月23日 下午4:31:29
+	 * 2017年1月23日 下午4:31:29
 	 * @param page
 	 * @param str
-	 * @return
+	 * @return 返回
 	 */
 	private static String relativeCurrPathDeal(Page page,String str){
 		String pageUrl = page.getPageUrl();

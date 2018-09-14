@@ -5,7 +5,7 @@ import cn.virde.nymph.enums.common.SkyconsEnum;
 /**
  * 计算降水强度
  * @author Virde
- * @time 2018年1月25日 下午1:33:46
+ * 2018年1月25日 下午1:33:46
  */
 public class PrecipitationIntensity {
 	private SkyconsEnum skycon ;

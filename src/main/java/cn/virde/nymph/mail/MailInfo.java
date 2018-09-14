@@ -59,8 +59,8 @@ public class MailInfo {
 	/**
 	 * 这个可以根据常见的邮箱地址自动获取
 	 * @author SunAo
-	 * @date 2018年4月13日 下午4:40:29
-	 * @return
+	 * 2018年4月13日 下午4:40:29
+	 * @return 返回
 	 */
 	public String getSmtpHost() {
 		return smtpHost;

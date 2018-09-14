@@ -14,16 +14,16 @@ import cn.virde.nymph.Nym;
 /**
  * 字符串处理工具
  * @author Blacard
- * @联系方式 邮箱：blacard@163.com <br/> 手机：18037170703
- * @create 2016年7月11日 下午10:51:59
+ * 
+ * 2016年7月11日 下午10:51:59
  */
 public class StringTool {
 	/**
 	 * 在给定的字符串中匹配对应正则表达式，
 	 * 所有符合表达式的字符打包至集合中返回
-	 * @param str 
+	 * @param str 给定的字符串
 	 * @param regEx  正则表达式
-	 * @return 
+	 * @return 返回 
 	 */
 	public List<String> getStringsByReg(String str,String regEx){
 		List<String> list = new ArrayList<String>();
@@ -38,10 +38,10 @@ public class StringTool {
 	 * 在给定的字符串中匹配对应正则表达式，
 	 * 只返回第一个匹配的结果
 	 * @author Blacard
-	 * @create 2017年2月7日 下午5:49:30
-	 * @param str
-	 * @param regEx
-	 * @return
+	 * 2017年2月7日 下午5:49:30
+	 * @param str 给定的字符串
+	 * @param regEx 正则表达式
+	 * @return 返回
 	 */
 	public String getStringByReg(String str,String regEx){
 		List<String> list = getStringsByReg(str,regEx);
@@ -56,9 +56,9 @@ public class StringTool {
 	 * 去除字符中的所有空白符
 	 * 
 	 * @author Blacard
-	 * @create 2017年1月24日 下午2:49:23
-	 * @param str
-	 * @return
+	 * 2017年1月24日 下午2:49:23
+	 * @param str 字符串
+	 * @return 返回
 	 */
     public String replaceBlank(String str) {
         String dest = "";
@@ -73,9 +73,9 @@ public class StringTool {
 	/**
 	 * 获取后缀名
 	 * @author Blacard
-	 * @Create 2016年9月1日 下午2:38:51
-	 * @param str
-	 * @return 后缀名
+	 * 2016年9月1日 下午2:38:51
+	 * @param str 字符串
+	 * @return 返回 后缀名
 	 */
 	public String getSuffix(String str){
 		if(str.contains(".") && str.lastIndexOf(".") < str.length())
@@ -86,9 +86,9 @@ public class StringTool {
 	/**
 	 * 获取文件名
 	 * @author Blacard
-	 * @Create 2016年9月1日 下午3:05:21
-	 * @param str
-	 * @return
+	 * 2016年9月1日 下午3:05:21
+	 * @param str 字符串
+	 * @return 返回
 	 */
 	public String getFileName(String str){
 		return str.substring(str.lastIndexOf("/")+1,str.length());
@@ -98,9 +98,9 @@ public class StringTool {
 	/**
 	 * 判断这个字符串是否是IP地址
 	 * @author Virde
-	 * @time 2018年1月26日 下午2:03:54
-	 * @param str
-	 * @return
+	 * 2018年1月26日 下午2:03:54
+	 * @param str 字符串
+	 * @return 返回
 	 */
     public boolean isIP(String str){  
         if(str == null || str.length() < 7 || str.length() > 15 || "".equals(str)){  
@@ -125,9 +125,9 @@ public class StringTool {
 	 * 返回url中名字为name的参数值。
 	 * 如果没有这个参数值或者发生异常，则返回NULL
 	 * 
-	 * @param url
-	 * @param name
-	 * @return
+	 * @param url url地址
+	 * @param name 名字
+	 * @return 返回
 	 */
 	public String getParam(String url,String name) {
 		Map<String,String> map = getParamMap(url);
@@ -144,7 +144,7 @@ public class StringTool {
 	/**
 	 * 返回pageUrl中携带的参数，存储到map中返回
 	 * @param pageUrl 带有参数的url地址
-	 * @return 
+	 * @return 返回 
 	 *  如果不包含参数，或者遇到异常则返回空的Map对象
 	 * 
 	 */
@@ -172,10 +172,10 @@ public class StringTool {
 	 * 传入链接和参数，拼接返回。
 	 * 缺陷：没有验证url的既有参数
 	 * @author Blacard
-	 * @create 2017年12月20日 14:25:21
-	 * @param url
-	 * @param params
-	 * @return
+	 * 2017年12月20日 14:25:21
+	 * @param url url地址
+	 * @param params 参数
+	 * @return 返回
 	 */
 	public String makeUrlWithParams(String url,Map<String,String> params) {
 		if(params==null||params.size()==0) return url ;
@@ -207,13 +207,13 @@ public class StringTool {
 	/**
 	 * 
 	 * @author Virde
-	 * @date 2018年6月7日 下午3:04:30
-	 * @param url
-	 * @param params
-	 * @return
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws IllegalAccessException 
+	 * 2018年6月7日 下午3:04:30
+	 * @param url url地址
+	 * @param params 参数
+	 * @return 返回
+	 * @throws InvocationTargetException  异常
+	 * @throws IllegalArgumentException  异常
+	 * @throws IllegalAccessException  异常
 	 */
 	public String makeUrlWithParams(String url,Object params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return makeUrlWithParams(url, Nym.clazz.getField(params)) ;
