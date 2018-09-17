@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 用下面这个jar包可以实现相同的功能
- * org.springframework.beans.BeanUtils
  * @author SunAo
  * 2018年3月14日 下午8:30:30
  */

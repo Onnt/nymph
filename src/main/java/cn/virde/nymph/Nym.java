@@ -56,10 +56,6 @@ public class Nym{
 	 */
 	public final static TextRead text = new TextRead();
 	
-	
-	/**
-	 * 
-	 */
 	public final static DownFromUrl down = new DownFromUrl();
 	
 	public final static NymFileOpera file = new NymFileOpera();
