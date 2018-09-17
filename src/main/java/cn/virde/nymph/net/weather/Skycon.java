@@ -63,7 +63,4 @@ public class Skycon {
 	public void setDescript(String descript) {
 		this.descript = descript;
 	}
-	public static void main(String[] args) {
-		System.out.println(Nym.random.string("sdfsdf"));
-	}
 }

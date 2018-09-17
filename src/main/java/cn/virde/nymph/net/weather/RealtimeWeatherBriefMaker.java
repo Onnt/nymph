@@ -70,10 +70,4 @@ public class RealtimeWeatherBriefMaker {
 		return brief.toString();
 	}
 
-	public static void main(String[] args) throws IOException, LocationException {
-//		new RealtimeWeatherBriefMaker(new Weather("上海").getRealtimeWeather());
-		
-		String str = new RealtimeWeatherBriefMaker(new Weather("上海市南翔镇").getRealtimeWeather()).getBrief();
-		System.out.println(str);
-	}
 }

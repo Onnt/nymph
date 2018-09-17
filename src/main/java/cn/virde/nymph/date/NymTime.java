@@ -11,7 +11,7 @@ import java.util.Date;
  * 2016年12月30日 下午7:07:28
  */
 public class NymTime {
-	public final static CalendarUtil cal = new CalendarUtil();
+	
 	private Date date;
 
 	/**

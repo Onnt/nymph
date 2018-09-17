@@ -72,8 +72,4 @@ public class WindDirection {
 	public void setDirectionName(String directionName) {
 		this.directionName = directionName;
 	}
-
-	public static void main(String[] args) {
-		System.out.println(new WindDirection(23.232).getName());
-	}
 }

@@ -133,9 +133,6 @@ public class WindGrade {
 	public void setDescript(String descript) {
 		this.descript = descript;
 	}
-	public static void main(String[] args) {
-		System.out.println(new WindGrade(2132.32).getName());
-	}
 }
 
 /**

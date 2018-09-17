@@ -71,9 +71,4 @@ public class NumberTool {
 		return null;
 	}
 	
-	public static void main(String[] args) {
-		double i = 233 ;
-		double l = 23234;
-		System.out.println(Nym.number.set2decimal( i / l));
-	}
 }

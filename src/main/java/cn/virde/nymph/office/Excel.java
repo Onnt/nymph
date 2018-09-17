@@ -96,11 +96,4 @@ public class Excel {
         System.out.println(new Date()+": 写入成功");
         fos.close();
     }
-
-    
-    public static void main(String[] args) throws IOException {
-    	Excel e = new Excel("D://test33.xlsx",12);
-    	e.sheet.createRow(0).createCell(0).setCellValue("asdfasd");
-    	e.save();
-    }
 }

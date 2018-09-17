@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortTest {
-	public static void main(String[] args) {
-		List<Person> list = new ArrayList<Person>();
-		list.add(new Person("张三 12",12));
-		list.add(new Person("李四 6",6));
-		list.add(new Person("王五 5",5));
-		list.add(new Person("周六 36",36));
-		list.add(new Person("孙七87",87));
+// 	public static void main(String[] args) {
+// 		List<Person> list = new ArrayList<Person>();
+// 		list.add(new Person("张三 12",12));
+// 		list.add(new Person("李四 6",6));
+// 		list.add(new Person("王五 5",5));
+// 		list.add(new Person("周六 36",36));
+// 		list.add(new Person("孙七87",87));
 		
-//		Collections.sort(list);
-		list.sort(null);
-		for(Person p : list) {
-			System.out.println(p.getAge());
-		}
-	}
+// //		Collections.sort(list);
+// 		list.sort(null);
+// 		for(Person p : list) {
+// 			System.out.println(p.getAge());
+// 		}
+// 	}
 }
 
 
