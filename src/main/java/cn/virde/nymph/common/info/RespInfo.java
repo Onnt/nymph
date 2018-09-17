@@ -107,10 +107,6 @@ public class RespInfo extends BaseInfo{
 		setCode(-1);
 		setInfo(info);
 	}
-//	public static RespInfo valid(ValidInfo validInfo) {
-//		return new RespInfo(validInfo.isOk(),validInfo.getInfo(),validInfo.getResult());
-//	}
-	
 	public Map<String, Object> getParams() {
 		return params;
 	}

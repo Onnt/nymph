@@ -13,12 +13,12 @@ import java.sql.SQLException;
  */  
   
 public class ConnPool {  
-    private static boolean notInit = true ;
+    private static boolean needInit = true ;
     private static final ConnPool instance = new ConnPool();  
     private static ComboPooledDataSource comboPooledDataSource;
   
-    public static boolean notInit() {
-    	return notInit ;
+    public static boolean needInit() {
+    	return needInit ;
     }
     public static void init(ConnInfo connInfo) throws ClassNotFoundException, PropertyVetoException {
 //            Class.forName(connInfo.getDRIVER());  
@@ -30,7 +30,7 @@ public class ConnPool {
             //下面是设置连接池的一配置  
             comboPooledDataSource.setMaxPoolSize(20);  
             comboPooledDataSource.setMinPoolSize(5);  
-        notInit = false ;
+            needInit = false ;
     }
     
     

@@ -29,9 +29,18 @@ public class MySql<T> extends DatabaseClient{
 	public MySql(String ip,String dbName,String user,String pass) {
 		info = new ConnInfo(DBStyle.MYSQL,ip,dbName,user,pass);
 	}
+	public MySql(String ip,String dbName,String user,String pass,boolean usePool) {
+		info = new ConnInfo(DBStyle.MYSQL,ip,dbName,user,pass);
+		this.usePool = usePool;
+	}
 	public MySql(ConnInfo connInfo) {
 		connInfo.setStyle(DBStyle.MYSQL);
 		info = connInfo;
+	}
+	public MySql(ConnInfo connInfo,boolean usePool) {
+		connInfo.setStyle(DBStyle.MYSQL);
+		info = connInfo;
+		this.usePool = usePool;
 	}
 
 	@SuppressWarnings("rawtypes")
