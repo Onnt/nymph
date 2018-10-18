@@ -6,7 +6,7 @@ import cn.virde.nymph.Nym;
 import cn.virde.nymph.entity.base.LocationEntity;
 
 public class Random extends NumberRandom{
-
+	final static int[] sizeTable = {9,99,999,9999,99999,999999,9999999,99999999,99999999,999999999,Integer.MAX_VALUE};
 	/**
 	 * 随机获取一个参数
 	 * @author Virde
@@ -39,4 +39,33 @@ public class Random extends NumberRandom{
 	public String uuid() {
 		return UUID.randomUUID().toString();
 	}
+	/**
+	 * 生成一个固定位数的随机数字，通常做验证码使用
+	 * 
+	 * @return 固定位数的随机数字
+	 */
+	public String number(int size) {
+		String result = "";
+		int add = (int) (Math.pow(10, size) - 1);
+		Integer random = getRandom(0, add);
+		int diff = size - stringSize(random);
+		for(int i = 0 ; i < diff;i++) {
+			result += "0";
+		}
+		result += random;
+		return result;
+	}
+	static int stringSize(int x) {
+		for(int i = 0;; i++) {
+			if(x <= sizeTable[i])
+				return i + 1;
+		}
+	}
+	public static void main(String[] args) {
+		for(int i = 0 ; i < 1000 ; i ++) {
+			System.out.println(new Random().number(6));
+			
+		}
+	}
+	
 }
