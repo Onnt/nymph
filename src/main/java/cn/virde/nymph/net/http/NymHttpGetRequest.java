@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.net.NymHttpGetHtml;
 
 /**
  * 
@@ -102,7 +103,10 @@ public class NymHttpGetRequest {
 		}
 		return result.toString() ; 
 	}
-	
+
+	public String getHtml(String url){
+		return new NymHttpGetHtml().getHtml(url);
+	}
 	protected String getCharset(){
 
         // 网页编码  

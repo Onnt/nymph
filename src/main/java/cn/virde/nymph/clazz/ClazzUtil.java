@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.Map;
 
 import cn.virde.nymph.exception.NotExistFieldException;
 
@@ -70,8 +69,8 @@ public class ClazzUtil {
 	 * @throws IllegalArgumentException 异常
 	 * @throws InvocationTargetException 异常
 	 */
-	public Map<String,String> getField(Object a) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		Map<String,String> respMap = new HashMap<String,String>();
+	public HashMap<String,String> getField(Object a) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		HashMap<String,String> respMap = new HashMap<String,String>();
 		Method[] aMethods = a.getClass().getMethods();
 		for(Method aMethod : aMethods) {
 			String aMethodName = aMethod.getName() ;
