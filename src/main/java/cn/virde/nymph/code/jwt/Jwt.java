@@ -1,4 +1,4 @@
-package cn.virde.nymph.jwt;
+package cn.virde.nymph.code.jwt;
 
 import java.util.Date;
 
