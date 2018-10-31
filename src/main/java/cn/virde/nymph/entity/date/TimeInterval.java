@@ -86,6 +86,14 @@ public class TimeInterval {
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
+	/**
+	 * 分别设置开始结束时间为给定的时间的00:00,59:59
+	 * @param 设置开始结束时间的基数
+	 * @return 设置好的时间区间
+	 * @author Virde
+	 * 2018年10月24日 19:39:17
+	 * 
+	 */
 	public static TimeInterval getIntervalByHour(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
 		timeInterval.setIntervalByHour(date);
@@ -110,12 +118,23 @@ public class TimeInterval {
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
+	/**
+	 * 分别设置开始为这个时间的00:00:00,23:59:59
+	 * @param date 时间基数
+	 * @return 设好的时间区间
+	 * @author Virde
+	 * 2018年10月24日 19:42:29
+	 */
 	public static TimeInterval getIntervalByDay(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
 		timeInterval.setIntervalByDay(date);
 		return timeInterval;
 	}
 	
+	/**
+	 * 分别设置开始结束为这个时间的周一 00:00:00,周日 23:59:59
+	 * @param date 时间基点
+	 */
 	public void setIntervalByWeek(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
@@ -130,6 +149,11 @@ public class TimeInterval {
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
+	/**
+	 * 分别设置开始结束为这个时间的周一 00:00:00,周日 23:59:59
+	 * @param date 时间基点
+	 * @return 设置好的时间区间
+	 */
 	public static TimeInterval getIntervalByWeek(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
 		timeInterval.setIntervalByWeek(date);
@@ -185,6 +209,11 @@ public class TimeInterval {
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
+	/**
+	 * 分别设置开始结束为这个时间所在年份的第一天 00:00:00,最后一天的23:59:59
+	 * @param date 时间基点
+	 * @return 设置好的时间区间
+	 */
 	public static TimeInterval getIntervalByYear(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
 		timeInterval.setIntervalByYear(date);
@@ -196,7 +225,7 @@ public class TimeInterval {
 	 * 如果没有符合条件的结果则返回空的列表
 	 * @author Virde
 	 * 2018年8月22日 17:04:46
-	 * @return 返回
+	 * @return 返回开始时间到结束时间之间的每小时区间列表
 	 */
 	public List<TimeInterval> getIntervalOfEveryHour() {
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
@@ -236,6 +265,13 @@ public class TimeInterval {
 		
 		return respList;
 	}
+	/**
+	 * 获取开始时间到结束时间中间的每一个小时，不包含开始时间和结束时间所在的小时
+	 * 如果没有符合条件的结果则返回空的列表
+	 * @param startDate 开始时间
+	 * @param endDate 结束时间
+	 * @return 开始时间到结束时间之间的每小时区间列表
+	 */
 	public static List<TimeInterval> getIntervalOfEveryHour(Date startDate,Date endDate){
 		return new TimeInterval(startDate,endDate).getIntervalOfEveryHour();
 	}
@@ -451,7 +487,16 @@ public class TimeInterval {
 	public static TimeInterval getTodayInterval() {
 		return getIntervalByDay(new Date());
 	}
-	
+	/**
+	 * 往前倒推，计算时间间隔
+	 * @param start 往前推的数量
+	 * @param end 往前推的数量
+	 * @param UNIT 时间单位，使用Calendar获取
+	 * @return
+	 */
+	public static TimeInterval getInterval(int start,int end,int UNIT) {
+		return new TimeInterval(Nym.time.addTime(new Date(), UNIT, start),Nym.time.addTime(new Date(), UNIT, end));
+	}
 	public String toJSONString() {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("startDate", Nym.time.toString(getStartDate()));
