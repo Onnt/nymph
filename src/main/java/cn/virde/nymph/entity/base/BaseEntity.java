@@ -1,4 +1,4 @@
-package cn.virde.nymph.common.base;
+package cn.virde.nymph.entity.base;
 
 import java.io.Serializable;
 

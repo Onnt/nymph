@@ -1,8 +1,8 @@
 package cn.virde.nymph.entity.Geocoding;
 
 
-import cn.virde.nymph.common.base.BaseEntity;
 import cn.virde.nymph.entity.Geocoding.GeocodingResultEntity;
+import cn.virde.nymph.entity.base.BaseEntity;
 
 public class GeocodingEntity extends BaseEntity{
 

@@ -70,6 +70,35 @@ public class TimeInterval {
 	}
 
 	/**
+	 * 给定一百个时间
+	 * 设置开始结束时间为这个时间的是零秒和59秒
+	 * @author Virde
+	 * 2018年11月1日 10:40:47
+	 * @param date 时间基点
+	 */
+	public void setIntervalByMinute(Date date) {
+		Calendar cal = getInstance();
+		cal.setTime(date);
+		cal.set(SECOND,cal.getActualMinimum(SECOND));
+		setStartDate(cal.getTime());
+		cal.set(SECOND,cal.getActualMaximum(SECOND));
+		setEndDate(cal.getTime());
+	}
+
+	/**
+	 * 给定一百个时间
+	 * 设置开始结束时间为这个时间的是零秒和59秒
+	 * @author Virde
+	 * 2018年11月1日 10:40:47
+	 * @param date 时间基点 
+	 * @return 生成好的时间区间
+	 */
+	public static TimeInterval getIntervalByMinute(Date date) {
+		TimeInterval timeInterval = new TimeInterval();
+		timeInterval.setIntervalByMinute(date);
+		return timeInterval;
+	}
+	/**
 	 * 给定一个时间
 	 * 设置开始时间为这个时间的零分零秒
 	 * 结束时间为这个时间的59分59秒
@@ -221,6 +250,57 @@ public class TimeInterval {
 	}
 
 	/**
+	 * 获取开始时间到结束时间中的每一分钟的00秒到59秒的时间区间，
+	 * 不包含开始结束所在的分钟。
+	 * 如果没有符合条件的结果则返回空的列表
+	 * @author Virde
+	 * 2018年11月1日 10:24:41
+	 * @return
+	 */
+	public List<TimeInterval> getIntervalOfEveryMinute(){
+		// # 初始化参数
+		List<TimeInterval> respList = new ArrayList<TimeInterval>();
+		Calendar cal = getInstance();
+		
+		// # 重新生成开始结束时间
+		// * 重新生成开始时间
+		cal.setTime(startDate);
+		int startSecond = cal.get(SECOND);
+		if(startSecond != 0) {
+			cal.add(MINUTE, +1);
+			cal.set(SECOND, 0);
+		}
+		Date start = cal.getTime();
+		// * 重新生成结束时间
+		cal.setTime(endDate);
+		int endSecond = cal.get(SECOND);
+		if(endSecond != 0) {
+			cal.set(SECOND, 0);
+			cal.add(MINUTE, -1);
+		}
+		Date end = cal.getTime();
+		
+		// # 如果开始时间在结束时间之后，则返回空列表
+		if(start.after(end)) {
+			return respList;
+		}
+		
+		// # 根据初始化之后的开始结束时间生成区间列表并返回
+		while(start.before(end)) {
+			TimeInterval ti = getIntervalByMinute(start);
+			respList.add(ti);
+			cal.setTime(start);
+			cal.add(MINUTE, +1);
+			start = cal.getTime();
+		}
+		
+		return respList;
+	}
+
+	public static List<TimeInterval> getIntervalOfEveryMinute(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).getIntervalOfEveryMinute();
+	}
+	/**
 	 * 获取开始时间到结束时间中间的每一个小时，不包含开始时间和结束时间所在的小时
 	 * 如果没有符合条件的结果则返回空的列表
 	 * @author Virde
@@ -228,8 +308,12 @@ public class TimeInterval {
 	 * @return 返回开始时间到结束时间之间的每小时区间列表
 	 */
 	public List<TimeInterval> getIntervalOfEveryHour() {
+		// # 初始化参数
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
+		
+		// # 重新生成开始结束时间
+		// * 重新生成开始时间
 		cal.setTime(startDate);
 		int startMinute = cal.get(MINUTE);
 		int startSecond = cal.get(SECOND);
@@ -239,7 +323,7 @@ public class TimeInterval {
 			cal.set(SECOND, 0);
 		}
 		Date start = cal.getTime();
-		
+		// * 重新生成结束时间
 		cal.setTime(endDate);
 		int endMinute = cal.get(MINUTE);
 		int endSecond = cal.get(SECOND);
@@ -250,10 +334,12 @@ public class TimeInterval {
 		}
 		Date end = cal.getTime();
 		
+		// # 如果开始时间在结束时间之后，则返回空列表
 		if(start.after(end)) {
 			return respList;
 		}
 		
+		// # 根据初始化之后的开始结束时间生成区间列表并返回
 		while(start.before(end)) {
 			TimeInterval ti = getIntervalByHour(start);
 			respList.add(ti);

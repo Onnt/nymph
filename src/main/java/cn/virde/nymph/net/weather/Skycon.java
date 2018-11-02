@@ -20,37 +20,37 @@ public class Skycon {
 	public void calculation() {
 		switch(skycon) {
 		case CLEAR_DAY:
-			descript = Nym.random.string("晴天","晴朗天气") ;
+			descript = (String) Nym.random.getOne("晴天","晴朗天气") ;
 			break;
 		case CLEAR_NIGHT:
-			descript = Nym.random.string("晴天","晴朗夜空","晴朗天气");
+			descript = (String) Nym.random.getOne("晴天","晴朗夜空","晴朗天气");
 			break;
 		case CLOUDY:
-			descript = Nym.random.string("阴天");
+			descript = (String) Nym.random.getOne("阴天");
 			break;
 		case FOG:
-			descript = Nym.random.string("大雾天气");
+			descript = (String) Nym.random.getOne("大雾天气");
 			break;
 		case HAZE:
-			descript = Nym.random.string("雾霾天气");
+			descript = (String) Nym.random.getOne("雾霾天气");
 			break;
 		case PARTLY_CLOUDY_DAY:
-			descript = Nym.random.string("多云天气");
+			descript = (String) Nym.random.getOne("多云天气");
 			break;
 		case PARTLY_CLOUDY_NIGHT:
-			descript = Nym.random.string("多云天气");
+			descript = (String) Nym.random.getOne("多云天气");
 			break;
 		case RAIN:
-			descript = Nym.random.string("雨水天气");
+			descript = (String) Nym.random.getOne("雨水天气");
 			break;
 		case SLEET:
-			descript = Nym.random.string("冻雨天气");
+			descript = (String) Nym.random.getOne("冻雨天气");
 			break;
 		case SNOW:
-			descript = Nym.random.string("雪，这到底咋写？");
+			descript = (String) Nym.random.getOne("雪，这到底咋写？");
 			break;
 		case WIND:
-			descript = Nym.random.string("风");
+			descript = (String) Nym.random.getOne("风");
 			break;
 		default:
 			break;

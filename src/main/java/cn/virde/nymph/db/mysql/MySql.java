@@ -11,10 +11,10 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.virde.nymph.common.info.ValidInfo;
 import cn.virde.nymph.db.ConnInfo;
 import cn.virde.nymph.db.DatabaseClient;
 import cn.virde.nymph.db.exception.NymDBException;
+import cn.virde.nymph.entity.base.ValidInfo;
 import cn.virde.nymph.enums.common.DBStyle;
 import cn.virde.nymph.util.Log;
 

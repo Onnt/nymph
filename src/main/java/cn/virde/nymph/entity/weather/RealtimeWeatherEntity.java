@@ -1,6 +1,6 @@
 package cn.virde.nymph.entity.weather;
 
-import cn.virde.nymph.common.base.BaseEntity;
+import cn.virde.nymph.entity.base.BaseEntity;
 import cn.virde.nymph.entity.weather.realtime.RealtimeResultEntity;
 
 /**

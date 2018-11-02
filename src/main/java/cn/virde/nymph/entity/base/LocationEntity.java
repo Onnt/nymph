@@ -1,6 +1,5 @@
 package cn.virde.nymph.entity.base;
 
-import cn.virde.nymph.common.base.BaseEntity;
 
 /**
  * <h1>经纬度 实体</h1>

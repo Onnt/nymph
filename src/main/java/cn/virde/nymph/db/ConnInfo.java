@@ -93,7 +93,7 @@ public class ConnInfo {
 			URL = "jdbc:sqlserver://"+getDealIP(ip,1433)+";DataBaseName="+dbName;
 			break;
 		case MYSQL:
-			DRIVER = "com.mysql.jdbc.Driver";
+			DRIVER = "com.mysql.cj.jdbc.Driver";
 			URL = "jdbc:mysql://"+getDealIP(ip,3306)+"/"+dbName+"?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 			break;
 		case ORACLE:

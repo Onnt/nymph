@@ -1,8 +1,8 @@
 package cn.virde.nymph.entity.Geocoding;
 
 import cn.virde.nymph.Nym;
-import cn.virde.nymph.common.base.BaseEntity;
 import cn.virde.nymph.entity.Geocoding.ConverseGeocodingResultEntity;
+import cn.virde.nymph.entity.base.BaseEntity;
 
 public class ConverseGeocodingEntity extends BaseEntity{
 

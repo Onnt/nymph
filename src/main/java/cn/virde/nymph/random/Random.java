@@ -10,11 +10,11 @@ public class Random extends NumberRandom{
 	/**
 	 * 随机获取一个参数
 	 * @author Virde
-	 * 2018年1月25日 上午11:32:07
+	 * 2018年11月1日 10:52:04
 	 * @param args 传入的参数列表
 	 * @return 返回 如果没有传入参数，则返回null
 	 */
-	public String string(String...args) {
+	public Object getOne(Object...args) {
 		if(args.length == 0 ) return null;
 		int randomIndex = Nym.random.getRandom(0, args.length-1);
 		return args[randomIndex];

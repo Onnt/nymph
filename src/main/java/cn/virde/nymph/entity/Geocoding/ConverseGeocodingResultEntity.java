@@ -2,7 +2,7 @@ package cn.virde.nymph.entity.Geocoding;
 
 import java.util.List;
 
-import cn.virde.nymph.common.base.BaseEntity;
+import cn.virde.nymph.entity.base.BaseEntity;
 import cn.virde.nymph.entity.base.LocationEntity;
 
 public class ConverseGeocodingResultEntity extends BaseEntity{

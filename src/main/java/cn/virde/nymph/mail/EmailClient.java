@@ -21,6 +21,7 @@ public class EmailClient {
 	private EmailClientInfo clientInfo ;
 	
 	public EmailClient(String smtpHost,String password,String senderAddress,String senderName) {
+		clientInfo = new EmailClientInfo();
 		clientInfo.setSmtpHost(smtpHost);
 		clientInfo.setPassword(password);
 		clientInfo.setSenderAddress(senderAddress);
