@@ -16,7 +16,7 @@ public class Random extends NumberRandom{
 	 */
 	public Object getOne(Object...args) {
 		if(args.length == 0 ) return null;
-		int randomIndex = Nym.random.getRandom(0, args.length-1);
+		int randomIndex = (int)Nym.random.getRandom(0, args.length-1);
 		return args[randomIndex];
 	}
 	
@@ -44,28 +44,21 @@ public class Random extends NumberRandom{
 	 * 
 	 * @return 固定位数的随机数字
 	 */
-	public String number(int size) {
+	public String number(long size) {
 		String result = "";
 		int add = (int) (Math.pow(10, size) - 1);
-		Integer random = getRandom(0, add);
-		int diff = size - stringSize(random);
+		long random = getRandom(0, add);
+		long diff = size - stringSize(random);
 		for(int i = 0 ; i < diff;i++) {
 			result += "0";
 		}
 		result += random;
 		return result;
 	}
-	static int stringSize(int x) {
+	static long stringSize(long x) {
 		for(int i = 0;; i++) {
 			if(x <= sizeTable[i])
 				return i + 1;
 		}
 	}
-	public static void main(String[] args) {
-		for(int i = 0 ; i < 1000 ; i ++) {
-			System.out.println(new Random().number(6));
-			
-		}
-	}
-	
 }

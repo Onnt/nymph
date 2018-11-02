@@ -1,6 +1,6 @@
 package cn.virde.nymph.entity.weather.forecast;
 
-import cn.virde.nymph.entity.base.BaseEntity;;
+import cn.virde.nymph.entity.base.BaseEntity;
 
 public class AlertEntity extends BaseEntity{
 

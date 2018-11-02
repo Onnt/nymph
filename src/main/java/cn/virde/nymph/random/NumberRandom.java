@@ -19,7 +19,7 @@ public class NumberRandom {
 		 * @param substract 随即减
 		 * @return 返回 result
 		 */
-		public int getRandom(int base,int add,int substract){
+		public long getRandom(long base,long add,long substract){
 			return base+getRandom(add)-getRandom(substract);
 		}
 
@@ -31,7 +31,7 @@ public class NumberRandom {
 		 * @param add 基础值 加 这个数字以内的随机数
 		 * @return 返回
 		 */
-		public int getRandom(int base,int add){
+		public long getRandom(long base,long add){
 			return getRandom(base,add,0);
 		}
 		/**
@@ -42,7 +42,7 @@ public class NumberRandom {
 		 * 2018年4月23日 上午9:56:33
 		 * @return 返回
 		 */
-		public boolean getBoolean(int base) {
+		public boolean getBoolean(long base) {
 			return  getRandom(100) < base ;
 		}
 		/**
@@ -53,7 +53,7 @@ public class NumberRandom {
 		 * @param end 结束
 		 * @return 返回
 		 */
-		public int getRandomRange(int start, int end) {
+		public long getRandomRange(long start, long end) {
 			return getRandom(start, end - start) ;
 		}
 		/**
@@ -63,8 +63,8 @@ public class NumberRandom {
 		 * @param base 某个数字
 		 * @return 返回 某个数字以内的随机数，int类型
 		 */
-		private int getRandom(int base){
-			return (int) Math.floor((Math.random()*(base+1)));
+		private long getRandom(long base){
+			return (long) Math.floor((Math.random()*(base+1)));
 		}
 		
 }
