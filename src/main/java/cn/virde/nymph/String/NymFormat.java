@@ -1,4 +1,4 @@
-package cn.virde.nymph.String;
+package cn.virde.nymph.string;
 
 import java.text.DecimalFormat;
 import java.util.Date;

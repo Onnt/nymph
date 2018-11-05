@@ -1,4 +1,4 @@
-package cn.virde.nymph.String;
+package cn.virde.nymph.string;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -114,13 +114,6 @@ public class StringTool {
         return ipAddress;  
     }
     
-    public boolean isFormat(String str,String regFormat){
-	    // 编译正则表达式
-	    Pattern pattern = Pattern.compile(regFormat);
-	    Matcher matcher = pattern.matcher(str);
-	    return matcher.matches();
-    }
-    
 	/**
 	 * 返回url中名字为name的参数值。
 	 * 如果没有这个参数值或者发生异常，则返回NULL
@@ -150,9 +143,10 @@ public class StringTool {
 	 */
 	public Map<String,String> getParamMap(String pageUrl){
 		Map<String,String> map = new HashMap<String,String>();
-		if(!pageUrl.contains("?")) return map;
+		if(pageUrl.contains("?")&&!pageUrl.endsWith("?")) {
+			pageUrl = pageUrl.substring(pageUrl.indexOf("?")+1, pageUrl.length());
+		}
 		
-		pageUrl = pageUrl.substring(pageUrl.indexOf("?")+1, pageUrl.length());
 		if(pageUrl.contains("#")) {
 			pageUrl = pageUrl.substring(0,pageUrl.indexOf("#"));
 		}
