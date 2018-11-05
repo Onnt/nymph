@@ -124,13 +124,7 @@ public class StringTool {
 	 */
 	public String getParam(String url,String name) {
 		Map<String,String> map = getParamMap(url);
-		Set<String> nameSet = map.keySet();
-		for(String n : nameSet) {
-			if(n.equals(name)) {
-				return map.get(n);
-			}
-		}
-		return null;
+		return map.containsKey(name)?map.get(name):null;
 	}
 	
 
