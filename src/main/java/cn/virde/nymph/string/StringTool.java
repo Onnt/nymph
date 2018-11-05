@@ -1,11 +1,12 @@
 package cn.virde.nymph.string;
 
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -123,37 +124,42 @@ public class StringTool {
 	 * @return 返回
 	 */
 	public String getParam(String url,String name) {
-		Map<String,String> map = getParamMap(url);
+		Map<String,String> map = getQueryMap(url);
 		return map.containsKey(name)?map.get(name):null;
 	}
 	
 
+
 	/**
-	 * 返回pageUrl中携带的参数，存储到map中返回
-	 * @param pageUrl 带有参数的url地址
-	 * @return 返回 
-	 *  如果不包含参数，或者遇到异常则返回空的Map对象
-	 * 
+	 * 将url中的请求参数转换为map并返回。
+	 * @param str 完整的url连接，或者是单独的请求部分 
+	 * @return 解析好的map
+	 * @author Virde
+	 * 2018年11月5日 11:22:51
 	 */
-	public Map<String,String> getParamMap(String pageUrl){
-		Map<String,String> map = new HashMap<String,String>();
-		if(pageUrl.contains("?")&&!pageUrl.endsWith("?")) {
-			pageUrl = pageUrl.substring(pageUrl.indexOf("?")+1, pageUrl.length());
-		}
+	public Map<String,String> getQueryMap(String str){
+		String queryString = getQueryString(str);
+		if(queryString==null) return null;
 		
-		if(pageUrl.contains("#")) {
-			pageUrl = pageUrl.substring(0,pageUrl.indexOf("#"));
-		}
-		String[] paramKeyV = pageUrl.split("&");
-		for(String keyV : paramKeyV) {
-			if(keyV.contains("=")) {
-				String[] param = keyV.split("=");
-				map.put(param[0], param[1]);
+		Map<String,String> respMap = new HashMap<>();
+		String[] kvs = queryString.split("&");
+		for(String kv : kvs) {
+			if(kv.contains("=")) {
+				String[] param = kv.split("=");
+				respMap.put(param[0], param[1]);
 			}else {
-				map.put(keyV, "");
+				respMap.put(kv, "");
 			}
 		}
-		return map ;
+		return respMap ;
+	}
+
+	private String getQueryString(String str) {
+		try {
+			return new URL(str).getQuery();
+		} catch (MalformedURLException e) {
+			return str;
+		}
 	}
 	
 	/**
