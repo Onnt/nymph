@@ -32,7 +32,7 @@ public class Trans {
 //		"^[0-9]+(.[0-9]{2})?$"
 		
 		//如果是整数 则返回int
-		if(Nym.string.isFormat(str, "^[0-9]*$")) {
+		if(str.matches("^[0-9]*$")) {
 			Integer i = Integer.parseInt(str) ;
 			return (T) i ;
 		}
