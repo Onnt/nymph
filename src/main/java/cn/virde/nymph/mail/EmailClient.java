@@ -1,5 +1,6 @@
 package cn.virde.nymph.mail;
 
+import java.security.GeneralSecurityException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -15,6 +16,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
+
+import com.sun.mail.util.MailSSLSocketFactory;
 
 public class EmailClient {
 
@@ -47,6 +50,11 @@ public class EmailClient {
         props.setProperty("mail.smtp.host", clientInfo.getSmtpHost());   // 发件人的邮箱的 SMTP 服务器地址
         props.setProperty("mail.smtp.auth", "true");            // 需要请求认证
 
+        props.put("mail.smtp.ssl.enable", "true");
+        MailSSLSocketFactory sf = new MailSSLSocketFactory();
+        sf.setTrustAllHosts(true);
+        props.put("mail.smtp.ssl.socketFactory", sf);
+        
         // 2. 根据配置创建会话对象, 用于和邮件服务器交互
         Session session = Session.getInstance(props);
         session.setDebug(true);                                 // 设置为debug模式, 可以查看详细的发送 log
