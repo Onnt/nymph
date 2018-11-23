@@ -31,6 +31,14 @@ public class JedisService {
 		config.setTestOnBorrow(true);
 		initConfig(config,host,port,auth,timeout);
 	}
+	public JedisService(String host,int port,String auth) {
+		JedisPoolConfig config = new JedisPoolConfig();
+		config.setMaxTotal(500);
+		config.setMaxIdle(500);
+		config.setMaxWaitMillis(1000);
+		config.setTestOnBorrow(true);
+		initConfig(config,host,port,auth,10_000);
+	}
 	public JedisService(String host,String auth) {
 		JedisPoolConfig config = new JedisPoolConfig();
 		config.setMaxTotal(500);
