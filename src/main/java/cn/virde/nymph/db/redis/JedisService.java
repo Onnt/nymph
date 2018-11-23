@@ -15,38 +15,45 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class JedisService {
 	
-//	JedisPoolConfig 配置示例
-//	static {
-//		JedisPoolConfig config = new JedisPoolConfig();
-//		config.setMaxTotal(maxTotal);
-//		config.setMaxIdle(maxIdle);
-//		config.setMaxWaitMillis(maxWaitMillis);
-//		config.setTestOnBorrow(testOnBorrow);
-//	}
-
+	private JedisPool jedisPool;
 	
-	private static JedisPool jedisPool;
-	public static void setConfig(JedisPoolConfig config,String host,int port,String auth,int timeout) {
+	public void setConfig(JedisPoolConfig config,String host,int port,String auth,int timeout) {
 		initConfig(config,host,port,auth,timeout);
 	}
 	public JedisService(JedisPoolConfig config,String host,int port,String auth,int timeout) {
 		initConfig(config,host,port,auth,timeout);
 	}
-	private static void initConfig(JedisPoolConfig config,String host,int port,String auth,int timeout) {
+	public JedisService(String host,int port,String auth,int timeout) {
+		JedisPoolConfig config = new JedisPoolConfig();
+		config.setMaxTotal(500);
+		config.setMaxIdle(500);
+		config.setMaxWaitMillis(1000);
+		config.setTestOnBorrow(true);
+		initConfig(config,host,port,auth,timeout);
+	}
+	public JedisService(String host,String auth) {
+		JedisPoolConfig config = new JedisPoolConfig();
+		config.setMaxTotal(500);
+		config.setMaxIdle(500);
+		config.setMaxWaitMillis(1000);
+		config.setTestOnBorrow(true);
+		initConfig(config,host,6379,auth,10_000);
+	}
+	private void initConfig(JedisPoolConfig config,String host,int port,String auth,int timeout) {
 		if (auth != null && !"".equals(auth)) {
 			jedisPool = new JedisPool(config, host, port, timeout, auth);
 		} else {
 			jedisPool = new JedisPool(config, host, port, timeout);
 		}
 	}
-	public static void shutdown() {
+	public void shutdown() {
 //		logger.info("JedisPool server shutdown!");
 		if (jedisPool != null) {
 			jedisPool.destroy();
 		}
 	}
 
-	public static Jedis getJedis() {
+	public Jedis getJedis() {
 		try {
 			return jedisPool.getResource();
 		} catch (Exception e) {
@@ -55,7 +62,7 @@ public class JedisService {
 		}
 	}
 
-	public static void close(Jedis jedis) {
+	public void close(Jedis jedis) {
 		try {
 			if (jedis != null) {
 				jedis.close();
@@ -66,7 +73,7 @@ public class JedisService {
 		}
 	}
 
-	public static Map<String, String> hgetAll(String key) {
+	public Map<String, String> hgetAll(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -79,7 +86,7 @@ public class JedisService {
 		}
 	}
 
-	public static String set(String key, String value) {
+	public String set(String key, String value) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -92,7 +99,7 @@ public class JedisService {
 		}
 	}
 
-	public static String get(String key) {
+	public String get(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -105,7 +112,7 @@ public class JedisService {
 		}
 	}
 
-	public static long del(String key) {
+	public long del(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -120,7 +127,7 @@ public class JedisService {
 
 
 
-	public static String type(String key) {
+	public String type(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -134,7 +141,7 @@ public class JedisService {
 	}
 
 
-	public static boolean exists(String key) {
+	public boolean exists(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -147,7 +154,7 @@ public class JedisService {
 		}
 	}
 
-	public static Long lrem(String key, String value) {
+	public Long lrem(String key, String value) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -160,7 +167,7 @@ public class JedisService {
 		}
 	}
 
-	public static List<String> lrange(String key) {
+	public List<String> lrange(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -173,7 +180,7 @@ public class JedisService {
 		}
 	}
 
-	public static long lpush(String key, String... strings) {
+	public long lpush(String key, String... strings) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -185,7 +192,7 @@ public class JedisService {
 			close(jedis);
 		}
 	}
-	public static long rpush(String key, String... strings) {
+	public long rpush(String key, String... strings) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -198,7 +205,7 @@ public class JedisService {
 		}
 	}
 
-	public static String brpop(int timeout, String key) {
+	public String brpop(int timeout, String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -216,7 +223,7 @@ public class JedisService {
 		}
 	}
 
-	public static String rpop(String key) {
+	public String rpop(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -229,7 +236,7 @@ public class JedisService {
 		}
 	}
 
-	public static String rpoplpush(String srckey, String dstkey) {
+	public String rpoplpush(String srckey, String dstkey) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -242,7 +249,7 @@ public class JedisService {
 		}
 	}
 
-	public static String rpoplpush(String key) {
+	public String rpoplpush(String key) {
 		try {
 			return rpoplpush(key, key);
 		} catch (Exception e) {
@@ -251,7 +258,7 @@ public class JedisService {
 		}
 	}
 
-	public static String hmset(String key, Map<String, String> hash) {
+	public String hmset(String key, Map<String, String> hash) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -264,7 +271,7 @@ public class JedisService {
 		}
 	}
 
-	public static long hset(String key, String field, String value) {
+	public long hset(String key, String field, String value) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -277,7 +284,7 @@ public class JedisService {
 		}
 	}
 
-	public static String hget(String key, String field) {
+	public String hget(String key, String field) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -290,7 +297,7 @@ public class JedisService {
 		}
 	}
 
-	public static long hincrBy(String key, String field, long value) {
+	public long hincrBy(String key, String field, long value) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -303,7 +310,7 @@ public class JedisService {
 		}
 	}
 
-	public static long publish(String channel, String message) {
+	public long publish(String channel, String message) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -316,7 +323,7 @@ public class JedisService {
 		}
 	}
 
-	public static long sadd(String key, String... members) {
+	public long sadd(String key, String... members) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -329,7 +336,7 @@ public class JedisService {
 		}
 	}
 
-	public static String spop(String key) {
+	public String spop(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -342,7 +349,7 @@ public class JedisService {
 		}
 	}
 
-	public static long srem(String key, String... members) {
+	public long srem(String key, String... members) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -355,7 +362,7 @@ public class JedisService {
 		}
 	}
 
-	public static long expire(String key, int seconds) {
+	public long expire(String key, int seconds) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -368,7 +375,7 @@ public class JedisService {
 		}
 	}
 
-	public static double hincrByFloat(String key, String field, Double value) {
+	public double hincrByFloat(String key, String field, Double value) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -381,7 +388,7 @@ public class JedisService {
 		}
 	}
 
-	public static List<String> lrange(String key, int start, int end) {
+	public List<String> lrange(String key, int start, int end) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -394,7 +401,7 @@ public class JedisService {
 		}
 	}
 
-	public static Set<String> smembers(String key) {
+	public Set<String> smembers(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -407,7 +414,7 @@ public class JedisService {
 		}
 	}
 
-	public static long hdel(String key, String... fields) {
+	public long hdel(String key, String... fields) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -420,7 +427,7 @@ public class JedisService {
 		}
 	}
 
-	public static Set<String> keys(String pattern) {
+	public Set<String> keys(String pattern) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -433,7 +440,7 @@ public class JedisService {
 		}
 	}
 
-	public static String flushAll() {
+	public String flushAll() {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -446,7 +453,7 @@ public class JedisService {
 		}
 	}
 
-	public static long dbSize() {
+	public long dbSize() {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -459,7 +466,7 @@ public class JedisService {
 		}
 	}
 
-	public static long llen(String key) {
+	public long llen(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
@@ -472,7 +479,7 @@ public class JedisService {
 		}
 	}
 
-	public static boolean sismember(String key, String member) {
+	public boolean sismember(String key, String member) {
 		Jedis jedis = null;
 		try {
 			jedis = getJedis();
