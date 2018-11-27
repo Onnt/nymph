@@ -10,7 +10,6 @@ import java.sql.Statement;
 
 import cn.virde.nymph.db.exception.NymDBException;
 import cn.virde.nymph.db.mysql.ConnPool;
-import cn.virde.nymph.util.Log;
 
 /**
  * 
@@ -71,7 +70,6 @@ public abstract class DatabaseClient {
 			closePpsta();
 			closeConn();
 		} catch (SQLException e) {
-			Log.error("数据库工具在关闭对象时遇到异常:", e.getMessage()+" , "+e.getSQLState());
 			e.printStackTrace();
 		}
 		return true ;

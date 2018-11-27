@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.Properties;
 
-import cn.virde.nymph.util.Log;
 
 /**
  * 获取properties文件中参数 
@@ -41,7 +40,6 @@ public class NymProperties {
 		try {
 			writeProperties(file, key, value);
 		} catch (IOException e) {
-			Log.info("写配置文件时出现IO异常", e);
 		} 
 	}
 	

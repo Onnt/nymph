@@ -12,8 +12,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.virde.nymph.util.Log;
-
 /**
  * @author Virde
  * 2018年6月8日 下午3:44:41
@@ -89,8 +87,6 @@ public class AES {
             }  
         } catch (Exception e) {  
         	e.printStackTrace();
-        	
-            Log.error("AES 密文处理异常", e);  
         }  
         return null;  
     }  

@@ -9,7 +9,6 @@ import cn.virde.nymph.Nym;
 import cn.virde.nymph.config.Config;
 import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.exception.LocationException;
-import cn.virde.nymph.util.Log;
 
 public class Position {
 	
@@ -23,7 +22,6 @@ public class Position {
 		if(isValiIp(ip)){
 			setPosition(ip);
 		}else{
-			Log.info("ip:"+ip+"不是有效的请求。已经默认为本机IP");
 			setPosition(null);
 		}
 		

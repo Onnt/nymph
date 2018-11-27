@@ -28,7 +28,6 @@ import org.apache.http.util.EntityUtils;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.exception.Not200Exception;
-import cn.virde.nymph.util.Log;
 
 /**
  * 
@@ -149,7 +148,6 @@ public class NymHttpPostRequest extends NymHttpGetRequest{
 	    }
 	    
 	    CloseableHttpResponse response = httpclient.execute(httpPost);
-	    Log.alert("状态："+response.getStatusLine()+" 请求url：" + url);
 	        
 	    int statusCode = response.getStatusLine().getStatusCode();
 		if(statusCode != 200)

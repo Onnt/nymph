@@ -16,7 +16,6 @@ import cn.virde.nymph.db.DatabaseClient;
 import cn.virde.nymph.db.exception.NymDBException;
 import cn.virde.nymph.entity.base.ValidInfo;
 import cn.virde.nymph.enums.common.DBStyle;
-import cn.virde.nymph.util.Log;
 
 /**
  * 
@@ -84,7 +83,6 @@ public class MySql<T> extends DatabaseClient{
 		try {
 			return rsmd.getColumnCount();
 		} catch (SQLException e) {
-			Log.info("通过查询结果元信息获取行数时发生异常，操作将继续但不会获得任何结果", e);
 			return -1 ;
 		}
 	}

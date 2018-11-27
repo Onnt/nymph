@@ -9,7 +9,6 @@ import org.apache.commons.codec.binary.Base64;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.virde.nymph.util.Log;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -99,7 +98,6 @@ public class JwtUtil {
 	    			   .parseClaimsJws( jwt).getBody();
 		       return claims.getId();
 	       }catch(MalformedJwtException e) {
-	    	   Log.error("jwt 无效，jwt:"+jwt, e);
 	    	   throw e ;
 	       }
 	 }

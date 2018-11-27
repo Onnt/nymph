@@ -10,7 +10,6 @@ import com.mongodb.client.MongoIterable;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.db.ConnInfo;
-import cn.virde.nymph.util.Log;
 
 /**
  * 
@@ -48,13 +47,10 @@ public class MongoUtil{
 	
 	public boolean isSuccessConn(){
 		Document command = new Document("buildInfo",1);
-		Log.info("正在验证MongoDB连接……");
 		try{
 			Document doc = getDatabase().runCommand(command);
-			Log.info("验证成功,数据库版本：" + doc.getString("version"));
 			return true ;
 		}catch(Exception e){
-			Log.info("验证失败，请检查数据库连接是否正确");
 			return false ;
 		}
 	}
