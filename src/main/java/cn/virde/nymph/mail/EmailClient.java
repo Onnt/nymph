@@ -1,6 +1,5 @@
 package cn.virde.nymph.mail;
 
-import java.security.GeneralSecurityException;
 import java.util.Date;
 import java.util.Properties;
 
