@@ -43,15 +43,15 @@ public class Excel {
         init();
     }
     
-    public void init() throws IOException {
+    private void init() throws IOException {
     	createFileIfNotExist();
 	    initSheet();
     }
-    public void initBook() throws IOException {
+    private void initBook() throws IOException {
 		InputStream is = new FileInputStream(filePath);
 	    book = new XSSFWorkbook(is);
     }
-    public void initSheet() {
+    private void initSheet() {
 	    sheet = getSheet(sheetIndex);
     }
     private XSSFSheet getSheet(String sheetName) {
