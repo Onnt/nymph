@@ -3,8 +3,6 @@ package cn.virde.nymph.number;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-import cn.virde.nymph.Nym;
-
 /**
  * 数字工具
  * @author Virde

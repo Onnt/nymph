@@ -1,10 +1,8 @@
 package cn.virde.nymph.net.weather;
 
-import java.io.IOException;
 
 import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
 import cn.virde.nymph.enums.common.SkyconsConstant;
-import cn.virde.nymph.exception.LocationException;
 
 public class RealtimeWeatherBriefMaker {
 	

@@ -3,7 +3,6 @@ package cn.virde.nymph.string;
 import java.text.DecimalFormat;
 import java.util.Date;
 
-import cn.virde.nymph.Nym;
 import cn.virde.nymph.datetime.DateTime;
 
 /**

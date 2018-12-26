@@ -48,7 +48,7 @@ public class MongoUtil{
 	public boolean isSuccessConn(){
 		Document command = new Document("buildInfo",1);
 		try{
-			Document doc = getDatabase().runCommand(command);
+			getDatabase().runCommand(command);
 			return true ;
 		}catch(Exception e){
 			return false ;
