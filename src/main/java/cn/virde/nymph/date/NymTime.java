@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 
  * @author Blacard
- * 请改用cn.virde.nymph.datetime.NymTime
+ * 请改用cn.virde.nymph.datetime.DateTime
  * 2016年12月30日 下午7:07:28
  */
 @Deprecated

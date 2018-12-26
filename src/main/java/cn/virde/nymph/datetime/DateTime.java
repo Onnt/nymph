@@ -10,7 +10,7 @@ import java.util.Date;
  * @author Blacard
  * 2016年12月30日 下午7:07:28
  */
-public class NymTime {
+public class DateTime {
 	
 	private Date date;
 
@@ -20,34 +20,26 @@ public class NymTime {
 	 * @author Virde
 	 * 2018年2月5日 14:02:48
 	 */
-	private String format = "yyyy-MM-dd HH:mm:ss";
+	private final static String format = "yyyy-MM-dd HH:mm:ss";
 	
-	public NymTime(){
-		
-	}
-	public NymTime(Date date,String format) {
-		this.date = date;
-		this.format = format;
-	}
-	public NymTime(Date date){
+	public DateTime(){}
+	public DateTime(Date date){
 		this.date = date;
 	}
-	public NymTime(String date) throws ParseException{
+	public DateTime(String date) throws ParseException{
 		this.date = toDate(date);
 	}
-	public String getString(){
+	public DateTime setDate(Date date){
+		this.date = date;
+		return this;
+	}
+	public DateTime setDate(String date) throws ParseException{
+		this.date = toDate(date);
+		return this;
+	}
+	
+	public String toString(){
 		return toString(date);
-	}
-	public Date getDate(){
-		return date;
-	}
-	public NymTime setDate(Date date){
-		this.date = date;
-		return this;
-	}
-	public NymTime setDate(String date) throws ParseException{
-		this.date = toDate(date);
-		return this;
 	}
 	/**
 	 * 将给定时间转成字符串返回.
@@ -56,7 +48,7 @@ public class NymTime {
 	 * @param date Date类型时间
 	 * @return 返回 返回日期默认格式为：yyyy-MM-dd HH:mm:ss
 	 */
-	public String toString(Date date){
+	public static String toString(Date date){
 		return toString(date,format);
 	}
 	/**
@@ -67,20 +59,20 @@ public class NymTime {
 	 * @param format 格式
 	 * @return 返回
 	 */
-	public String toString(Date date,String format){
+	public static String toString(Date date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return this_sdf.format(date);
 	}
+	
 	/**
-	 *  
 	 * @author Virde
 	 * 2018年4月10日 下午5:02:34
 	 * @param timestamp 时间戳
 	 * @return 返回
 	 */
-	public String toString(long timestamp) {
+	public static String toString(long timestamp) {
 		Date d = toDate(timestamp);
-		return toString(d) ;
+		return toString(d);
 	}
 	/**
 	 * 
@@ -90,7 +82,7 @@ public class NymTime {
 	 * @param format yyyy-MM-dd HH:mm:ss
 	 * @return 返回
 	 */
-	public String format(Date date,String format) {
+	public static String format(Date date,String format) {
 		return toString(date, format);
 	}
 	public String format(String format){
@@ -98,6 +90,10 @@ public class NymTime {
 	}
 	public String format(){
 		return format(format);
+	}
+	
+	public Date toDate(){
+		return date;
 	}
 	/**
 	 * 将时间转成Date类型
@@ -115,7 +111,7 @@ public class NymTime {
 	 * @return 返回
 	 * @throws ParseException  异常
 	 */
-	public Date toDate(String date) throws ParseException{
+	public static Date toDate(String date) throws ParseException{
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日");
@@ -156,7 +152,7 @@ public class NymTime {
 	 * @param timestamp 时间戳
 	 * @return 返回
 	 */
-	public Date toDate(long timestamp){
+	public static Date toDate(long timestamp){
 		if((timestamp/100000000L)>1000){
 			return new Date(timestamp);
 		}else{
@@ -171,7 +167,7 @@ public class NymTime {
 	 * @param format 格式
 	 * @return 返回
 	 */
-	public Date toDate(String date,SimpleDateFormat format){
+	public static Date toDate(String date,SimpleDateFormat format){
 		try {
 			return format.parse(date);
 		} catch (ParseException e) {
@@ -188,7 +184,7 @@ public class NymTime {
 	 * @param format 格式
 	 * @return 返回
 	 */
-	public Date toDate(String date,String format){
+	public static Date toDate(String date,String format){
 		SimpleDateFormat this_sdf = new SimpleDateFormat(format);
 		return toDate(date,this_sdf);
 	}
@@ -201,7 +197,7 @@ public class NymTime {
 	 * @param date
 	 * @return 返回
 	 */
-	public long toTimestamp(Date date){
+	public static long toTimestamp(Date date){
 		return date.getTime()/1000;
 	}
 
@@ -217,14 +213,14 @@ public class NymTime {
 	 * @param add
 	 * @return 返回
 	 */
-	public Date addTime(Date date,int UNIT, int add){
+	public static Date addTime(Date date,int UNIT, int add){
 		Calendar cal =Calendar.getInstance();
 		cal.setTime(date);
 		cal.add(UNIT, add);
 		return cal.getTime();
 	}
 	
-	public NymTime addTime(int unit, int add){
+	public DateTime addTime(int unit, int add){
 		this.date = addTime(date,unit,add);
 		return this;
 	}
@@ -238,6 +234,7 @@ public class NymTime {
 	 * @param second
 	 * @return 返回
 	 */
+	@Deprecated
 	public Date setTimeGetDate(Date date,int hour,int minute,int second){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
@@ -246,23 +243,25 @@ public class NymTime {
 		cal.set(Calendar.SECOND, second);
 		return cal.getTime();
 	}
-	public NymTime setTimeGetDate(int hour,int minute,int second){
-		this.date = setTimeGetDate(date,hour,minute,second);
+
+	public static Date initTime(Date date,int hour,int minute,int second){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR, hour);
+		cal.set(Calendar.MINUTE, minute);
+		cal.set(Calendar.SECOND, second);
+		return cal.getTime();
+	}
+
+	public DateTime initTime(int hour,int minute,int second){
+		this.date = initTime(date,hour,minute,second);
 		return this;
 	}
-	public Date timeToZero(Date date){
-		return setTimeGetDate(date,0,0,0);
+	public static Date timeToZero(Date date){
+		return initTime(date,0,0,0);
 	}
-	
-	public NymTime timeToZero(){
+	public DateTime timeToZero(){
 		date = timeToZero(date);
 		return this;
 	}
-	public String getFormat() {
-		return format;
-	}
-	public void setFormat(String format) {
-		this.format = format;
-	}
-
 }
