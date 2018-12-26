@@ -1,31 +1,30 @@
 ﻿- [Nymph](#nymph)
-    - [项目简介](#%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B)
-    - [使用说明](#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
-        - [Nym类使用说明](#nym%E7%B1%BB%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
-            - [Nym.lunar 公农历转换](#nymlunar-%E5%85%AC%E5%86%9C%E5%8E%86%E8%BD%AC%E6%8D%A2)
-            - [Nym.time 时间处理工具类](#nymtime-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB)
-            - [Nym.random 随机数工具](#nymrandom-%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%B7%A5%E5%85%B7)
-            - [Nym.system 系统信息](#nymsystem-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF)
-            - [Nym.position 地理位置信息](#nymposition-%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF)
-            - [Nym.http http请求工具](#nymhttp-http%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7)
-            - [Nym.geocoding 地理位置正逆向解析](#nymgeocoding-%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E6%AD%A3%E9%80%86%E5%90%91%E8%A7%A3%E6%9E%90)
-            - [Nym.clazz 类反射工具](#nymclazz-%E7%B1%BB%E5%8F%8D%E5%B0%84%E5%B7%A5%E5%85%B7)
-            - [Nym.file 文件操作类](#nymfile-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%B1%BB)
-            - [Nym.down 下载工具类](#nymdown-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7%E7%B1%BB)
-            - [Nym.number 数字工具类](#nymnumber-%E6%95%B0%E5%AD%97%E5%B7%A5%E5%85%B7%E7%B1%BB)
-            - [Nym.string 字符串处理工具](#nymstring-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7)
-        - [数据库操作说明](#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E)
-            - [Mysql数据库操作说明](#mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E)
-                - [生成MySql实例](#%E7%94%9F%E6%88%90mysql%E5%AE%9E%E4%BE%8B)
-                - [查询数据库数据](#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE)
-                - [进行增删改等操作](#%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E7%AD%89%E6%93%8D%E4%BD%9C)
-        - [实时天气和预报天气](#%E5%AE%9E%E6%97%B6%E5%A4%A9%E6%B0%94%E5%92%8C%E9%A2%84%E6%8A%A5%E5%A4%A9%E6%B0%94)
-            - [生成Weather对象](#%E7%94%9F%E6%88%90weather%E5%AF%B9%E8%B1%A1)
-            - [获取天气详情](#%E8%8E%B7%E5%8F%96%E5%A4%A9%E6%B0%94%E8%AF%A6%E6%83%85)
-    - [未完善，以后升级或者正在开发的功能](#%E6%9C%AA%E5%AE%8C%E5%96%84%EF%BC%8C%E4%BB%A5%E5%90%8E%E5%8D%87%E7%BA%A7%E6%88%96%E8%80%85%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E5%8A%9F%E8%83%BD)
-        - [未完善的功能](#%E6%9C%AA%E5%AE%8C%E5%96%84%E7%9A%84%E5%8A%9F%E8%83%BD)
-        - [以后升级开发的新功能](#%E4%BB%A5%E5%90%8E%E5%8D%87%E7%BA%A7%E5%BC%80%E5%8F%91%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD)
-    - [版本更新历史](#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2)
+  - [项目简介](#%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B)
+  - [使用说明](#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+    - [Nym类使用说明](#nym%E7%B1%BB%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+      - [Nym.lunar 公农历转换](#nymlunar-%E5%85%AC%E5%86%9C%E5%8E%86%E8%BD%AC%E6%8D%A2)
+      - [Nym.random 随机数工具](#nymrandom-%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%B7%A5%E5%85%B7)
+      - [Nym.system 系统信息](#nymsystem-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF)
+      - [Nym.position 地理位置信息](#nymposition-%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF)
+      - [Nym.http http请求工具](#nymhttp-http%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7)
+      - [Nym.geocoding 地理位置正逆向解析](#nymgeocoding-%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E6%AD%A3%E9%80%86%E5%90%91%E8%A7%A3%E6%9E%90)
+      - [Nym.clazz 类反射工具](#nymclazz-%E7%B1%BB%E5%8F%8D%E5%B0%84%E5%B7%A5%E5%85%B7)
+      - [Nym.file 文件操作类](#nymfile-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%B1%BB)
+      - [Nym.down 下载工具类](#nymdown-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7%E7%B1%BB)
+      - [Nym.number 数字工具类](#nymnumber-%E6%95%B0%E5%AD%97%E5%B7%A5%E5%85%B7%E7%B1%BB)
+      - [Nym.string 字符串处理工具](#nymstring-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7)
+    - [数据库操作说明](#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E)
+      - [Mysql数据库操作说明](#mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E)
+        - [生成MySql实例](#%E7%94%9F%E6%88%90mysql%E5%AE%9E%E4%BE%8B)
+        - [查询数据库数据](#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE)
+        - [进行增删改等操作](#%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E7%AD%89%E6%93%8D%E4%BD%9C)
+    - [实时天气和预报天气](#%E5%AE%9E%E6%97%B6%E5%A4%A9%E6%B0%94%E5%92%8C%E9%A2%84%E6%8A%A5%E5%A4%A9%E6%B0%94)
+      - [生成Weather对象](#%E7%94%9F%E6%88%90weather%E5%AF%B9%E8%B1%A1)
+      - [获取天气详情](#%E8%8E%B7%E5%8F%96%E5%A4%A9%E6%B0%94%E8%AF%A6%E6%83%85)
+  - [未完善，以后升级或者正在开发的功能](#%E6%9C%AA%E5%AE%8C%E5%96%84%E4%BB%A5%E5%90%8E%E5%8D%87%E7%BA%A7%E6%88%96%E8%80%85%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E5%8A%9F%E8%83%BD)
+    - [未完善的功能](#%E6%9C%AA%E5%AE%8C%E5%96%84%E7%9A%84%E5%8A%9F%E8%83%BD)
+    - [以后升级开发的新功能](#%E4%BB%A5%E5%90%8E%E5%8D%87%E7%BA%A7%E5%BC%80%E5%8F%91%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD)
+  - [版本更新历史](#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2)
 
 # Nymph 
 
@@ -39,29 +38,6 @@
 `Nym.lunar.lunarDateTo(Date lunarDate);`
 - 公历时间转为农历时间  
 `Nym.lunar.toLunarDate(Date date);`
-#### Nym.time 时间处理工具类  
-NymTime默认支持对以下四种字符类型时间格式的转换。
-
-“yyyy年MM月dd日 HH:mm:ss”  
-“yyyy年MM月dd日”  
-“yyyy-MM-dd HH:mm:ss”  
-“yyyy-MM-dd”  
-
-满足这四种类型的字符串在转换为Date类型时将成功被转换，  
-如果不是这种类型的。转换失败将抛出ParseException异常  
-
-Nym.time的使用方式是非线程安全的。但NymTime类本身是线程安全的。
-
-- 对时间的某个单位增加减少，比如当前时间增加一个小时  
-`Date date = Nym.time.addTime(new Date(),Calendar.HOUR_OF_DAY, 1);`
-- 将给定的时间格式化，比如将当前时间格式化为“yyyy-MM-dd”  
-`String date = Nym.time.toString(new Date(), "yyyy-MM-dd");`
-- 和Nym.time.toString(new Date(), "yyyy-MM-dd")相同作用  
-`String date = Nym.time.format(new Date(), "yyyy-MM-dd");`、
-- Nym.time.toDate(String date,String format)  
-将指定format格式的date时间转换为Date对象并返回  
-比如：  
-`Date date = Nym.time.toDate("2018-5-21 18:18:30","yyyy-MM-dd");`  
 
 #### Nym.random 随机数工具
 - Nym.random.string(String...args);  

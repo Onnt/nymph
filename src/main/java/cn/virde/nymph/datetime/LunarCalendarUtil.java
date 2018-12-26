@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import cn.virde.nymph.Nym;
-
 /**
  * 中国农历工具
  * @author Blacard
@@ -24,7 +22,7 @@ public class LunarCalendarUtil {
 		String dateStr = LunarCalendarCalculate.sCalendarSolarToLundar(year, month, day);
 		Date resultDate = new SimpleDateFormat("yyyyMMdd").parse(dateStr);
 		//偏移量
-		resultDate = Nym.time.addTime(resultDate, Calendar.DAY_OF_MONTH, +1);
+		resultDate = DateTime.addTime(resultDate, Calendar.DAY_OF_MONTH, +1);
 		return resultDate;
 	}
 	
@@ -37,7 +35,7 @@ public class LunarCalendarUtil {
 		String chineseDateStr = LunarCalendarCalculate.sCalendarLundarToSolar(year, month, day);
 		Date resultDate = new SimpleDateFormat("yyyyMMdd").parse(chineseDateStr);
 		//减去偏移量
-		resultDate = Nym.time.addTime(resultDate, Calendar.DAY_OF_MONTH, -1);
+		resultDate = DateTime.addTime(resultDate, Calendar.DAY_OF_MONTH, -1);
 		return resultDate;
 	}
 }

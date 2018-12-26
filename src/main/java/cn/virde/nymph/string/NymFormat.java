@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.datetime.DateTime;
 
 /**
  * <h3>格式化 各种数据形式</h3>
@@ -97,7 +98,7 @@ public class NymFormat {
 	}
 	
 	public String getAPM(Date date){
-		return getAPM(Nym.time.toString(date));
+		return getAPM(DateTime.toString(date));
 	}
 	public String getAPM(String time){
 		int hour = Integer.parseInt(time.substring(11, 13));

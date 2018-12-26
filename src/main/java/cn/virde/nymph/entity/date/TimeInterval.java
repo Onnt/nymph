@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import cn.virde.nymph.Nym;
+import cn.virde.nymph.datetime.DateTime;
 
 import static java.util.Calendar.*;
 
@@ -32,8 +33,8 @@ public class TimeInterval {
 		this.endDate = endDate ;
 	}
 	public TimeInterval(long start , long end ) {
-		this.startDate = Nym.time.toDate(start);
-		this.endDate = Nym.time.toDate(end);
+		this.startDate = DateTime.toDate(start);
+		this.endDate = DateTime.toDate(end);
 	}
 	
 	public long getStart() {
@@ -576,13 +577,13 @@ public class TimeInterval {
 		return getIntervalByDay(new Date());
 	}
 	public static TimeInterval getYesterdayInterval() {
-		return getIntervalByDay(Nym.time.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
+		return getIntervalByDay(DateTime.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
 	}
 	public static TimeInterval getThisMonth() {
 		return getIntervalByMonth(new Date());
 	}
 	public static TimeInterval getLastMonth() {
-		return getIntervalByMonth(Nym.time.addTime(new Date(), Calendar.MONTH, -1));
+		return getIntervalByMonth(DateTime.addTime(new Date(), Calendar.MONTH, -1));
 	}
 	/**
 	 * 往前倒推，计算时间间隔
@@ -592,12 +593,12 @@ public class TimeInterval {
 	 * @return
 	 */
 	public static TimeInterval getInterval(int start,int end,int UNIT) {
-		return new TimeInterval(Nym.time.addTime(new Date(), UNIT, start),Nym.time.addTime(new Date(), UNIT, end));
+		return new TimeInterval(DateTime.addTime(new Date(), UNIT, start),DateTime.addTime(new Date(), UNIT, end));
 	}
 	public String toJSONString() {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("startDate", Nym.time.toString(getStartDate()));
-		map.put("endDate", Nym.time.toString(getEndDate()));
+		map.put("startDate", DateTime.toString(getStartDate()));
+		map.put("endDate", DateTime.toString(getEndDate()));
 		return Nym.json.objectToJsonString(map);
 	}
 }

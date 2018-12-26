@@ -3,8 +3,7 @@ package cn.virde.nymph;
 
 import cn.virde.nymph.clazz.ClazzUtil;
 import cn.virde.nymph.code.NymCode;
-import cn.virde.nymph.date.LunarCalendarUtil;
-import cn.virde.nymph.date.NymTime;
+import cn.virde.nymph.datetime.LunarCalendarUtil;
 import cn.virde.nymph.file.NymFileOpera;
 import cn.virde.nymph.json.JsonUtil;
 import cn.virde.nymph.net.down.DownFromUrl;
@@ -25,9 +24,6 @@ public class Nym{
 	
 	// 农历工具
 	public final static LunarCalendarUtil lunar = new LunarCalendarUtil();
-	
-	// 时间 日期工具
-	public final static NymTime time = new NymTime();
 	
 	// 随机数工具
 	public final static Random random = new Random();
