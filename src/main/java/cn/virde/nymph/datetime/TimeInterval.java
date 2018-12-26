@@ -19,26 +19,26 @@ import static java.util.Calendar.*;
  */
 public class TimeInterval {
 	
-	private Date startDate;
+	private Date beginDate;
 	private Date endDate;
 	
 	public TimeInterval() {
 		super();
 	}
-	public TimeInterval(Date startDate, Date endDate) {
-		this.startDate = startDate ;
+	public TimeInterval(Date beginDate, Date endDate) {
+		this.beginDate = beginDate ;
 		this.endDate = endDate ;
 	}
-	public TimeInterval(long start , long end ) {
-		this.startDate = Nym.time.toDate(start);
-		this.endDate = Nym.time.toDate(end);
+	public TimeInterval(long begin, long end ) {
+		this.beginDate = DateTime.toDate(begin);
+		this.endDate = DateTime.toDate(end);
 	}
 	
 	public long getStart() {
-		return startDate.getTime();
+		return beginDate.getTime();
 	}
-	public void setStart(long start) {
-		this.startDate = new Date(start);
+	public void setStart(long begin) {
+		this.beginDate = new Date(begin);
 	}
 	public long getEnd() {
 		return endDate.getTime();
@@ -47,11 +47,11 @@ public class TimeInterval {
 		this.endDate = new Date(end);
 	}
 	
-	public Date getStartDate() {
-		return startDate;
+	public Date getBeginDate() {
+		return beginDate;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setBeginDate(Date beginDate) {
+		this.beginDate = beginDate;
 	}
 	public Date getEndDate() {
 		return endDate;
@@ -59,14 +59,14 @@ public class TimeInterval {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public long getUnixStart() {
-		return startDate.getTime() / 1000 ;
+	public long getBeginUnixTimestamp() {
+		return beginDate.getTime() / 1000 ;
 	}
-	public long getUnixEnd() {
+	public long getEndUnixTimestamp() {
 		return endDate.getTime() / 1000 ;
 	}
 	public boolean isNull() {
-		return startDate == null || endDate == null ;
+		return beginDate == null || endDate == null ;
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class TimeInterval {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
@@ -110,7 +110,7 @@ public class TimeInterval {
 		cal.setTime(date);
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
@@ -141,7 +141,7 @@ public class TimeInterval {
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
@@ -171,7 +171,7 @@ public class TimeInterval {
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(DAY_OF_WEEK, cal.getMaximum(DAY_OF_WEEK));
 		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
@@ -202,7 +202,7 @@ public class TimeInterval {
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(DAY_OF_MONTH,cal.getActualMaximum(DAY_OF_MONTH));
 		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMaximum(MINUTE));
@@ -230,7 +230,7 @@ public class TimeInterval {
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
-		setStartDate(cal.getTime());
+		setBeginDate(cal.getTime());
 		cal.set(MONTH, cal.getActualMaximum(MONTH));
 		cal.set(DAY_OF_MONTH,cal.getActualMaximum(DAY_OF_MONTH));
 		cal.set(HOUR_OF_DAY, cal.getActualMaximum(HOUR_OF_DAY));
@@ -264,7 +264,7 @@ public class TimeInterval {
 		
 		// # 重新生成开始结束时间
 		// * 重新生成开始时间
-		cal.setTime(startDate);
+		cal.setTime(beginDate);
 		int startSecond = cal.get(SECOND);
 		if(startSecond != 0) {
 			cal.add(MINUTE, +1);
@@ -314,7 +314,7 @@ public class TimeInterval {
 		
 		// # 重新生成开始结束时间
 		// * 重新生成开始时间
-		cal.setTime(startDate);
+		cal.setTime(beginDate);
 		int startMinute = cal.get(MINUTE);
 		int startSecond = cal.get(SECOND);
 		if(startMinute != 0 || startSecond != 0) {
@@ -374,7 +374,7 @@ public class TimeInterval {
 		Calendar cal = getInstance();
 		
 		// 计算出到开始时间
-		cal.setTime(startDate);
+		cal.setTime(beginDate);
 		int startHour   = cal.get(HOUR_OF_DAY);
 		int startMinute = cal.get(MINUTE);
 		int startSecond = cal.get(SECOND);
@@ -431,7 +431,7 @@ public class TimeInterval {
 	public List<TimeInterval> getIntervalOfEveryMonth() {
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
-		cal.setTime(startDate);
+		cal.setTime(beginDate);
 		int startDay    = cal.get(DAY_OF_MONTH);
 		int startHour   = cal.get(HOUR_OF_DAY);
 		int startMinute = cal.get(MINUTE);
@@ -489,7 +489,7 @@ public class TimeInterval {
 		List<Date> respList = new ArrayList<Date>();
 		Calendar startCal = getInstance();
 		Calendar endCal = getInstance();
-		startCal.setTime(startDate);
+		startCal.setTime(beginDate);
 		endCal.setTime(endDate);
 		// 计算出开始结束时间
 		if(isContainCurr) {
@@ -534,7 +534,7 @@ public class TimeInterval {
 		List<Date> respList = new ArrayList<Date>();
 		Calendar startCal = getInstance();
 		Calendar endCal = getInstance();
-		startCal.setTime(startDate);
+		startCal.setTime(beginDate);
 		endCal.setTime(endDate);
 		// 计算出开始结束时间
 		if(isContainCurr) {
@@ -574,13 +574,13 @@ public class TimeInterval {
 		return getIntervalByDay(new Date());
 	}
 	public static TimeInterval getYesterdayInterval() {
-		return getIntervalByDay(Nym.time.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
+		return getIntervalByDay(DateTime.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
 	}
 	public static TimeInterval getThisMonth() {
 		return getIntervalByMonth(new Date());
 	}
 	public static TimeInterval getLastMonth() {
-		return getIntervalByMonth(Nym.time.addTime(new Date(), Calendar.MONTH, -1));
+		return getIntervalByMonth(DateTime.addTime(new Date(), Calendar.MONTH, -1));
 	}
 	/**
 	 * 往前倒推，计算时间间隔
@@ -590,12 +590,12 @@ public class TimeInterval {
 	 * @return
 	 */
 	public static TimeInterval getInterval(int start,int end,int UNIT) {
-		return new TimeInterval(Nym.time.addTime(new Date(), UNIT, start),Nym.time.addTime(new Date(), UNIT, end));
+		return new TimeInterval(DateTime.addTime(new Date(), UNIT, start),DateTime.addTime(new Date(), UNIT, end));
 	}
 	public String toJSONString() {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("startDate", Nym.time.toString(getStartDate()));
-		map.put("endDate", Nym.time.toString(getEndDate()));
+		map.put("startDate", DateTime.toString(getBeginDate()));
+		map.put("endDate", DateTime.toString(getEndDate()));
 		return Nym.json.objectToJsonString(map);
 	}
 }
