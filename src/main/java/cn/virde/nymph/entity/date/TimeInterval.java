@@ -13,10 +13,12 @@ import static java.util.Calendar.*;
 
 /**
  * 
+ * 请改用 cn.virde.nymph.datetime.TimeInterval
  * @author Virde
  * 2018年1月25日 下午5:50:03
  * change 2018年8月22日 17:12:07
  */
+@Deprecated
 public class TimeInterval {
 	
 	private Date startDate;
@@ -572,6 +574,15 @@ public class TimeInterval {
 	}
 	public static TimeInterval getTodayInterval() {
 		return getIntervalByDay(new Date());
+	}
+	public static TimeInterval getYesterdayInterval() {
+		return getIntervalByDay(Nym.time.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
+	}
+	public static TimeInterval getThisMonth() {
+		return getIntervalByMonth(new Date());
+	}
+	public static TimeInterval getLastMonth() {
+		return getIntervalByMonth(Nym.time.addTime(new Date(), Calendar.MONTH, -1));
 	}
 	/**
 	 * 往前倒推，计算时间间隔
