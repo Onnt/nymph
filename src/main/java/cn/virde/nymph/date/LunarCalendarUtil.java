@@ -9,9 +9,11 @@ import cn.virde.nymph.Nym;
 
 /**
  * 中国农历工具
+ * 请改用cn.virde.nymph.datetime.LunarCalendarUtil
  * @author Blacard
  * 2017年2月7日 下午4:04:44
  */
+@Deprecated
 public class LunarCalendarUtil { 
 		
 	public Date toLunarDate(Date date) throws ParseException {

@@ -1,5 +1,11 @@
 package cn.virde.nymph.date;
 
+/**
+ * 请改用cn.virde.nymph.datatime.LunarCalendarCalculate
+ * @author ChuangLan
+ *
+ */
+@Deprecated
 public class LunarCalendarCalculate { 
 
 	  // Array lIntLunarDay is stored in the monthly day information in every year from 1901 to 2100 of the lunar calendar,

@@ -8,8 +8,10 @@ import java.util.Date;
 /**
  * 
  * @author Blacard
+ * 请改用cn.virde.nymph.datetime.NymTime
  * 2016年12月30日 下午7:07:28
  */
+@Deprecated
 public class NymTime {
 	
 	private Date date;
