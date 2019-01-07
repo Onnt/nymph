@@ -19,18 +19,24 @@ import javax.mail.internet.MimeUtility;
 import com.sun.mail.util.MailSSLSocketFactory;
 
 public class EmailClient {
+	
+	// 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般(只是一般, 绝非绝对)格式为: smtp.xxx.com
+	// 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
+	private String smtpHost ;
+    // PS: 某些邮箱服务器为了增加邮箱本身密码的安全性，给 SMTP 客户端设置了独立密码（有的邮箱称为“授权码”）, 
+    //     对于开启了独立密码的邮箱, 这里的邮箱密码必需使用这个独立密码（授权码）。
+	private String password ;
 
-	private EmailClientInfo clientInfo ;
+	// 发件人地址
+	private String senderAddress ;
+	// 发件人名字
+	private String senderName ;
 	
 	public EmailClient(String smtpHost,String password,String senderAddress,String senderName) {
-		clientInfo = new EmailClientInfo();
-		clientInfo.setSmtpHost(smtpHost);
-		clientInfo.setPassword(password);
-		clientInfo.setSenderAddress(senderAddress);
-		clientInfo.setSenderName(senderName);
-	}
-	public EmailClient(EmailClientInfo info) {
-		this.clientInfo = info ;
+		this.smtpHost = smtpHost;
+		this.password = password;
+		this.senderAddress = senderAddress;
+		this.senderName = senderName;
 	}
 
 	/**
@@ -46,7 +52,7 @@ public class EmailClient {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
         Properties props = new Properties();                    // 参数配置
         props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议（JavaMail规范要求）
-        props.setProperty("mail.smtp.host", clientInfo.getSmtpHost());   // 发件人的邮箱的 SMTP 服务器地址
+        props.setProperty("mail.smtp.host", smtpHost);   // 发件人的邮箱的 SMTP 服务器地址
         props.setProperty("mail.smtp.auth", "true");            // 需要请求认证
 
         props.put("mail.smtp.ssl.enable", "true");
@@ -78,7 +84,7 @@ public class EmailClient {
         //           (5) 如果以上几点都确定无误, 到邮件服务器网站查找帮助。
         //
         //    PS_03: 仔细看log, 认真看log, 看懂log, 错误原因都在log已说明。
-        transport.connect(clientInfo.getSenderAddress(), clientInfo.getPassword());
+        transport.connect(senderAddress, password);
 
         // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
         transport.sendMessage(message, message.getAllRecipients());
@@ -103,7 +109,7 @@ public class EmailClient {
         MimeMessage message = new MimeMessage(session);
 
         // 2. From: 发件人（昵称有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改昵称）
-        message.setFrom(new InternetAddress(clientInfo.getSenderAddress(), clientInfo.getSenderName(), "UTF-8"));
+        message.setFrom(new InternetAddress(senderAddress, senderName, "UTF-8"));
 
         // 3. To: 收件人（可以增加多个收件人、抄送、密送）
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(info.getRecipientAddress(), info.getRecipientName(), "UTF-8"));
@@ -121,13 +127,18 @@ public class EmailClient {
             Multipart multipart = new MimeMultipart();  
             BodyPart part = new MimeBodyPart();  
             // 根据文件名获取数据源  
-            DataSource dataSource = new FileDataSource("test.xls");  
+            DataSource dataSource = new FileDataSource(info.getFile());  
             DataHandler dataHandler = new DataHandler(dataSource);  
             // 得到附件本身并至入BodyPart  
             part.setDataHandler(dataHandler);  
             // 得到文件名同样至入BodyPart  
             part.setFileName(MimeUtility.encodeText(dataSource.getName()));  
-            multipart.addBodyPart(part);  
+            multipart.addBodyPart(part);
+            
+            // 正文
+            MimeBodyPart mbpContent = new MimeBodyPart();
+            mbpContent.setContent(info.getContent(), "text/html;charset=UTF-8");
+            multipart.addBodyPart(mbpContent);
             
             message.setContent(multipart);
         }
@@ -138,5 +149,4 @@ public class EmailClient {
         return message;
         
     }
-	
 }
