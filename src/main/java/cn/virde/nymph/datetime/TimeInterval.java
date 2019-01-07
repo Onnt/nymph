@@ -117,7 +117,7 @@ public class TimeInterval {
 	}
 	/**
 	 * 分别设置开始结束时间为给定的时间的00:00,59:59
-	 * @param 设置开始结束时间的基数
+	 * @param date 设置开始结束时间的基数
 	 * @return 设置好的时间区间
 	 * @author Virde
 	 * 2018年10月24日 19:39:17

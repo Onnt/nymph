@@ -98,12 +98,10 @@ public class EmailClient {
      * 创建一封只包含文本的简单邮件
      *
      * @param session 和服务器交互的会话
-     * @param sendMail 发件人邮箱
-     * @param receiveMail 收件人邮箱
+     * @param info 邮件内容
      * @return 返回
      * @throws Exception 异常
      */
-//    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
       public MimeMessage createMimeMessage(Session session, MailInfo info) throws Exception {
         // 1. 创建一封邮件
         MimeMessage message = new MimeMessage(session);

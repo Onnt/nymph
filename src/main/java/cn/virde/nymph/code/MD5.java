@@ -1,8 +1,10 @@
 package cn.virde.nymph.code;
 
 import org.apache.commons.codec.digest.DigestUtils;
+
 /**
- * @Author Suna
+ * Author Suna
+ * date 2019年1月7日 16:37:12
  */
 public class MD5 {
     /**

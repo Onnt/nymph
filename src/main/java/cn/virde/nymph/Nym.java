@@ -11,7 +11,6 @@ import cn.virde.nymph.net.http.NymHttp;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
 import cn.virde.nymph.number.NumberTool;
-import cn.virde.nymph.string.NymFormat;
 import cn.virde.nymph.string.StringTool;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
@@ -23,11 +22,6 @@ public class Nym{
 	
 	// 农历工具
 	public final static LunarCalendarUtil lunar = new LunarCalendarUtil();
-	
-	/**
-	 * 格式化 各种数据形式
-	 */
-	public final static NymFormat format = new NymFormat();
 	
 	/**
 	 * 字符串处理工具
