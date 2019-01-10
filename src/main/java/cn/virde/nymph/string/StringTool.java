@@ -29,7 +29,7 @@ public class StringTool {
 	 * @param regEx  正则表达式
 	 * @return 返回 
 	 */
-	public List<String> getStringsByReg(String str,String regEx){
+	public static List<String> getStringsByReg(String str,String regEx){
 		List<String> list = new ArrayList<String>();
 		Matcher m = Pattern.compile(regEx).matcher(str);
 		while(m.find()){
@@ -47,7 +47,7 @@ public class StringTool {
 	 * @param regEx 正则表达式
 	 * @return 返回
 	 */
-	public String getStringByReg(String str,String regEx){
+	public static String getStringByReg(String str,String regEx){
 		List<String> list = getStringsByReg(str,regEx);
 		if(list==null||list.size()==0){
 			return null;
@@ -64,7 +64,7 @@ public class StringTool {
 	 * @param str 字符串
 	 * @return 返回
 	 */
-    public String replaceBlank(String str) {
+    public static String replaceBlank(String str) {
         String dest = "";
         if (str!=null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
@@ -81,7 +81,7 @@ public class StringTool {
 	 * @param str 字符串
 	 * @return 返回 后缀名
 	 */
-	public String getSuffix(String str){
+	public static String getSuffix(String str){
 		if(str.contains(".") && str.lastIndexOf(".") < str.length())
 			return str.substring(str.lastIndexOf(".")+1, str.length());
 		else
@@ -94,7 +94,7 @@ public class StringTool {
 	 * @param str 字符串
 	 * @return 返回
 	 */
-	public String getFileName(String str){
+	public static String getFileName(String str){
 		return str.substring(str.lastIndexOf("/")+1,str.length());
 	}
 	
@@ -106,7 +106,7 @@ public class StringTool {
 	 * @param str 字符串
 	 * @return 返回
 	 */
-    public boolean isIP(String str){  
+    public static boolean isIP(String str){  
         if(str == null || str.length() < 7 || str.length() > 15 || "".equals(str)){  
             return false;  
         }  
@@ -126,7 +126,7 @@ public class StringTool {
 	 * @param name 名字
 	 * @return 返回
 	 */
-	public String getParam(String url,String name) {
+	public static String getParam(String url,String name) {
 		Map<String,String> map = getQueryMap(url);
 		return map.containsKey(name)?map.get(name):null;
 	}
@@ -140,7 +140,7 @@ public class StringTool {
 	 * @author Virde
 	 * 2018年11月5日 11:22:51
 	 */
-	public Map<String,String> getQueryMap(String str){
+	public static Map<String,String> getQueryMap(String str){
 		String queryString = getQueryString(str);
 		if(queryString==null) return null;
 		
@@ -157,7 +157,7 @@ public class StringTool {
 		return respMap ;
 	}
 
-	private String getQueryString(String str) {
+	private static String getQueryString(String str) {
 		try {
 			return new URL(str).getQuery();
 		} catch (MalformedURLException e) {
@@ -174,7 +174,7 @@ public class StringTool {
 	 * @param params 参数
 	 * @return 返回
 	 */
-	public String makeUrlWithParams(String url,Map<String,String> params) {
+	public static String makeUrlWithParams(String url,Map<String,String> params) {
 		if(params==null||params.size()==0) return url ;
 		
 		StringBuffer sb = new StringBuffer();
@@ -183,7 +183,7 @@ public class StringTool {
 		}
 		return url +"?"+ sb.toString().substring(0, sb.length()-1);
 	}
-	public String makeUrlWithParams(String...args) {
+	public static String makeUrlWithParams(String...args) {
 		if(args.length == 0 )
 			return null ;
 		if(args.length == 1) 
@@ -212,11 +212,11 @@ public class StringTool {
 	 * @throws IllegalArgumentException  异常
 	 * @throws IllegalAccessException  异常
 	 */
-	public String makeUrlWithParams(String url,Object params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static String makeUrlWithParams(String url,Object params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return makeUrlWithParams(url, Nym.clazz.getField(params)) ;
 	}
 	
-	public String getHost(String url) {
+	public static String getHost(String url) {
 		return getStringByReg(url, "(http|ftp|https):\\/\\/([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}");
 	}
 	/**
@@ -226,7 +226,7 @@ public class StringTool {
 	 * @param length 文件大小
 	 * @return 返回
 	 */
-	public String fileLength(long length){
+	public static String fileLength(long length){
 		int level = 0 ;
 		double d_length = length ;
 		while(d_length > 1024){
@@ -271,7 +271,7 @@ public class StringTool {
 	 * @param str 数字加单位形式表示的文件大小
 	 * @return 返回 转换后的纯数字文件大小
 	 */
-	public long fileSizeToLong(String str){
+	public static long fileSizeToLong(String str){
 		str = str.toUpperCase().replaceAll(" ", "");
 		
 		int index = 2 ; 
