@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.virde</groupId>
-  <version>0.0.3.RELEASE</version>
+  <version>0.0.4.RELEASE</version>
   <artifactId>AmnesiaCity-nymph</artifactId>
   <packaging>jar</packaging>
 
