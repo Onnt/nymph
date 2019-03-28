@@ -1,6 +1,10 @@
 package cn.virde.nymph.random;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 import java.util.UUID;
 
 /**
@@ -254,12 +258,56 @@ public class RandomUtil {
         }
         return result;
     }
+    
+    /**
+     * asdf
+     * 啊时代发生的发生地方
+     * 啊时代发生的发生地方
+     * 
+     * @param params
+     * @return
+     */
+    public static Object weightRandom(LinkedHashMap<Object,Integer> params) {
+    	return new WeightRandom().weightRandom(params);
+    }
+
+
 	public static void main(String[] args) {
-//		long a = getRandom(100);
-//		System.out.println(a);
-		int a= 0;
-		for(int i = 0 ; i<101;i++) {
-			System.out.println(a+=i);
+		LinkedHashMap<Object,Integer> params = new LinkedHashMap<>();
+		params.put("aaa", 10);
+		params.put("bbb", 100);
+		params.put("ccc", 1);
+		for(int i = 0 ; i < 1000 ; i++) {
+			String resu = (String)RandomUtil.weightRandom(params);
+			System.out.println(resu);
 		}
+	}
+}
+class WeightRandom{
+	private int max = 0 ; 
+	private Object respObj = null; 
+	public Object weightRandom(LinkedHashMap<Object,Integer> params) {
+		if(params == null) {
+			return null;
+		}
+		params.forEach((k,v)->{
+			max += v;
+			params.put(k, max);
+		});
+
+		int random = (int)RandomUtil.getRandom(0,max-1);
+		params.forEach((k,v)->{
+			if(random < v) {
+				respObj = k;
+			}
+		});
+		return respObj;
+//		int random = (int)RandomUtil.getRandom(0,max-1);
+//		for(Object k : params.keySet()) {
+//			if(random < params.get(k)) {
+//				return k;
+//			}
+//		}
+//		return null;
 	}
 }
