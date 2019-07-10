@@ -75,7 +75,7 @@ public class DateTimeDiff {
     }
 
     public static void main(String[] args) throws ParseException {
-        int diff = new DateTimeDiff(DateTime.toDate("2020年1月28日 14:41:16"),DateTime.toDate("2019年3月29日 14:41:26")).diffMonths();
+        int diff = new DateTimeDiff(DateTime.toDate("2020年1月28日 14:41:16"),DateTime.toDate("2019年3月29日 14:41:26")).diffMinutes();
         System.out.println(diff);
     }
 }

@@ -93,7 +93,7 @@ public class LunarCalendarCalculate {
 	    for (int i = 1; i < iMonth; i++) { 
 	      iOffsetDays += iGetSYearMonthDays(iYear, i); 
 	    } 
-	    iOffsetDays += iDay - 1; 
+	    iOffsetDays += iDay;
 
 	    return iOffsetDays; 
 	  } 

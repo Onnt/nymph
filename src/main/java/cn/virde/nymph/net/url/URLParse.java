@@ -82,7 +82,6 @@ public class URLParse{
 		this.url = new URL(url.getProtocol(),url.getHost(),url.getPort(),url.getFile());
 	}
 	
-	
 	@Override
 	public String toString() {
 		return url.toString();
