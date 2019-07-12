@@ -43,8 +43,6 @@ public abstract class DatabaseClient {
 				ConnPool.init(info);
 			}
 			conn = ConnPool.getConnection() ;
-		} catch (ClassNotFoundException e) {
-			throw new NymDBException("加载JDBC时出现ClassNotFound异常。JDBC DRIVER:"+info.getDRIVER());
 		} catch (SQLException e) {
 			throw new NymDBException("加载JDBC时出现SqlException:"+e.getMessage()+"。JDBC DRIVER:"+info.getDRIVER());
 		} catch (PropertyVetoException e) {

@@ -42,15 +42,11 @@ public class MySql<T> extends DatabaseClient{
 		this.usePool = usePool;
 	}
 
-	@SuppressWarnings("rawtypes")
 	public synchronized List<T> query(String sql, Object[] args, Class clazz) throws NymDBException, SQLException{
 		try {
-//			long start = System.currentTimeMillis();
 			openPreparedStatement(sql,args);
 			rs = ppsta.executeQuery();
 			List<T> list = createResultObjectList(clazz);
-//			long end = System.currentTimeMillis() ;
-//			Log.alert("查询耗时：" + (end - start) +"ms，SQL："+sql);
 			return list;
 		} catch (NymDBException e) {
 			throw e ;
@@ -61,7 +57,6 @@ public class MySql<T> extends DatabaseClient{
 		}
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private List<T> createResultObjectList(Class clazz) throws SQLException, NymDBException {
 		List<T> list = new ArrayList<T>();
 		try {
@@ -87,7 +82,6 @@ public class MySql<T> extends DatabaseClient{
 		}
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Object createObj(Class clazz) throws InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException{
 		ResultSetMetaData rsmd = rs.getMetaData();
 		
@@ -138,7 +132,6 @@ public class MySql<T> extends DatabaseClient{
 	}
 	// 执行(update insert delete)之类的操作
 	public synchronized int executeSQL(String sql, Object[] args) throws NymDBException, SQLException{
-//		long start = System.currentTimeMillis() ;
 		open();
 		int count = 0;
 		try {
@@ -147,9 +140,6 @@ public class MySql<T> extends DatabaseClient{
 			initPpstaParas(args);
 			count = ppsta.executeUpdate();
 			conn.commit();
-
-//			long end = System.currentTimeMillis() ;
-//			Log.alert("执行耗时：" + (end - start) +"ms，SQL:"+sql);
 			return count;
 		} catch (SQLException e) {
 			try {
@@ -162,9 +152,6 @@ public class MySql<T> extends DatabaseClient{
 			close();
 		}		
 	}
-	
-	
-	
 
 	/**
 	 * 获取数据库的所有表 的表名
