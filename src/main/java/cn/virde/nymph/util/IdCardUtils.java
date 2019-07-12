@@ -152,7 +152,7 @@ public class IdCardUtils{
      * @param idCard  15或18位身份证号码
      * @return 是否合法
      */
-    public static boolean validateCard(String idCard) {
+    public static boolean validateIdCard(String idCard) {
         String card = idCard.trim();
         if (validateIdCard18(card)) {
             return true;
@@ -431,7 +431,6 @@ public class IdCardUtils{
     }
     /**
      * 根据身份编号获取生日
-     *
      * @param idCard 身份编号
      * @return 生日(yyyyMMdd)
      */
@@ -439,11 +438,26 @@ public class IdCardUtils{
         idCard = toIdCard18(idCard);
         if(idCard==null) return null;
         return idCard.substring(6, 14);
+    }
 
+    /**
+     * 根据身份证号码获取生日日期
+     * @param idCard 15或18为身份证号码
+     * @return 生日
+     */
+    public static Date getDateByIdCard(String idCard){
+        idCard = toIdCard18(idCard);
+        if(idCard==null) return null;
+        String date = idCard.substring(6, 14);
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        try {
+            return format.parse(date);
+        } catch (ParseException e) {
+            return null;
+        }
     }
     /**
      * 根据身份编号获取生日年
-     *
      * @param idCard 身份编号
      * @return 生日(yyyy)
      */
