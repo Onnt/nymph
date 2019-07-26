@@ -2,6 +2,7 @@ package cn.virde.nymph.net.tool;
 
 import java.io.IOException;
 
+import cn.virde.nymph.util.IPUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -56,7 +57,7 @@ public class Position {
 	
 	private boolean isValiIp(String ip){
 		boolean isVali = true ;
-		if(!Nym.string.isIP(ip))
+		if(!IPUtils.isValidIP(ip))
 			isVali = false ;
 		if(ip.startsWith("192.168"))
 			isVali = false ;

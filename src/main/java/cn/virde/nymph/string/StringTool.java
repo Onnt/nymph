@@ -2,7 +2,6 @@ package cn.virde.nymph.string;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +13,7 @@ import java.util.regex.Pattern;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.datetime.DateTime;
-import cn.virde.nymph.net.url.URLParse;
+import cn.virde.nymph.net.NymUrl;
 
 /**
  * 字符串处理工具
@@ -141,7 +140,7 @@ public class StringTool {
 	@Deprecated
 	private static String getQueryString(String str){
 		try {
-			return new URLParse(str).getQuery();
+			return new NymUrl(str).getQuery();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			return str;
