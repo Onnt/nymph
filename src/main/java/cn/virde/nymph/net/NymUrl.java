@@ -30,6 +30,10 @@ public class NymUrl{
     public String getPath() {
         return url.getPath();
     }
+    /**
+     * 返回内容相当于 getPath()+getQuery()
+     * @return
+     */
     public String getFile() {
         return url.getFile();
     }
@@ -82,6 +86,26 @@ public class NymUrl{
         this.url = new URL(url.getProtocol(),url.getHost(),url.getPort(),url.getFile());
     }
 
+    /**
+     *  获取连接深度，比如：
+     *  http://virde.cn 深度=0
+     *  http://virde.cn/deep/test 深度=2
+     *  http://virde.cn/deep/test/haha 深度=3
+     * @return 获取连接深度
+     */
+    public int getDeep(){
+        int deep = 0 ;
+        if(StringUtils.isBlank(getPath())){
+            return deep;
+        }
+        for(String sub : getPath().split("/")){
+            if(!StringUtils.isBlank(sub)){
+                deep++;
+            }
+        }
+        return deep;
+    }
+
     @Override
     public String toString() {
         return url.toString();
@@ -94,6 +118,12 @@ public class NymUrl{
             sb.append(m.getKey()+"="+m.getValue()+"&");
         }
         return sb.toString().substring(0, sb.length()-1);
+    }
 
+    public static void main(String[] args) throws MalformedURLException {
+        NymUrl url = new NymUrl("http://virde.cn/?sadf=sadfasdf&asdfasd=Dsd#sdfsd");
+        System.out.println(url.getPath());
+        System.out.println(url.getFile());
+        System.out.println(url.getDeep());
     }
 }
