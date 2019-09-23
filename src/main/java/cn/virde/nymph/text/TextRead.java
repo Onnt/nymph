@@ -1,44 +1,55 @@
 package cn.virde.nymph.text;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  * 读取文本内容
  * @author Blacard
  * 
- * 2016年8月25日 下午9:23:15 
+ * 2016年8月25日 下午9:23:15
+ * 2019年9月20日 18:19:06
   */
 public class TextRead {
-	public String read(File file){
-		StringBuffer sb = new StringBuffer();
-		try {
-			String encoding="GBK";
-		    if(file.isFile() && file.exists()){ //判断文件是否存在
-		        InputStreamReader read = new InputStreamReader(
-		        new FileInputStream(file),encoding);//考虑到编码格式
-		        BufferedReader bufferedReader = new BufferedReader(read);
-		        String lineTxt = null;
-		        while((lineTxt = bufferedReader.readLine()) != null){
-		        	sb.append("\r\n");
-		        	sb.append(lineTxt);
-		            
-		        }
-		        read.close();
-		     }else{
-		        throw new FileNotFoundException();
-		     }
-	     } catch (Exception e) {
-	    	 //这里待处理
-	       System.out.println("这里出错了，总之你来看看。");
-	     }
-		return sb.toString();
+
+	private File textFile;
+
+	private static final String encoding = "UTF-8";
+	private InputStreamReader read;
+	BufferedReader bufferedReader;
+
+	public TextRead(String filePath) throws FileNotFoundException, UnsupportedEncodingException {
+		textFile = new File(filePath);
+		if(!(textFile.isFile() && textFile.exists())){
+			throw  new FileNotFoundException();
+		}
+		read = new InputStreamReader(
+				new FileInputStream(textFile),encoding);
+		bufferedReader = new BufferedReader(read);
 	}
-	
-	public String read(String file){
-		return read(new File(file));
+
+	public TextRead(File textFile) throws FileNotFoundException, UnsupportedEncodingException {
+		this.textFile = textFile;
+		read = new InputStreamReader(
+				new FileInputStream(textFile),encoding);
+		bufferedReader = new BufferedReader(read);
 	}
+
+	public String nextLine() throws IOException {
+		return bufferedReader.readLine();
+	}
+
+	public void close() throws IOException {
+		read.close();
+		bufferedReader.close();
+	}
+
+//	public static void main(String[] args) throws IOException {
+//		TextRead read = new TextRead("D:\\temp\\email shuju\\2019-04\\info-2019-04-01-1.log");
+//		System.out.println(read.nextLine());
+//		String line = null;
+//		while((line = read.nextLine()) != null){
+//			System.out.println(line);
+//		}
+//	}
+
 }

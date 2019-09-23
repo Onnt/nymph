@@ -42,11 +42,7 @@ public class Nym{
 	 * json 处理工具
 	 */
 	public final static JsonUtil json = new JsonUtil();
-	/**
-	 * 读取文本内容
-	 */
-	public final static TextRead text = new TextRead();
-	
+
 	public final static DownFromUrl down = new DownFromUrl();
 	
 	public final static NymFileOpera file = new NymFileOpera();
