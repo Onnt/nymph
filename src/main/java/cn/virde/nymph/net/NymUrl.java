@@ -121,9 +121,10 @@ public class NymUrl{
     }
 
     public static void main(String[] args) throws MalformedURLException {
-        NymUrl url = new NymUrl("http://virde.cn/?sadf=sadfasdf&asdfasd=Dsd#sdfsd");
+        NymUrl url = new NymUrl("http://virde.cn/?#sadf=sadfasdf&asdfasd=Dsd#sdfsd");
         System.out.println(url.getPath());
         System.out.println(url.getFile());
         System.out.println(url.getDeep());
+        System.out.println(url.getRef());
     }
 }

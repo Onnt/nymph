@@ -4,8 +4,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 
 /**
  * @Author Suna
@@ -27,8 +29,39 @@ public class ExcelReader {
         setSheet(sheetName);
     }
 
+    @Deprecated
     public String readCell(int rowIndex,int cellIndex){
-        return currSheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue();
+        return readCellStringValue(rowIndex, cellIndex);
+    }
+    public String readCellStringValue(int rowIndex,int cellIndex){
+        try {
+            return currSheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue();
+        }catch (NullPointerException ex){
+            return null;
+        }
+    }
+    public String readCellRawValue(int rowIndex,int cellIndex){
+        try {
+            return currSheet.getRow(rowIndex).getCell(cellIndex).getRawValue();
+        }catch (NullPointerException ex){
+            return null;
+        }
+    }
+    public boolean writeCell(int rowIndex,int cellIndex,String value){
+        try{
+            if (this.currSheet.getRow(rowIndex) == null) {
+                this.currSheet.createRow(rowIndex);
+            }
+
+            if (this.currSheet.getRow(rowIndex).getCell(cellIndex) == null) {
+                this.currSheet.getRow(rowIndex).createCell(cellIndex);
+            }
+            currSheet.getRow(rowIndex).getCell(cellIndex).setCellValue(value);
+            save();
+            return true;
+        }catch (Exception ex){
+            return false;
+        }
     }
 
     public void setSheet(String sheetName){
@@ -48,7 +81,11 @@ public class ExcelReader {
             book.close();
         }
     }
-
+    public void save() throws IOException {
+        FileOutputStream fos = new FileOutputStream(filePath);
+        book.write(fos);
+        fos.close();
+    }
     public static void main(String[] args) throws IOException {
         ExcelReader er = new ExcelReader("D:\\temp\\3.xlsx","Sheet1");
         System.out.println(er.readCell(0,0));
