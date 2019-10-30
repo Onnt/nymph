@@ -8,7 +8,10 @@ import java.util.List;
 /**
  * @author SunAo
  * 2018年3月14日 下午8:30:30
+ *  这个类被弃用了，因为在别的工具包中已经有很好的实现了
+ * 2019年10月23日 09:49:51
  */
+@Deprecated
 public class BeanUtil {
 
 	/**

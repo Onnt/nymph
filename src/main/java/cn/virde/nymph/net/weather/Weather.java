@@ -5,6 +5,7 @@ import cn.virde.nymph.entity.base.LocationEntity;
 import cn.virde.nymph.entity.weather.ForecastWeatherEntity;
 import cn.virde.nymph.entity.weather.RealtimeWeatherEntity;
 import cn.virde.nymph.exception.LocationException;
+import cn.virde.nymph.util.IPUtils;
 
 import java.io.IOException;
 
@@ -42,7 +43,7 @@ public class Weather extends WeatherDeal{
 	 * @throws IOException  异常
 	 */
 	public Weather(String addressOrIp) throws LocationException, IOException{
-		if(Nym.string.isIP(addressOrIp)){
+		if(IPUtils.isValidIP(addressOrIp)){
 			this.location = Nym.position.getLocationByIp(addressOrIp);
 			this.address = Nym.geocoding.getConverseGeocodingEntity(location).getResult().getAddressComponent().getCity();
 		}else{

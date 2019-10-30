@@ -2,7 +2,6 @@ package cn.virde.nymph.string;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +13,7 @@ import java.util.regex.Pattern;
 
 import cn.virde.nymph.Nym;
 import cn.virde.nymph.datetime.DateTime;
+import cn.virde.nymph.net.NymUrl;
 
 /**
  * 字符串处理工具
@@ -97,27 +97,7 @@ public class StringTool {
 	public static String getFileName(String str){
 		return str.substring(str.lastIndexOf("/")+1,str.length());
 	}
-	
 
-	/**
-	 * 判断这个字符串是否是IP地址
-	 * @author Virde
-	 * 2018年1月26日 下午2:03:54
-	 * @param str 字符串
-	 * @return 返回
-	 */
-    public static boolean isIP(String str){  
-        if(str == null || str.length() < 7 || str.length() > 15 || "".equals(str)){  
-            return false;  
-        }  
-        
-        String rexp = "([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}";  
-        Pattern pat = Pattern.compile(rexp);    
-        Matcher mat = pat.matcher(str);    
-        boolean ipAddress = mat.find();  
-        return ipAddress;  
-    }
-    
 	/**
 	 * 返回url中名字为name的参数值。
 	 * 如果没有这个参数值或者发生异常，则返回NULL
@@ -126,12 +106,11 @@ public class StringTool {
 	 * @param name 名字
 	 * @return 返回
 	 */
+	@Deprecated
 	public static String getParam(String url,String name) {
 		Map<String,String> map = getQueryMap(url);
 		return map.containsKey(name)?map.get(name):null;
 	}
-	
-
 
 	/**
 	 * 将url中的请求参数转换为map并返回。
@@ -140,6 +119,7 @@ public class StringTool {
 	 * @author Virde
 	 * 2018年11月5日 11:22:51
 	 */
+	@Deprecated
 	public static Map<String,String> getQueryMap(String str){
 		String queryString = getQueryString(str);
 		if(queryString==null) return null;
@@ -157,10 +137,12 @@ public class StringTool {
 		return respMap ;
 	}
 
-	private static String getQueryString(String str) {
+	@Deprecated
+	private static String getQueryString(String str){
 		try {
-			return new URL(str).getQuery();
+			return new NymUrl(str).getQuery();
 		} catch (MalformedURLException e) {
+			e.printStackTrace();
 			return str;
 		}
 	}
@@ -215,7 +197,8 @@ public class StringTool {
 	public static String makeUrlWithParams(String url,Object params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return makeUrlWithParams(url, Nym.clazz.getField(params)) ;
 	}
-	
+
+	@Deprecated
 	public static String getHost(String url) {
 		return getStringByReg(url, "(http|ftp|https):\\/\\/([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}");
 	}

@@ -4,16 +4,21 @@ package cn.virde.nymph;
 import cn.virde.nymph.clazz.ClazzUtil;
 import cn.virde.nymph.code.NymCode;
 import cn.virde.nymph.datetime.LunarCalendarUtil;
+import cn.virde.nymph.exception.LocationException;
 import cn.virde.nymph.file.NymFileOpera;
 import cn.virde.nymph.json.JsonUtil;
 import cn.virde.nymph.net.down.DownFromUrl;
 import cn.virde.nymph.net.http.NymHttp;
 import cn.virde.nymph.net.tool.GeocodingTool;
 import cn.virde.nymph.net.tool.PositionTool;
+import cn.virde.nymph.net.weather.Weather;
+import cn.virde.nymph.net.weather.WeatherDeal;
 import cn.virde.nymph.number.NumberTool;
 import cn.virde.nymph.string.StringTool;
 import cn.virde.nymph.system.SystemInfo;
 import cn.virde.nymph.text.TextRead;
+
+import java.io.IOException;
 
 /**
  * Nymph项目中的工具类集合。
@@ -37,11 +42,7 @@ public class Nym{
 	 * json 处理工具
 	 */
 	public final static JsonUtil json = new JsonUtil();
-	/**
-	 * 读取文本内容
-	 */
-	public final static TextRead text = new TextRead();
-	
+
 	public final static DownFromUrl down = new DownFromUrl();
 	
 	public final static NymFileOpera file = new NymFileOpera();

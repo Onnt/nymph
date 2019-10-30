@@ -33,10 +33,10 @@ public class ValidInfo implements Serializable{
 		if(this.info == null) {
 			if(this.result.size() > 0) {
 				this.isOk = false ;
-				this.info = "参数验证未通过";
+				this.info = getResult().get(0).getInfo();
 			}else {
 				this.isOk = true ;
-				this.info = "参数验证通过";
+				this.info = "验证通过";
 			}
 		}
 		return info;

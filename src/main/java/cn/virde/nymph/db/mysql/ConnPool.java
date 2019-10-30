@@ -20,7 +20,7 @@ public class ConnPool {
     public static boolean needInit() {
     	return needInit ;
     }
-    public static void init(ConnInfo connInfo) throws ClassNotFoundException, PropertyVetoException {
+    public static void init(ConnInfo connInfo) throws PropertyVetoException {
 //            Class.forName(connInfo.getDRIVER());  
             comboPooledDataSource = new ComboPooledDataSource();  
             comboPooledDataSource.setDriverClass(connInfo.getDRIVER());  
@@ -28,8 +28,8 @@ public class ConnPool {
             comboPooledDataSource.setUser(connInfo.getUser());  
             comboPooledDataSource.setPassword(connInfo.getPass());  
             //下面是设置连接池的一配置  
-            comboPooledDataSource.setMaxPoolSize(20);  
-            comboPooledDataSource.setMinPoolSize(5);  
+            comboPooledDataSource.setMaxPoolSize(20);
+            comboPooledDataSource.setMinPoolSize(5);
             needInit = false ;
     }
     

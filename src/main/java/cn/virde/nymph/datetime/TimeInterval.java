@@ -70,13 +70,13 @@ public class TimeInterval {
 	}
 
 	/**
-	 * 给定一百个时间
-	 * 设置开始结束时间为这个时间的是零秒和59秒
+	 * 设置时间区间为这一分钟
 	 * @author Virde
 	 * 2018年11月1日 10:40:47
+	 * 2019年3月28日 11:35:02
 	 * @param date 时间基点
 	 */
-	public void setIntervalByMinute(Date date) {
+	public void setThisMinute(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(SECOND,cal.getActualMinimum(SECOND));
@@ -86,26 +86,25 @@ public class TimeInterval {
 	}
 
 	/**
-	 * 给定一百个时间
-	 * 设置开始结束时间为这个时间的是零秒和59秒
+	 * 获取这一分钟的区间
 	 * @author Virde
 	 * 2018年11月1日 10:40:47
-	 * @param date 时间基点 
+	 * 2019年3月28日 11:35:08
+	 * @param date 时间基点
 	 * @return 生成好的时间区间
 	 */
-	public static TimeInterval getIntervalByMinute(Date date) {
+	public static TimeInterval getThisMinute(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByMinute(date);
+		timeInterval.setThisMinute(date);
 		return timeInterval;
 	}
 	/**
-	 * 给定一个时间
-	 * 设置开始时间为这个时间的零分零秒
-	 * 结束时间为这个时间的59分59秒
+	 *  设置时间区间为这一小时
 	 * @author Virde
 	 * 2018年8月22日 17:04:46
+	 *  2019年3月28日 11:34:49
 	 */
-	public void setIntervalByHour(Date date) {
+	public void setThisHour(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(MINUTE,cal.getActualMinimum(MINUTE));
@@ -116,26 +115,26 @@ public class TimeInterval {
 		setEndDate(cal.getTime());
 	}
 	/**
-	 * 分别设置开始结束时间为给定的时间的00:00,59:59
-	 * @param date 设置开始结束时间的基数
+	 *  获取这一小时的时间区间
+	 * @param date 这一小时
 	 * @return 设置好的时间区间
 	 * @author Virde
 	 * 2018年10月24日 19:39:17
+	 * 2019年3月28日 11:45:50
 	 * 
 	 */
-	public static TimeInterval getIntervalByHour(Date date) {
+	public static TimeInterval getThisHour(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByHour(date);
+		timeInterval.setThisHour(date);
 		return timeInterval;
 	}
 	/**
-	 * 给定一个日期，
-	 * 设置开始时间为这个日期的00:00:00，
-	 * 结束时间为这个日期的23:59:59
+	 * 设置这一日的时间区间
 	 * @author Virde
 	 * 2018年8月22日 17:04:46
+	 * 2019年3月28日 11:46:25
 	 */
-	public void setIntervalByDay(Date date) {
+	public void setThisDay(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(HOUR_OF_DAY, cal.getActualMinimum(HOUR_OF_DAY));
@@ -148,23 +147,27 @@ public class TimeInterval {
 		setEndDate(cal.getTime());
 	}
 	/**
-	 * 分别设置开始为这个时间的00:00:00,23:59:59
+	 * 获取这一日的时间区间
+	 * 这个时间的00:00:00,23:59:59
 	 * @param date 时间基数
 	 * @return 设好的时间区间
 	 * @author Virde
 	 * 2018年10月24日 19:42:29
+	 * 2019年3月28日 11:48:03
 	 */
-	public static TimeInterval getIntervalByDay(Date date) {
+	public static TimeInterval getThisDay(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByDay(date);
+		timeInterval.setThisDay(date);
 		return timeInterval;
 	}
 	
 	/**
+	 * 设置这一周的时间区间
 	 * 分别设置开始结束为这个时间的周一 00:00:00,周日 23:59:59
+	 *  2019年3月28日 11:48:14
 	 * @param date 时间基点
 	 */
-	public void setIntervalByWeek(Date date) {
+	public void setThisWeek(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(DAY_OF_WEEK, cal.getActualMinimum(DAY_OF_WEEK));
@@ -179,23 +182,26 @@ public class TimeInterval {
 		setEndDate(cal.getTime());
 	}
 	/**
-	 * 分别设置开始结束为这个时间的周一 00:00:00,周日 23:59:59
+	 * 获取这一周的时间区间
+	 * 开始结束为这个时间的周一 00:00:00,周日 23:59:59
+	 * 2019年3月28日 11:48:31
 	 * @param date 时间基点
 	 * @return 设置好的时间区间
 	 */
-	public static TimeInterval getIntervalByWeek(Date date) {
+	public static TimeInterval getThisWeek(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByWeek(date);
+		timeInterval.setThisWeek(date);
 		return timeInterval;
 	}
 	/**
-	 * 给定一个日期，
+	 * 设置这个月的时间区间
 	 * 设置开始时间为这个月的1日 00:00:00，
 	 * 结束时间为这个月最后一天的23:59:59
 	 * @author Virde
 	 * 2018年8月22日 17:04:46
+	 * 2019年3月28日 11:50:02
 	 */
-	public void setIntervalByMonth(Date date) {
+	public void setThisMonth(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(DAY_OF_MONTH, cal.getActualMinimum(DAY_OF_MONTH));
@@ -209,20 +215,28 @@ public class TimeInterval {
 		cal.set(SECOND,cal.getActualMaximum(SECOND));
 		setEndDate(cal.getTime());
 	}
-
-	public static TimeInterval getIntervalByMonth(Date date) {
+	/**
+	 * 获取这个月的时间区间
+	 * 开始时间为这个月的1日 00:00:00，
+	 * 结束时间为这个月最后一天的23:59:59
+	 * @author Virde
+	 * 2018年8月22日 17:04:46
+	 * 2019年3月28日 11:50:02
+	 */
+	public static TimeInterval getThisMonth(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByMonth(date);
+		timeInterval.setThisMonth(date);
 		return timeInterval;
 	}
 	/**
-	 * 给定一个日期，
+	 * 设置这一年的时间区间
 	 * 设置开始时间为这一年的第一天的00:00:00，
 	 * 结束时间为这一年最后一天的23:59:59
 	 * @author Virde
 	 * 2018年8月22日 17:04:46
+	 * 2019年3月28日 11:52:14
 	 */
-	public void setIntervalByYear(Date date) {
+	public void setThisYear(Date date) {
 		Calendar cal = getInstance();
 		cal.setTime(date);
 		cal.set(MONTH, cal.getActualMinimum(MONTH));
@@ -239,13 +253,15 @@ public class TimeInterval {
 		setEndDate(cal.getTime());
 	}
 	/**
-	 * 分别设置开始结束为这个时间所在年份的第一天 00:00:00,最后一天的23:59:59
+	 * 获取这一年的时间区间
+	 * 开始结束为这个时间所在年份的第一天 00:00:00,最后一天的23:59:59
+	 * 2019年3月28日 11:52:35
 	 * @param date 时间基点
 	 * @return 设置好的时间区间
 	 */
-	public static TimeInterval getIntervalByYear(Date date) {
+	public static TimeInterval getThisYear(Date date) {
 		TimeInterval timeInterval = new TimeInterval();
-		timeInterval.setIntervalByYear(date);
+		timeInterval.setThisYear(date);
 		return timeInterval;
 	}
 
@@ -257,7 +273,7 @@ public class TimeInterval {
 	 * 2018年11月1日 10:24:41
 	 * @return
 	 */
-	public List<TimeInterval> getIntervalOfEveryMinute(){
+	public List<TimeInterval> intervalOfEveryMinute(){
 		// # 初始化参数
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
@@ -287,7 +303,7 @@ public class TimeInterval {
 		
 		// # 根据初始化之后的开始结束时间生成区间列表并返回
 		while(start.before(end)) {
-			TimeInterval ti = getIntervalByMinute(start);
+			TimeInterval ti = getThisMinute(start);
 			respList.add(ti);
 			cal.setTime(start);
 			cal.add(MINUTE, +1);
@@ -297,8 +313,8 @@ public class TimeInterval {
 		return respList;
 	}
 
-	public static List<TimeInterval> getIntervalOfEveryMinute(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getIntervalOfEveryMinute();
+	public static List<TimeInterval> intervalOfEveryMinute(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).intervalOfEveryMinute();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一个小时，不包含开始时间和结束时间所在的小时
@@ -307,7 +323,7 @@ public class TimeInterval {
 	 * 2018年8月22日 17:04:46
 	 * @return 返回开始时间到结束时间之间的每小时区间列表
 	 */
-	public List<TimeInterval> getIntervalOfEveryHour() {
+	public List<TimeInterval> intervalOfEveryHour() {
 		// # 初始化参数
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
@@ -341,7 +357,7 @@ public class TimeInterval {
 		
 		// # 根据初始化之后的开始结束时间生成区间列表并返回
 		while(start.before(end)) {
-			TimeInterval ti = getIntervalByHour(start);
+			TimeInterval ti = getThisHour(start);
 			respList.add(ti);
 			
 			cal.setTime(start);
@@ -358,8 +374,8 @@ public class TimeInterval {
 	 * @param endDate 结束时间
 	 * @return 开始时间到结束时间之间的每小时区间列表
 	 */
-	public static List<TimeInterval> getIntervalOfEveryHour(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getIntervalOfEveryHour();
+	public static List<TimeInterval> intervalOfEveryHour(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).intervalOfEveryHour();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一天，不包含开始结束时间所在的天
@@ -368,7 +384,7 @@ public class TimeInterval {
 	 * 2018年8月22日 17:04:46
 	 * @return 返回
 	 */
-	public List<TimeInterval> getIntervalOfEveryDay() {
+	public List<TimeInterval> intervalOfEveryDay() {
 		// 初始化必要变量
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
@@ -406,7 +422,7 @@ public class TimeInterval {
 		
 		// 根据开始时间结束时间生成所有节点的时间
 		while(start.before(end)) {
-			TimeInterval ti = getIntervalByDay(start);
+			TimeInterval ti = getThisDay(start);
 			respList.add(ti);
 			
 			cal.setTime(start);
@@ -418,8 +434,8 @@ public class TimeInterval {
 		return respList;
 	}
 
-	public static List<TimeInterval> getIntervalOfEveryDay(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getIntervalOfEveryDay();
+	public static List<TimeInterval> intervalOfEveryDay(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).intervalOfEveryDay();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一个月，不包含开始结束时间所在的月
@@ -428,7 +444,7 @@ public class TimeInterval {
 	 * 2018年8月22日 17:04:46
 	 * @return 返回
 	 */
-	public List<TimeInterval> getIntervalOfEveryMonth() {
+	public List<TimeInterval> intervalOfEveryMonth() {
 		List<TimeInterval> respList = new ArrayList<TimeInterval>();
 		Calendar cal = getInstance();
 		cal.setTime(beginDate);
@@ -464,7 +480,7 @@ public class TimeInterval {
 		}
 		
 		while(start.before(end)) {
-			TimeInterval ti = getIntervalByMonth(start);
+			TimeInterval ti = getThisMonth(start);
 			respList.add(ti);
 			
 			cal.setTime(start);
@@ -474,8 +490,8 @@ public class TimeInterval {
 		
 		return respList;
 	}
-	public static List<TimeInterval> getIntervalOfEveryMonth(Date startDate,Date endDate){
-		return new TimeInterval(startDate,endDate).getIntervalOfEveryMonth();
+	public static List<TimeInterval> intervalOfEveryMonth(Date startDate,Date endDate){
+		return new TimeInterval(startDate,endDate).intervalOfEveryMonth();
 	}
 	/**
 	 * 获取开始时间到结束时间中间的每一天
@@ -484,7 +500,7 @@ public class TimeInterval {
 	 * @param isContainCurr 是否包含开始结束时间当天
 	 * @return 生成的每一天的Date集合
 	 */
-	public List<Date> getEveryDay(Boolean isContainCurr) {
+	public List<Date> dateOfEveryDay(Boolean isContainCurr) {
 		// 初始化参数
 		List<Date> respList = new ArrayList<Date>();
 		Calendar startCal = getInstance();
@@ -519,17 +535,16 @@ public class TimeInterval {
 			return respList;
 		}
 		// 根据开始结束时间生成列表
-
 		while(startCal.getTime().before(endCal.getTime())) {
 			respList.add(startCal.getTime());
 			startCal.add(DAY_OF_MONTH, +1);
 		}
 		return respList;
 	}
-	public List<Date> getEveryDay() {
-		return getEveryDay(true);
+	public List<Date> dateOfEveryDay() {
+		return dateOfEveryDay(true);
 	}
-	public List<Date> getEveryHour(Boolean isContainCurr) {
+	public List<Date> dateOfEveryHour(Boolean isContainCurr) {
 		// 初始化参数
 		List<Date> respList = new ArrayList<Date>();
 		Calendar startCal = getInstance();
@@ -567,20 +582,20 @@ public class TimeInterval {
 		}
 		return respList;
 	}
-	public List<Date> getEveryHour() {
-		return getEveryHour(false);
+	public List<Date> dateOfEveryHour() {
+		return dateOfEveryHour(false);
 	}
 	public static TimeInterval getTodayInterval() {
-		return getIntervalByDay(new Date());
+		return getThisDay(new Date());
 	}
 	public static TimeInterval getYesterdayInterval() {
-		return getIntervalByDay(DateTime.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
+		return getThisDay(DateTime.addTime(new Date(), Calendar.DAY_OF_MONTH, -1));
 	}
 	public static TimeInterval getThisMonth() {
-		return getIntervalByMonth(new Date());
+		return getThisMonth(new Date());
 	}
 	public static TimeInterval getLastMonth() {
-		return getIntervalByMonth(DateTime.addTime(new Date(), Calendar.MONTH, -1));
+		return getThisMonth(DateTime.addTime(new Date(), Calendar.MONTH, -1));
 	}
 	/**
 	 * 往前倒推，计算时间间隔
@@ -592,6 +607,7 @@ public class TimeInterval {
 	public static TimeInterval getInterval(int start,int end,int UNIT) {
 		return new TimeInterval(DateTime.addTime(new Date(), UNIT, start),DateTime.addTime(new Date(), UNIT, end));
 	}
+
 	public String toJSONString() {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("startDate", DateTime.toString(getBeginDate()));
